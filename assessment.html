@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FINGUIDE — Financial Health Check</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --green:#08785d;
+    --green-dark:#055842;
+    --mint:#eaf7f2;
+    --ink:#10231f;
+    --muted:#667671;
+    --line:#dfe8e4;
+    --cream:#f7f9f7;
+    --white:#ffffff;
+    --red:#d05252;
+    --yellow:#d49a20;
+    --shadow:0 20px 60px rgba(16,35,31,.08);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    min-height:100vh;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.topbar{
+    height:74px;
+    background:white;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+}
+
+.topbar-inner{
+    width:min(1050px,calc(100% - 32px));
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Manrope",sans-serif;
+    font-weight:800;
+    font-size:20px;
+}
+
+.logo-mark{
+    width:36px;
+    height:36px;
+    border-radius:11px;
+    background:var(--green);
+    color:white;
+    display:grid;
+    place-items:center;
+}
+
+.exit{
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.wrapper{
+    width:min(760px,calc(100% - 30px));
+    margin:45px auto 80px;
+}
+
+.progress-area{
+    margin-bottom:30px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:9px;
+}
+
+.progress{
+    height:7px;
+    background:#e3ebe7;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:var(--green);
+    width:16.6%;
+    transition:.3s;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:var(--shadow);
+}
+
+.step{
+    display:none;
+}
+
+.step.active{
+    display:block;
+    animation:fade .25s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.eyebrow{
+    display:inline-block;
+    padding:7px 11px;
+    background:var(--mint);
+    color:var(--green);
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family:"Manrope",sans-serif;
+    font-size:38px;
+    line-height:1.12;
+    letter-spacing:-1.5px;
+    margin-bottom:12px;
+}
+
+.subtitle{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.65;
+    margin-bottom:32px;
+}
+
+.question{
+    margin-bottom:25px;
+}
+
+.question label.title{
+    display:block;
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:9px;
+}
+
+input[type="number"],
+input[type="text"],
+select{
+    width:100%;
+    padding:14px 15px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(8,120,93,.08);
+}
+
+.option-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.option{
+    border:1px solid var(--line);
+    background:white;
+    border-radius:13px;
+    padding:15px;
+    text-align:left;
+    transition:.2s;
+    color:var(--ink);
+}
+
+.option:hover{
+    border-color:#b8d4ca;
+}
+
+.option.selected{
+    border-color:var(--green);
+    background:var(--mint);
+    color:var(--green-dark);
+    font-weight:700;
+}
+
+.money-input{
+    position:relative;
+}
+
+.money-input span{
+    position:absolute;
+    left:14px;
+    top:14px;
+    color:var(--muted);
+}
+
+.money-input input{
+    padding-left:30px;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:35px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+}
+
+.back{
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.next{
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:14px 22px;
+    border-radius:13px;
+    font-weight:700;
+}
+
+.next:hover{
+    background:var(--green-dark);
+}
+
+.helper{
+    color:#87948f;
+    font-size:11px;
+    margin-top:7px;
+}
+
+.check-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.check{
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:14px;
+    cursor:pointer;
+}
+
+.check input{
+    margin-right:8px;
+}
+
+.result{
+    display:none;
+}
+
+.result.active{
+    display:block;
+}
+
+.score-box{
+    text-align:center;
+    padding:25px 0 35px;
+}
+
+.score-circle{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    margin:20px auto;
+    display:grid;
+    place-items:center;
+    background:conic-gradient(
+        var(--green) 0deg,
+        var(--green) 240deg,
+        #e7eeeb 240deg,
+        #e7eeeb 360deg
+    );
+    position:relative;
+}
+
+.score-circle::after{
+    content:"";
+    position:absolute;
+    inset:13px;
+    border-radius:50%;
+    background:white;
+}
+
+.score-number{
+    position:relative;
+    z-index:2;
+}
+
+.score-number strong{
+    display:block;
+    font-family:"Manrope",sans-serif;
+    font-size:55px;
+    line-height:1;
+}
+
+.score-number span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.status{
+    display:inline-block;
+    padding:7px 13px;
+    border-radius:30px;
+    background:var(--mint);
+    color:var(--green);
+    font-weight:700;
+    font-size:12px;
+}
+
+.breakdown{
+    display:grid;
+    gap:11px;
+    margin-top:20px;
+}
+
+.breakdown-row{
+    border:1px solid var(--line);
+    border-radius:15px;
+    padding:15px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:15px;
+}
+
+.breakdown-name{
+    font-weight:700;
+    font-size:13px;
+}
+
+.breakdown-bar{
+    height:6px;
+    background:#e8eeeb;
+    border-radius:10px;
+    margin-top:9px;
+    overflow:hidden;
+}
+
+.breakdown-bar span{
+    display:block;
+    height:100%;
+    background:var(--green);
+}
+
+.gaps{
+    margin-top:30px;
+}
+
+.gaps h2{
+    font-family:"Manrope",sans-serif;
+    font-size:23px;
+    margin-bottom:15px;
+}
+
+.gap{
+    border-radius:16px;
+    padding:17px;
+    background:#fff8e8;
+    border:1px solid #f1dfb2;
+    margin-bottom:10px;
+}
+
+.gap strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.gap p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.result-note{
+    margin-top:25px;
+    padding:15px;
+    border-radius:14px;
+    background:#f4f6f5;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+}
+
+@media(max-width:600px){
+
+    .card{
+        padding:25px 20px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .option-grid,
+    .check-grid{
+        grid-template-columns:1fr;
+    }
+
+    .wrapper{
+        margin-top:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="topbar-inner">
+
+<div class="logo">
+<div class="logo-mark">F</div>
+FINGUIDE
+</div>
+
+<button class="exit" onclick="goHome()">
+← Back to FINGUIDE
+</button>
+
+</div>
+
+</header>
+
+
+<div class="wrapper">
+
+<div class="progress-area" id="progressArea">
+
+<div class="progress-top">
+<span id="progressText">Step 1 of 6</span>
+<span id="progressPercent">17%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+</div>
+
+
+<div class="card">
+
+
+<!-- STEP 1 -->
+
+<div class="step active">
+
+<div class="eyebrow">Let's start with you</div>
+
+<h1>Tell us a little about yourself.</h1>
+
+<p class="subtitle">
+We'll use this information to understand your financial situation.
+You can skip anything you're not comfortable answering.
+</p>
+
+
+<div class="question">
+
+<label class="title">What's your age?</label>
+
+<input
+type="number"
+id="age"
+placeholder="Example: 32"
+min="18"
+max="100"
+>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">What best describes your work?</label>
+
+<div class="option-grid">
+
+<button class="option" onclick="selectOption(this,'work','Salaried')">
+Salaried
+</button>
+
+<button class="option" onclick="selectOption(this,'work','Self-employed')">
+Self-employed
+</button>
+
+<button class="option" onclick="selectOption(this,'work','Business owner')">
+Business owner
+</button>
+
+<button class="option" onclick="selectOption(this,'work','Professional')">
+Professional
+</button>
+
+<button class="option" onclick="selectOption(this,'work','Retired')">
+Retired
+</button>
+
+<button class="option" onclick="selectOption(this,'work','Other')">
+Other
+</button>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Approximate monthly income</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="income" placeholder="100000">
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="goHome()">
+Cancel
+</button>
+
+<button class="next" onclick="nextStep()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div class="step">
+
+<div class="eyebrow">Your family</div>
+
+<h1>Who depends on you financially?</h1>
+
+<p class="subtitle">
+Understanding your responsibilities helps us understand your protection needs.
+</p>
+
+
+<div class="question">
+
+<label class="title">Marital status</label>
+
+<div class="option-grid">
+
+<button class="option" onclick="selectOption(this,'marital','Single')">
+Single
+</button>
+
+<button class="option" onclick="selectOption(this,'marital','Married')">
+Married
+</button>
+
+<button class="option" onclick="selectOption(this,'marital','Other')">
+Other
+</button>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Number of children</label>
+
+<select id="children">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3+</option>
+</select>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Other financial dependents</label>
+
+<select id="dependents">
+<option value="0">None</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3+</option>
+</select>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="prevStep()">
+← Back
+</button>
+
+<button class="next" onclick="nextStep()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div class="step">
+
+<div class="eyebrow">Your money flow</div>
+
+<h1>Where does your monthly income go?</h1>
+
+<p class="subtitle">
+Approximate numbers are completely fine. We are trying to understand the overall picture.
+</p>
+
+
+<div class="question">
+
+<label class="title">Essential monthly expenses</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="expenses" placeholder="50000">
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Monthly loan EMIs</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="emi" placeholder="15000">
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Monthly savings / investments</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="monthlySavings" placeholder="20000">
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="prevStep()">
+← Back
+</button>
+
+<button class="next" onclick="nextStep()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div class="step">
+
+<div class="eyebrow">Your protection</div>
+
+<h1>How protected are you today?</h1>
+
+<p class="subtitle">
+Tell us about the protection you already have. We are not recommending a company or product here.
+</p>
+
+
+<div class="question">
+
+<label class="title">Do you have life insurance?</label>
+
+<div class="option-grid">
+
+<button class="option" onclick="selectOption(this,'life','Yes')">
+Yes
+</button>
+
+<button class="option" onclick="selectOption(this,'life','No')">
+No
+</button>
+
+<button class="option" onclick="selectOption(this,'life','Not sure')">
+Not sure
+</button>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Approximate total life cover</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="lifeCover" placeholder="2500000">
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Do you have health insurance?</label>
+
+<div class="option-grid">
+
+<button class="option" onclick="selectOption(this,'health','Yes')">
+Yes
+</button>
+
+<button class="option" onclick="selectOption(this,'health','No')">
+No
+</button>
+
+<button class="option" onclick="selectOption(this,'health','Not sure')">
+Not sure
+</button>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Approximate health coverage</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="healthCover" placeholder="1000000">
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="prevStep()">
+← Back
+</button>
+
+<button class="next" onclick="nextStep()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 5 -->
+
+<div class="step">
+
+<div class="eyebrow">Your financial base</div>
+
+<h1>What have you already built?</h1>
+
+<p class="subtitle">
+You don't need to provide exact values. Approximate numbers help us create a better picture.
+</p>
+
+
+<div class="question">
+
+<label class="title">Accessible savings</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="savings" placeholder="300000">
+</div>
+
+<div class="helper">
+Savings you could reasonably access for an emergency.
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Approximate total investments</label>
+
+<div class="money-input">
+<span>₹</span>
+<input type="number" id="investments" placeholder="1000000">
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">What do you currently have?</label>
+
+<div class="check-grid">
+
+<label class="check">
+<input type="checkbox">
+FD / RD
+</label>
+
+<label class="check">
+<input type="checkbox">
+Mutual Funds
+</label>
+
+<label class="check">
+<input type="checkbox">
+Stocks
+</label>
+
+<label class="check">
+<input type="checkbox">
+EPF / PPF / NPS
+</label>
+
+<label class="check">
+<input type="checkbox">
+Gold
+</label>
+
+<label class="check">
+<input type="checkbox">
+Property
+</label>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="prevStep()">
+← Back
+</button>
+
+<button class="next" onclick="nextStep()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 6 -->
+
+<div class="step">
+
+<div class="eyebrow">Your future</div>
+
+<h1>What are you preparing for?</h1>
+
+<p class="subtitle">
+Select the goals that matter most to you. Your answers help us understand your priorities.
+</p>
+
+
+<div class="question">
+
+<label class="title">Your financial goals</label>
+
+<div class="check-grid">
+
+<label class="check">
+<input type="checkbox" class="goal">
+Children's Education
+</label>
+
+<label class="check">
+<input type="checkbox" class="goal">
+Home Purchase
+</label>
+
+<label class="check">
+<input type="checkbox" class="goal">
+Marriage
+</label>
+
+<label class="check">
+<input type="checkbox" class="goal">
+Retirement
+</label>
+
+<label class="check">
+<input type="checkbox" class="goal">
+Wealth Creation
+</label>
+
+<label class="check">
+<input type="checkbox" class="goal">
+Family Security
+</label>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">At what age would you ideally like to retire?</label>
+
+<input
+type="number"
+id="retirementAge"
+placeholder="60"
+min="40"
+max="90"
+>
+
+</div>
+
+
+<div class="question">
+
+<label class="title">Are you currently planning for retirement?</label>
+
+<div class="option-grid">
+
+<button class="option" onclick="selectOption(this,'retirement','Yes')">
+Yes
+</button>
+
+<button class="option" onclick="selectOption(this,'retirement','No')">
+No
+</button>
+
+<button class="option" onclick="selectOption(this,'retirement','Not sure')">
+Not sure
+</button>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="prevStep()">
+← Back
+</button>
+
+<button class="next" onclick="calculateScore()">
+Calculate My Score →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="result" id="result">
+
+<div class="eyebrow">
+Your Financial Health
+</div>
+
+<h1>
+Your financial picture is ready.
+</h1>
+
+<p class="subtitle">
+This is an educational score based on the information you provided.
+It is not a recommendation to purchase any particular financial product.
+</p>
+
+
+<div class="score-box">
+
+<div class="score-circle" id="scoreCircle">
+
+<div class="score-number">
+
+<strong id="scoreNumber">
+0
+</strong>
+
+<span>/ 100</span>
+
+</div>
+
+</div>
+
+
+<div class="status" id="scoreStatus">
+Calculating...
+</div>
+
+</div>
+
+
+<h2 style="font-family:Manrope;margin-bottom:15px;">
+Your Financial Health Areas
+</h2>
+
+
+<div class="breakdown">
+
+<div class="breakdown-row">
+
+<div>
+<div class="breakdown-name">
+🛡️ Family Protection
+</div>
+
+<div class="breakdown-bar">
+<span id="lifeBar" style="width:0%"></span>
+</div>
+</div>
+
+<strong id="lifeScore">
+0/20
+</strong>
+
+</div>
+
+
+<div class="breakdown-row">
+
+<div>
+<div class="breakdown-name">
+🏥 Health Protection
+</div>
+
+<div class="breakdown-bar">
+<span id="healthBar" style="width:0%"></span>
+</div>
+</div>
+
+<strong id="healthScore">
+0/15
+</strong>
+
+</div>
+
+
+<div class="breakdown-row">
+
+<div>
+<div class="breakdown-name">
+💰 Emergency Readiness
+</div>
+
+<div class="breakdown-bar">
+<span id="emergencyBar" style="width:0%"></span>
+</div>
+</div>
+
+<strong id="emergencyScore">
+0/15
+</strong>
+
+</div>
+
+
+<div class="breakdown-row">
+
+<div>
+<div class="breakdown-name">
+📈 Savings & Investments
+</div>
+
+<div class="breakdown-bar">
+<span id="investmentBar" style="width:0%"></span>
+</div>
+</div>
+
+<strong id="investmentScore">
+0/15
+</strong>
+
+</div>
+
+
+<div class="breakdown-row">
+
+<div>
+<div class="breakdown-name">
+👴 Retirement Readiness
+</div>
+
+<div class="breakdown-bar">
+<span id="retirementBar" style="width:0%"></span>
+</div>
+</div>
+
+<strong id="retirementScore">
+0/15
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="gaps">
+
+<h2>
+Areas worth reviewing
+</h2>
+
+<div id="gapList"></div>
+
+</div>
+
+
+<div class="result-note">
+
+<strong>Important:</strong>
+This score is an educational prototype and should not be treated as
+personalised financial advice, a guarantee of suitability, or a recommendation
+to purchase or avoid any financial product. Actual financial requirements
+depend on individual circumstances and should be reviewed appropriately.
+
+</div>
+
+
+<div class="navigation">
+
+<button class="back" onclick="goHome()">
+← Back to FINGUIDE
+</button>
+
+<button class="next" onclick="restart()">
+Start Again
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+let currentStep = 0;
+
+const totalSteps = 6;
+
+const answers = {};
+
+
+function steps(){
+
+return document.querySelectorAll(".step");
+
+}
+
+
+function showStep(index){
+
+const all = steps();
+
+all.forEach((step,i)=>{
+
+step.classList.toggle("active",i === index);
+
+});
+
+currentStep = index;
+
+const percent = Math.round(((index + 1) / totalSteps) * 100);
+
+document.getElementById("progressBar").style.width = percent + "%";
+
+document.getElementById("progressText").textContent =
+"Step " + (index + 1) + " of " + totalSteps;
+
+document.getElementById("progressPercent").textContent =
+percent + "%";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function nextStep(){
+
+if(currentStep < totalSteps - 1){
+
+showStep(currentStep + 1);
+
+}
+
+}
+
+
+function prevStep(){
+
+if(currentStep > 0){
+
+showStep(currentStep - 1);
+
+}
+
+}
+
+
+function selectOption(button,key,value){
+
+answers[key] = value;
+
+const group = button.parentElement;
+
+group.querySelectorAll(".option").forEach(btn=>{
+btn.classList.remove("selected");
+});
+
+button.classList.add("selected");
+
+}
+
+
+function number(id){
+
+return Number(document.getElementById(id).value) || 0;
+
+}
+
+
+function calculateScore(){
+
+const age = number("age");
+
+const income = number("income");
+
+const expenses = number("expenses");
+
+const emi = number("emi");
+
+const monthlySavings = number("monthlySavings");
+
+const lifeCover = number("lifeCover");
+
+const healthCover = number("healthCover");
+
+const savings = number("savings");
+
+const investments = number("investments");
+
+const retirementAge = number("retirementAge");
+
+
+/*
+------------------------------------------------
+ILLUSTRATIVE PROTOTYPE SCORING
+------------------------------------------------
+
+This is intentionally simple for V1.
+
+The scoring methodology will be reviewed and
+refined before any production financial use.
+*/
+
+
+/* FAMILY PROTECTION — 20 */
+
+let life = 0;
+
+if(answers.life === "Yes") life += 7;
+
+if(answers.life === "Not sure") life += 3;
+
+if(lifeCover > 0){
+
+const incomeNeed = income * 12 * 5;
+
+if(lifeCover >= incomeNeed) life += 13;
+
+else if(lifeCover >= income * 12 * 3) life += 9;
+
+else if(lifeCover >= income * 12) life += 5;
+
+else life += 2;
+
+}
+
+life = Math.min(life,20);
+
+
+/* HEALTH — 15 */
+
+let health = 0;
+
+if(answers.health === "Yes") health += 8;
+
+if(answers.health === "Not sure") health += 3;
+
+if(healthCover >= 1000000) health += 7;
+else if(healthCover >= 500000) health += 5;
+else if(healthCover > 0) health += 2;
+
+health = Math.min(health,15);
+
+
+/* EMERGENCY — 15 */
+
+let emergency = 0;
+
+if(expenses > 0){
+
+const months = savings / expenses;
+
+if(months >= 9) emergency = 15;
+else if(months >= 6) emergency = 13;
+else if(months >= 3) emergency = 9;
+else if(months >= 1) emergency = 5;
+else emergency = 2;
+
+}
+
+
+/* INVESTMENTS — 15 */
+
+let investment = 0;
+
+if(income > 0){
+
+const savingsRate =
+monthlySavings / income;
+
+if(savingsRate >= .30) investment = 15;
+else if(savingsRate >= .20) investment = 12;
+else if(savingsRate >= .10) investment = 9;
+else if(savingsRate > 0) investment = 5;
+else investment = 2;
+
+}
+
+if(investments > 0){
+investment = Math.min(15,investment + 2);
+}
+
+
+/* RETIREMENT — 15 */
+
+let retirement = 0;
+
+if(answers.retirement === "Yes") retirement += 5;
+else if(answers.retirement === "Not sure") retirement += 2;
+
+if(retirementAge > 0 && age > 0){
+
+const years = retirementAge - age;
+
+if(years >= 20) retirement += 6;
+else if(years >= 10) retirement += 4;
+else if(years > 0) retirement += 2;
+
+}
+
+if(investments > 0){
+retirement += 2;
+}
+
+retirement = Math.min(15,retirement);
+
+
+/* TOTAL */
+
+const total =
+life +
+health +
+emergency +
+investment +
+retirement +
+7 +
+6;
+
+
+/* DISPLAY */
+
+document.getElementById("scoreNumber").textContent = total;
+
+document.getElementById("lifeScore").textContent =
+life + "/20";
+
+document.getElementById("healthScore").textContent =
+health + "/15";
+
+document.getElementById("emergencyScore").textContent =
+emergency + "/15";
+
+document.getElementById("investmentScore").textContent =
+investment + "/15";
+
+document.getElementById("retirementScore").textContent =
+retirement + "/15";
+
+
+document.getElementById("lifeBar").style.width =
+(life / 20 * 100) + "%";
+
+document.getElementById("healthBar").style.width =
+(health / 15 * 100) + "%";
+
+document.getElementById("emergencyBar").style.width =
+(emergency / 15 * 100) + "%";
+
+document.getElementById("investmentBar").style.width =
+(investment / 15 * 100) + "%";
+
+document.getElementById("retirementBar").style.width =
+(retirement / 15 * 100) + "%";
+
+
+/* STATUS */
+
+let status = "";
+
+if(total >= 80){
+
+status = "🟢 Strong foundation";
+
+}else if(total >= 60){
+
+status = "🟡 Good foundation — areas to review";
+
+}else{
+
+status = "🔴 Several areas need attention";
+
+}
+
+document.getElementById("scoreStatus").textContent =
+status;
+
+
+/* CIRCLE */
+
+const degrees = total * 3.6;
+
+document.getElementById("scoreCircle").style.background =
+`conic-gradient(
+var(--green) 0deg ${degrees}deg,
+#e7eeeb ${degrees}deg 360deg
+)`;
+
+
+/* GAPS */
+
+const gaps = [];
+
+if(life < 13){
+
+gaps.push({
+title:"🛡️ Family Protection",
+text:"Your current answers suggest that your existing life protection may be worth reviewing against your income, responsibilities and liabilities."
+});
+
+}
+
+if(health < 10){
+
+gaps.push({
+title:"🏥 Health Protection",
+text:"Your health protection may deserve a closer review based on the coverage information you provided."
+});
+
+}
+
+if(emergency < 10){
+
+gaps.push({
+title:"💰 Emergency Readiness",
+text:"Your accessible savings may provide less than three to six months of essential expenses."
+});
+
+}
+
+if(investment < 10){
+
+gaps.push({
+title:"📈 Savings & Investments",
+text:"Your current savings rate may be worth reviewing against your longer-term goals."
+});
+
+}
+
+if(retirement < 10){
+
+gaps.push({
+title:"👴 Retirement Readiness",
+text:"Your retirement preparation may need more attention based on the information provided."
+});
+
+}
+
+
+const gapList = document.getElementById("gapList");
+
+gapList.innerHTML = "";
+
+if(gaps.length === 0){
+
+gapList.innerHTML = `
+<div class="gap">
+<strong>🎉 No major review area identified</strong>
+<p>
+Your answers indicate a relatively strong foundation.
+Continue reviewing your finances periodically.
+</p>
+</div>
+`;
+
+}else{
+
+gaps.slice(0,3).forEach(gap=>{
+
+gapList.innerHTML += `
+<div class="gap">
+<strong>${gap.title}</strong>
+<p>${gap.text}</p>
+</div>
+`;
+
+});
+
+}
+
+
+/* HIDE FORM / SHOW RESULT */
+
+document.querySelector(".progress-area").style.display = "none";
+
+document.querySelectorAll(".step").forEach(step=>{
+step.classList.remove("active");
+});
+
+document.getElementById("result").classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function restart(){
+
+location.reload();
+
+}
+
+
+function goHome(){
+
+window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
