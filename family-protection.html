@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FINGUIDE – Protect My Family</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --blue:#173f9b;
+    --blue-dark:#102d70;
+    --orange:#f36b21;
+    --green:#08785d;
+    --green-light:#eaf7f2;
+    --red:#d05252;
+    --yellow:#d49a20;
+    --cream:#f7f9f7;
+    --white:#ffffff;
+    --ink:#10231f;
+    --muted:#667671;
+    --line:#dfe8e4;
+    --shadow:0 20px 60px rgba(16,35,31,.10);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+    height:76px;
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter:blur(12px);
+}
+
+.nav-inner{
+    width:min(1120px,92%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:"Manrope",sans-serif;
+    font-weight:800;
+    font-size:21px;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:var(--blue);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.logo-box:after{
+    content:"";
+    position:absolute;
+    width:22px;
+    height:5px;
+    background:var(--orange);
+    transform:rotate(-35deg);
+    bottom:7px;
+    right:-4px;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    color:#52615e;
+    font-weight:600;
+    font-size:14px;
+}
+
+.nav-button{
+    background:var(--blue);
+    color:white;
+    border:0;
+    border-radius:12px;
+    padding:13px 20px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    padding:72px 0 65px;
+    background:
+        radial-gradient(circle at 85% 20%,rgba(243,107,33,.12),transparent 25%),
+        radial-gradient(circle at 10% 80%,rgba(23,63,155,.10),transparent 28%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:55px;
+    align-items:center;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:8px 14px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--blue);
+    margin-bottom:22px;
+}
+
+.eyebrow span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--orange);
+}
+
+h1{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.04;
+    letter-spacing:-2.5px;
+    margin-bottom:23px;
+}
+
+h1 .orange{
+    color:var(--orange);
+}
+
+.hero-text{
+    font-size:18px;
+    color:#596a65;
+    max-width:650px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:13px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.primary{
+    border:0;
+    background:var(--blue);
+    color:white;
+    padding:15px 22px;
+    border-radius:13px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.secondary{
+    border:1px solid var(--line);
+    background:white;
+    color:var(--ink);
+    padding:15px 22px;
+    border-radius:13px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* HERO VISUAL */
+
+.family-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.family-card:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:var(--green-light);
+    top:-70px;
+    right:-50px;
+}
+
+.family-icon{
+    width:80px;
+    height:80px;
+    border-radius:25px;
+    background:#eef3ff;
+    display:grid;
+    place-items:center;
+    font-size:42px;
+    margin-bottom:22px;
+    position:relative;
+}
+
+.family-card h3{
+    font-family:"Manrope",sans-serif;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.family-card p{
+    color:var(--muted);
+}
+
+.mini-roadmap{
+    margin-top:25px;
+    display:grid;
+    gap:12px;
+}
+
+.road{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:#f7f9f8;
+    font-weight:600;
+}
+
+.road-icon{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    background:white;
+}
+
+/* SECTION */
+
+section{
+    padding:72px 0;
+}
+
+.section-heading{
+    max-width:720px;
+    margin-bottom:35px;
+}
+
+.section-heading h2{
+    font-family:"Manrope",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+    letter-spacing:-1px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:17px;
+}
+
+/* GOALS */
+
+.goals{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.goal{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    transition:.2s;
+}
+
+.goal:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(16,35,31,.08);
+}
+
+.goal-icon{
+    font-size:28px;
+    margin-bottom:13px;
+}
+
+.goal h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.goal p{
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* CALCULATOR */
+
+.calculator-wrap{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.calculator-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.input-group small{
+    display:block;
+    color:var(--muted);
+    margin-top:5px;
+    font-size:12px;
+}
+
+.input-group input{
+    width:100%;
+    border:1px solid #ccd9d5;
+    border-radius:12px;
+    padding:14px;
+    outline:none;
+    background:#fbfcfc;
+}
+
+.input-group input:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(23,63,155,.08);
+}
+
+.result-card{
+    background:linear-gradient(145deg,#102d70,#173f9b);
+    color:white;
+    border-radius:22px;
+    padding:28px;
+    min-height:100%;
+}
+
+.result-card .label{
+    font-size:13px;
+    opacity:.8;
+}
+
+.future-value{
+    font-family:"Manrope",sans-serif;
+    font-size:42px;
+    font-weight:800;
+    margin:6px 0 20px;
+}
+
+.result-line{
+    border-top:1px solid rgba(255,255,255,.18);
+    padding:14px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.result-line span:first-child{
+    opacity:.8;
+}
+
+.result-line span:last-child{
+    font-weight:700;
+}
+
+.illustration-note{
+    margin-top:20px;
+    padding:13px;
+    background:rgba(255,255,255,.09);
+    border-radius:12px;
+    font-size:12px;
+    line-height:1.5;
+}
+
+/* PROTECTION */
+
+.protection{
+    background:#f0f5ff;
+}
+
+.protection-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.info-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:27px;
+}
+
+.info-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.info-card h3{
+    font-family:"Manrope",sans-serif;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.info-card p{
+    color:var(--muted);
+}
+
+.info-card ul{
+    margin-top:16px;
+    padding-left:20px;
+    color:#596a65;
+}
+
+.info-card li{
+    margin:7px 0;
+}
+
+/* GAP */
+
+.gap-box{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding:32px;
+}
+
+.gap-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.gap-item{
+    padding:20px;
+    border-radius:16px;
+    background:#f8faf9;
+}
+
+.gap-item strong{
+    display:block;
+    font-size:25px;
+    margin-top:7px;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.status.green{
+    color:var(--green);
+    background:#e8f7f1;
+}
+
+.status.yellow{
+    color:#9b6d08;
+    background:#fff5d9;
+}
+
+.status.red{
+    color:#b83e3e;
+    background:#fdeaea;
+}
+
+/* LEARN */
+
+.learn-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.learn-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:25px;
+}
+
+.learn-card h3{
+    margin-bottom:10px;
+}
+
+.learn-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.learn-more{
+    display:inline-block;
+    margin-top:16px;
+    color:var(--blue);
+    font-weight:700;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,#102d70,#173f9b);
+    color:white;
+    border-radius:30px;
+    padding:48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.cta h2{
+    font-family:"Manrope",sans-serif;
+    font-size:34px;
+    line-height:1.15;
+    margin-bottom:10px;
+}
+
+.cta p{
+    opacity:.82;
+    max-width:650px;
+}
+
+.call-button{
+    background:white;
+    color:var(--blue);
+    border:0;
+    padding:15px 22px;
+    border-radius:13px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+/* DISCLAIMER */
+
+.disclaimer{
+    background:#f1f4f3;
+    border-radius:18px;
+    padding:22px;
+    color:#61716d;
+    font-size:12px;
+    margin-top:25px;
+}
+
+.disclaimer strong{
+    color:var(--ink);
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero-grid,
+    .calculator-grid,
+    .protection-grid{
+        grid-template-columns:1fr;
+    }
+
+    .goals{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .learn-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gap-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:32px;
+    }
+
+}
+
+@media(max-width:520px){
+
+    h1{
+        font-size:42px;
+    }
+
+    .goals{
+        grid-template-columns:1fr;
+    }
+
+    .calculator-wrap{
+        padding:20px;
+    }
+
+    .family-card{
+        padding:22px;
+    }
+
+    .section-heading h2{
+        font-size:30px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+<div class="nav-inner">
+
+<a href="index.html" class="logo">
+    <div class="logo-box">F</div>
+    FINGUIDE
+</a>
+
+<div class="nav-links">
+    <a href="index.html">Explore</a>
+    <a href="assessment.html">Check My Score</a>
+    <a href="#learn">Learn</a>
+</div>
+
+<a href="assessment.html">
+    <button class="nav-button">Check My Score</button>
+</a>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="eyebrow">
+    <span></span>
+    Protect what matters most
+</div>
+
+<h1>
+    They may be small today.<br>
+    <span class="orange">Their dreams won't be.</span>
+</h1>
+
+<p class="hero-text">
+    Every family has dreams for tomorrow. FINGUIDE helps you understand
+    the financial protection and planning that may be needed to keep
+    those dreams moving forward.
+</p>
+
+<div class="hero-actions">
+
+<a href="#child-planning">
+    <button class="primary">
+        🌟 Plan Their Future
+    </button>
+</a>
+
+<a href="#protection">
+    <button class="secondary">
+        🛡️ Understand Family Protection
+    </button>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="family-card">
+
+<div class="family-icon">
+    👨‍👩‍👧
+</div>
+
+<h3>
+    Build Their Bright Future
+</h3>
+
+<p>
+    A child's future can involve education, career, independence
+    and many dreams. Good planning starts by understanding the goal.
+</p>
+
+<div class="mini-roadmap">
+
+<div class="road">
+    <div class="road-icon">🎒</div>
+    School & learning
+</div>
+
+<div class="road">
+    <div class="road-icon">🎓</div>
+    Higher education
+</div>
+
+<div class="road">
+    <div class="road-icon">🚀</div>
+    Career & independence
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- GOALS -->
+
+<section id="child-planning">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+    What are you planning for?
+</h2>
+
+<p>
+    Financial planning becomes easier when a large dream is broken
+    into smaller, understandable goals.
+</p>
+
+</div>
+
+
+<div class="goals">
+
+<div class="goal">
+    <div class="goal-icon">🎓</div>
+    <h3>Education</h3>
+    <p>Prepare for future education expenses.</p>
+</div>
+
+<div class="goal">
+    <div class="goal-icon">🏠</div>
+    <h3>Independence</h3>
+    <p>Build resources for important future milestones.</p>
+</div>
+
+<div class="goal">
+    <div class="goal-icon">🚀</div>
+    <h3>Career</h3>
+    <p>Think ahead about the financial needs of adulthood.</p>
+</div>
+
+<div class="goal">
+    <div class="goal-icon">❤️</div>
+    <h3>Family Security</h3>
+    <p>Consider what happens if the family's income changes unexpectedly.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+    🎓 What could education cost in the future?
+</h2>
+
+<p>
+    Use this simple illustration to understand how today's education
+    cost could change over time.
+</p>
+
+</div>
+
+
+<div class="calculator-wrap">
+
+<div class="calculator-grid">
+
+<div>
+
+<div class="input-group">
+
+<label>
+    Current estimated education cost
+</label>
+
+<input
+    type="number"
+    id="currentCost"
+    value="2000000"
+    min="0"
+    step="10000"
+>
+
+<small>
+    Example: ₹20,00,000
+</small>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+    Child's current age
+</label>
+
+<input
+    type="number"
+    id="childAge"
+    value="5"
+    min="0"
+    max="17"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+    Target education age
+</label>
+
+<input
+    type="number"
+    id="targetAge"
+    value="18"
+    min="1"
+    max="30"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+    Illustrative annual cost increase
+</label>
+
+<input
+    type="number"
+    id="inflation"
+    value="6"
+    min="0"
+    max="20"
+    step="0.1"
+>
+
+<small>
+    This is an illustration, not a prediction of future education costs.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<div class="label">
+    Illustrative future education cost
+</div>
+
+<div class="future-value" id="futureCost">
+    ₹42.7L
+</div>
+
+<div class="result-line">
+    <span>Current estimated cost</span>
+    <span id="displayCurrent">₹20.0L</span>
+</div>
+
+<div class="result-line">
+    <span>Years remaining</span>
+    <span id="yearsRemaining">13 years</span>
+</div>
+
+<div class="result-line">
+    <span>Illustrative increase</span>
+    <span id="displayInflation">6% p.a.</span>
+</div>
+
+<div class="illustration-note">
+    💡 This calculation is only an educational illustration.
+    Actual education costs, inflation and investment returns can
+    differ substantially.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROTECTION -->
+
+<section class="protection" id="protection">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+    🛡️ Protect the plan, not just the goal
+</h2>
+
+<p>
+    Building a future fund is only one part of financial planning.
+    Families may also need protection against unexpected events.
+</p>
+
+</div>
+
+
+<div class="protection-grid">
+
+<div class="info-card">
+
+<div class="info-icon">❤️</div>
+
+<h3>
+    Why family protection matters
+</h3>
+
+<p>
+    If an earning family member dies unexpectedly, the family may
+    face expenses and financial commitments at the same time that
+    income is affected.
+</p>
+
+<ul>
+    <li>Household expenses</li>
+    <li>Outstanding loans or liabilities</li>
+    <li>Children's education</li>
+    <li>Future financial goals</li>
+    <li>Other family responsibilities</li>
+</ul>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">🛡️</div>
+
+<h3>
+    Where life insurance fits
+</h3>
+
+<p>
+    Life insurance is generally designed to provide financial
+    protection to nominees or beneficiaries if the insured person
+    dies, subject to the policy's terms and conditions.
+</p>
+
+<ul>
+    <li>Protection needs can differ from person to person.</li>
+    <li>Coverage should be reviewed against income and responsibilities.</li>
+    <li>Policy terms, exclusions and conditions matter.</li>
+    <li>Different products can have very different structures.</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GAP -->
+
+<section>
+
+<div class="container">
+
+<div class="gap-box">
+
+<div class="section-heading">
+
+<h2>
+    🔎 Think about your financial gap
+</h2>
+
+<p>
+    There is no single number that is right for every family.
+    Start by looking at the areas that matter to you.
+</p>
+
+</div>
+
+
+<div class="gap-grid">
+
+<div class="gap-item">
+
+<span class="status red">
+    NEEDS REVIEW
+</span>
+
+<strong>Family Protection</strong>
+
+<p>
+    Is your family financially prepared if the main earning
+    member is no longer able to provide income?
+</p>
+
+</div>
+
+
+<div class="gap-item">
+
+<span class="status yellow">
+    PLAN AHEAD
+</span>
+
+<strong>Child's Future</strong>
+
+<p>
+    Are your current savings and investments aligned with
+    the future goals you have in mind?
+</p>
+
+</div>
+
+
+<div class="gap-item">
+
+<span class="status green">
+    GOOD START
+</span>
+
+<strong>Emergency Fund</strong>
+
+<p>
+    Do you have accessible savings for unexpected expenses
+    or temporary income disruption?
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEARN -->
+
+<section id="learn">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+    📚 Understand before you decide
+</h2>
+
+<p>
+    Financial products can be complicated. FINGUIDE is designed
+    to help you understand the concepts before you speak to an advisor.
+</p>
+
+</div>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<div class="info-icon">🛡️</div>
+
+<h3>
+    Understanding Life Insurance
+</h3>
+
+<p>
+    Learn about life protection, sum assured, premium,
+    policy term, nominee, exclusions and other important concepts.
+</p>
+
+<a class="learn-more" href="#protection">
+    Learn about protection →
+</a>
+
+</div>
+
+
+<div class="learn-card">
+
+<div class="info-icon">🎓</div>
+
+<h3>
+    Child Future Planning
+</h3>
+
+<p>
+    Understand education goals, future costs, savings,
+    investments and the role of financial protection.
+</p>
+
+<a class="learn-more" href="#child-planning">
+    Explore child planning →
+</a>
+
+</div>
+
+
+<div class="learn-card">
+
+<div class="info-icon">💰</div>
+
+<h3>
+    Premium & Maturity
+</h3>
+
+<p>
+    Understand why premiums and maturity benefits can differ
+    between financial products and why product terms matter.
+</p>
+
+<a class="learn-more" href="#protection">
+    Understand the basics →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="cta">
+
+<div>
+
+<h2>
+    Not sure where you stand?
+</h2>
+
+<p>
+    Your FINGUIDE score can help you identify areas that may
+    deserve attention. If you want to understand your options,
+    our team can help explain the concepts.
+</p>
+
+</div>
+
+<a href="tel:+919706123123">
+    <button class="call-button">
+        📞 Talk to a FinPluss Advisor
+    </button>
+</a>
+
+</div>
+
+
+<div class="disclaimer">
+
+<strong>Important:</strong>
+FINGUIDE is an educational and financial-awareness platform.
+The information and calculations on this page are illustrative
+and should not be treated as personalised financial advice,
+a guarantee of suitability, or a recommendation to purchase
+or avoid any particular financial product or company.
+
+Actual financial requirements depend on individual circumstances,
+financial goals, product terms and applicable regulations.
+Product features, premiums, benefits and returns can vary.
+Please review the applicable product documents and seek
+appropriate professional guidance before making a decision.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+    <strong>FINGUIDE</strong> — Financial awareness made simpler.
+</div>
+
+<div>
+    An educational platform by FinPluss.com
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* EDUCATION COST CALCULATOR */
+
+const currentCost = document.getElementById("currentCost");
+const childAge = document.getElementById("childAge");
+const targetAge = document.getElementById("targetAge");
+const inflation = document.getElementById("inflation");
+
+const futureCost = document.getElementById("futureCost");
+const displayCurrent = document.getElementById("displayCurrent");
+const yearsRemaining = document.getElementById("yearsRemaining");
+const displayInflation = document.getElementById("displayInflation");
+
+
+function formatMoney(value){
+
+    if(value >= 10000000){
+        return "₹" + (value / 10000000).toFixed(2) + " Cr";
+    }
+
+    if(value >= 100000){
+        return "₹" + (value / 100000).toFixed(1) + "L";
+    }
+
+    return "₹" + Math.round(value).toLocaleString("en-IN");
+}
+
+
+function calculateEducation(){
+
+    let cost = Number(currentCost.value) || 0;
+    let age = Number(childAge.value) || 0;
+    let target = Number(targetAge.value) || age;
+
+    let rate = Number(inflation.value) || 0;
+
+    let years = Math.max(target - age,0);
+
+    let future = cost * Math.pow(1 + rate / 100, years);
+
+    futureCost.textContent = formatMoney(future);
+
+    displayCurrent.textContent = formatMoney(cost);
+
+    yearsRemaining.textContent =
+        years + (years === 1 ? " year" : " years");
+
+    displayInflation.textContent =
+        rate.toFixed(1) + "% p.a.";
+}
+
+
+[currentCost,childAge,targetAge,inflation].forEach(input => {
+
+    input.addEventListener("input",calculateEducation);
+
+});
+
+calculateEducation();
+
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click",function(e){
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
