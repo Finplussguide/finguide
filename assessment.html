@@ -1769,36 +1769,107 @@ document.getElementById("scoreSummary");
 
 if(summaryElement){
 
+  const summaryAreas = [
+
+    {
+      title:"🛡️ Family Protection",
+      score:life,
+      max:20
+    },
+
+    {
+      title:"🏥 Health Protection",
+      score:health,
+      max:15
+    },
+
+    {
+      title:"💰 Emergency Readiness",
+      score:emergency,
+      max:15
+    },
+
+    {
+      title:"📈 Savings & Investments",
+      score:investment,
+      max:15
+    },
+
+    {
+      title:"👴 Retirement Readiness",
+      score:retirement,
+      max:15
+    },
+
+    {
+      title:"🎯 Future Goals & Planning",
+      score:goals,
+      max:20
+    }
+
+  ];
+
   const strongestArea =
-  financialAreas
+  summaryAreas
   .slice()
   .sort((a,b) =>
-    (b.score / b.max) - (a.score / a.max)
+    (b.score / b.max) -
+    (a.score / a.max)
   )[0];
 
   const weakestArea =
-  financialAreas
+  summaryAreas
   .slice()
   .sort((a,b) =>
-    (a.score / a.max) - (b.score / b.max)
+    (a.score / a.max) -
+    (b.score / b.max)
   )[0];
 
   summaryElement.innerHTML = `
-    <div>
-      <strong>💚 Strongest area</strong>
+
+    <div style="
+      background:#f1faf6;
+      border:1px solid #d7eee5;
+      border-radius:12px;
+      padding:12px;
+      text-align:left;
+    ">
+      <strong style="
+        display:block;
+        color:var(--green);
+        margin-bottom:4px;
+      ">
+        💚 Strongest area
+      </strong>
+
       <span>
         ${strongestArea.title}
         — ${strongestArea.score}/${strongestArea.max}
       </span>
     </div>
 
-    <div>
-      <strong>🎯 Biggest priority</strong>
+
+    <div style="
+      background:#fff8e8;
+      border:1px solid #f1dfb2;
+      border-radius:12px;
+      padding:12px;
+      text-align:left;
+    ">
+      <strong style="
+        display:block;
+        color:#a46d00;
+        margin-bottom:4px;
+      ">
+        🎯 Biggest priority
+      </strong>
+
       <span>
         ${weakestArea.title}
         — ${weakestArea.score}/${weakestArea.max}
       </span>
     </div>
+
   `;
 
 }
