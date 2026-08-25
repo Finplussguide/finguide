@@ -1179,7 +1179,25 @@ Your Financial Health Areas
 
 </div>
 
+<div class="breakdown-row">
 
+  <div>
+
+    <div class="breakdown-name">
+      🎯 Future Goals & Planning
+    </div>
+
+    <div class="breakdown-bar">
+      <span id="goalsBar" style="width:0%"></span>
+    </div>
+
+  </div>
+
+  <strong id="goalsScore">
+    0/20
+  </strong>
+
+</div>
 <div class="gaps">
 
 <h2>
@@ -1541,14 +1559,98 @@ retirement = Math.min(15,retirement);
 
 /* TOTAL */
 
+/* FUTURE GOALS & PLANNING — 20 */
+
+let goals = 0;
+
+const selectedGoals =
+document.querySelectorAll(".goal:checked").length;
+
+
+/* 1. Clearly identified financial goals — 5 points */
+
+if(selectedGoals >= 4){
+  goals += 5;
+}
+else if(selectedGoals >= 2){
+  goals += 3;
+}
+else if(selectedGoals === 1){
+  goals += 2;
+}
+
+
+/* 2. Retirement planning — 5 points */
+
+if(answers.retirement === "Yes"){
+  goals += 5;
+}
+else if(answers.retirement === "Not sure"){
+  goals += 2;
+}
+
+
+/* 3. Family-focused goals — 5 points */
+
+const goalInputs =
+document.querySelectorAll(".goal:checked");
+
+let hasFamilyGoal = false;
+
+goalInputs.forEach(goal => {
+
+  const text =
+  goal.parentElement.textContent.trim();
+
+  if(
+    text.includes("Family Security") ||
+    text.includes("Children's Education") ||
+    text.includes("Marriage")
+  ){
+    hasFamilyGoal = true;
+  }
+
+});
+
+if(hasFamilyGoal){
+  goals += 5;
+}
+
+
+/* 4. Time available for retirement planning — 5 points */
+
+if(retirementAge > 0 && age > 0){
+
+  const yearsToRetirement =
+  retirementAge - age;
+
+  if(yearsToRetirement >= 20){
+    goals += 5;
+  }
+  else if(yearsToRetirement >= 10){
+    goals += 3;
+  }
+  else if(yearsToRetirement > 0){
+    goals += 1;
+  }
+
+}
+
+
+/* Maximum Future Goals score = 20 */
+
+goals = Math.min(goals, 20);
+
+
+/* TOTAL — 100 POINTS */
+
 const total =
 life +
 health +
 emergency +
 investment +
 retirement +
-7 +
-6;
+goals;
 
 
 /* DISPLAY */
@@ -1569,7 +1671,8 @@ investment + "/15";
 
 document.getElementById("retirementScore").textContent =
 retirement + "/15";
-
+document.getElementById("goalsScore").textContent =
+goals + "/20";
 
 document.getElementById("lifeBar").style.width =
 (life / 20 * 100) + "%";
@@ -1585,7 +1688,8 @@ document.getElementById("investmentBar").style.width =
 
 document.getElementById("retirementBar").style.width =
 (retirement / 15 * 100) + "%";
-
+document.getElementById("goalsBar").style.width =
+(goals / 20 * 100) + "%";
 
 /* STATUS */
 
