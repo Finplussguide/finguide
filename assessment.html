@@ -1072,6 +1072,14 @@ It is not a recommendation to purchase any particular financial product.
 <div class="status" id="scoreStatus">
 Calculating...
 </div>
+<div id="scoreSummary" style="
+margin-top:14px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+font-size:12px;
+">
+</div>
 
 </div>
 
@@ -1754,7 +1762,46 @@ status = "🔴 Several areas need attention";
 
 document.getElementById("scoreStatus").textContent =
 status;
+/* PERSONALIZED SCORE SUMMARY */
 
+const summaryElement =
+document.getElementById("scoreSummary");
+
+if(summaryElement){
+
+  const strongestArea =
+  financialAreas
+  .slice()
+  .sort((a,b) =>
+    (b.score / b.max) - (a.score / a.max)
+  )[0];
+
+  const weakestArea =
+  financialAreas
+  .slice()
+  .sort((a,b) =>
+    (a.score / a.max) - (b.score / b.max)
+  )[0];
+
+  summaryElement.innerHTML = `
+    <div>
+      <strong>💚 Strongest area</strong>
+      <span>
+        ${strongestArea.title}
+        — ${strongestArea.score}/${strongestArea.max}
+      </span>
+    </div>
+
+    <div>
+      <strong>🎯 Biggest priority</strong>
+      <span>
+        ${weakestArea.title}
+        — ${weakestArea.score}/${weakestArea.max}
+      </span>
+    </div>
+  `;
+
+}
 
 /* CIRCLE */
 
