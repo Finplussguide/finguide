@@ -139,6 +139,7 @@
     /* HERO */
 
     .hero {
+      position: relative;
       padding: 82px 0 75px;
       overflow: hidden;
     }
@@ -233,11 +234,13 @@
 
 .hero-family-image {
   position: absolute;
-  right: 150px;
-  top: 52%;
-  transform: translateY(-50%);
-  width: 360px;
-  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%);
+  width: 720px;
+  max-width: none;
+  opacity: 0.22;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -251,6 +254,7 @@
 
 .hero-grid {
   position: relative;
+  z-index: 2;
 }
     .score-card {
       background: white;
