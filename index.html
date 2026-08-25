@@ -234,12 +234,12 @@
 
 .hero-family-image {
   position: absolute;
-  right: 230px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 800px;
+  width: 900px;
   max-width: none;
-  opacity: 0.35;
+  opacity: 0.38;
   z-index: 0;
   pointer-events: none;
 }
@@ -249,15 +249,16 @@
   width: 100%;
   height: auto;
   border-radius: 24px;
-  filter: brightness(1.08) drop-shadow(0 18px 35px rgba(0,0,0,.12));
+  filter: brightness(1.15) saturate(1.05) drop-shadow(0 18px 35px rgba(0,0,0,.12));
 }
-
 .hero-grid {
   position: relative;
   z-index: 2;
 }
     .score-card {
-      background: white;
+    background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--line);
       border-radius: 30px;
       padding: 28px;
