@@ -1786,14 +1786,13 @@ const financialAreas = [
     title: "🛡️ Family Protection",
     score: life,
     max: 20,
-    text:
-    life === 0
-    ?
-    "You indicated that you currently do not have life insurance. Since financial responsibilities can extend beyond your own lifetime, reviewing how your family could manage if your income stopped is an important part of financial planning."
-    :
-    "Your life protection may be worth reviewing against your income, family responsibilities, liabilities and the assets already available to your family."
-  },
-
+   text:
+life === 0
+?
+`You indicated that you currently do not have life insurance. With a monthly income of ₹${income.toLocaleString("en-IN")}, your family may depend on this income to support ongoing living expenses and future goals. Reviewing how your family could manage financially if your income stopped is an important part of financial planning.`
+:
+`Your current life protection may be worth reviewing against your monthly income of ₹${income.toLocaleString("en-IN")}, family responsibilities, liabilities and the assets already available to your family.`
+},
   {
     key: "health",
     title: "🏥 Health Protection",
@@ -1809,7 +1808,9 @@ const financialAreas = [
     score: emergency,
     max: 15,
     text:
-    "Your accessible savings may currently provide limited coverage for your essential monthly expenses."
+   `Your accessible savings of ₹${savings.toLocaleString("en-IN")} currently cover approximately ${
+  expenses > 0 ? (savings / expenses).toFixed(1) : 0
+} months of your ₹${expenses.toLocaleString("en-IN")} essential monthly expenses. Building a stronger emergency reserve may improve your financial safety net.`
   },
 
   {
@@ -1818,7 +1819,9 @@ const financialAreas = [
     score: investment,
     max: 15,
     text:
-    "Your current savings and investment pattern may be worth reviewing against your income, existing investments and longer-term financial goals."
+`You're currently saving approximately ${
+  income > 0 ? ((monthlySavings / income) * 100).toFixed(1) : 0
+}% of your monthly income of ₹${income.toLocaleString("en-IN")}. You also have approximately ₹${investments.toLocaleString("en-IN")} in existing investments. Reviewing your savings rate against your longer-term goals may help strengthen your financial plan.`
   },
 
   {
@@ -1827,7 +1830,13 @@ const financialAreas = [
     score: retirement,
     max: 15,
     text:
-    "Your retirement preparation may need more attention based on your current planning, time horizon and existing financial preparation."
+`Your retirement readiness score is ${retirement}/15. You indicated ${
+  answers.retirement === "Yes"
+  ? "that you are currently planning for retirement"
+  : answers.retirement === "Not sure"
+  ? "that you are not yet sure about your retirement planning"
+  : "that you are not currently planning for retirement"
+}. With a target retirement age of ${retirementAge || "not specified"}, reviewing your long-term savings and retirement preparation may help strengthen your financial plan.`
   },
 
   {
@@ -1836,10 +1845,15 @@ const financialAreas = [
     score: goals,
     max: 20,
     text:
-    "Your future goals are an important part of financial planning. Reviewing whether your goals have clear timelines and financial preparation can help strengthen your overall plan."
+    `Your Future Goals & Planning score is ${goals}/20. ${
+      selectedGoals > 0
+      ? `You have identified ${selectedGoals} financial goal${selectedGoals > 1 ? "s" : ""}. Reviewing the timelines, priorities and financial preparation for these goals can help strengthen your overall financial plan.`
+      : "You have not identified any specific financial goals yet. Defining a few clear goals and timelines can be a useful starting point for your financial plan."
+    }`
   }
 
 ];
+
 
 
 /* -----------------------------------------
