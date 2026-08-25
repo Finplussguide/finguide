@@ -1775,30 +1775,153 @@ const gaps = [];
 const education = [];
 
 
+/* -----------------------------------------
+   FINANCIAL HEALTH AREAS
+   ----------------------------------------- */
+
+const financialAreas = [
+
+  {
+    key: "life",
+    title: "🛡️ Family Protection",
+    score: life,
+    max: 20,
+    text:
+    life === 0
+    ?
+    "You indicated that you currently do not have life insurance. Since financial responsibilities can extend beyond your own lifetime, reviewing how your family could manage if your income stopped is an important part of financial planning."
+    :
+    "Your life protection may be worth reviewing against your income, family responsibilities, liabilities and the assets already available to your family."
+  },
+
+  {
+    key: "health",
+    title: "🏥 Health Protection",
+    score: health,
+    max: 15,
+    text:
+    "Your health protection may deserve a closer review based on the coverage information you provided. Medical expenses can affect both your savings and your family's financial plans."
+  },
+
+  {
+    key: "emergency",
+    title: "💰 Emergency Readiness",
+    score: emergency,
+    max: 15,
+    text:
+    "Your accessible savings may currently provide limited coverage for your essential monthly expenses."
+  },
+
+  {
+    key: "investment",
+    title: "📈 Savings & Investments",
+    score: investment,
+    max: 15,
+    text:
+    "Your current savings and investment pattern may be worth reviewing against your income, existing investments and longer-term financial goals."
+  },
+
+  {
+    key: "retirement",
+    title: "👴 Retirement Readiness",
+    score: retirement,
+    max: 15,
+    text:
+    "Your retirement preparation may need more attention based on your current planning, time horizon and existing financial preparation."
+  },
+
+  {
+    key: "goals",
+    title: "🎯 Future Goals & Planning",
+    score: goals,
+    max: 20,
+    text:
+    "Your future goals are an important part of financial planning. Reviewing whether your goals have clear timelines and financial preparation can help strengthen your overall plan."
+  }
+
+];
+
+
+/* -----------------------------------------
+   IDENTIFY AREAS THAT MAY NEED REVIEW
+   ----------------------------------------- */
+
+/*
+   We use the percentage of the available
+   score rather than comparing raw points.
+
+   Example:
+   8/15 and 10/20 are both measured
+   relative to their own maximum score.
+*/
+
+financialAreas.forEach(area => {
+
+  const percentage =
+  area.score / area.max;
+
+  /*
+     Below 65% = meaningful area to review.
+  */
+
+  if(percentage < 0.65){
+
+    gaps.push({
+
+      title: area.title,
+
+      score:
+      area.score + "/" + area.max,
+
+      percentage:
+      percentage,
+
+      level:
+      percentage <= 0.35
+      ? "Priority"
+      : "Review",
+
+      text:
+      area.text
+
+    });
+
+  }
+
+});
+
+
+/* -----------------------------------------
+   SORT WEAKEST AREAS FIRST
+   ----------------------------------------- */
+
+gaps.sort((a,b) =>
+a.percentage - b.percentage
+);
+
+
+/* -----------------------------------------
+   EDUCATIONAL CONTENT
+   ----------------------------------------- */
+
+
 /* FAMILY PROTECTION */
 
 if(life < 13){
 
-gaps.push({
-title:"🛡️ Family Protection",
-score:life + "/20",
-level: life === 0 ? "Priority" : "Review",
-text:
-life === 0
-?
-"Your assessment indicates that no meaningful life protection was identified in the information you provided."
-:
-"Your current life protection may be worth reviewing against your income, responsibilities and liabilities."
-});
+  education.push({
 
-education.push({
-title:"❤️ Protect What Matters Most",
-text:
-"Your family is one of the most valuable parts of your life. Life protection is designed to help provide financial support to your loved ones if something unexpected happens to you, subject to the policy terms and conditions.",
-example:
-"A simple protection review can consider your income, family responsibilities, your child's future education, outstanding loans, long-term goals and the assets already available to your family.",
-learn:"Life Protection"
-});
+    title:"❤️ Protect What Matters Most",
+
+    text:
+    "Your family is one of the most valuable parts of your life. Life protection is designed to help provide financial support to your loved ones if something unexpected happens to you, subject to the policy terms and conditions.",
+
+    example:
+    "A simple protection review can consider your income, family responsibilities, your child's future education, outstanding loans, long-term goals and the assets already available to your family.",
+
+    learn:"Life Protection"
+
+  });
 
 }
 
@@ -1807,25 +1930,20 @@ learn:"Life Protection"
 
 if(health < 10){
 
-gaps.push({
-title:"🏥 Health Protection",
-score:health + "/15",
-level: health <= 5 ? "Priority" : "Review",
-text:
-"Your health protection may deserve a closer review based on the coverage information you provided."
-});
+  education.push({
 
-education.push({
-title:"🏥 Protect Your Health, Protect Your Family",
+    title:"🏥 Protect Your Health, Protect Your Family",
 
-text:
-"Your health is more than a personal concern — an unexpected medical expense can affect your family's savings, plans and future. Health insurance can help manage eligible medical expenses, subject to the policy terms, conditions, exclusions and waiting periods.",
+    text:
+    "Your health is more than a personal concern — an unexpected medical expense can affect your family's savings, plans and future. Health insurance can help manage eligible medical expenses, subject to the policy terms, conditions, exclusions and waiting periods.",
 
-example:
-"Understanding individual health insurance, family floater plans, top-up and super top-up coverage can help you compare the different ways families may prepare for medical expenses.",
+    example:
+    "Understanding individual health insurance, family floater plans, top-up and super top-up coverage can help you compare the different ways families may prepare for medical expenses.",
 
-learn:"Health Insurance"
-});
+    learn:"Health Insurance"
+
+  });
+
 }
 
 
@@ -1833,25 +1951,20 @@ learn:"Health Insurance"
 
 if(emergency < 10){
 
-gaps.push({
-title:"💰 Emergency Readiness",
-score:emergency + "/15",
-level: emergency <= 5 ? "Priority" : "Review",
-text:
-"Your accessible savings may currently provide limited coverage for your essential monthly expenses."
-});
+  education.push({
 
-education.push({
-title:"🛟 Build Your Financial Safety Net",
+    title:"🛟 Build Your Financial Safety Net",
 
-text:
-"Life can change unexpectedly — a medical expense, temporary loss of income or an urgent family need can put pressure on your finances. An emergency fund can help you handle these moments without immediately depending on loans or disturbing long-term savings.",
+    text:
+    "Life can change unexpectedly — a medical expense, temporary loss of income or an urgent family need can put pressure on your finances. An emergency fund can help you handle these moments without immediately depending on loans or disturbing long-term savings.",
 
-example:
-"A simple emergency-fund review compares your easily accessible savings with your essential monthly expenses and considers how long your family could manage if your regular income was temporarily disrupted.",
+    example:
+    "A simple emergency-fund review compares your easily accessible savings with your essential monthly expenses and considers how long your family could manage if your regular income was temporarily disrupted.",
 
-learn:"Emergency Fund"
-});
+    learn:"Emergency Fund"
+
+  });
+
 }
 
 
@@ -1859,15 +1972,8 @@ learn:"Emergency Fund"
 
 if(investment < 10){
 
-gaps.push({
-title:"📈 Savings & Investments",
-score:investment + "/15",
-level: investment <= 5 ? "Priority" : "Review",
-text:
-"Your current savings rate may be worth reviewing against your longer-term goals."
-});
+  education.push({
 
-education.push({
     title:"💰 Build Wealth With Purpose",
 
     text:
@@ -1877,13 +1983,20 @@ education.push({
     "A simple review can look at your monthly savings, emergency fund, existing investments and future goals such as your child's education, buying a home or retirement.",
 
     learn:"Savings & Investments"
-});
+
+  });
 
 }
 
+
 /* CHILD FUTURE PLANNING */
 
-education.push({
+if(
+  document.querySelectorAll(".goal:checked").length > 0
+){
+
+  education.push({
+
     title:"❤️ Build Your Child's Bright Future",
 
     text:
@@ -1893,35 +2006,52 @@ education.push({
     "A child-future plan can consider your child's current age, expected education costs, your available savings, future goals and the time you have to prepare.",
 
     learn:"Child Future Planning"
-});
-/* RETIREMENT */
 
-if(retirement < 10){
-
-gaps.push({
-title:"👴 Retirement Readiness",
-score:retirement + "/15",
-level: retirement <= 5 ? "Priority" : "Review",
-text:
-"Your retirement preparation may need more attention based on the information provided."
-});
-
-education.push({
-title:"👴 Understanding Retirement Planning",
-
-text:
-"Retirement planning involves considering your retirement age, future expenses, existing savings, ongoing contributions and the period for which retirement income may be required.",
-
-example:
-"An illustrative retirement calculation can compare your current age, desired retirement age and current savings.",
-
-learn:"Retirement Planning"
-
-});
+  });
 
 }
 
 
+/* RETIREMENT */
+
+if(retirement < 10){
+
+  education.push({
+
+    title:"👴 Understanding Retirement Planning",
+
+    text:
+    "Retirement planning involves considering your retirement age, future expenses, existing savings, ongoing contributions and the period for which retirement income may be required.",
+
+    example:
+    "An illustrative retirement calculation can compare your current age, desired retirement age and current savings.",
+
+    learn:"Retirement Planning"
+
+  });
+
+}
+
+
+/* FUTURE GOALS */
+
+if(goals < 13){
+
+  education.push({
+
+    title:"🎯 Give Your Future Goals a Plan",
+
+    text:
+    "Having financial goals is a useful first step. Giving those goals clear timelines, priorities and financial preparation can make them easier to work towards.",
+
+    example:
+    "A simple goal review can consider what you want to achieve, when you may need the money and how much you may need to set aside over time.",
+
+    learn:"Future Goals"
+
+  });
+
+}
 /* DISPLAY AREAS TO REVIEW */
 
 const gapList = document.getElementById("gapList");
