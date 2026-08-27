@@ -2643,25 +2643,44 @@ topic +
 
 function requestGuidance(topic){
 
-const phone = "+919706123123";
+  const choice = confirm(
+    "👨‍💼 Talk to a FinPluss Advisor\n\n" +
+    "OK → Request a Call Back\n" +
+    "Cancel → Continue with WhatsApp"
+  );
 
-const message =
-"Hello FinPluss Team,\n\n" +
-"I completed my FINGUIDE Financial Health Check and would like guidance regarding " +
-topic +
-".\n\n" +
-"Please help me understand my options.";
+  if(choice){
 
-if(confirm(
-"Talk to a FinPluss Advisor\n\n" +
-"Topic: " + topic +
-"\n\n" +
-"Call +91 9706123123 for assistance."
-)){
+    const phone = "+919706123123";
 
-window.location.href = "tel:" + phone;
+    alert(
+      "📞 Request a Call Back\n\n" +
+      "Please give a missed call to +91 9706123123.\n\n" +
+      "Our Financial Guidance Team will get back to you shortly."
+    );
 
-}
+    window.location.href = "tel:" + phone;
+
+  }else{
+
+    const phone = "919706123123";
+
+    const message =
+      "Hello FinPluss Team,\n\n" +
+      "I completed my FINGUIDE Financial Health Check and would like guidance regarding " +
+      topic +
+      ".\n\n" +
+      "Please help me understand my options.";
+
+    const whatsappURL =
+      "https://wa.me/" +
+      phone +
+      "?text=" +
+      encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+
+  }
 
 }
 
