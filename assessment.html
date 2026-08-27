@@ -1235,7 +1235,29 @@ Based on your assessment, here are the areas you may want to focus on first.
 
 </div>
 </div>
+<!-- NEXT STEPS -->
 
+<div style="margin-top:30px;">
+
+<h2 style="
+font-family:Manrope;
+margin-bottom:10px;
+">
+✅ Your Next Steps
+</h2>
+
+<p style="
+color:var(--muted);
+font-size:14px;
+line-height:1.6;
+margin-bottom:18px;
+">
+Based on your assessment, here are a few educational steps you may want to explore.
+</p>
+
+<div id="actionList"></div>
+
+</div>
 <!-- FINANCIAL EDUCATION -->
 
 <div style="margin-top:35px;">
@@ -2113,7 +2135,110 @@ if(focusList){
   }
 
 }
+/* -----------------------------------------
+   NEXT STEPS
+   ----------------------------------------- */
 
+const actionList =
+document.getElementById("actionList");
+
+if(actionList){
+
+  actionList.innerHTML = "";
+
+  if(gaps.length === 0){
+
+    actionList.innerHTML = `
+
+    <div class="gap">
+
+      <strong>🌟 Keep Building Your Strong Foundation</strong>
+
+      <p>
+      Your assessment indicates a strong financial foundation.
+      Continue reviewing your protection, savings, investments,
+      retirement preparation and future goals periodically.
+      </p>
+
+    </div>
+
+    `;
+
+  }else{
+
+    gaps.slice(0,3).forEach((gap,index)=>{
+
+      let actionText = "";
+
+      if(gap.key === "life"){
+
+        actionText =
+        "Review your family protection by considering your income, family responsibilities, liabilities and the financial resources already available to your family.";
+
+      }
+
+      else if(gap.key === "health"){
+
+        actionText =
+        "Review your health protection and understand how medical expenses, coverage limits, exclusions and waiting periods can affect your financial preparedness.";
+
+      }
+
+      else if(gap.key === "emergency"){
+
+        actionText =
+        `Review your emergency reserve. Your accessible savings currently cover approximately ${
+        expenses > 0 ? (savings / expenses).toFixed(1) : 0
+        } months of essential expenses.`;
+
+      }
+
+      else if(gap.key === "investment"){
+
+        actionText =
+        `Review your savings and investment pattern. You are currently saving approximately ${
+        income > 0 ? ((monthlySavings / income) * 100).toFixed(1) : 0
+        }% of your monthly income.`;
+
+      }
+
+      else if(gap.key === "retirement"){
+
+        actionText =
+        `Review your retirement preparation based on your target retirement age of ${
+        retirementAge || "not specified"
+        } and your current long-term savings.`;
+
+      }
+
+      else if(gap.key === "goals"){
+
+        actionText =
+        `Review your financial goals and consider whether each goal has a clear timeline and financial preparation.`;
+
+      }
+
+      actionList.innerHTML += `
+
+      <div class="gap">
+
+        <strong>
+        ${index + 1}. ${gap.title}
+        </strong>
+
+        <p style="margin-top:8px;">
+        ${actionText}
+        </p>
+
+      </div>
+
+      `;
+
+    });
+
+  }
+
+}
 /* -----------------------------------------
    EDUCATIONAL CONTENT
    ----------------------------------------- */
