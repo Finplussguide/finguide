@@ -2566,7 +2566,8 @@ flex-wrap:wrap;
 ">
 
 <button
-onclick="learnMore('${item.learn}')"
+type="button"
+onclick="window.learnMore('${item.learn}'); return false;"
 style="
 border:1px solid var(--line);
 background:white;
@@ -2578,9 +2579,9 @@ cursor:pointer;
 >
 📖 Learn More
 </button>
-
 <button
-onclick="requestGuidance('${item.learn}')"
+type="button"
+onclick="window.requestGuidance('${item.learn}'); return false;"
 style="
 border:0;
 background:var(--green);
@@ -2593,7 +2594,6 @@ cursor:pointer;
 >
 👨‍💼 Get Guidance
 </button>
-
 </div>
 
 </div>
