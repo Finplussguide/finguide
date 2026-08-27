@@ -2040,25 +2040,27 @@ financialAreas.forEach(area => {
 
   if(percentage < 0.65){
 
-    gaps.push({
+   gaps.push({
 
-      title: area.title,
+  key: area.key,
 
-      score:
-      area.score + "/" + area.max,
+  title: area.title,
 
-      percentage:
-      percentage,
+  score:
+  area.score + "/" + area.max,
 
-      level:
-      percentage <= 0.35
-      ? "Priority"
-      : "Review",
+  percentage:
+  percentage,
 
-      text:
-      area.text
+  level:
+  percentage <= 0.35
+  ? "Priority"
+  : "Review",
 
-    });
+  text:
+  area.text
+
+});
 
   }
 
