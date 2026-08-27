@@ -1213,7 +1213,27 @@ Areas worth reviewing
 </h2>
 
 <div id="gapList"></div>
+<div style="margin-top:30px;">
 
+<h2 style="
+font-family:Manrope;
+margin-bottom:10px;
+">
+🎯 Your Suggested Focus
+</h2>
+
+<p style="
+color:var(--muted);
+font-size:14px;
+line-height:1.6;
+margin-bottom:18px;
+">
+Based on your assessment, here are the areas you may want to focus on first.
+</p>
+
+<div id="focusList"></div>
+
+</div>
 </div>
 
 <!-- FINANCIAL EDUCATION -->
@@ -2030,7 +2050,69 @@ financialAreas.forEach(area => {
 gaps.sort((a,b) =>
 a.percentage - b.percentage
 );
+/* -----------------------------------------
+   SUGGESTED FOCUS
+   ----------------------------------------- */
 
+const focusList =
+document.getElementById("focusList");
+
+if(focusList){
+
+  focusList.innerHTML = "";
+
+  if(gaps.length === 0){
+
+    focusList.innerHTML = `
+
+    <div class="gap">
+
+      <strong>🎉 You're off to a strong start</strong>
+
+      <p>
+      Your assessment did not identify any major area
+      requiring immediate attention. Continue reviewing
+      your financial position periodically.
+      </p>
+
+    </div>
+
+    `;
+
+  }else{
+
+    gaps.slice(0,3).forEach((gap,index)=>{
+
+      focusList.innerHTML += `
+
+      <div class="gap">
+
+        <strong>
+        ${index + 1}. ${gap.title}
+        </strong>
+
+        <div style="
+        font-size:12px;
+        font-weight:700;
+        color:var(--green);
+        margin-top:6px;
+        ">
+        Current score: ${gap.score}
+        </div>
+
+        <p style="margin-top:8px;">
+        ${gap.text}
+        </p>
+
+      </div>
+
+      `;
+
+    });
+
+  }
+
+}
 
 /* -----------------------------------------
    EDUCATIONAL CONTENT
