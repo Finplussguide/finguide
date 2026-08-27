@@ -2628,20 +2628,19 @@ financial concepts.
 
 /* EDUCATIONAL ACTION */
 
-function learnMore(topic){
+window.learnMore = function(topic){
 
-alert(
-"FINGUIDE Knowledge Centre\n\n" +
-topic +
-"\n\nDetailed educational information about this topic will be available in the FINGUIDE Knowledge Centre."
-);
+  alert(
+    "FINGUIDE Knowledge Centre\n\n" +
+    topic +
+    "\n\nDetailed educational information about this topic will be available in the FINGUIDE Knowledge Centre."
+  );
 
-}
-
+};
 
 /* ADVISOR CONTACT */
 
-function requestGuidance(topic){
+window.requestGuidance = function(topic){
 
   const choice = confirm(
     "👨‍💼 Talk to a FinPluss Advisor\n\n" +
@@ -2682,7 +2681,7 @@ function requestGuidance(topic){
 
   }
 
-}
+};
 
 /* HIDE FORM / SHOW RESULT */
 
