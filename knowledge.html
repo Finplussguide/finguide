@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -10,13 +9,10 @@ content="width=device-width, initial-scale=1.0">
 
 <title>FINGUIDE Knowledge Centre</title>
 
-<meta
-name="description"
-content="FINGUIDE Knowledge Centre — understand financial concepts, explore examples and find useful financial tools."
->
+<meta name="description"
+content="FINGUIDE Knowledge Centre — simple financial education, examples, calculators and financial planning concepts.">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
 href="https://fonts.gstatic.com"
@@ -29,77 +25,99 @@ rel="stylesheet">
 
 <style>
 
-/* =========================================
-   ROOT
-========================================= */
+/* =========================================================
+   FINGUIDE KNOWLEDGE CENTRE
+   ========================================================= */
 
 :root{
 
+  --blue:#16458f;
+  --blue-dark:#0b2f68;
+  --orange:#ff6b00;
   --green:#087f65;
   --green-dark:#05634f;
-  --green-light:#eaf7f2;
 
-  --ink:#09231f;
-  --muted:#5b716d;
+  --ink:#13201c;
+  --muted:#65746f;
 
-  --line:#dce8e4;
+  --bg:#f5f8f7;
+  --card:#ffffff;
+  --line:#dce7e3;
 
-  --bg:#f6faf8;
+  --soft-green:#eaf6f2;
+  --soft-blue:#eef4fc;
+  --soft-orange:#fff3e8;
 
-  --white:#ffffff;
+  --shadow:
+    0 12px 35px rgba(18,55,45,.08);
 
+  --radius:22px;
 }
 
-
-/* =========================================
-   RESET
-========================================= */
 
 *{
   box-sizing:border-box;
 }
 
+
 html{
   scroll-behavior:smooth;
 }
+
 
 body{
 
   margin:0;
 
-  font-family:
-  Manrope,
-  Arial,
-  sans-serif;
+  font-family:"Manrope",sans-serif;
 
   background:var(--bg);
 
   color:var(--ink);
 
-  line-height:1.6;
-
+  line-height:1.65;
 }
+
 
 button,
-input{
+input,
+select{
   font-family:inherit;
 }
+
 
 button{
   cursor:pointer;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+
+/* =========================================================
+   TOP NOTICE
+   ========================================================= */
+
+.top-note{
+
+  background:var(--blue-dark);
+
+  color:white;
+
+  text-align:center;
+
+  padding:8px 15px;
+
+  font-size:11px;
+
+  font-weight:600;
+
+  letter-spacing:.2px;
 }
 
 
-/* =========================================
+/* =========================================================
    HEADER
-========================================= */
+   ========================================================= */
 
-.header{
+header{
 
   position:sticky;
 
@@ -107,7 +125,23 @@ a{
 
   z-index:100;
 
-  height:68px;
+  background:rgba(255,255,255,.96);
+
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid var(--line);
+}
+
+
+.nav{
+
+  max-width:1180px;
+
+  margin:auto;
+
+  min-height:76px;
+
+  padding:10px 22px;
 
   display:flex;
 
@@ -115,14 +149,7 @@ a{
 
   justify-content:space-between;
 
-  padding:0 5%;
-
-  background:rgba(255,255,255,.96);
-
-  backdrop-filter:blur(10px);
-
-  border-bottom:1px solid var(--line);
-
+  gap:20px;
 }
 
 
@@ -132,118 +159,191 @@ a{
 
   align-items:center;
 
-  gap:10px;
-
-  font-size:19px;
-
-  font-weight:800;
-
-}
-
-
-.logo{
-
-  width:37px;
-
-  height:37px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border-radius:11px;
-
-  background:var(--green);
-
-  color:white;
-
-  font-weight:800;
-
-}
-
-
-.header-right{
-
-  display:flex;
-
-  align-items:center;
-
   gap:12px;
 
+  text-decoration:none;
+
+  color:var(--ink);
 }
 
 
-.header-link{
+.brand img{
+
+  width:54px;
+
+  height:54px;
+
+  object-fit:contain;
+
+  border-radius:14px;
+}
+
+
+.brand-text{
+
+  line-height:1.1;
+}
+
+
+.brand-name{
+
+  font-size:20px;
+
+  font-weight:800;
+
+  letter-spacing:-.5px;
+}
+
+
+.brand-sub{
+
+  font-size:10px;
+
+  color:var(--muted);
+
+  margin-top:4px;
+}
+
+
+.nav-actions{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  flex-wrap:wrap;
+
+  justify-content:flex-end;
+}
+
+
+.nav-btn{
+
+  border:1px solid var(--line);
+
+  background:white;
+
+  color:var(--ink);
+
+  padding:9px 14px;
+
+  border-radius:11px;
 
   font-size:12px;
 
   font-weight:700;
 
-  color:var(--muted);
-
+  text-decoration:none;
 }
 
 
-.header-score{
+.nav-btn:hover{
 
-  padding:9px 13px;
-
-  border-radius:10px;
-
-  background:var(--green-light);
+  border-color:var(--green);
 
   color:var(--green);
-
-  font-size:12px;
-
-  font-weight:800;
-
 }
 
 
-/* =========================================
-   CONTAINER
-========================================= */
+.nav-btn.primary{
 
-.container{
+  background:var(--green);
 
-  width:min(1120px,92%);
+  border-color:var(--green);
 
-  margin:auto;
-
+  color:white;
 }
 
 
-/* =========================================
-   HERO
-========================================= */
-
-.hero{
-
-  margin-top:35px;
-
-  min-height:370px;
-
-  display:grid;
-
-  grid-template-columns:1.15fr .85fr;
-
-  gap:30px;
-
-  align-items:center;
-
-  padding:45px;
+.language{
 
   border:1px solid var(--line);
 
-  border-radius:28px;
-
   background:white;
+
+  border-radius:11px;
+
+  padding:9px 12px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  color:var(--ink);
+
+  outline:none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main{
+
+  max-width:1180px;
+
+  margin:auto;
+
+  padding:28px 22px 70px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+  position:relative;
 
   overflow:hidden;
 
+  min-height:410px;
+
+  border-radius:30px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(238,247,244,.98),
+      rgba(255,255,255,.97)
+    );
+
+  border:1px solid #d8e9e3;
+
+  box-shadow:var(--shadow);
+
+  padding:58px 55px;
+
+  display:flex;
+
+  align-items:center;
+}
+
+
+.hero-watermark{
+
+  position:absolute;
+
+  right:-70px;
+
+  bottom:-100px;
+
+  width:520px;
+
+  height:520px;
+
+  object-fit:cover;
+
+  opacity:.09;
+
+  pointer-events:none;
+
+  border-radius:50%;
 }
 
 
@@ -253,10 +353,11 @@ a{
 
   z-index:2;
 
+  max-width:720px;
 }
 
 
-.badge{
+.eyebrow{
 
   display:inline-flex;
 
@@ -264,11 +365,11 @@ a{
 
   gap:7px;
 
-  padding:8px 13px;
+  padding:7px 12px;
 
   border-radius:30px;
 
-  background:var(--green-light);
+  background:var(--soft-green);
 
   color:var(--green);
 
@@ -276,257 +377,191 @@ a{
 
   font-weight:800;
 
-  margin-bottom:17px;
+  text-transform:uppercase;
 
+  letter-spacing:.7px;
+
+  margin-bottom:18px;
 }
 
 
 .hero h1{
 
-  margin:0;
+  font-size:clamp(34px,5vw,58px);
 
-  font-size:42px;
+  line-height:1.08;
 
-  line-height:1.15;
+  letter-spacing:-2px;
 
-  letter-spacing:-1.2px;
+  margin:0 0 18px;
 
+  max-width:700px;
 }
 
 
 .hero h1 span{
 
   color:var(--green);
-
 }
 
 
 .hero p{
 
-  max-width:640px;
-
-  margin:16px 0 0;
+  max-width:680px;
 
   color:var(--muted);
 
-  font-size:14px;
+  font-size:15px;
 
-  line-height:1.75;
-
+  margin:0 0 25px;
 }
 
 
-/* =========================================
-   HERO VISUAL
-========================================= */
-
-.hero-visual{
-
-  min-height:270px;
-
-  position:relative;
+.hero-actions{
 
   display:flex;
+
+  flex-wrap:wrap;
+
+  gap:11px;
+}
+
+
+.btn{
+
+  display:inline-flex;
 
   align-items:center;
 
   justify-content:center;
 
-}
+  gap:8px;
 
+  border:0;
 
-.visual-circle{
+  border-radius:12px;
 
-  width:230px;
+  padding:12px 17px;
 
-  height:230px;
-
-  border-radius:50%;
-
-  background:var(--green-light);
-
-  position:absolute;
-
-}
-
-
-.visual-card{
-
-  position:relative;
-
-  z-index:2;
-
-  width:225px;
-
-  padding:22px;
-
-  border-radius:20px;
-
-  background:white;
-
-  border:1px solid var(--line);
-
-  box-shadow:0 18px 45px rgba(9,35,31,.10);
-
-}
-
-
-.visual-top{
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  margin-bottom:18px;
-
-}
-
-
-.visual-title{
-
-  font-size:11px;
+  font-size:12px;
 
   font-weight:800;
 
-  color:var(--muted);
+  text-decoration:none;
 
+  transition:.2s;
 }
 
 
-.visual-score{
+.btn:hover{
 
-  font-size:27px;
-
-  font-weight:800;
-
-  color:var(--green);
-
+  transform:translateY(-1px);
 }
 
 
-.visual-bars{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:9px;
-
-}
-
-
-.bar{
-
-  height:9px;
-
-  border-radius:20px;
-
-  background:#e9f0ed;
-
-  overflow:hidden;
-
-}
-
-
-.bar-fill{
-
-  height:100%;
-
-  border-radius:20px;
+.btn-green{
 
   background:var(--green);
 
+  color:white;
 }
 
 
-.visual-mini{
+.btn-blue{
 
-  margin-top:18px;
+  background:var(--blue);
 
-  display:flex;
-
-  justify-content:space-between;
-
-  font-size:10px;
-
-  color:var(--muted);
-
+  color:white;
 }
 
 
-/* =========================================
-   SEARCH
-========================================= */
-
-.search-wrap{
-
-  margin-top:24px;
-
-  position:relative;
-
-}
-
-
-.search-input{
-
-  width:100%;
-
-  padding:16px 18px 16px 46px;
-
-  border:1px solid var(--line);
-
-  border-radius:14px;
-
-  outline:none;
-
-  font-size:13px;
-
-  background:#fbfdfc;
-
-}
-
-
-.search-input:focus{
-
-  border-color:var(--green);
+.btn-light{
 
   background:white;
 
+  color:var(--ink);
+
+  border:1px solid var(--line);
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-section{
+
+  margin-top:25px;
+
+  display:flex;
+
+  gap:12px;
+
+  align-items:center;
+
+  background:white;
+
+  padding:14px;
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  box-shadow:0 7px 22px rgba(20,50,40,.05);
 }
 
 
 .search-icon{
 
-  position:absolute;
+  font-size:20px;
 
-  left:17px;
-
-  top:50%;
-
-  transform:translateY(-50%);
-
-  font-size:17px;
-
+  padding-left:7px;
 }
 
 
-/* =========================================
-   SECTION
-========================================= */
+#searchBox{
+
+  flex:1;
+
+  border:0;
+
+  outline:0;
+
+  font-size:14px;
+
+  background:transparent;
+
+  color:var(--ink);
+}
+
+
+#searchBox::placeholder{
+
+  color:#8a9893;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
 
 .section{
 
-  margin-top:45px;
-
+  margin-top:48px;
 }
 
 
 .section-head{
 
-  margin-bottom:18px;
+  display:flex;
 
+  justify-content:space-between;
+
+  align-items:end;
+
+  gap:20px;
+
+  margin-bottom:18px;
 }
 
 
@@ -534,106 +569,127 @@ a{
 
   margin:0;
 
-  font-size:24px;
+  font-size:28px;
 
-  letter-spacing:-.4px;
-
+  letter-spacing:-1px;
 }
 
 
 .section-head p{
 
-  margin:5px 0 0;
+  margin:6px 0 0;
 
   color:var(--muted);
 
   font-size:13px;
-
 }
 
 
-/* =========================================
-   CATEGORY
-========================================= */
+.section-note{
+
+  font-size:11px;
+
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   CATEGORY CARDS
+   ========================================================= */
 
 .category-grid{
 
   display:grid;
 
   grid-template-columns:
-  repeat(5,1fr);
+    repeat(5,minmax(0,1fr));
 
   gap:12px;
-
 }
 
 
-.category-card{
+.category{
 
-  min-height:115px;
-
-  padding:18px;
+  background:white;
 
   border:1px solid var(--line);
 
   border-radius:17px;
 
-  background:white;
+  padding:18px 15px;
 
-  transition:.18s ease;
+  text-align:left;
 
+  transition:.2s;
+
+  min-height:130px;
 }
 
 
-.category-card:hover{
+.category:hover{
 
-  transform:translateY(-2px);
+  transform:translateY(-3px);
 
-  border-color:#c4ddd5;
+  border-color:#b9d8ce;
 
+  box-shadow:var(--shadow);
 }
 
 
-.category-icon{
+.category .icon{
 
-  font-size:25px;
+  width:43px;
 
-  margin-bottom:8px;
+  height:43px;
 
+  border-radius:13px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:var(--soft-green);
+
+  font-size:22px;
+
+  margin-bottom:12px;
 }
 
 
-.category-card strong{
+.category strong{
 
   display:block;
 
   font-size:13px;
-
 }
 
 
-.category-card span{
+.category span{
+
+  display:block;
 
   color:var(--muted);
 
-  font-size:11px;
+  font-size:10px;
 
+  margin-top:4px;
 }
 
 
-/* =========================================
-   FEATURED TOPICS
-========================================= */
+/* =========================================================
+   TOPIC GRID
+   ========================================================= */
 
 .topic-grid{
 
   display:grid;
 
   grid-template-columns:
-  repeat(4,1fr);
+    repeat(3,minmax(0,1fr));
 
-  gap:15px;
-
+  gap:16px;
 }
 
 
@@ -643,12 +699,13 @@ a{
 
   border:1px solid var(--line);
 
-  border-radius:19px;
+  border-radius:20px;
 
   overflow:hidden;
 
-  transition:.18s ease;
+  transition:.2s;
 
+  box-shadow:0 5px 18px rgba(20,50,40,.035);
 }
 
 
@@ -656,410 +713,879 @@ a{
 
   transform:translateY(-3px);
 
-  box-shadow:
-  0 12px 35px rgba(9,35,31,.07);
-
+  box-shadow:var(--shadow);
 }
 
 
-.topic-visual{
+.topic-top{
 
-  height:135px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  position:relative;
-
-  background:var(--green-light);
-
-  overflow:hidden;
-
+  padding:20px 20px 12px;
 }
 
 
-.topic-visual::before{
+.topic-icon{
 
-  content:"";
+  font-size:30px;
 
-  position:absolute;
-
-  width:120px;
-
-  height:120px;
-
-  border-radius:50%;
-
-  background:white;
-
-  opacity:.7;
-
+  margin-bottom:8px;
 }
 
 
-.topic-emoji{
-
-  position:relative;
-
-  z-index:2;
-
-  font-size:50px;
-
-}
-
-
-.topic-body{
-
-  padding:18px;
-
-}
-
-
-.topic-body h3{
+.topic-card h3{
 
   margin:0 0 7px;
 
-  font-size:16px;
+  font-size:18px;
 
+  letter-spacing:-.4px;
 }
 
 
-.topic-body p{
-
-  min-height:57px;
-
-  margin:0 0 15px;
-
-  color:var(--muted);
-
-  font-size:12px;
-
-  line-height:1.6;
-
-}
-
-
-.read-btn{
-
-  width:100%;
-
-  border:0;
-
-  padding:10px;
-
-  border-radius:10px;
-
-  background:var(--green);
-
-  color:white;
-
-  font-size:12px;
-
-  font-weight:800;
-
-}
-
-
-/* =========================================
-   QUICK ANSWERS
-========================================= */
-
-.answers-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(2,1fr);
-
-  gap:12px;
-
-}
-
-
-.answer-card{
-
-  padding:19px;
-
-  border:1px solid var(--line);
-
-  border-radius:16px;
-
-  background:white;
-
-}
-
-
-.answer-card strong{
-
-  font-size:13px;
-
-}
-
-
-.answer-card p{
-
-  margin:7px 0 0;
-
-  color:var(--muted);
-
-  font-size:12px;
-
-}
-
-
-/* =========================================
-   TOOLS
-========================================= */
-
-.tools-box{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(3,1fr);
-
-  gap:15px;
-
-}
-
-
-.tool-card{
-
-  padding:23px;
-
-  border-radius:19px;
-
-  background:white;
-
-  border:1px solid var(--line);
-
-}
-
-
-.tool-icon{
-
-  font-size:28px;
-
-  margin-bottom:10px;
-
-}
-
-
-.tool-card h3{
-
-  margin:0 0 7px;
-
-  font-size:16px;
-
-}
-
-
-.tool-card p{
-
-  min-height:58px;
-
-  margin:0 0 16px;
-
-  color:var(--muted);
-
-  font-size:12px;
-
-}
-
-
-.tool-btn{
-
-  border:1px solid var(--green);
-
-  background:white;
-
-  color:var(--green);
-
-  padding:9px 13px;
-
-  border-radius:10px;
-
-  font-size:11px;
-
-  font-weight:800;
-
-}
-
-
-/* =========================================
-   GUIDANCE CTA
-========================================= */
-
-.guidance{
-
-  margin-top:45px;
-
-  padding:32px;
-
-  border-radius:22px;
-
-  background:var(--green);
-
-  color:white;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:25px;
-
-}
-
-
-.guidance h2{
-
-  margin:0 0 6px;
-
-  font-size:23px;
-
-}
-
-
-.guidance p{
+.topic-card p{
 
   margin:0;
 
-  max-width:650px;
+  color:var(--muted);
 
   font-size:12px;
 
-  line-height:1.7;
-
-  opacity:.9;
-
+  line-height:1.65;
 }
 
 
-.guidance-buttons{
+.topic-bottom{
+
+  padding:12px 20px 20px;
 
   display:flex;
 
-  gap:9px;
+  justify-content:space-between;
 
-  flex-shrink:0;
+  align-items:center;
 
+  gap:10px;
 }
 
 
-.guidance-btn{
+.topic-tag{
 
-  padding:11px 15px;
+  font-size:10px;
 
-  border-radius:10px;
+  color:var(--green);
 
-  font-size:11px;
+  background:var(--soft-green);
+
+  padding:5px 8px;
+
+  border-radius:20px;
 
   font-weight:800;
+}
+
+
+.topic-link{
 
   border:0;
 
-}
-
-
-.call-btn{
-
-  background:white;
-
-  color:var(--green);
-
-}
-
-
-.whatsapp-btn{
-
   background:transparent;
 
-  border:1px solid rgba(255,255,255,.7);
-
-  color:white;
-
-}
-
-
-/* =========================================
-   ARTICLE AREA
-========================================= */
-
-.article{
-
-  display:none;
-
-  margin-top:35px;
-
-  padding:35px;
-
-  background:white;
-
-  border:1px solid var(--line);
-
-  border-radius:22px;
-
-}
-
-
-.article.active{
-
-  display:block;
-
-}
-
-
-.article-back{
-
-  border:1px solid var(--line);
-
-  background:white;
-
-  padding:9px 14px;
-
-  border-radius:10px;
-
-  font-size:12px;
+  color:var(--green);
 
   font-weight:800;
-
-  color:var(--muted);
-
-}
-
-
-.article-category{
-
-  margin-top:25px;
-
-  color:var(--green);
 
   font-size:11px;
 
-  font-weight:800;
+  padding:5px;
 
 }
 
 
-.article h1{
+/* =========================================================
+   ARTICLE AREA
+   ========================================================= */
 
-  margin:7px 0 20px;
+#articleArea{
 
-  font-size:34px;
+  display:none;
 
-  line-height:1.25;
+  margin-top:45px;
+}
 
+
+.article{
+
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:25px;
+
+  padding:35px;
+
+  box-shadow:var(--shadow);
 }
 
 
 .article-hero{
 
-  height:180px;
+  padding-bottom:28px;
+
+  border-bottom:1px solid var(--line);
+
+  margin-bottom:28px;
+}
+
+
+.article-icon{
+
+  font-size:42px;
+
+  margin-bottom:10px;
+}
+
+
+.article h1{
+
+  font-size:36px;
+
+  line-height:1.15;
+
+  letter-spacing:-1.4px;
+
+  margin:0 0 12px;
+}
+
+
+.article-intro{
+
+  font-size:14px;
+
+  color:var(--muted);
+
+  max-width:850px;
+}
+
+
+.article-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,2fr)
+    minmax(260px,1fr);
+
+  gap:28px;
+}
+
+
+.article-content h2{
+
+  margin:30px 0 10px;
+
+  font-size:23px;
+
+  letter-spacing:-.7px;
+}
+
+
+.article-content h3{
+
+  margin:24px 0 8px;
+
+  font-size:16px;
+}
+
+
+.article-content p{
+
+  color:#53645f;
+
+  font-size:13px;
+
+  line-height:1.8;
+}
+
+
+.article-content ul{
+
+  padding-left:20px;
+
+  color:#53645f;
+
+  font-size:13px;
+
+  line-height:1.9;
+}
+
+
+.article-content li{
+
+  margin-bottom:5px;
+}
+
+
+.example-box{
+
+  background:var(--soft-green);
+
+  border:1px solid #cde8df;
+
+  border-radius:16px;
+
+  padding:17px;
+
+  margin:20px 0;
+}
+
+
+.example-box strong{
+
+  color:var(--green);
+
+  font-size:12px;
+}
+
+
+.example-box p{
+
+  margin:7px 0 0;
+
+  color:#45605a;
+}
+
+
+.warning-box{
+
+  background:#fff8ec;
+
+  border:1px solid #f2dfbc;
+
+  border-radius:16px;
+
+  padding:17px;
+
+  margin:20px 0;
+}
+
+
+.warning-box strong{
+
+  color:#9a6800;
+
+  font-size:12px;
+}
+
+
+.warning-box p{
+
+  margin:7px 0 0;
+
+  color:#725d32;
+
+  font-size:12px;
+}
+
+
+.side-card{
+
+  background:#f7faf9;
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:20px;
+
+  height:max-content;
+
+  position:sticky;
+
+  top:100px;
+}
+
+
+.side-card h3{
+
+  margin:0 0 12px;
+
+  font-size:16px;
+}
+
+
+.side-link{
+
+  display:block;
+
+  width:100%;
+
+  text-align:left;
+
+  border:0;
+
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:10px;
+
+  padding:10px;
+
+  margin-bottom:8px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  color:var(--ink);
+}
+
+
+.side-link:hover{
+
+  border-color:var(--green);
+
+  color:var(--green);
+}
+
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.faq{
+
+  margin-top:30px;
+}
+
+
+.faq-item{
+
+  border-bottom:1px solid var(--line);
+}
+
+
+.faq-question{
+
+  width:100%;
+
+  border:0;
+
+  background:transparent;
+
+  padding:16px 0;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  text-align:left;
+
+  font-size:13px;
+
+  font-weight:800;
+
+  color:var(--ink);
+}
+
+
+.faq-answer{
+
+  display:none;
+
+  padding:0 0 16px;
+
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.7;
+}
+
+
+.faq-item.open .faq-answer{
+
+  display:block;
+}
+
+
+/* =========================================================
+   CALCULATOR
+   ========================================================= */
+
+.calculator{
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #f0f8f5,
+      #ffffff
+    );
+
+  border:1px solid #cfe5dd;
+
+  border-radius:25px;
+
+  padding:30px;
+
+  margin-top:45px;
+}
+
+
+.calc-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  align-items:flex-start;
+
+  margin-bottom:25px;
+}
+
+
+.calc-header h2{
+
+  margin:0;
+
+  font-size:27px;
+
+  letter-spacing:-1px;
+}
+
+
+.calc-header p{
+
+  color:var(--muted);
+
+  font-size:12px;
+
+  max-width:650px;
+
+  margin:7px 0 0;
+}
+
+
+.calc-tabs{
+
+  display:flex;
+
+  gap:8px;
+
+  margin-bottom:22px;
+
+  flex-wrap:wrap;
+}
+
+
+.calc-tab{
+
+  border:1px solid var(--line);
+
+  background:white;
+
+  border-radius:10px;
+
+  padding:10px 14px;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+
+.calc-tab.active{
+
+  background:var(--green);
+
+  color:white;
+
+  border-color:var(--green);
+}
+
+
+.calc-form{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:15px;
+}
+
+
+.field label{
+
+  display:block;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  margin-bottom:6px;
+}
+
+
+.field input,
+.field select{
+
+  width:100%;
+
+  padding:12px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  outline:none;
+
+  background:white;
+
+  color:var(--ink);
+
+  font-size:13px;
+}
+
+
+.field input:focus,
+.field select:focus{
+
+  border-color:var(--green);
+
+  box-shadow:0 0 0 3px rgba(8,127,101,.08);
+}
+
+
+.calc-action{
+
+  margin-top:18px;
+
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+}
+
+
+.calc-results{
+
+  display:none;
+
+  margin-top:28px;
+}
+
+
+.summary-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:10px;
+
+  margin-bottom:20px;
+}
+
+
+.summary{
+
+  background:white;
+
+  border:1px solid var(--line);
+
+  border-radius:15px;
+
+  padding:15px;
+}
+
+
+.summary span{
+
+  display:block;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  margin-bottom:4px;
+}
+
+
+.summary strong{
+
+  font-size:18px;
+
+  color:var(--green);
+}
+
+
+.table-wrap{
+
+  overflow-x:auto;
+
+  border:1px solid var(--line);
+
+  border-radius:15px;
+
+  background:white;
+}
+
+
+.result-table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  min-width:650px;
+}
+
+
+.result-table th{
+
+  background:#f3f7f5;
+
+  text-align:left;
+
+  padding:12px;
+
+  font-size:10px;
+
+  color:var(--muted);
+}
+
+
+.result-table td{
+
+  padding:12px;
+
+  border-top:1px solid #edf2ef;
+
+  font-size:11px;
+
+  font-weight:600;
+}
+
+
+.result-table tr:hover td{
+
+  background:#fbfdfc;
+}
+
+
+.calc-disclaimer{
+
+  margin-top:15px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.6;
+}
+
+
+/* =========================================================
+   GUIDANCE CTA
+   ========================================================= */
+
+.cta{
+
+  margin-top:50px;
+
+  border-radius:25px;
+
+  padding:38px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #e8f6f1,
+      #f5fbf9
+    );
+
+  border:1px solid #cce5dc;
+
+  text-align:center;
+}
+
+
+.cta-icon{
+
+  font-size:35px;
+
+  margin-bottom:8px;
+}
+
+
+.cta h2{
+
+  margin:0 0 8px;
+
+  font-size:28px;
+
+  letter-spacing:-1px;
+}
+
+
+.cta p{
+
+  max-width:700px;
+
+  margin:0 auto 20px;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+
+.cta-actions{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-backdrop{
+
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:500;
+
+  background:rgba(8,25,20,.58);
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+}
+
+
+.modal{
+
+  width:min(440px,100%);
+
+  background:white;
+
+  border-radius:22px;
+
+  padding:27px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.22);
+}
+
+
+.modal-top{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:15px;
+}
+
+
+.modal h2{
+
+  margin:0;
+
+  font-size:21px;
+}
+
+
+.modal-topic{
+
+  margin:6px 0 18px;
+
+  color:var(--green);
+
+  font-size:12px;
+
+  font-weight:800;
+}
+
+
+.close{
+
+  border:0;
+
+  background:#f1f5f3;
+
+  width:32px;
+
+  height:32px;
+
+  border-radius:50%;
+
+  font-size:17px;
+}
+
+
+.contact-option{
+
+  width:100%;
+
+  border:1px solid var(--line);
+
+  background:white;
+
+  border-radius:14px;
+
+  padding:15px;
+
+  margin-top:10px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+
+  text-align:left;
+}
+
+
+.contact-option:hover{
+
+  border-color:var(--green);
+
+  background:#f8fcfa;
+}
+
+
+.contact-icon{
+
+  width:42px;
+
+  height:42px;
+
+  border-radius:12px;
 
   display:flex;
 
@@ -1067,402 +1593,369 @@ a{
 
   justify-content:center;
 
-  border-radius:18px;
+  background:var(--soft-green);
 
-  background:var(--green-light);
-
-  margin-bottom:25px;
-
-  font-size:65px;
-
+  font-size:21px;
 }
 
 
-.article h2{
+.contact-option strong{
 
-  margin-top:30px;
+  display:block;
 
-  font-size:20px;
-
+  font-size:13px;
 }
 
 
-.article p{
+.contact-option span{
+
+  display:block;
 
   color:var(--muted);
 
-  font-size:14px;
+  font-size:10px;
 
-  line-height:1.8;
-
+  margin-top:2px;
 }
 
 
-.example{
+.modal-note{
 
-  margin:22px 0;
+  margin-top:16px;
 
-  padding:20px;
+  color:var(--muted);
 
-  background:#f5f8f7;
+  font-size:10px;
 
-  border-radius:15px;
-
+  line-height:1.6;
 }
 
 
-.example strong{
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-  color:var(--ink);
+footer{
 
-  font-size:13px;
-
-}
-
-
-.example p{
-
-  margin-bottom:0;
-
-}
-
-
-/* =========================================
-   ARTICLE CTA
-========================================= */
-
-.article-cta{
-
-  margin-top:30px;
-
-  padding:25px;
-
-  border-radius:17px;
-
-  background:var(--green-light);
-
-  border:1px solid #cfe8df;
-
-}
-
-
-.article-cta h3{
-
-  margin:0 0 6px;
-
-  font-size:17px;
-
-}
-
-
-.article-cta p{
-
-  margin:0 0 15px;
-
-  font-size:12px;
-
-}
-
-
-.article-actions{
-
-  display:flex;
-
-  gap:9px;
-
-  flex-wrap:wrap;
-
-}
-
-
-.article-action{
-
-  padding:10px 14px;
-
-  border-radius:10px;
-
-  font-size:11px;
-
-  font-weight:800;
-
-}
-
-
-.article-call{
-
-  background:var(--green);
+  background:#10221d;
 
   color:white;
 
-  border:0;
-
+  padding:35px 22px;
 }
 
 
-.article-whatsapp{
+.footer-inner{
+
+  max-width:1180px;
+
+  margin:auto;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:30px;
+
+  flex-wrap:wrap;
+}
+
+
+.footer-brand{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+
+.footer-brand img{
+
+  width:48px;
+
+  height:48px;
+
+  object-fit:contain;
 
   background:white;
 
-  color:var(--green);
-
-  border:1px solid var(--green);
-
+  border-radius:12px;
 }
 
 
-/* =========================================
-   DISCLAIMER
-========================================= */
+.footer-brand strong{
 
-.disclaimer{
+  font-size:16px;
+}
 
-  margin-top:35px;
 
-  padding:18px;
+.footer-brand span{
 
-  background:#fffaf0;
+  display:block;
 
-  border:1px solid #efdfb9;
+  color:#aabbb5;
 
-  border-radius:14px;
+  font-size:10px;
 
-  color:#705a2c;
+  margin-top:3px;
+}
 
-  font-size:11px;
+
+.footer-right{
+
+  max-width:580px;
+
+  color:#aabbb5;
+
+  font-size:10px;
 
   line-height:1.7;
 
+  text-align:right;
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
+/* =========================================================
+   NO RESULTS
+   ========================================================= */
 
-.footer{
+.no-results{
 
-  margin-top:50px;
-
-  padding:30px 0;
-
-  border-top:1px solid var(--line);
-
-  color:var(--muted);
-
-  font-size:11px;
-
-  text-align:center;
-
-}
-
-
-/* =========================================
-   EMPTY SEARCH
-========================================= */
-
-.empty{
-
-  grid-column:1/-1;
-
-  padding:35px;
-
-  text-align:center;
-
-  border:1px solid var(--line);
+  display:none;
 
   background:white;
 
-  border-radius:16px;
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:30px;
+
+  text-align:center;
 
   color:var(--muted);
 
   font-size:13px;
-
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+   ========================================================= */
 
 @media(max-width:900px){
 
-  .hero{
-
-    grid-template-columns:1fr;
-
-    padding:30px;
-
-  }
-
-
-  .hero-visual{
-
-    min-height:220px;
-
-  }
-
-
   .category-grid{
 
     grid-template-columns:
-    repeat(3,1fr);
-
+      repeat(3,minmax(0,1fr));
   }
-
 
   .topic-grid{
 
     grid-template-columns:
-    repeat(2,1fr);
-
+      repeat(2,minmax(0,1fr));
   }
 
-
-  .tools-box{
+  .calc-form{
 
     grid-template-columns:
-    repeat(2,1fr);
-
+      repeat(2,minmax(0,1fr));
   }
 
+  .article-grid{
 
-  .guidance{
+    grid-template-columns:1fr;
+  }
 
-    flex-direction:column;
+  .side-card{
 
-    align-items:flex-start;
+    position:static;
+  }
 
+  .footer-right{
+
+    text-align:left;
   }
 
 }
 
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-  .header{
+  .nav{
 
-    padding:0 15px;
-
+    padding:9px 14px;
   }
 
-
-  .header-link{
+  .brand-text{
 
     display:none;
-
   }
 
+  .brand img{
 
-  .container{
+    width:47px;
 
-    width:92%;
-
+    height:47px;
   }
 
+  .nav-actions{
+
+    gap:5px;
+  }
+
+  .nav-btn{
+
+    padding:8px 9px;
+
+    font-size:10px;
+  }
+
+  .language{
+
+    padding:8px 8px;
+
+    max-width:100px;
+  }
+
+  main{
+
+    padding:15px 12px 50px;
+  }
 
   .hero{
 
-    margin-top:20px;
+    min-height:460px;
 
-    padding:25px 20px;
+    padding:38px 24px;
 
-    border-radius:20px;
-
+    border-radius:23px;
   }
-
 
   .hero h1{
 
-    font-size:31px;
+    font-size:36px;
 
+    letter-spacing:-1.5px;
   }
 
+  .hero p{
 
-  .hero-visual{
-
-    min-height:205px;
-
+    font-size:13px;
   }
 
+  .hero-watermark{
 
-  .visual-circle{
+    width:360px;
 
-    width:180px;
+    height:360px;
 
-    height:180px;
+    right:-90px;
 
+    bottom:-50px;
   }
 
+  .section{
 
-  .visual-card{
-
-    width:200px;
-
+    margin-top:35px;
   }
 
+  .section-head{
+
+    display:block;
+  }
+
+  .section-head h2{
+
+    font-size:23px;
+  }
 
   .category-grid{
 
     grid-template-columns:
-    repeat(2,1fr);
-
+      repeat(2,minmax(0,1fr));
   }
-
 
   .topic-grid{
 
     grid-template-columns:1fr;
-
   }
-
-
-  .answers-grid{
-
-    grid-template-columns:1fr;
-
-  }
-
-
-  .tools-box{
-
-    grid-template-columns:1fr;
-
-  }
-
-
-  .guidance{
-
-    padding:25px 20px;
-
-  }
-
-
-  .guidance-buttons{
-
-    width:100%;
-
-  }
-
-
-  .guidance-btn{
-
-    flex:1;
-
-  }
-
 
   .article{
 
-    padding:22px;
-
+    padding:22px 18px;
   }
-
 
   .article h1{
 
-    font-size:27px;
+    font-size:29px;
+  }
 
+  .calc-form{
+
+    grid-template-columns:1fr;
+  }
+
+  .calculator{
+
+    padding:22px 17px;
+  }
+
+  .calc-header{
+
+    display:block;
+  }
+
+  .summary-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .cta{
+
+    padding:30px 20px;
+  }
+
+  .cta h2{
+
+    font-size:24px;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print{
+
+  header,
+  .top-note,
+  .hero-actions,
+  .search-section,
+  .category-grid,
+  .topic-grid,
+  .calculator,
+  .cta,
+  footer{
+
+    display:none!important;
+  }
+
+  body{
+
+    background:white;
+  }
+
+  .article{
+
+    box-shadow:none;
+
+    border:0;
   }
 
 }
@@ -1475,212 +1968,204 @@ a{
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+<!-- ======================================================
+     TOP NOTE
+     ====================================================== -->
 
-<header class="header">
+<div class="top-note" id="topNote">
+
+  📚 FINGUIDE is an educational platform —
+  understand first, decide carefully.
+
+</div>
+
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
+<header>
+
+<nav class="nav">
 
 
 <a href="index.html" class="brand">
 
-<span class="logo">
-F
-</span>
+<img
+src="finguide-logo.png"
+alt="FINGUIDE Logo"
+>
 
+<div class="brand-text">
+
+<div class="brand-name">
 FINGUIDE
+</div>
+
+<div class="brand-sub">
+Financial Knowledge Centre
+</div>
+
+</div>
 
 </a>
 
 
-<div class="header-right">
+<div class="nav-actions">
+
+<select
+id="languageSelect"
+class="language"
+aria-label="Select language"
+>
+
+<option value="en">🇬🇧 English</option>
+
+<option value="kn">ಕನ್ನಡ</option>
+
+<option value="te">తెలుగు</option>
+
+<option value="ta">தமிழ்</option>
+
+<option value="ml">മലയാളം</option>
+
+<option value="hi">हिन्दी</option>
+
+</select>
+
 
 <a
 href="assessment.html"
-class="header-link"
+class="nav-btn primary"
+id="assessmentBtn"
 >
-Financial Health Check
-</a>
-
-
-<a
-href="assessment.html"
-class="header-score"
->
-Check My Score
+💚 Financial Health Check
 </a>
 
 </div>
 
+
+</nav>
+
 </header>
 
 
+<!-- ======================================================
+     MAIN
+     ====================================================== -->
 
-<main class="container">
-
-
-<!-- =========================================
-     KNOWLEDGE HOME
-========================================= -->
-
-<div id="knowledgeHome">
+<main>
 
 
-<!-- HERO -->
+<!-- ======================================================
+     HERO
+     ====================================================== -->
 
 <section class="hero">
+
+
+<img
+class="hero-watermark"
+src="finguide-knowledge-watermark.png"
+alt=""
+aria-hidden="true"
+>
 
 
 <div class="hero-content">
 
 
-<div class="badge">
-
+<div class="eyebrow" id="heroEyebrow">
 📚 FINGUIDE Knowledge Centre
-
 </div>
 
 
-<h1>
+<h1 id="heroTitle">
 
-Your Financial Questions.<br>
-
-<span>Explained Simply.</span>
+Understand Money.
+<span>Make Better Decisions.</span>
 
 </h1>
 
 
-<p>
+<p id="heroText">
 
-Learn financial concepts, understand important terms,
-
-explore illustrative examples and discover useful tools
-
-to help you make more informed financial decisions.
+Money questions can feel complicated.
+FINGUIDE helps you understand important financial concepts
+through simple explanations, real-life examples and
+illustrative calculators — so you can learn before you decide.
 
 </p>
 
 
-<div class="search-wrap">
+<div class="hero-actions">
 
-<span class="search-icon">
-🔍
-</span>
 
-<input
-id="searchInput"
-class="search-input"
-type="text"
-placeholder="Search financial topics..."
-oninput="searchTopics()"
+<a
+href="#topics"
+class="btn btn-green"
+id="exploreBtn"
 >
+🔎 Explore Financial Topics
+</a>
+
+
+<a
+href="#calculator"
+class="btn btn-light"
+id="calculatorBtn"
+>
+🧮 Try a Calculator
+</a>
+
 
 </div>
 
-
-</div>
-
-
-<!-- VISUAL -->
-
-<div class="hero-visual">
-
-<div class="visual-circle"></div>
-
-
-<div class="visual-card">
-
-
-<div class="visual-top">
-
-<div class="visual-title">
-
-FINANCIAL HEALTH
-
-</div>
-
-<div class="visual-score">
-
-76
-
-</div>
-
-</div>
-
-
-<div class="visual-bars">
-
-<div class="bar">
-<div
-class="bar-fill"
-style="width:80%"
-></div>
-</div>
-
-<div class="bar">
-<div
-class="bar-fill"
-style="width:65%"
-></div>
-</div>
-
-<div class="bar">
-<div
-class="bar-fill"
-style="width:90%"
-></div>
-</div>
-
-<div class="bar">
-<div
-class="bar-fill"
-style="width:55%"
-></div>
-</div>
-
-</div>
-
-
-<div class="visual-mini">
-
-<span>
-Protection
-</span>
-
-<span>
-Savings
-</span>
-
-<span>
-Goals
-</span>
-
-</div>
-
-</div>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     SEARCH
+     ====================================================== -->
 
-<!-- =========================================
+<section class="search-section">
+
+<div class="search-icon">
+🔎
+</div>
+
+<input
+id="searchBox"
+type="search"
+placeholder="Search a financial question…"
+autocomplete="off"
+>
+
+</section>
+
+
+<!-- ======================================================
      CATEGORIES
-========================================= -->
+     ====================================================== -->
 
 <section class="section">
 
-
 <div class="section-head">
 
-<h2>
+<div>
+
+<h2 id="categoryTitle">
 Explore by Category
 </h2>
 
-<p>
-Start with the financial area you want to understand.
+<p id="categoryText">
+Start with a topic you want to understand better.
 </p>
+
+</div>
 
 </div>
 
@@ -1688,94 +2173,164 @@ Start with the financial area you want to understand.
 <div class="category-grid">
 
 
-<div class="category-card"
-onclick="filterCategory('Protection')">
+<button
+class="category"
+data-filter="Protection"
+>
 
-<div class="category-icon">
-🛡️
-</div>
+<div class="icon">🛡️</div>
 
-<strong>
-Protection
-</strong>
+<strong>Protection</strong>
 
 <span>
-Life & health
+Life & health protection
 </span>
 
-</div>
+</button>
 
 
-<div class="category-card"
-onclick="filterCategory('Money Management')">
+<button
+class="category"
+data-filter="Health"
+>
 
-<div class="category-icon">
-💰
-</div>
+<div class="icon">🏥</div>
 
-<strong>
-Money Management
-</strong>
+<strong>Health</strong>
 
 <span>
-Savings & expenses
+Medical expense planning
 </span>
 
-</div>
+</button>
 
 
-<div class="category-card"
-onclick="filterCategory('Wealth Building')">
+<button
+class="category"
+data-filter="Safety"
+>
 
-<div class="category-icon">
-📈
-</div>
+<div class="icon">🛟</div>
 
-<strong>
-Wealth Building
-</strong>
+<strong>Financial Safety</strong>
 
 <span>
-Investing & growth
+Emergency preparedness
 </span>
 
-</div>
+</button>
 
 
-<div class="category-card"
-onclick="filterCategory('Retirement')">
+<button
+class="category"
+data-filter="Investing"
+>
 
-<div class="category-icon">
-👴
-</div>
+<div class="icon">📈</div>
 
-<strong>
-Retirement
-</strong>
+<strong>Investing</strong>
 
 <span>
-Prepare for later
+Growth & long-term wealth
 </span>
 
-</div>
+</button>
 
 
-<div class="category-card"
-onclick="filterCategory('Goals')">
+<button
+class="category"
+data-filter="Retirement"
+>
 
-<div class="category-icon">
-🎯
-</div>
+<div class="icon">👴</div>
 
-<strong>
-Future Goals
-</strong>
+<strong>Retirement</strong>
 
 <span>
-Plan what matters
+Prepare for later life
 </span>
 
-</div>
+</button>
+
+
+<button
+class="category"
+data-filter="Family"
+>
+
+<div class="icon">👨‍👩‍👧</div>
+
+<strong>Family Goals</strong>
+
+<span>
+Education & future needs
+</span>
+
+</button>
+
+
+<button
+class="category"
+data-filter="Saving"
+>
+
+<div class="icon">💰</div>
+
+<strong>Saving</strong>
+
+<span>
+Build financial discipline
+</span>
+
+</button>
+
+
+<button
+class="category"
+data-filter="Loans"
+>
+
+<div class="icon">💳</div>
+
+<strong>Loans & Credit</strong>
+
+<span>
+Borrowing basics
+</span>
+
+</button>
+
+
+<button
+class="category"
+data-filter="Tax"
+>
+
+<div class="icon">🧾</div>
+
+<strong>Tax Basics</strong>
+
+<span>
+Understand tax concepts
+</span>
+
+</button>
+
+
+<button
+class="category"
+data-filter="Goals"
+>
+
+<div class="icon">🎯</div>
+
+<strong>Financial Goals</strong>
+
+<span>
+Plan with purpose
+</span>
+
+</button>
 
 
 </div>
@@ -1783,209 +2338,648 @@ Plan what matters
 </section>
 
 
+<!-- ======================================================
+     TOPICS
+     ====================================================== -->
 
-<!-- =========================================
-     FEATURED TOPICS
-========================================= -->
-
-<section class="section">
-
+<section
+class="section"
+id="topics"
+>
 
 <div class="section-head">
 
-<h2>
-⭐ Featured Topics
+<div>
+
+<h2 id="topicsTitle">
+Financial Topics
 </h2>
 
-<p>
-Start with some of the questions people commonly explore.
+<p id="topicsText">
+Simple explanations for important money decisions.
 </p>
+
+</div>
+
+<div
+class="section-note"
+id="topicCount"
+>
+10 topics
+</div>
 
 </div>
 
 
 <div
-id="topicGrid"
 class="topic-grid"
-></div>
+id="topicGrid"
+>
 
 
-</section>
+<!-- FAMILY PROTECTION -->
 
+<article
+class="topic-card"
+data-category="Protection"
+data-search="life insurance term insurance family protection income protection"
+>
 
+<div class="topic-top">
 
-<!-- =========================================
-     QUICK ANSWERS
-========================================= -->
-
-<section class="section">
-
-
-<div class="section-head">
-
-<h2>
-⚡ Quick Financial Answers
-</h2>
-
-<p>
-Simple explanations for common financial questions.
-</p>
-
-</div>
-
-
-<div class="answers-grid">
-
-
-<div class="answer-card">
-
-<strong>
-What is SIP?
-</strong>
-
-<p>
-A simple explanation of investing a predetermined amount at regular intervals.
-</p>
-
-</div>
-
-
-<div class="answer-card">
-
-<strong>
-What is compounding?
-</strong>
-
-<p>
-Understand how returns that remain invested can contribute to future growth.
-</p>
-
-</div>
-
-
-<div class="answer-card">
-
-<strong>
-What is an emergency fund?
-</strong>
-
-<p>
-Understand how accessible savings can help during unexpected financial situations.
-</p>
-
-</div>
-
-
-<div class="answer-card">
-
-<strong>
-What is a super top-up?
-</strong>
-
-<p>
-Learn the basic concept and why policy conditions matter.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================
-     TOOLS
-========================================= -->
-
-<section class="section">
-
-
-<div class="section-head">
-
-<h2>
-🧮 Financial Tools
-</h2>
-
-<p>
-Understand your numbers through simple illustrative calculations.
-</p>
-
-</div>
-
-
-<div class="tools-box">
-
-
-<div class="tool-card">
-
-<div class="tool-icon">
-📈
+<div class="topic-icon">
+🛡️
 </div>
 
 <h3>
-Investment Growth Calculator
+Family Protection
 </h3>
 
 <p>
-Explore how a one-time or regular investment could grow over time using an illustrative return assumption.
+Understand how families may prepare financially
+for the loss of income or other unexpected events.
 </p>
 
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Protection
+</span>
+
 <button
-class="tool-btn"
-onclick="openCalculator()"
+class="topic-link"
+onclick="openTopic('family-protection')"
 >
-Calculate →
+Read More →
 </button>
 
 </div>
 
+</article>
 
-<div class="tool-card">
 
-<div class="tool-icon">
+<!-- HEALTH -->
+
+<article
+class="topic-card"
+data-category="Health"
+data-search="health insurance medical insurance family floater top up super top up hospital"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+🏥
+</div>
+
+<h3>
+Health Insurance
+</h3>
+
+<p>
+Learn the basics of health coverage, family floaters,
+top-up and super top-up concepts.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Health
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('health-insurance')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- EMERGENCY -->
+
+<article
+class="topic-card"
+data-category="Safety"
+data-search="emergency fund emergency savings financial safety"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
 🛟
 </div>
 
 <h3>
-Emergency Fund Calculator
+Emergency Fund
 </h3>
 
 <p>
-Compare accessible savings with your essential monthly expenses.
+Understand how accessible savings can help manage
+unexpected expenses or temporary income disruption.
 </p>
 
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Safety
+</span>
+
 <button
-class="tool-btn"
-onclick="comingSoon('Emergency Fund Calculator')"
+class="topic-link"
+onclick="openTopic('emergency-fund')"
 >
-Coming Soon
+Read More →
 </button>
 
 </div>
 
+</article>
 
-<div class="tool-card">
 
-<div class="tool-icon">
+<!-- SAVINGS -->
+
+<article
+class="topic-card"
+data-category="Saving"
+data-search="saving savings money bank deposits financial discipline"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+💰
+</div>
+
+<h3>
+Smart Saving
+</h3>
+
+<p>
+Learn how saving differs from investing and how
+financial goals can influence your savings approach.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Saving
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('saving')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- INVESTMENTS -->
+
+<article
+class="topic-card"
+data-category="Investing"
+data-search="investment investing mutual funds sip compound growth risk return"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+📈
+</div>
+
+<h3>
+Investments & SIP
+</h3>
+
+<p>
+Understand investing, compounding, SIPs, risk,
+time horizon and long-term wealth creation.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Investing
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('investments')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- RETIREMENT -->
+
+<article
+class="topic-card"
+data-category="Retirement"
+data-search="retirement pension retirement corpus retirement planning"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
 👴
 </div>
 
 <h3>
-Retirement Calculator
+Retirement Planning
 </h3>
 
 <p>
-Explore an illustrative retirement preparation scenario.
+Understand retirement age, future expenses,
+savings and the need for a long-term retirement plan.
 </p>
 
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Retirement
+</span>
+
 <button
-class="tool-btn"
-onclick="comingSoon('Retirement Calculator')"
+class="topic-link"
+onclick="openTopic('retirement-planning')"
 >
-Coming Soon
+Read More →
 </button>
+
+</div>
+
+</article>
+
+
+<!-- CHILD -->
+
+<article
+class="topic-card"
+data-category="Family"
+data-search="child education education planning children future school college"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+🎓
+</div>
+
+<h3>
+Child Education Planning
+</h3>
+
+<p>
+Learn how time, inflation, savings and future education
+costs can be considered together.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Family
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('child-education')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- GOALS -->
+
+<article
+class="topic-card"
+data-category="Goals"
+data-search="financial goals future goals house marriage education goal planning"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+🎯
+</div>
+
+<h3>
+Financial Goals
+</h3>
+
+<p>
+Turn wishes into measurable goals with timelines,
+priorities and a practical savings approach.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Goals
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('financial-goals')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- LOANS -->
+
+<article
+class="topic-card"
+data-category="Loans"
+data-search="loan credit home loan personal loan emi credit score borrowing"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+💳
+</div>
+
+<h3>
+Loans & Credit
+</h3>
+
+<p>
+Understand borrowing costs, EMIs, credit behaviour
+and important questions to ask before taking a loan.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Loans
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('loans-credit')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+<!-- TAX -->
+
+<article
+class="topic-card"
+data-category="Tax"
+data-search="income tax tax planning tax basics deductions financial tax"
+>
+
+<div class="topic-top">
+
+<div class="topic-icon">
+🧾
+</div>
+
+<h3>
+Tax Basics
+</h3>
+
+<p>
+Learn the basic ideas behind taxable income, deductions,
+tax planning and why records matter.
+</p>
+
+</div>
+
+<div class="topic-bottom">
+
+<span class="topic-tag">
+Tax
+</span>
+
+<button
+class="topic-link"
+onclick="openTopic('tax-basics')"
+>
+Read More →
+</button>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<div
+class="no-results"
+id="noResults"
+>
+
+🔎 No matching topic found.
+
+Try searching for another financial question.
+
+</div>
+
+
+</section>
+
+
+<!-- ======================================================
+     ARTICLE AREA
+     ====================================================== -->
+
+<section id="articleArea">
+
+<div class="article">
+
+<div class="article-hero">
+
+<div
+class="article-icon"
+id="articleIcon"
+>
+📚
+</div>
+
+<h1 id="articleTitle">
+Topic
+</h1>
+
+<p
+class="article-intro"
+id="articleIntro"
+>
+Understand this financial concept through simple explanations,
+examples and important considerations.
+</p>
+
+</div>
+
+
+<div class="article-grid">
+
+
+<div
+class="article-content"
+id="articleContent"
+>
+</div>
+
+
+<aside class="side-card">
+
+<h3>
+📚 Explore More
+</h3>
+
+<button
+class="side-link"
+onclick="openTopic('family-protection')"
+>
+🛡️ Family Protection
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('health-insurance')"
+>
+🏥 Health Insurance
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('emergency-fund')"
+>
+🛟 Emergency Fund
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('investments')"
+>
+📈 Investments
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('retirement-planning')"
+>
+👴 Retirement
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('child-education')"
+>
+🎓 Child Education
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('financial-goals')"
+>
+🎯 Financial Goals
+</button>
+
+<button
+class="side-link"
+onclick="openTopic('loans-credit')"
+>
+💳 Loans & Credit
+</button>
+
+</aside>
+
+
+</div>
+
+
+<div class="faq">
+
+<h2>
+❓ Frequently Asked Questions
+</h2>
+
+<div id="faqContainer">
+</div>
+
+</div>
+
+
+<div class="cta">
+
+<div class="cta-icon">
+👨‍💼
+</div>
+
+<h2>
+Want help understanding your situation?
+</h2>
+
+<p>
+FINGUIDE is designed to help you understand financial concepts.
+If you want to discuss your situation with our team,
+you can request a call back or continue through WhatsApp.
+</p>
+
+<div class="cta-actions">
+
+<button
+class="btn btn-green"
+onclick="openGuidance(currentTopic)"
+>
+👨‍💼 Get Guidance
+</button>
+
+<a
+href="#calculator"
+class="btn btn-light"
+>
+🧮 Explore Calculator
+</a>
+
+</div>
 
 </div>
 
@@ -1995,48 +2989,244 @@ Coming Soon
 </section>
 
 
+<!-- ======================================================
+     INVESTMENT CALCULATOR
+     ====================================================== -->
 
-<!-- =========================================
-     GUIDANCE
-========================================= -->
+<section
+class="calculator"
+id="calculator"
+>
 
-<section class="guidance">
-
+<div class="calc-header">
 
 <div>
 
 <h2>
-Still have a financial question?
+🧮 Investment Growth Calculator
 </h2>
 
 <p>
-
-If you would like human guidance after exploring FINGUIDE,
-
-you can connect with the FinPluss Financial Guidance Team.
-
+Explore an illustrative view of how money may grow over time
+under a selected assumed annual rate. You can compare a
+one-time investment with a yearly investment approach.
 </p>
 
 </div>
 
+</div>
 
-<div class="guidance-buttons">
 
-
-<button
-class="guidance-btn call-btn"
-onclick="callAdvisor()"
->
-📞 Request a Call Back
-</button>
-
+<div class="calc-tabs">
 
 <button
-class="guidance-btn whatsapp-btn"
-onclick="whatsappAdvisor()"
+class="calc-tab active"
+id="oneTimeTab"
+onclick="setCalcType('one')"
 >
-💬 WhatsApp
+One-Time Investment
 </button>
+
+<button
+class="calc-tab"
+id="yearlyTab"
+onclick="setCalcType('yearly')"
+>
+Yearly Investment
+</button>
+
+</div>
+
+
+<div class="calc-form">
+
+
+<div class="field">
+
+<label>
+Investment Amount (₹)
+</label>
+
+<input
+type="number"
+id="investmentAmount"
+value="100000"
+min="1"
+step="1000"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Illustrative Annual Return
+</label>
+
+<select id="returnRate">
+
+<option value="6">6%</option>
+<option value="7">7%</option>
+<option value="8">8%</option>
+<option value="9">9%</option>
+<option value="10">10%</option>
+<option value="11">11%</option>
+<option value="12" selected>12%</option>
+<option value="13">13%</option>
+<option value="14">14%</option>
+<option value="15">15%</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Investment Period
+</label>
+
+<select id="investmentYears">
+
+<option value="5">5 Years</option>
+<option value="10" selected>10 Years</option>
+<option value="15">15 Years</option>
+<option value="20">20 Years</option>
+<option value="25">25 Years</option>
+<option value="30">30 Years</option>
+<option value="35">35 Years</option>
+<option value="40">40 Years</option>
+<option value="45">45 Years</option>
+<option value="50">50 Years</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="calc-action">
+
+<button
+class="btn btn-green"
+onclick="calculateInvestment()"
+>
+📊 Calculate Growth
+</button>
+
+<button
+class="btn btn-light"
+onclick="resetCalculator()"
+>
+↺ Reset
+</button>
+
+</div>
+
+
+<div
+class="calc-results"
+id="calcResults"
+>
+
+
+<div class="summary-grid">
+
+
+<div class="summary">
+
+<span>
+Selected approach
+</span>
+
+<strong id="summaryType">
+One-Time
+</strong>
+
+</div>
+
+
+<div class="summary">
+
+<span>
+Total amount invested
+</span>
+
+<strong id="summaryInvested">
+₹0
+</strong>
+
+</div>
+
+
+<div class="summary">
+
+<span>
+Illustrative value
+</span>
+
+<strong id="summaryValue">
+₹0
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div class="table-wrap">
+
+<table class="result-table">
+
+<thead>
+
+<tr>
+
+<th>
+Year
+</th>
+
+<th>
+Amount Invested
+</th>
+
+<th>
+Illustrative Value
+</th>
+
+<th>
+Illustrative Growth
+</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="resultBody"
+>
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="calc-disclaimer">
+
+<strong>Illustration only:</strong>
+This calculator uses mathematical assumptions to demonstrate
+the effect of compounding. It does not represent a guaranteed
+return, actual investment performance or a recommendation to
+choose any particular financial product. Actual outcomes can
+be different.
+
+</div>
 
 
 </div>
@@ -2044,840 +3234,1856 @@ onclick="whatsappAdvisor()"
 </section>
 
 
+<!-- ======================================================
+     GENERAL CTA
+     ====================================================== -->
+
+<section class="cta">
+
+<div class="cta-icon">
+💡
 </div>
 
-
-
-<!-- =========================================
-     ARTICLE
-========================================= -->
-
-<section
-id="article"
-class="article"
->
-
-
-<button
-class="article-back"
-onclick="showHome()"
->
-← Back to Knowledge Centre
-</button>
-
-
-<div id="articleContent"></div>
-
-
-<div class="article-cta">
-
-<h3>
-👨‍💼 Want help understanding this?
-</h3>
+<h2>
+Financial questions are easier when you understand them.
+</h2>
 
 <p>
-Our Financial Guidance Team can help you understand
-the concepts covered here.
+Explore FINGUIDE, use the educational calculators,
+and learn the concepts before making important financial decisions.
+If you need help understanding your situation, FinPluss can help
+you take the next step.
 </p>
 
+<div class="cta-actions">
 
-<div class="article-actions">
+<a
+href="assessment.html"
+class="btn btn-green"
+>
+💚 Take Financial Health Check
+</a>
 
 
 <button
-class="article-action article-call"
-onclick="callAdvisor()"
+class="btn btn-light"
+onclick="openGuidance('General Financial Guidance')"
 >
-📞 Request a Call Back
+👨‍💼 Talk to FinPluss
 </button>
 
-
-<button
-class="article-action article-whatsapp"
-onclick="whatsappAdvisor()"
->
-💬 Chat on WhatsApp
-</button>
-
-
 </div>
-
-</div>
-
-
-<div class="disclaimer">
-
-<strong>Important:</strong>
-
-FINGUIDE Knowledge Centre is provided for general
-educational purposes only. Examples are illustrative and
-should not be treated as personalised financial advice,
-a guarantee of suitability, or a recommendation to purchase
-or avoid any financial product. Actual financial decisions
-depend on individual circumstances and should be reviewed
-appropriately.
-
-</div>
-
 
 </section>
-
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer class="footer">
-
-© FINGUIDE · Financial Education & Guidance
-
-</footer>
 
 
 </main>
 
 
+<!-- ======================================================
+     GUIDANCE MODAL
+     ====================================================== -->
+
+<div
+class="modal-backdrop"
+id="guidanceModal"
+>
+
+<div class="modal">
+
+
+<div class="modal-top">
+
+<div>
+
+<h2>
+👨‍💼 Talk to a FinPluss Advisor
+</h2>
+
+<div
+class="modal-topic"
+id="guidanceTopic"
+>
+General Financial Guidance
+</div>
+
+</div>
+
+
+<button
+class="close"
+onclick="closeGuidance()"
+>
+×
+</button>
+
+</div>
+
+
+<button
+class="contact-option"
+onclick="requestCallBack()"
+>
+
+<div class="contact-icon">
+📞
+</div>
+
+<div>
+
+<strong>
+Request a Call Back
+</strong>
+
+<span>
+Give us a missed call on +91 9706123123.
+Our Financial Guidance Team will get back to you shortly.
+</span>
+
+</div>
+
+</button>
+
+
+<button
+class="contact-option"
+onclick="openWhatsApp()"
+>
+
+<div class="contact-icon">
+💬
+</div>
+
+<div>
+
+<strong>
+Continue with WhatsApp
+</strong>
+
+<span>
+Send your topic directly to the FinPluss team.
+</span>
+
+</div>
+
+</button>
+
+
+<div class="modal-note">
+
+By contacting the team, you are requesting educational
+guidance based on the information you choose to share.
+This does not guarantee product suitability, returns or outcomes.
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div class="footer-brand">
+
+<img
+src="finguide-logo.png"
+alt="FINGUIDE"
+>
+
+<div>
+
+<strong>
+FINGUIDE
+</strong>
+
+<span>
+Financial Knowledge Centre by FinPluss
+</span>
+
+</div>
+
+</div>
+
+
+<div class="footer-right">
+
+FINGUIDE provides educational information and illustrative
+calculations to help users understand financial concepts.
+Information on this website should not be treated as personalised
+financial advice or a guarantee of suitability.
+
+<br><br>
+
+© 2026 FINGUIDE. All rights reserved.
+
+</div>
+
+
+</div>
+
+</footer>
+
 
 <script>
 
+/* =========================================================
+   TOPIC DATABASE
+   ========================================================= */
 
-/* =========================================
-   TOPICS
-========================================= */
+const topics = {
 
 
-const topics = [
-
-{
-
-id:"life-protection",
-
-title:"Life Protection",
+"family-protection":{
 
 icon:"🛡️",
 
-category:"Protection",
+title:"Family Protection",
 
-description:
-"Understand how life protection can help families prepare for an unexpected loss of income.",
+intro:
+"Family protection is about understanding how your loved ones could manage financially if your income stopped or a major unexpected event affected your family.",
+
+category:"Protection",
 
 sections:[
 
 {
-heading:"What is life protection?",
-text:
-"Life protection is designed to provide financial support to beneficiaries if the insured person dies, subject to the policy terms and conditions."
+
+heading:"What is family protection?",
+
+html:`
+
+<p>
+Family protection planning considers the financial responsibilities
+that may continue even when your regular income is interrupted.
+These can include household expenses, education costs, loans,
+future goals and other commitments.
+</p>
+
+<p>
+Life protection products such as life insurance may be one part of
+a broader financial plan. The appropriate level of protection depends
+on the person's circumstances, responsibilities, assets, liabilities
+and financial goals.
+</p>
+
+`
+
 },
 
 {
-heading:"Why can it matter?",
-text:
-"For families that depend on an individual's income, an unexpected loss of income can affect everyday expenses, education plans, loans and other financial commitments."
+
+heading:"Why does income matter?",
+
+html:`
+
+<p>
+For many families, monthly income supports everyday living as well
+as long-term goals. If that income suddenly stops, existing savings
+may not be enough to replace it for a long period.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Simple illustration</strong>
+
+<p>
+Imagine a family depends significantly on a person's monthly income.
+A protection review can ask: how would household expenses, education,
+loan payments and other commitments be managed if that income were
+no longer available?
+</p>
+
+</div>
+
+`
+
 },
 
 {
-heading:"What can you review?",
-text:
-"A protection review may consider income, dependents, liabilities, future goals and financial resources already available to the family."
+
+heading:"What can a protection review consider?",
+
+html:`
+
+<ul>
+
+<li>Current monthly income</li>
+
+<li>Number of dependants</li>
+
+<li>Household expenses</li>
+
+<li>Outstanding loans and liabilities</li>
+
+<li>Children's future education goals</li>
+
+<li>Existing savings and investments</li>
+
+<li>Existing insurance coverage</li>
+
+<li>Long-term family goals</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Term insurance — understand the concept",
+
+html:`
+
+<p>
+Term insurance is a form of life insurance that generally provides
+life cover for a specified period, subject to the policy terms and
+conditions.
+</p>
+
+<p>
+Its purpose is primarily protection rather than creating a guaranteed
+investment return. Premiums, coverage, exclusions, eligibility and
+other conditions depend on the policy.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Important questions to ask",
+
+html:`
+
+<ul>
+
+<li>Who financially depends on my income?</li>
+
+<li>What expenses would continue if my income stopped?</li>
+
+<li>How much existing protection do I already have?</li>
+
+<li>What liabilities would my family need to manage?</li>
+
+<li>How much savings and other assets are available?</li>
+
+<li>How often should my protection needs be reviewed?</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Common mistake",
+
+html:`
+
+<p>
+A common mistake is looking only at the premium rather than
+considering whether the overall protection amount and policy terms
+are appropriate for the family's circumstances.
+</p>
+
+`
+
 }
 
 ],
 
-example:
-"A simple educational review can compare a family's regular financial commitments with the resources that could be available if the primary income were interrupted."
+faqs:[
+
+[
+"Does everyone need the same amount of life protection?",
+"No. Financial responsibilities, income, dependants, liabilities, assets and goals differ from person to person."
+],
+
+[
+"Is life insurance an investment?",
+"Some insurance products may combine protection with other features, but life protection and investing are different financial concepts and should be understood separately."
+],
+
+[
+"Should protection be reviewed later?",
+"Yes. Major life events such as marriage, children, loans, income changes or changes in assets can affect protection needs."
+]
+
+]
 
 },
 
 
-{
-
-id:"health-insurance",
-
-title:"Health Insurance",
+"health-insurance":{
 
 icon:"🏥",
 
-category:"Protection",
+title:"Health Insurance",
 
-description:
-"Learn the basics of health insurance, coverage, exclusions and waiting periods.",
+intro:
+"Health insurance is designed to help manage eligible medical expenses according to the policy terms, conditions, exclusions, limits and waiting periods.",
 
 sections:[
 
 {
-heading:"What is health insurance?",
-text:
-"Health insurance is designed to help manage eligible medical expenses according to the terms and conditions of the policy."
+
+heading:"Why health protection matters",
+
+html:`
+
+<p>
+A medical event can create expenses at a time when a family may also
+need to manage regular household commitments. Health insurance can
+help transfer certain eligible medical costs according to the
+coverage provided by the policy.
+</p>
+
+`
+
 },
 
 {
-heading:"What should you understand?",
-text:
-"Important concepts can include sum insured, exclusions, waiting periods, deductibles, room-rent conditions and claim procedures."
+
+heading:"Individual vs family floater",
+
+html:`
+
+<p>
+An individual health insurance policy generally provides coverage
+for the insured person under that policy.
+</p>
+
+<p>
+A family floater generally provides a shared sum insured for the
+covered family members, subject to the policy terms.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Simple illustration</strong>
+
+<p>
+A family considering health coverage can compare whether individual
+coverage or a family floater structure better fits its members,
+coverage requirements and budget.
+</p>
+
+</div>
+
+`
+
 },
 
 {
-heading:"Why review your coverage?",
-text:
-"Medical expenses can affect savings and long-term financial plans. Reviewing existing coverage periodically can help you understand what your policy does and does not cover."
+
+heading:"Top-up vs super top-up",
+
+html:`
+
+<h3>Top-up</h3>
+
+<p>
+A top-up policy generally applies a deductible to each eligible claim
+or according to its specific policy structure.
+</p>
+
+<h3>Super top-up</h3>
+
+<p>
+A super top-up generally considers eligible expenses cumulatively
+during the policy period after the applicable deductible, subject to
+the policy terms.
+</p>
+
+<p>
+The exact operation depends on the policy wording. These terms should
+always be checked before making a decision.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Things to check before choosing coverage",
+
+html:`
+
+<ul>
+
+<li>Sum insured</li>
+
+<li>Waiting periods</li>
+
+<li>Room-rent or other limits</li>
+
+<li>Network hospitals</li>
+
+<li>Co-payment requirements</li>
+
+<li>Exclusions</li>
+
+<li>Pre-existing disease conditions</li>
+
+<li>Claim process</li>
+
+<li>Renewal terms</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Important reminder",
+
+html:`
+
+<div class="warning-box">
+
+<strong>⚠️ Policy wording matters</strong>
+
+<p>
+Health insurance features can vary significantly between policies.
+Always read the policy schedule, terms, exclusions, waiting periods
+and conditions before making a decision.
+</p>
+
+</div>
+
+`
+
 }
 
 ],
 
-example:
-"An educational review can compare expected medical protection needs with the coverage, conditions and limitations of an existing policy."
+faqs:[
+
+[
+"Does health insurance cover every medical expense?",
+"No. Coverage depends on the specific policy terms, exclusions, limits, waiting periods and other conditions."
+],
+
+[
+"What is a waiting period?",
+"It is a specified period during which certain conditions or treatments may not be covered, depending on the policy."
+],
+
+[
+"Is a family floater always better?",
+"Not necessarily. The suitable structure depends on the family members, coverage needs, age, budget and policy conditions."
+]
+
+]
 
 },
 
 
-{
-
-id:"emergency-fund",
-
-title:"Emergency Fund",
+"emergency-fund":{
 
 icon:"🛟",
 
-category:"Money Management",
+title:"Emergency Fund",
 
-description:
-"Understand why accessible savings can help during unexpected expenses or income disruption.",
+intro:
+"An emergency fund is accessible money set aside to help manage unexpected expenses or temporary disruption to regular income.",
 
 sections:[
 
 {
+
 heading:"What is an emergency fund?",
-text:
-"An emergency fund is money kept readily accessible for unexpected expenses or temporary disruptions to regular income."
+
+html:`
+
+<p>
+An emergency fund is money kept relatively accessible for genuine
+financial emergencies rather than planned purchases or long-term
+investments.
+</p>
+
+<p>
+The purpose is to reduce the need to immediately depend on loans or
+sell long-term investments when an unexpected expense occurs.
+</p>
+
+`
+
 },
 
 {
-heading:"What can it help with?",
-text:
-"Examples can include urgent medical expenses, temporary income loss, essential repairs or other unexpected financial commitments."
+
+heading:"How much should you keep?",
+
+html:`
+
+<p>
+There is no single amount that works for everyone. A useful review
+can consider essential monthly expenses, income stability,
+dependants, existing insurance and the time it may take to restore
+income after a disruption.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Simple illustration</strong>
+
+<p>
+If essential monthly expenses are ₹45,000 and accessible savings are
+₹2,00,000, the savings represent roughly 4.4 months of essential
+expenses.
+</p>
+
+<p>
+This is an illustration of the calculation, not a universal
+recommended target.
+</p>
+
+</div>
+
+`
+
 },
 
 {
-heading:"How can you review it?",
-text:
-"A simple review compares accessible savings with essential monthly expenses and considers how long those savings could support essential needs."
+
+heading:"Where should emergency money be kept?",
+
+html:`
+
+<p>
+Emergency money generally needs accessibility and stability to be
+useful when required. The appropriate place depends on the person's
+circumstances and the characteristics of the financial product or
+account.
+</p>
+
+<p>
+Money intended for emergencies should not be confused with money
+allocated to long-term investments where values may fluctuate.
+</p>
+
+`
+
+},
+
+{
+
+heading:"What can an emergency fund help with?",
+
+html:`
+
+<ul>
+
+<li>Temporary income disruption</li>
+
+<li>Unexpected household expenses</li>
+
+<li>Urgent travel requirements</li>
+
+<li>Unexpected repairs</li>
+
+<li>Eligible medical expenses not covered elsewhere</li>
+
+</ul>
+
+`
+
 }
 
 ],
 
-example:
-"If essential expenses are ₹40,000 per month and accessible savings are ₹2,00,000, those savings represent approximately 5 months of essential expenses."
+faqs:[
+
+[
+"Should emergency money be invested for higher returns?",
+"The primary purpose of an emergency fund is accessibility and financial safety. Chasing higher returns can introduce risks that may not fit an emergency reserve."
+],
+
+[
+"Can insurance replace an emergency fund?",
+"Insurance and emergency savings serve different purposes. Insurance may cover eligible events according to policy terms, while an emergency fund provides accessible money for various unexpected needs."
+]
+
+]
 
 },
 
 
-{
-
-id:"savings",
-
-title:"Savings",
+"saving":{
 
 icon:"💰",
 
-category:"Money Management",
+title:"Smart Saving",
 
-description:
-"Learn how regular saving can support financial preparedness and future goals.",
+intro:
+"Saving creates financial capacity for emergencies, planned expenses and future goals. It is different from investing for long-term growth.",
 
 sections:[
 
 {
-heading:"Why save?",
-text:
-"Saving can help create financial stability, prepare for upcoming expenses and provide resources for future goals."
+
+heading:"Saving vs investing",
+
+html:`
+
+<p>
+Saving generally focuses on preserving money for short- or
+medium-term needs, while investing generally involves taking some
+level of market or other risk with the objective of growing money
+over a longer period.
+</p>
+
+`
+
 },
 
 {
-heading:"What can you review?",
-text:
-"You can review how much you save regularly, where your savings are held and whether the money is intended for short-term or long-term needs."
+
+heading:"Build a savings habit",
+
+html:`
+
+<ul>
+
+<li>Know your monthly income</li>
+
+<li>Track essential and discretionary expenses</li>
+
+<li>Automate a portion of savings where practical</li>
+
+<li>Maintain an emergency reserve</li>
+
+<li>Separate short-term goals from long-term investments</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Goal-based saving",
+
+html:`
+
+<p>
+Instead of simply asking "How much should I save?", it can be useful
+to ask "What am I saving for, and when will I need the money?"
+</p>
+
+<div class="example-box">
+
+<strong>💡 Example</strong>
+
+<p>
+Someone planning a vacation in 12 months may use a different savings
+approach from someone preparing for a retirement goal 25 years away.
+The time horizon matters.
+</p>
+
+</div>
+
+`
+
 }
 
 ],
 
-example:
-"A regular saving habit can gradually build resources for planned expenses while reducing the need to depend on credit for every unexpected requirement."
+faqs:[
+
+[
+"Should I save before investing?",
+"Building basic financial safety, especially accessible savings, can be important before taking substantial long-term investment risk."
+],
+
+[
+"Why does budgeting matter?",
+"Budgeting helps you understand where money is going and creates visibility over how much can realistically be saved or invested."
+]
+
+]
 
 },
 
 
-{
-
-id:"mutual-funds",
-
-title:"Mutual Funds",
+"investments":{
 
 icon:"📈",
 
-category:"Wealth Building",
+title:"Investments & SIP",
 
-description:
-"Understand the basic concept of mutual funds and pooled investments.",
-
-sections:[
-
-{
-heading:"What is a mutual fund?",
-text:
-"A mutual fund pools money from investors and invests it according to the fund's stated investment objective."
-},
-
-{
-heading:"What should investors understand?",
-text:
-"Important concepts include investment objective, risk, time horizon, expenses, diversification and market fluctuations."
-}
-
-],
-
-example:
-"Two investors with different goals and time horizons may have very different considerations even when looking at the same investment category."
-
-},
-
-
-{
-
-id:"sip",
-
-title:"SIP",
-
-icon:"🔄",
-
-category:"Wealth Building",
-
-description:
-"Learn what a Systematic Investment Plan is and understand regular investing.",
+intro:
+"Investing means putting money into assets or financial instruments with the expectation of potential growth or income, while accepting the risks associated with them.",
 
 sections:[
 
 {
-heading:"What is SIP?",
-text:
-"A Systematic Investment Plan is a method of investing a predetermined amount at regular intervals into an eligible investment scheme."
+
+heading:"Why do people invest?",
+
+html:`
+
+<p>
+People may invest to pursue long-term goals, build wealth, generate
+potential income or preserve purchasing power over time.
+</p>
+
+<p>
+However, investment returns are not guaranteed unless specifically
+provided under the relevant product terms. Market-linked investments
+can rise and fall in value.
+</p>
+
+`
+
 },
 
 {
-heading:"Why do people use SIPs?",
-text:
-"Regular investing can help create a disciplined investment habit. Investment values can still rise or fall with market conditions."
-}
 
-],
-
-example:
-"For illustration, investing ₹5,000 each month means contributing ₹60,000 over one year before considering any investment gains or losses."
-
-},
-
-
-{
-
-id:"compounding",
-
-title:"Compounding",
-
-icon:"📊",
-
-category:"Wealth Building",
-
-description:
-"Understand how returns can potentially generate further returns over time.",
-
-sections:[
-
-{
 heading:"What is compounding?",
-text:
-"Compounding occurs when returns or interest remain invested and subsequently generate additional returns."
+
+html:`
+
+<p>
+Compounding occurs when returns generated on an amount are themselves
+left invested and can generate further returns over time.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Simple illustration</strong>
+
+<p>
+If ₹1,00,000 grows at an assumed 10% per year and the growth remains
+invested, the mathematical value after each year is calculated on the
+previous year's value.
+</p>
+
+<p>
+This demonstrates why time can have a significant effect on
+compounding. It does not represent a guaranteed investment return.
+</p>
+
+</div>
+
+`
+
 },
 
 {
-heading:"Why does time matter?",
-text:
-"The effect of compounding can become more significant over longer periods because earlier growth can itself participate in future growth."
+
+heading:"What is SIP?",
+
+html:`
+
+<p>
+A Systematic Investment Plan, commonly called SIP, is a method of
+investing a predetermined amount at regular intervals into an
+investment scheme, commonly mutual funds.
+</p>
+
+<p>
+SIP is a method of investing, not itself a guarantee of return.
+The underlying investment's risk and performance still matter.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Risk and return",
+
+html:`
+
+<p>
+Different investments carry different levels and types of risk.
+Generally, accepting more uncertainty may provide the possibility of
+higher returns, but higher potential return should never be treated
+as a promise.
+</p>
+
+<ul>
+
+<li>Understand what you are investing in.</li>
+
+<li>Understand the risk.</li>
+
+<li>Consider the time horizon.</li>
+
+<li>Consider liquidity requirements.</li>
+
+<li>Avoid choosing only because of past performance.</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Use the FINGUIDE calculator",
+
+html:`
+
+<p>
+Use the calculator below to understand how different assumed annual
+rates and time periods affect a mathematical illustration.
+</p>
+
+<p>
+You can compare a one-time investment with a yearly investment and
+view the result from 5 years through 50 years.
+</p>
+
+`
+
 }
 
 ],
 
-example:
-"If money remains invested and generates returns, those returns may remain invested and contribute to future growth. Actual returns are not guaranteed."
+faqs:[
 
-},
-
-
-{
-
-id:"risk-return",
-
-title:"Risk & Return",
-
-icon:"⚖️",
-
-category:"Wealth Building",
-
-description:
-"Understand the relationship between potential returns, uncertainty and investment risk.",
-
-sections:[
-
-{
-heading:"What is investment risk?",
-text:
-"Investment risk refers to the possibility that an investment may not perform as expected and may lose value."
-},
-
-{
-heading:"What is return?",
-text:
-"Return refers to the gain or loss generated by an investment over a period."
-},
-
-{
-heading:"Why is this important?",
-text:
-"Different investments have different risk characteristics. Understanding your time horizon and ability to tolerate losses is important when evaluating investments."
-}
-
+[
+"Does compounding guarantee higher returns?",
+"No. Compounding is a mathematical process. Actual investment returns depend on the underlying investment and can vary."
 ],
 
-example:
-"An investment with greater potential return may also involve greater uncertainty or potential loss. There is no universal investment that is suitable for everyone."
+[
+"Is SIP a financial product?",
+"SIP is an investment method. The actual investment product and its risks depend on what the SIP is invested into."
+],
+
+[
+"Is past performance a guarantee of future returns?",
+"No. Past performance does not guarantee future performance."
+]
+
+]
 
 },
 
 
-{
-
-id:"retirement-planning",
-
-title:"Retirement Planning",
+"retirement-planning":{
 
 icon:"👴",
 
-category:"Retirement",
+title:"Retirement Planning",
 
-description:
-"Understand the basic elements involved in preparing financially for retirement.",
-
-sections:[
-
-{
-heading:"What is retirement planning?",
-text:
-"Retirement planning involves considering future expenses, retirement age, existing savings, ongoing contributions and the period for which retirement income may be required."
-},
-
-{
-heading:"What can affect retirement readiness?",
-text:
-"Inflation, lifestyle expectations, investment returns, longevity, savings rate and retirement timing can all influence retirement preparation."
-}
-
-],
-
-example:
-"An illustrative review can compare your desired retirement age with your current savings and planned future contributions."
-
-},
-
-
-{
-
-id:"epf",
-
-title:"EPF",
-
-icon:"🏦",
-
-category:"Retirement",
-
-description:
-"Learn the basic purpose of the Employees' Provident Fund as a long-term savings mechanism.",
+intro:
+"Retirement planning means preparing financially for the period when regular employment income may reduce or stop.",
 
 sections:[
 
 {
-heading:"What is EPF?",
-text:
-"EPF is a structured retirement savings mechanism for eligible employees, involving contributions according to applicable rules."
+
+heading:"Why start early?",
+
+html:`
+
+<p>
+Retirement can be several decades away, which gives long-term
+savings more time to potentially grow. Starting earlier can also
+allow a person to spread contributions over a longer period.
+</p>
+
+`
+
 },
 
 {
-heading:"Why is it relevant?",
-text:
-"Long-term retirement savings can form an important part of retirement preparation for eligible employees."
+
+heading:"What should a retirement plan consider?",
+
+html:`
+
+<ul>
+
+<li>Current age</li>
+
+<li>Desired retirement age</li>
+
+<li>Current monthly expenses</li>
+
+<li>Expected future expenses</li>
+
+<li>Existing savings and investments</li>
+
+<li>Regular contributions</li>
+
+<li>Expected retirement income sources</li>
+
+<li>Expected retirement duration</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Inflation matters",
+
+html:`
+
+<p>
+The amount that seems sufficient today may not buy the same basket
+of goods and services many years from now. Retirement planning
+therefore needs to consider the possible effect of inflation.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Simple illustration</strong>
+
+<p>
+If a household currently spends ₹50,000 per month, future retirement
+expenses may be very different after several decades. The actual
+amount depends on inflation and spending patterns.
+</p>
+
+</div>
+
+`
+
+},
+
+{
+
+heading:"Retirement corpus",
+
+html:`
+
+<p>
+A retirement corpus is the pool of financial resources accumulated
+to support expenses during retirement.
+</p>
+
+<p>
+There is no universal corpus number. It depends on the expected
+retirement lifestyle, age, expenses, inflation, expected income,
+assets and the length of retirement.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Review periodically",
+
+html:`
+
+<p>
+A retirement plan should not be treated as a one-time exercise.
+Income, expenses, investments, family responsibilities and
+retirement goals can change over time.
+</p>
+
+`
+
 }
 
 ],
 
-example:
-"An employee can review EPF contributions alongside other retirement savings to understand the overall retirement preparation picture."
+faqs:[
 
-},
-
-
-{
-
-id:"nps",
-
-title:"NPS",
-
-icon:"🧓",
-
-category:"Retirement",
-
-description:
-"Understand the basic concept of the National Pension System.",
-
-sections:[
-
-{
-heading:"What is NPS?",
-text:
-"The National Pension System is a retirement-focused investment framework governed by applicable rules and regulations."
-},
-
-{
-heading:"What should you understand?",
-text:
-"Investors should understand contribution rules, investment choices, risk, charges, withdrawal conditions and applicable tax provisions."
-}
-
+[
+"What age should I start retirement planning?",
+"There is no single correct age. Starting earlier generally provides more time to save and plan."
 ],
 
-example:
-"An educational retirement review can consider NPS alongside EPF and other long-term savings."
+[
+"Can I depend only on pension income?",
+"That depends on the pension amount, other income sources, expenses, inflation and retirement needs."
+],
+
+[
+"How much should I save for retirement?",
+"There is no universal amount. A proper calculation should consider your individual circumstances and retirement goals."
+]
+
+]
 
 },
 
 
-{
-
-id:"child-education",
-
-title:"Child Education Planning",
+"child-education":{
 
 icon:"🎓",
 
-category:"Goals",
+title:"Child Education Planning",
 
-description:
-"Understand how parents can prepare financially for future education expenses.",
+intro:
+"Child education planning helps parents think ahead about future education costs, timelines, savings and other family responsibilities.",
 
 sections:[
 
 {
-heading:"Why plan early?",
-text:
-"Starting earlier can provide more time to build resources for a child's future education goals."
+
+heading:"Why start early?",
+
+html:`
+
+<p>
+Education expenses may occur many years after a child is born.
+Starting early provides more time to prepare and can reduce the need
+for large last-minute contributions.
+</p>
+
+`
+
 },
 
 {
-heading:"What can you consider?",
-text:
-"Consider the child's current age, expected education timeline, estimated future costs, existing savings and the amount of time available to prepare."
+
+heading:"What should be considered?",
+
+html:`
+
+<ul>
+
+<li>Child's current age</li>
+
+<li>Expected education age</li>
+
+<li>Current education cost</li>
+
+<li>Potential inflation in education costs</li>
+
+<li>Existing savings</li>
+
+<li>Monthly or yearly contribution capacity</li>
+
+<li>Other family goals</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Think in today's money and future money",
+
+html:`
+
+<p>
+A future education goal should not simply use today's cost.
+Education costs may change over time.
+</p>
+
+<div class="example-box">
+
+<strong>💡 Example</strong>
+
+<p>
+If a course costs ₹10 lakh today, the amount required when the child
+actually reaches college age may be different. The exact future cost
+depends on the inflation rate and the type of education.
+</p>
+
+</div>
+
+`
+
+},
+
+{
+
+heading:"Avoid putting every goal into one bucket",
+
+html:`
+
+<p>
+A family may have several goals at the same time — emergency
+savings, education, retirement, housing and other commitments.
+Separating goals can make financial planning easier to understand.
+</p>
+
+`
+
 }
 
 ],
 
-example:
-"A simple educational calculation can compare a future education goal with the years available to save and invest toward it."
+faqs:[
+
+[
+"When should parents start planning?",
+"Parents can begin as early as practical because time gives more opportunity to prepare gradually."
+],
+
+[
+"Should education money be invested?",
+"The appropriate approach depends on the time horizon, risk tolerance, goal amount and circumstances. Short-term and long-term goals may require different approaches."
+]
+
+]
 
 },
 
 
-{
-
-id:"financial-goals",
-
-title:"Financial Goal Planning",
+"financial-goals":{
 
 icon:"🎯",
 
-category:"Goals",
+title:"Financial Goals",
 
-description:
-"Learn how clear goals and timelines can make financial planning easier.",
-
-sections:[
-
-{
-heading:"What is a financial goal?",
-text:
-"A financial goal is a specific future objective that requires financial preparation."
-},
-
-{
-heading:"How can you structure a goal?",
-text:
-"A useful goal review can identify what you want to achieve, when you may need the money and how much preparation may be required."
-}
-
-],
-
-example:
-"Instead of simply saying 'I want to save more', a goal could have a defined purpose, approximate timeline and financial target."
-
-},
-
-
-{
-
-id:"home-planning",
-
-title:"Home Planning",
-
-icon:"🏠",
-
-category:"Goals",
-
-description:
-"Understand financial considerations involved when preparing for a future home purchase.",
+intro:
+"Financial goals turn general intentions into specific targets with amounts, timelines and priorities.",
 
 sections:[
 
 {
-heading:"What should you consider?",
-text:
-"A home goal can involve the expected purchase price, down payment, financing costs, loan obligations, ongoing expenses and your overall financial position."
+
+heading:"What makes a useful financial goal?",
+
+html:`
+
+<ul>
+
+<li>Specific purpose</li>
+
+<li>Target amount</li>
+
+<li>Target date</li>
+
+<li>Current amount already available</li>
+
+<li>Regular contribution required</li>
+
+<li>Suitable risk level for the timeline</li>
+
+</ul>
+
+`
+
 },
 
 {
-heading:"Why plan ahead?",
-text:
-"Planning can help you understand how a large future expense may interact with other financial goals and commitments."
+
+heading:"Short, medium and long-term goals",
+
+html:`
+
+<p>
+Different goals have different timelines. An emergency reserve may
+need high accessibility, while a retirement goal may have a much
+longer horizon.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Prioritise your goals",
+
+html:`
+
+<div class="example-box">
+
+<strong>💡 Example</strong>
+
+<p>
+A family may simultaneously want to build an emergency fund, buy a
+house, fund a child's education and prepare for retirement. Ranking
+these goals by importance and timeline can help decide how available
+money is allocated.
+</p>
+
+</div>
+
+`
+
+},
+
+{
+
+heading:"Review your goals",
+
+html:`
+
+<p>
+Goals should be reviewed when income, expenses, family circumstances
+or timelines change.
+</p>
+
+`
+
 }
 
 ],
 
-example:
-"An educational home-planning review can compare the expected down payment with available savings and the timeline before purchase."
+faqs:[
+
+[
+"Should every goal have a separate investment?",
+"Not necessarily. The appropriate approach depends on the goal, timeline, liquidity requirement and risk."
+],
+
+[
+"What if I have too many goals?",
+"Prioritise essential and time-sensitive goals first, then allocate available resources across the remaining goals."
+]
+
+]
+
+},
+
+
+"loans-credit":{
+
+icon:"💳",
+
+title:"Loans & Credit",
+
+intro:
+"Borrowing can help finance large purchases, but every loan creates a repayment obligation and a cost.",
+
+sections:[
+
+{
+
+heading:"Understand the total cost",
+
+html:`
+
+<p>
+A loan is not only about the monthly EMI. A borrower should also
+consider the interest cost, processing charges, other fees, loan
+duration and any applicable conditions.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Longer tenure vs shorter tenure",
+
+html:`
+
+<p>
+A longer repayment period may reduce the monthly EMI but can increase
+the total interest paid over the life of the loan. A shorter period
+can increase the EMI while potentially reducing total interest.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Credit score basics",
+
+html:`
+
+<p>
+Credit history can influence how lenders evaluate a borrower's
+creditworthiness. Timely repayments and responsible credit behaviour
+can be important parts of maintaining a healthy credit profile.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Before taking a loan",
+
+html:`
+
+<ul>
+
+<li>Understand the purpose of the loan.</li>
+
+<li>Check whether the EMI fits comfortably into your budget.</li>
+
+<li>Compare total borrowing costs.</li>
+
+<li>Understand the interest structure.</li>
+
+<li>Check fees and charges.</li>
+
+<li>Understand prepayment conditions.</li>
+
+<li>Avoid borrowing beyond your repayment capacity.</li>
+
+</ul>
+
+`
 
 }
 
-];
+],
+
+faqs:[
+
+[
+"Is a lower EMI always better?",
+"No. A lower EMI may result from a longer tenure and can lead to a higher total interest cost."
+],
+
+[
+"Does every loan affect credit history?",
+"Credit reporting depends on the lender, product and reporting practices. Borrowers should understand their specific credit arrangement."
+]
+
+]
+
+},
 
 
+"tax-basics":{
 
-/* =========================================
+icon:"🧾",
+
+title:"Tax Basics",
+
+intro:
+"Tax planning starts with understanding income, applicable rules, records, deductions and the difference between tax planning and tax avoidance.",
+
+sections:[
+
+{
+
+heading:"Why understand taxes?",
+
+html:`
+
+<p>
+Tax can affect the amount of money available for savings and
+investments. Understanding the applicable tax rules can help people
+make informed financial decisions.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Tax planning vs tax avoidance",
+
+html:`
+
+<p>
+Tax planning means organising finances within applicable laws and
+rules. Tax evasion involves deliberately hiding or misrepresenting
+information and is unlawful.
+</p>
+
+`
+
+},
+
+{
+
+heading:"Keep records",
+
+html:`
+
+<ul>
+
+<li>Income documents</li>
+
+<li>Investment records</li>
+
+<li>Eligible expense records</li>
+
+<li>Tax-related statements</li>
+
+<li>Relevant declarations and documents</li>
+
+</ul>
+
+`
+
+},
+
+{
+
+heading:"Important reminder",
+
+html:`
+
+<div class="warning-box">
+
+<strong>⚠️ Tax rules can change</strong>
+
+<p>
+Tax treatment depends on the applicable law, financial year,
+individual circumstances and type of income or investment.
+For specific tax decisions, consult a qualified tax professional.
+</p>
+
+</div>
+
+`
+
+}
+
+],
+
+faqs:[
+
+[
+"Can tax rules change?",
+"Yes. Tax laws, rates, exemptions and procedures can change. Always check the rules applicable to the relevant financial year."
+],
+
+[
+"Is tax planning the same for everyone?",
+"No. Tax treatment can depend on income, investments, deductions, residency and other individual circumstances."
+]
+
+]
+
+}
+
+};
+
+
+/* =========================================================
+   LANGUAGE TRANSLATIONS
+   ========================================================= */
+
+const translations = {
+
+en:{
+
+heroEyebrow:"📚 FINGUIDE Knowledge Centre",
+
+heroTitle:
+'Understand Money. <span>Make Better Decisions.</span>',
+
+heroText:
+"Money questions can feel complicated. FINGUIDE helps you understand important financial concepts through simple explanations, real-life examples and illustrative calculators — so you can learn before you decide.",
+
+explore:"🔎 Explore Financial Topics",
+
+calculator:"🧮 Try a Calculator",
+
+categoryTitle:"Explore by Category",
+
+categoryText:
+"Start with a topic you want to understand better.",
+
+topicsTitle:"Financial Topics",
+
+topicsText:
+"Simple explanations for important money decisions.",
+
+assessment:"💚 Financial Health Check"
+
+},
+
+kn:{
+
+heroEyebrow:"📚 FINGUIDE ಜ್ಞಾನ ಕೇಂದ್ರ",
+
+heroTitle:
+'ಹಣವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. <span>ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.</span>',
+
+heroText:
+"ಹಣಕಾಸಿನ ವಿಷಯಗಳು ಕೆಲವೊಮ್ಮೆ ಸಂಕೀರ್ಣವಾಗಿರಬಹುದು. FINGUIDE ಸರಳ ವಿವರಣೆಗಳು, ಉದಾಹರಣೆಗಳು ಮತ್ತು ಲೆಕ್ಕಾಚಾರಗಳ ಮೂಲಕ ಹಣಕಾಸಿನ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+
+explore:"🔎 ಹಣಕಾಸಿನ ವಿಷಯಗಳನ್ನು ನೋಡಿ",
+
+calculator:"🧮 ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಬಳಸಿ",
+
+categoryTitle:"ವರ್ಗದ ಪ್ರಕಾರ ನೋಡಿ",
+
+categoryText:
+"ನೀವು ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+
+topicsTitle:"ಹಣಕಾಸಿನ ವಿಷಯಗಳು",
+
+topicsText:
+"ಮುಖ್ಯ ಹಣಕಾಸಿನ ನಿರ್ಧಾರಗಳಿಗೆ ಸರಳ ವಿವರಣೆಗಳು.",
+
+assessment:"💚 ಹಣಕಾಸಿನ ಆರೋಗ್ಯ ಪರಿಶೀಲನೆ"
+
+},
+
+te:{
+
+heroEyebrow:"📚 FINGUIDE జ్ఞాన కేంద్రం",
+
+heroTitle:
+'డబ్బును అర్థం చేసుకోండి. <span>మెరుగైన నిర్ణయాలు తీసుకోండి.</span>',
+
+heroText:
+"ఆర్థిక విషయాలు క్లిష్టంగా అనిపించవచ్చు. FINGUIDE సులభమైన వివరణలు, ఉదాహరణలు మరియు కాలిక్యులేటర్ల ద్వారా ఆర్థిక విషయాలను అర్థం చేసుకోవడానికి సహాయపడుతుంది.",
+
+explore:"🔎 ఆర్థిక అంశాలను చూడండి",
+
+calculator:"🧮 కాలిక్యులేటర్ ప్రయత్నించండి",
+
+categoryTitle:"వర్గం ద్వారా చూడండి",
+
+categoryText:
+"మీరు బాగా అర్థం చేసుకోవాలనుకునే అంశాన్ని ఎంచుకోండి.",
+
+topicsTitle:"ఆర్థిక అంశాలు",
+
+topicsText:
+"ముఖ్యమైన ఆర్థిక నిర్ణయాలకు సరళమైన వివరణలు.",
+
+assessment:"💚 ఆర్థిక ఆరోగ్య తనిఖీ"
+
+},
+
+ta:{
+
+heroEyebrow:"📚 FINGUIDE அறிவு மையம்",
+
+heroTitle:
+'பணத்தைப் புரிந்துகொள்ளுங்கள். <span>சிறந்த முடிவுகளை எடுங்கள்.</span>',
+
+heroText:
+"நிதி விஷயங்கள் சிக்கலாகத் தோன்றலாம். FINGUIDE எளிய விளக்கங்கள், எடுத்துக்காட்டுகள் மற்றும் கால்குலேட்டர்கள் மூலம் நிதி கருத்துகளைப் புரிந்துகொள்ள உதவுகிறது.",
+
+explore:"🔎 நிதி தலைப்புகளைப் பார்க்க",
+
+calculator:"🧮 கால்குலேட்டரை முயற்சிக்க",
+
+categoryTitle:"வகை வாரியாக பார்க்க",
+
+categoryText:
+"நீங்கள் நன்றாகப் புரிந்துகொள்ள விரும்பும் தலைப்பைத் தேர்ந்தெடுக்கவும்.",
+
+topicsTitle:"நிதி தலைப்புகள்",
+
+topicsText:
+"முக்கிய நிதி முடிவுகளுக்கான எளிய விளக்கங்கள்.",
+
+assessment:"💚 நிதி ஆரோக்கிய பரிசோதனை"
+
+},
+
+ml:{
+
+heroEyebrow:"📚 FINGUIDE വിജ്ഞാന കേന്ദ്രം",
+
+heroTitle:
+'പണം മനസ്സിലാക്കൂ. <span>മികച്ച തീരുമാനങ്ങൾ എടുക്കൂ.</span>',
+
+heroText:
+"സാമ്പത്തിക കാര്യങ്ങൾ ചിലപ്പോൾ സങ്കീർണ്ണമായി തോന്നാം. ലളിതമായ വിശദീകരണങ്ങൾ, ഉദാഹരണങ്ങൾ, കാൽക്കുലേറ്ററുകൾ എന്നിവയിലൂടെ സാമ്പത്തിക ആശയങ്ങൾ മനസ്സിലാക്കാൻ FINGUIDE സഹായിക്കുന്നു.",
+
+explore:"🔎 സാമ്പത്തിക വിഷയങ്ങൾ കാണുക",
+
+calculator:"🧮 കാൽക്കുലേറ്റർ പരീക്ഷിക്കുക",
+
+categoryTitle:"വിഭാഗം അനുസരിച്ച്",
+
+categoryText:
+"നിങ്ങൾക്ക് കൂടുതൽ മനസ്സിലാക്കേണ്ട വിഷയം തിരഞ്ഞെടുക്കുക.",
+
+topicsTitle:"സാമ്പത്തിക വിഷയങ്ങൾ",
+
+topicsText:
+"പ്രധാന സാമ്പത്തിക തീരുമാനങ്ങൾക്കുള്ള ലളിതമായ വിശദീകരണങ്ങൾ.",
+
+assessment:"💚 സാമ്പത്തിക ആരോഗ്യ പരിശോധന"
+
+},
+
+hi:{
+
+heroEyebrow:"📚 FINGUIDE ज्ञान केंद्र",
+
+heroTitle:
+'पैसे को समझें। <span>बेहतर निर्णय लें।</span>',
+
+heroText:
+"वित्तीय विषय कभी-कभी कठिन लग सकते हैं। FINGUIDE सरल जानकारी, उदाहरणों और कैलकुलेटर के माध्यम से वित्तीय अवधारणाओं को समझने में आपकी मदद करता है।",
+
+explore:"🔎 वित्तीय विषय देखें",
+
+calculator:"🧮 कैलकुलेटर आज़माएँ",
+
+categoryTitle:"श्रेणी के अनुसार देखें",
+
+categoryText:
+"जिस विषय को बेहतर समझना चाहते हैं, उसे चुनें।",
+
+topicsTitle:"वित्तीय विषय",
+
+topicsText:
+"महत्वपूर्ण वित्तीय निर्णयों के लिए सरल जानकारी।",
+
+assessment:"💚 वित्तीय स्वास्थ्य जांच"
+
+}
+
+};
+
+
+/* =========================================================
    STATE
-========================================= */
+   ========================================================= */
 
-let currentTopic = null;
+let currentTopic = "";
 
-let activeCategory = "All";
-
-
-
-/* =========================================
-   RENDER TOPICS
-========================================= */
-
-function renderTopics(){
-
-  const grid =
-  document.getElementById("topicGrid");
-
-  const search =
-  document.getElementById("searchInput")
-  .value
-  .toLowerCase()
-  .trim();
+let currentCalcType = "one";
 
 
-  const filtered =
-  topics.filter(topic=>{
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
 
-    const categoryMatch =
-    activeCategory === "All" ||
-    topic.category === activeCategory;
+document
+.getElementById("languageSelect")
+.addEventListener("change",function(){
 
+  applyLanguage(this.value);
 
-    const searchMatch =
-    !search ||
-
-    topic.title
-    .toLowerCase()
-    .includes(search) ||
-
-    topic.description
-    .toLowerCase()
-    .includes(search);
+});
 
 
-    return categoryMatch && searchMatch;
+function applyLanguage(lang){
 
-  });
+  const t =
+    translations[lang] ||
+    translations.en;
 
 
-  grid.innerHTML = "";
+  document
+  .getElementById("heroEyebrow")
+  .textContent =
+    t.heroEyebrow;
 
 
-  if(filtered.length === 0){
+  document
+  .getElementById("heroTitle")
+  .innerHTML =
+    t.heroTitle;
 
-    grid.innerHTML = `
 
-      <div class="empty">
+  document
+  .getElementById("heroText")
+  .textContent =
+    t.heroText;
 
-        No financial topics found.
 
-        <br>
+  document
+  .getElementById("exploreBtn")
+  .textContent =
+    t.explore;
 
-        Try another search.
 
-      </div>
+  document
+  .getElementById("calculatorBtn")
+  .textContent =
+    t.calculator;
 
-    `;
+
+  document
+  .getElementById("categoryTitle")
+  .textContent =
+    t.categoryTitle;
+
+
+  document
+  .getElementById("categoryText")
+  .textContent =
+    t.categoryText;
+
+
+  document
+  .getElementById("topicsTitle")
+  .textContent =
+    t.topicsTitle;
+
+
+  document
+  .getElementById("topicsText")
+  .textContent =
+    t.topicsText;
+
+
+  document
+  .getElementById("assessmentBtn")
+  .textContent =
+    t.assessment;
+
+}
+
+
+/* =========================================================
+   OPEN TOPIC
+   ========================================================= */
+
+function openTopic(slug){
+
+  const topic =
+    topics[slug];
+
+  if(!topic){
 
     return;
-
   }
 
 
-  filtered.forEach(topic=>{
+  currentTopic =
+    slug;
 
-    grid.innerHTML += `
-
-      <div class="topic-card">
-
-
-        <div class="topic-visual">
-
-          <div class="topic-emoji">
-
-            ${topic.icon}
-
-          </div>
-
-        </div>
-
-
-        <div class="topic-body">
-
-
-          <h3>
-
-            ${topic.title}
-
-          </h3>
-
-
-          <p>
-
-            ${topic.description}
-
-          </p>
-
-
-          <button
-
-          type="button"
-
-          class="read-btn"
-
-          onclick="openTopic('${topic.id}')"
-
-          >
-
-          📖 Read & Understand
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-
-/* =========================================
-   SEARCH
-========================================= */
-
-function searchTopics(){
-
-  renderTopics();
-
-}
-
-
-
-/* =========================================
-   CATEGORY
-========================================= */
-
-function filterCategory(category){
-
-  activeCategory = category;
 
   document
-  .getElementById("topicGrid")
-  .scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-  renderTopics();
-
-}
+  .getElementById("articleArea")
+  .style.display =
+    "block";
 
 
-
-/* =========================================
-   OPEN TOPIC
-========================================= */
-
-function openTopic(id){
-
-  const topic =
-  topics.find(item=>item.id === id);
+  document
+  .getElementById("articleIcon")
+  .textContent =
+    topic.icon;
 
 
-  if(!topic) return;
+  document
+  .getElementById("articleTitle")
+  .textContent =
+    topic.title;
 
 
-  currentTopic = topic;
+  document
+  .getElementById("articleIntro")
+  .textContent =
+    topic.intro;
 
 
-  let html = `
-
-    <div class="article-category">
-
-      ${topic.icon}
-
-      ${topic.category}
-
-    </div>
-
-
-    <h1>
-
-      ${topic.title}
-
-    </h1>
-
-
-    <div class="article-hero">
-
-      ${topic.icon}
-
-    </div>
-
-  `;
+  let html = "";
 
 
   topic.sections.forEach(section=>{
@@ -2885,198 +5091,651 @@ function openTopic(id){
     html += `
 
       <h2>
-
         ${section.heading}
-
       </h2>
 
-
-      <p>
-
-        ${section.text}
-
-      </p>
+      ${section.html}
 
     `;
 
   });
 
 
-  html += `
-
-    <div class="example">
-
-      <strong>
-
-        💡 Illustrative Example
-
-      </strong>
-
-
-      <p>
-
-        ${topic.example}
-
-      </p>
-
-    </div>
-
-  `;
-
-
   document
   .getElementById("articleContent")
-  .innerHTML = html;
+  .innerHTML =
+    html;
 
 
-  document
-  .getElementById("knowledgeHome")
-  .style.display = "none";
-
-
-  document
-  .getElementById("article")
-  .classList.add("active");
+  buildFAQs(topic.faqs);
 
 
   history.replaceState(
     null,
     "",
-    "knowledge.html?topic=" + topic.id
+    "knowledge.html?topic=" +
+    encodeURIComponent(slug)
   );
 
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
+  document
+  .getElementById("articleArea")
+  .scrollIntoView({
+    behavior:"smooth",
+    block:"start"
   });
 
 }
 
 
+function buildFAQs(faqs){
 
-/* =========================================
-   BACK
-========================================= */
+  const container =
+    document.getElementById("faqContainer");
 
-function showHome(){
-
-  document
-  .getElementById("article")
-  .classList.remove("active");
+  container.innerHTML = "";
 
 
-  document
-  .getElementById("knowledgeHome")
-  .style.display = "block";
+  if(!faqs || !faqs.length){
+
+    container.innerHTML =
+      "<p style='color:var(--muted);font-size:12px;'>No FAQs available for this topic yet.</p>";
+
+    return;
+  }
 
 
-  history.replaceState(
-    null,
-    "",
-    "knowledge.html"
-  );
+  faqs.forEach((faq,index)=>{
 
+    container.innerHTML += `
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
+      <div class="faq-item">
+
+        <button
+          class="faq-question"
+          type="button"
+          onclick="toggleFAQ(this)"
+        >
+
+          <span>
+            ${faq[0]}
+          </span>
+
+          <span>
+            +
+          </span>
+
+        </button>
+
+        <div class="faq-answer">
+          ${faq[1]}
+        </div>
+
+      </div>
+
+    `;
+
   });
 
 }
 
 
+function toggleFAQ(button){
 
-/* =========================================
+  const item =
+    button.parentElement;
+
+
+  item.classList.toggle("open");
+
+
+  const symbol =
+    button.querySelector("span:last-child");
+
+
+  symbol.textContent =
+    item.classList.contains("open")
+      ? "−"
+      : "+";
+
+}
+
+
+/* =========================================================
    URL TOPIC
-========================================= */
+   ========================================================= */
 
-function loadTopicFromURL(){
+function loadURLTopic(){
 
   const params =
-  new URLSearchParams(
-    window.location.search
-  );
-
-
-  const topic =
-  params.get("topic");
-
-
-  if(topic){
-
-    const exists =
-    topics.some(
-      item=>item.id === topic
+    new URLSearchParams(
+      window.location.search
     );
 
 
-    if(exists){
+  const topic =
+    params.get("topic");
 
-      openTopic(topic);
 
-    }
+  if(topic && topics[topic]){
+
+    setTimeout(
+      ()=>{
+        openTopic(topic);
+      },
+      150
+    );
 
   }
 
 }
 
 
+loadURLTopic();
 
-/* =========================================
-   CALCULATOR
-========================================= */
 
-function openCalculator(){
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-  alert(
+document
+.getElementById("searchBox")
+.addEventListener("input",function(){
 
-    "🧮 Investment Growth Calculator\n\n" +
+  const query =
+    this.value
+      .toLowerCase()
+      .trim();
 
-    "This calculator is coming next.\n\n" +
 
-    "We will build the FINGUIDE Investment Growth " +
+  const cards =
+    document.querySelectorAll(".topic-card");
 
-    "Calculator with one-time investment, regular " +
 
-    "investment, illustrative return assumptions and " +
+  let visible = 0;
 
-    "growth charts."
 
+  cards.forEach(card=>{
+
+    const text =
+      (
+        card.innerText +
+        " " +
+        (card.dataset.search || "")
+      )
+      .toLowerCase();
+
+
+    const match =
+      text.includes(query);
+
+
+    card.style.display =
+      match
+        ? ""
+        : "none";
+
+
+    if(match){
+
+      visible++;
+
+    }
+
+  });
+
+
+  document
+  .getElementById("noResults")
+  .style.display =
+    visible === 0
+      ? "block"
+      : "none";
+
+
+  document
+  .getElementById("topicCount")
+  .textContent =
+    visible +
+    (visible === 1
+      ? " topic"
+      : " topics");
+
+});
+
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
+
+document
+.querySelectorAll(".category")
+.forEach(button=>{
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const filter =
+        this.dataset.filter
+          .toLowerCase();
+
+
+      const cards =
+        document.querySelectorAll(".topic-card");
+
+
+      let visible = 0;
+
+
+      cards.forEach(card=>{
+
+        const category =
+          (
+            card.dataset.category ||
+            ""
+          )
+          .toLowerCase();
+
+
+        const match =
+          category === filter;
+
+
+        card.style.display =
+          match
+            ? ""
+            : "none";
+
+
+        if(match){
+
+          visible++;
+
+        }
+
+      });
+
+
+      document
+      .getElementById("searchBox")
+      .value = "";
+
+
+      document
+      .getElementById("noResults")
+      .style.display =
+        visible === 0
+          ? "block"
+          : "none";
+
+
+      document
+      .getElementById("topicCount")
+      .textContent =
+        visible +
+        (visible === 1
+          ? " topic"
+          : " topics");
+
+
+      document
+      .getElementById("topics")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+    }
   );
+
+});
+
+
+/* =========================================================
+   CALCULATOR TYPE
+   ========================================================= */
+
+function setCalcType(type){
+
+  currentCalcType =
+    type;
+
+
+  document
+  .getElementById("oneTimeTab")
+  .classList.toggle(
+    "active",
+    type === "one"
+  );
+
+
+  document
+  .getElementById("yearlyTab")
+  .classList.toggle(
+    "active",
+    type === "yearly"
+  );
+
+
+  calculateInvestment();
 
 }
 
 
+/* =========================================================
+   FORMAT MONEY
+   ========================================================= */
 
-/* =========================================
-   COMING SOON
-========================================= */
+function formatMoney(value){
 
-function comingSoon(name){
-
-  alert(
-
-    "🧮 " + name + "\n\n" +
-
-    "This FINGUIDE calculator is planned for the " +
-
-    "next stage."
-
-  );
+  return "₹" +
+    Math.round(value)
+    .toLocaleString("en-IN");
 
 }
 
 
+/* =========================================================
+   CALCULATE
+   ========================================================= */
 
-/* =========================================
-   CALL ADVISOR
-========================================= */
+function calculateInvestment(){
 
-function callAdvisor(){
+  const amount =
+    Number(
+      document
+      .getElementById("investmentAmount")
+      .value
+    );
+
+
+  const rate =
+    Number(
+      document
+      .getElementById("returnRate")
+      .value
+    ) / 100;
+
+
+  const selectedYears =
+    Number(
+      document
+      .getElementById("investmentYears")
+      .value
+    );
+
+
+  if(
+    !amount ||
+    amount <= 0 ||
+    rate < 0 ||
+    !selectedYears
+  ){
+
+    alert(
+      "Please enter a valid investment amount."
+    );
+
+    return;
+  }
+
+
+  const body =
+    document
+    .getElementById("resultBody");
+
+
+  body.innerHTML = "";
+
+
+  let finalValue = 0;
+
+  let totalInvested = 0;
+
+
+  for(
+    let year = 1;
+    year <= selectedYears;
+    year++
+  ){
+
+    let value;
+
+    let invested;
+
+
+    if(currentCalcType === "one"){
+
+      value =
+        amount *
+        Math.pow(
+          1 + rate,
+          year
+        );
+
+
+      invested =
+        amount;
+
+    }else{
+
+      /*
+        Yearly contribution is assumed
+        to be made at the END of each year.
+
+        FV = P × [((1+r)^n - 1) / r]
+
+        When r = 0:
+
+        FV = P × n
+      */
+
+      if(rate === 0){
+
+        value =
+          amount * year;
+
+      }else{
+
+        value =
+          amount *
+          (
+            (
+              Math.pow(
+                1 + rate,
+                year
+              ) - 1
+            ) / rate
+          );
+
+      }
+
+
+      invested =
+        amount * year;
+
+    }
+
+
+    const growth =
+      value - invested;
+
+
+    body.innerHTML += `
+
+      <tr>
+
+        <td>
+          ${year}
+        </td>
+
+        <td>
+          ${formatMoney(invested)}
+        </td>
+
+        <td>
+          ${formatMoney(value)}
+        </td>
+
+        <td>
+          ${formatMoney(growth)}
+        </td>
+
+      </tr>
+
+    `;
+
+
+    if(year === selectedYears){
+
+      finalValue =
+        value;
+
+      totalInvested =
+        invested;
+
+    }
+
+  }
+
+
+  document
+  .getElementById("summaryType")
+  .textContent =
+    currentCalcType === "one"
+      ? "One-Time"
+      : "Yearly";
+
+
+  document
+  .getElementById("summaryInvested")
+  .textContent =
+    formatMoney(totalInvested);
+
+
+  document
+  .getElementById("summaryValue")
+  .textContent =
+    formatMoney(finalValue);
+
+
+  document
+  .getElementById("calcResults")
+  .style.display =
+    "block";
+
+}
+
+
+/* =========================================================
+   RESET CALCULATOR
+   ========================================================= */
+
+function resetCalculator(){
+
+  document
+  .getElementById("investmentAmount")
+  .value =
+    "100000";
+
+
+  document
+  .getElementById("returnRate")
+  .value =
+    "12";
+
+
+  document
+  .getElementById("investmentYears")
+  .value =
+    "10";
+
+
+  currentCalcType =
+    "one";
+
+
+  document
+  .getElementById("oneTimeTab")
+  .classList.add("active");
+
+
+  document
+  .getElementById("yearlyTab")
+  .classList.remove("active");
+
+
+  document
+  .getElementById("calcResults")
+  .style.display =
+    "none";
+
+
+  document
+  .getElementById("resultBody")
+  .innerHTML =
+    "";
+
+}
+
+
+/* =========================================================
+   GUIDANCE MODAL
+   ========================================================= */
+
+function openGuidance(topic){
+
+  currentTopic =
+    topic ||
+    "General Financial Guidance";
+
+
+  let displayTopic =
+    currentTopic;
+
+
+  if(
+    topics[currentTopic]
+  ){
+
+    displayTopic =
+      topics[currentTopic].title;
+
+  }
+
+
+  document
+  .getElementById("guidanceTopic")
+  .textContent =
+    displayTopic;
+
+
+  document
+  .getElementById("guidanceModal")
+  .style.display =
+    "flex";
+
+}
+
+
+function closeGuidance(){
+
+  document
+  .getElementById("guidanceModal")
+  .style.display =
+    "none";
+
+}
+
+
+/* =========================================================
+   MISSED CALL
+   ========================================================= */
+
+function requestCallBack(){
 
   const phone =
-  "+919706123123";
+    "+919706123123";
 
 
   alert(
@@ -3084,87 +5743,132 @@ function callAdvisor(){
     "📞 Request a Call Back\n\n" +
 
     "Please give a missed call to " +
-
     "+91 9706123123.\n\n" +
 
-    "Our Financial Guidance Team will get back " +
-
-    "to you shortly."
+    "Our Financial Guidance Team will " +
+    "get back to you shortly."
 
   );
 
 
   window.location.href =
-  "tel:" + phone;
+    "tel:" + phone;
 
 }
 
 
-
-/* =========================================
+/* =========================================================
    WHATSAPP
-========================================= */
+   ========================================================= */
 
-function whatsappAdvisor(){
+function openWhatsApp(){
 
   const phone =
-  "919706123123";
+    "919706123123";
 
 
-  const topic =
+  let topicName =
+    "General Financial Guidance";
 
-  currentTopic
-  ? currentTopic.title
-  : "Financial Guidance";
+
+  if(
+    topics[currentTopic]
+  ){
+
+    topicName =
+      topics[currentTopic].title;
+
+  }else if(currentTopic){
+
+    topicName =
+      currentTopic;
+
+  }
 
 
   const message =
 
-  "Hello FinPluss Team,\n\n" +
+    "Hello FinPluss Team,%0A%0A" +
 
-  "I was exploring FINGUIDE and would like " +
+    "I was exploring the FINGUIDE Knowledge Centre " +
 
-  "guidance regarding " +
+    "and would like guidance regarding " +
 
-  topic +
+    topicName +
 
-  ".\n\n" +
+    ".%0A%0A" +
 
-  "Please help me understand my options.";
+    "Please help me understand my options.";
 
 
-  const whatsappURL =
-
-  "https://wa.me/" +
-
-  phone +
-
-  "?text=" +
-
-  encodeURIComponent(message);
+  const url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    message;
 
 
   window.open(
-    whatsappURL,
+    url,
     "_blank"
   );
+
+
+  closeGuidance();
 
 }
 
 
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+   ========================================================= */
 
-/* =========================================
-   INITIALIZE
-========================================= */
+document
+.getElementById("guidanceModal")
+.addEventListener(
+  "click",
+  function(event){
 
-renderTopics();
+    if(
+      event.target === this
+    ){
 
-loadTopicFromURL();
+      closeGuidance();
 
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeGuidance();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INITIAL CALCULATOR
+   ========================================================= */
+
+calculateInvestment();
 
 </script>
 
 
 </body>
-
 </html>
