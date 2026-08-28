@@ -2390,37 +2390,41 @@ function calculateGrowth(){
 
 
 /* ==========================================
-   LANGUAGE FRAMEWORK
+   FINGUIDE LANGUAGE SYSTEM
 ========================================== */
-
-/*
-  Language architecture is intentionally prepared here.
-
-  In the next content phase we can add reviewed,
-  human-friendly translations for every topic.
-
-  The selected language is remembered locally,
-  so users do not lose their preference when
-  navigating around the Knowledge Centre.
-*/
-
 
 const languageSelect =
   document.getElementById("languageSelect");
 
-
 const savedLanguage =
-  localStorage.getItem("finguideLanguage");
+  localStorage.getItem("finguideLanguage") || "en";
 
 
-if(savedLanguage){
+/*
+  Language change handler.
 
-  languageSelect.value = savedLanguage;
+  IMPORTANT:
+  This version does not show the old
+  "multilingual content is being prepared"
+  popup and does not force the selector
+  back to English.
 
-}
+  Regional-language translation will be
+  connected through the translation layer
+  without affecting:
+
+  - Read More buttons
+  - Topic opening
+  - Calculator
+  - Financial Health Check
+  - Existing page layout
+*/
 
 
-languageSelect.addEventListener("change",function(){
+languageSelect.value = savedLanguage;
+
+
+languageSelect.addEventListener("change", function(){
 
   const language = this.value;
 
@@ -2429,18 +2433,55 @@ languageSelect.addEventListener("change",function(){
     language
   );
 
-  if(language !== "en"){
+  /*
+    English remains the default language.
+  */
 
-    alert(
-      "FINGUIDE multilingual content is being prepared with reviewed, simple translations. English remains available while the regional-language content is being added."
-    );
+  if(language === "en"){
 
-    this.value = "en";
+    window.location.reload();
+
+    return;
 
   }
 
-});
 
+  /*
+    Temporary language status.
+
+    This confirms that the selected language
+    is being recognised correctly.
+
+    We will connect the reviewed regional
+    content in the next language layer.
+  */
+
+  const languageNames = {
+
+    kn: "ಕನ್ನಡ",
+    te: "తెలుగు",
+    ta: "தமிழ்",
+    ml: "മലയാളം",
+    hi: "हिन्दी"
+
+  };
+
+
+  const selectedName =
+    languageNames[language] || "English";
+
+
+  console.log(
+    "FINGUIDE language selected:",
+    selectedName
+  );
+
+
+  /*
+    Do NOT reset the dropdown to English.
+  */
+
+});
 
 /* ==========================================
    INITIAL CALCULATOR
