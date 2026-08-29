@@ -2473,13 +2473,13 @@ const translations = {
 
 };
 
+
 /* ==========================================
    FINGUIDE LANGUAGE SYSTEM
 ========================================== */
 
 const languageSelect =
   document.getElementById("languageSelect");
-
 
 const savedLanguage =
   localStorage.getItem("finguideLanguage") || "en";
@@ -2489,133 +2489,63 @@ const savedLanguage =
    APPLY LANGUAGE
 ========================================== */
 
-function applyLanguage(lang){
+function applyLanguage(lang) {
 
   const t =
     translations[lang] || translations.en;
 
 
-  /* ----------------------------------------
-     HERO
-  ---------------------------------------- */
+  /* HERO */
 
-  const heroEyebrow =
-    document.querySelector(".eyebrow");
+  document.getElementById("heroEyebrow").textContent =
+    t.heroEyebrow;
 
-  if(heroEyebrow){
-    heroEyebrow.textContent = t.heroEyebrow;
-  }
+  document.getElementById("heroTitle").innerHTML =
+    t.heroTitle;
 
-
-  const heroTitle =
-    document.querySelector(".hero h1");
-
-  if(heroTitle){
-    heroTitle.innerHTML = t.heroTitle;
-  }
+  document.getElementById("heroText").textContent =
+    t.heroText;
 
 
-  const heroText =
-    document.querySelector(".hero p");
+  /* HERO BUTTONS */
 
-  if(heroText){
-    heroText.textContent = t.heroText;
-  }
+  document.getElementById("exploreBtn").textContent =
+    t.explore;
 
-
-  /* ----------------------------------------
-     HERO BUTTONS
-  ---------------------------------------- */
-
-  const heroButtons =
-    document.querySelectorAll(".hero-actions .btn");
-
-  if(heroButtons.length >= 2){
-
-    heroButtons[0].textContent =
-      t.explore;
-
-    heroButtons[1].textContent =
-      t.calculator;
-
-  }
+  document.getElementById("calculatorBtn").textContent =
+    t.calculator;
 
 
-  /* ----------------------------------------
-     CATEGORY SECTION
-  ---------------------------------------- */
+  /* CATEGORY */
 
-  const categoryHeading =
-    document.querySelector(".category-section h2");
+  document.getElementById("categoryTitle").textContent =
+    t.categoryTitle;
 
-  if(categoryHeading){
-    categoryHeading.textContent =
-      t.categoryTitle;
-  }
+  document.getElementById("categoryText").textContent =
+    t.categoryText;
 
 
-  const categoryDescription =
-    document.querySelector(".category-section > p");
+  /* FINANCIAL TOPICS */
 
-  if(categoryDescription){
-    categoryDescription.textContent =
-      t.categoryText;
-  }
+  document.getElementById("topicsTitle").textContent =
+    t.topicsTitle;
 
-
-  /* ----------------------------------------
-     TOPICS SECTION
-  ---------------------------------------- */
-
-  const topicsHeading =
-    document.querySelector(".topics-section h2");
-
-  if(topicsHeading){
-    topicsHeading.textContent =
-      t.topicsTitle;
-  }
+  document.getElementById("topicsText").textContent =
+    t.topicsText;
 
 
-  const topicsDescription =
-    document.querySelector(".topics-section > p");
+  /* HEALTH CHECK */
 
-  if(topicsDescription){
-    topicsDescription.textContent =
-      t.topicsText;
-  }
+  document.getElementById("assessmentBtn").textContent =
+    t.assessment;
 
 
-  /* ----------------------------------------
-     HEALTH CHECK BUTTON
-  ---------------------------------------- */
-
-  const healthButtons =
-    document.querySelectorAll("a");
-
-  healthButtons.forEach(link => {
-
-    if(
-      link.href &&
-      link.href.includes("assessment.html")
-    ){
-
-      link.textContent =
-        t.assessment;
-
-    }
-
-  });
-
-
-  /* ----------------------------------------
-     SAVE LANGUAGE
-  ---------------------------------------- */
+  /* SAVE LANGUAGE */
 
   localStorage.setItem(
     "finguideLanguage",
     lang
   );
-
 }
 
 
@@ -2623,7 +2553,7 @@ function applyLanguage(lang){
    LANGUAGE SELECTOR
 ========================================== */
 
-if(languageSelect){
+if (languageSelect) {
 
   languageSelect.value =
     savedLanguage;
@@ -2631,15 +2561,9 @@ if(languageSelect){
 
   languageSelect.addEventListener(
     "change",
-    function(){
+    function () {
 
-      const selectedLanguage =
-        this.value;
-
-
-      applyLanguage(
-        selectedLanguage
-      );
+      applyLanguage(this.value);
 
     }
   );
@@ -2648,10 +2572,12 @@ if(languageSelect){
 
 
 /* ==========================================
-   APPLY SAVED LANGUAGE
+   LOAD SAVED LANGUAGE
 ========================================== */
 
 applyLanguage(savedLanguage);
+
+
 /* ==========================================
    INITIAL CALCULATOR
 ========================================== */
@@ -2662,3 +2588,4 @@ calculateGrowth();
 
 </body>
 </html>
+
