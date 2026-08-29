@@ -592,6 +592,10 @@ header{
    CALCULATOR
 ========================= */
 
+#calculator.calculator-hidden{
+  display:none !important;
+}
+
 .calculator{
   background:#fff;
   border:1px solid var(--border);
@@ -881,6 +885,343 @@ footer{
   box-shadow:0 0 0 4px rgba(34,199,181,.12);
 }
 
+
+/* =========================================================
+   START HERE — FIND YOUR FINANCIAL PATH
+   ========================================================= */
+
+.start-here-section{
+  padding-top:22px;
+  padding-bottom:30px;
+}
+
+.start-here-heading{
+  margin-bottom:18px;
+}
+
+.start-here-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:8px;
+  color:var(--primary-dark);
+  font-size:13px;
+  font-weight:900;
+}
+
+.start-here-heading h2{
+  margin-bottom:7px;
+}
+
+.start-here-heading p{
+  max-width:720px;
+}
+
+.start-path-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.start-path-card{
+  position:relative;
+  min-height:150px;
+  width:100%;
+  padding:20px 18px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:rgba(255,255,255,.88);
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  overflow:hidden;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.start-path-card::after{
+  content:"";
+  position:absolute;
+  right:-35px;
+  bottom:-45px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:rgba(20,184,166,.055);
+  pointer-events:none;
+}
+
+.start-path-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 34px rgba(15,118,110,.10);
+}
+
+.start-path-card:focus-visible{
+  outline:3px solid rgba(34,199,181,.24);
+  outline-offset:2px;
+}
+
+.start-path-icon{
+  position:relative;
+  z-index:2;
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  background:linear-gradient(135deg,#e2fbf6,#fff5df);
+  font-size:24px;
+}
+
+.start-path-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding-top:2px;
+}
+
+.start-path-content strong{
+  font-size:15px;
+  line-height:1.35;
+}
+
+.start-path-content span{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.start-path-arrow{
+  position:absolute;
+  z-index:2;
+  right:15px;
+  bottom:13px;
+  color:var(--primary);
+  font-size:17px;
+  font-weight:900;
+}
+
+.protection-path:hover{
+  border-color:rgba(15,118,110,.25);
+}
+
+.growth-path:hover{
+  border-color:rgba(34,199,181,.30);
+}
+
+.future-path:hover{
+  border-color:rgba(255,176,46,.34);
+}
+
+.credit-path:hover{
+  border-color:rgba(23,105,170,.25);
+}
+
+@media(max-width:1000px){
+  .start-path-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .start-here-section{
+    padding-top:12px;
+    padding-bottom:22px;
+  }
+
+  .start-path-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .start-path-card{
+    min-height:112px;
+    padding:17px 16px;
+  }
+}
+
+
+
+/* =========================
+   CONTINUE LEARNING NAVIGATION
+========================= */
+.topic-navigation{
+  margin-top:34px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,248,248,.92));
+  box-shadow:0 8px 24px rgba(23,48,47,.06);
+}
+
+.topic-navigation-title{
+  margin-bottom:12px;
+  font-size:14px;
+  font-weight:800;
+  color:var(--primary-dark);
+}
+
+.topic-navigation-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:12px;
+  align-items:stretch;
+}
+
+.topic-nav-btn{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:14px;
+  padding:13px 15px;
+  cursor:pointer;
+  text-align:left;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  min-height:68px;
+}
+
+.topic-nav-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(15,118,110,.10);
+  border-color:#b9d8d4;
+}
+
+.topic-nav-btn.next{
+  text-align:right;
+}
+
+.topic-nav-label{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:3px;
+  font-weight:700;
+}
+
+.topic-nav-topic{
+  display:block;
+  font-size:14px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.topic-nav-center{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.topic-nav-center button{
+  border:1px solid #f0d6aa;
+  background:#fffaf0;
+  color:#9a6200;
+  border-radius:12px;
+  padding:10px 13px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.topic-nav-disabled{
+  visibility:hidden;
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .topic-navigation-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .topic-nav-center{
+    grid-column:1 / -1;
+    grid-row:2;
+  }
+  .topic-nav-btn.next{
+    text-align:right;
+  }
+}
+
+
+/* =========================================================
+   FINGUIDE — FINANCIAL CALCULATOR SUITE
+   ========================================================= */
+
+.calculator-suite-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 12px;
+}
+
+.calculator-tab{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:44px;
+  padding:10px 16px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#fff;
+  color:var(--muted);
+  font:inherit;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.calculator-tab:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(15,118,110,.07);
+}
+
+.calculator-tab.active{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,#0f8f83,#0a746c);
+  box-shadow:0 9px 22px rgba(15,118,110,.13);
+}
+
+.calculator-tool-note{
+  margin:-3px 0 18px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.calculator-extra[hidden]{
+  display:none !important;
+}
+
+.sip-result{
+  background:linear-gradient(135deg,#effcf9,#fffaf0);
+}
+
+.sip-disclaimer{
+  margin-top:25px;
+}
+
+@media(max-width:700px){
+  .calculator-suite-nav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .calculator-tab{
+    width:100%;
+    padding:10px 9px;
+  }
+
+  .calculator-tool-note{
+    line-height:1.55;
+  }
+}
+
 </style>
 </head>
 
@@ -949,10 +1290,113 @@ footer{
           🔎 Explore Financial Topics
         </a>
 
-        <a href="#calculator" class="btn btn-secondary">
+        <a href="#calculator" class="btn btn-secondary"
+           onclick="showTopics(); setTimeout(() => document.getElementById('calculator')?.scrollIntoView({behavior:'smooth', block:'start'}), 50); return false;">
           🧮 Try a Calculator
         </a>
       </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     START HERE — FIND YOUR FINANCIAL PATH
+========================================================= -->
+
+<section class="section start-here-section" id="startHere">
+
+  <div class="container">
+
+    <div class="section-heading start-here-heading">
+      <div>
+        <div class="start-here-kicker" id="startHereKicker">
+          👋 Not sure where to start?
+        </div>
+
+        <h2 id="startHereTitle">
+          Find Your Financial Path
+        </h2>
+
+        <p id="startHereText">
+          Choose what matters to you right now and we'll point you
+          to the topics that are most useful to understand first.
+        </p>
+      </div>
+    </div>
+
+    <div class="start-path-grid">
+
+      <button class="start-path-card protection-path"
+              type="button"
+              onclick="startPath('protect')">
+
+        <span class="start-path-icon">🛡️</span>
+
+        <span class="start-path-content">
+          <strong id="startProtectTitle">I want to protect my family</strong>
+          <span id="startProtectText">
+            Life, health and financial protection
+          </span>
+        </span>
+
+        <span class="start-path-arrow">→</span>
+      </button>
+
+
+      <button class="start-path-card growth-path"
+              type="button"
+              onclick="startPath('grow')">
+
+        <span class="start-path-icon">📈</span>
+
+        <span class="start-path-content">
+          <strong id="startGrowTitle">I want to grow my money</strong>
+          <span id="startGrowText">
+            Savings, SIP and long-term investing
+          </span>
+        </span>
+
+        <span class="start-path-arrow">→</span>
+      </button>
+
+
+      <button class="start-path-card future-path"
+              type="button"
+              onclick="startPath('future')">
+
+        <span class="start-path-icon">🎯</span>
+
+        <span class="start-path-content">
+          <strong id="startFutureTitle">I have a future goal</strong>
+          <span id="startFutureText">
+            Education, retirement and financial goals
+          </span>
+        </span>
+
+        <span class="start-path-arrow">→</span>
+      </button>
+
+
+      <button class="start-path-card credit-path"
+              type="button"
+              onclick="startPath('credit')">
+
+        <span class="start-path-icon">💳</span>
+
+        <span class="start-path-content">
+          <strong id="startCreditTitle">I want to understand loans & tax</strong>
+          <span id="startCreditText">
+            Borrowing, credit and tax basics
+          </span>
+        </span>
+
+        <span class="start-path-arrow">→</span>
+      </button>
 
     </div>
 
@@ -968,9 +1412,7 @@ footer{
 <section class="section" id="categories">
 
 <div class="container">
-
-  <div class="section-heading">
-    <div>
+<div>
       <h2>Explore by Category</h2>
       <p>
         Choose a subject you want to understand better.
@@ -2102,6 +2544,43 @@ footer{
 
 <div class="container">
 
+  <!-- =========================================================
+       FINANCIAL CALCULATORS
+       ========================================================= -->
+
+  <div class="calculator-suite-nav"
+       role="tablist"
+       aria-label="Financial calculators">
+
+    <button
+      type="button"
+      class="calculator-tab active"
+      id="growthTab"
+      role="tab"
+      aria-selected="true"
+      aria-controls="investmentGrowthTool"
+      onclick="switchCalculator('growth')">
+      📈 <span id="growthTabText">Investment Growth</span>
+    </button>
+
+    <button
+      type="button"
+      class="calculator-tab"
+      id="sipTab"
+      role="tab"
+      aria-selected="false"
+      aria-controls="sipTool"
+      onclick="switchCalculator('sip')">
+      💰 <span id="sipTabText">SIP Calculator</span>
+    </button>
+
+  </div>
+
+  <p class="calculator-tool-note" id="calculatorToolNote">
+    Choose a calculator to explore an illustrative example.
+  </p>
+
+
   <div class="section-heading">
 
     <div>
@@ -2116,7 +2595,7 @@ footer{
   </div>
 
 
-  <div class="calculator">
+  <div class="calculator" id="investmentGrowthTool">
 
     <div class="calc-grid">
 
@@ -2238,6 +2717,114 @@ footer{
 
     </div>
 
+
+  </div> <!-- /investmentGrowthTool -->
+
+
+  <!-- ======================================================
+       SIP CALCULATOR
+       ====================================================== -->
+
+  <div class="calculator calculator-extra" id="sipTool" hidden>
+
+    <div class="calc-grid">
+
+      <div class="form-group">
+        <label for="sipMonthlyAmount" id="sipAmountLabel">
+          Monthly SIP Amount (₹)
+        </label>
+
+        <input
+          type="number"
+          id="sipMonthlyAmount"
+          value="5000"
+          min="500"
+          step="500"
+        >
+      </div>
+
+
+      <div class="form-group">
+        <label for="sipReturnRate" id="sipReturnLabel">
+          Illustrative Annual Return
+        </label>
+
+        <select id="sipReturnRate">
+          <option value="6">6%</option>
+          <option value="7">7%</option>
+          <option value="8">8%</option>
+          <option value="9">9%</option>
+          <option value="10">10%</option>
+          <option value="11">11%</option>
+          <option value="12" selected>12%</option>
+          <option value="13">13%</option>
+          <option value="14">14%</option>
+          <option value="15">15%</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="sipYears" id="sipPeriodLabel">
+          Investment Period
+        </label>
+
+        <select id="sipYears">
+          <option value="5">5 Years</option>
+          <option value="10" selected>10 Years</option>
+          <option value="15">15 Years</option>
+          <option value="20">20 Years</option>
+          <option value="25">25 Years</option>
+          <option value="30">30 Years</option>
+          <option value="35">35 Years</option>
+          <option value="40">40 Years</option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <button class="btn btn-primary" type="button" id="sipCalculateBtn" onclick="calculateSip()">
+      📊 Calculate SIP
+    </button>
+
+
+    <div class="result sip-result">
+
+      <div class="result-grid">
+
+        <div class="result-item sip-result-item">
+          <span id="sipInvestedLabel">Total Invested</span>
+          <strong id="sipTotalInvested">₹6,00,000</strong>
+        </div>
+
+        <div class="result-item sip-result-item">
+          <span id="sipValueLabel">Illustrative Value</span>
+          <strong id="sipFutureValue">₹11,61,695</strong>
+        </div>
+
+        <div class="result-item sip-result-item">
+          <span id="sipGrowthLabel">Illustrative Growth</span>
+          <strong id="sipGrowthValue">₹5,61,695</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="disclaimer sip-disclaimer">
+      <strong id="sipIllustrationLabel">Illustration only:</strong>
+      <span id="sipDisclaimerText">
+        This SIP calculator uses mathematical assumptions to demonstrate
+        how regular contributions could grow over time. It does not represent
+        guaranteed returns, actual investment performance or a recommendation
+        to choose any particular financial product.
+      </span>
+    </div>
+
+  </div>
+
   </div>
 
 </div>
@@ -2328,7 +2915,6 @@ footer{
 
 
 <script>
-/* FINGUIDE LANGUAGE BUILD: 2026-08-29 */
 /* =========================================================
    FINGUIDE — SINGLE PAGE CONTROLLER
    Language + Topic + FAQ + Calculator
@@ -2342,6 +2928,13 @@ function openTopic(topic){
     panel.classList.remove("active");
   });
 
+  /* Keep the calculator as a dedicated home-page section.
+     Hide it while a topic is being read so it does not interrupt the article. */
+  const calculatorSection = document.getElementById("calculator");
+  if(calculatorSection){
+    calculatorSection.classList.add("calculator-hidden");
+  }
+
   const selected = document.getElementById("topic-" + topic);
 
   if(selected){
@@ -2353,6 +2946,28 @@ function openTopic(topic){
         block: "start"
       });
     }, 50);
+  }
+}
+
+/* -------------------------
+   RETURN TO TOPICS / HOME
+------------------------- */
+function showTopics(){
+  document.querySelectorAll(".topic-panel").forEach(panel => {
+    panel.classList.remove("active");
+  });
+
+  const calculatorSection = document.getElementById("calculator");
+  if(calculatorSection){
+    calculatorSection.classList.remove("calculator-hidden");
+  }
+
+  const topicsSection = document.getElementById("topics");
+  if(topicsSection){
+    topicsSection.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
   }
 }
 
@@ -2423,6 +3038,201 @@ function calculateGrowth(){
   document.getElementById("growthValue").textContent =
     formatINR(growth);
 }
+
+
+/* =========================================================
+   FINANCIAL CALCULATOR SUITE
+   ========================================================= */
+
+const calculatorSuiteText = {
+  en:{
+    growth:"Investment Growth",
+    sip:"SIP Calculator",
+    note:"Choose a calculator to explore an illustrative example.",
+    sipAmount:"Monthly SIP Amount (₹)",
+    sipReturn:"Illustrative Annual Return",
+    sipPeriod:"Investment Period",
+    sipCalculate:"📊 Calculate SIP",
+    sipInvested:"Total Invested",
+    sipValue:"Illustrative Value",
+    sipGrowth:"Illustrative Growth",
+    illustration:"Illustration only:",
+    disclaimer:"This SIP calculator uses mathematical assumptions to demonstrate how regular contributions could grow over time. It does not represent guaranteed returns, actual investment performance or a recommendation to choose any particular financial product."
+  },
+  kn:{
+    growth:"ಹೂಡಿಕೆ ಬೆಳವಣಿಗೆ",
+    sip:"SIP ಕ್ಯಾಲ್ಕುಲೇಟರ್",
+    note:"ಉದಾಹರಣೆಯ ಲೆಕ್ಕಾಚಾರವನ್ನು ನೋಡಲು ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಆಯ್ಕೆಮಾಡಿ.",
+    sipAmount:"ಮಾಸಿಕ SIP ಮೊತ್ತ (₹)",
+    sipReturn:"ಅಂದಾಜು ವಾರ್ಷಿಕ ಆದಾಯ",
+    sipPeriod:"ಹೂಡಿಕೆ ಅವಧಿ",
+    sipCalculate:"📊 SIP ಲೆಕ್ಕಿಸಿ",
+    sipInvested:"ಒಟ್ಟು ಹೂಡಿಕೆ",
+    sipValue:"ಅಂದಾಜು ಮೌಲ್ಯ",
+    sipGrowth:"ಅಂದಾಜು ಬೆಳವಣಿಗೆ",
+    illustration:"ಉದಾಹರಣೆಗೆ ಮಾತ್ರ:",
+    disclaimer:"ನಿಯಮಿತ ಹೂಡಿಕೆಗಳು ಕಾಲಾನಂತರದಲ್ಲಿ ಹೇಗೆ ಬೆಳೆಯಬಹುದು ಎಂಬುದನ್ನು ತೋರಿಸಲು ಈ SIP ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಗಣಿತೀಯ ಅಂದಾಜುಗಳನ್ನು ಬಳಸುತ್ತದೆ. ಇದು ಖಚಿತ ಆದಾಯ, ನಿಜವಾದ ಹೂಡಿಕೆ ಕಾರ್ಯಕ್ಷಮತೆ ಅಥವಾ ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ಹಣಕಾಸು ಉತ್ಪನ್ನದ ಶಿಫಾರಸು ಅಲ್ಲ."
+  },
+  te:{
+    growth:"పెట్టుబడి వృద్ధి",
+    sip:"SIP కాలిక్యులేటర్",
+    note:"ఒక ఉదాహరణ లెక్కను చూడటానికి కాలిక్యులేటర్‌ను ఎంచుకోండి.",
+    sipAmount:"నెలవారీ SIP మొత్తం (₹)",
+    sipReturn:"అంచనా వార్షిక రాబడి",
+    sipPeriod:"పెట్టుబడి కాలం",
+    sipCalculate:"📊 SIP లెక్కించండి",
+    sipInvested:"మొత్తం పెట్టుబడి",
+    sipValue:"అంచనా విలువ",
+    sipGrowth:"అంచనా వృద్ధి",
+    illustration:"ఉదాహరణ కోసం మాత్రమే:",
+    disclaimer:"నియమిత పెట్టుబడులు కాలక్రమంలో ఎలా పెరగవచ్చో చూపించడానికి ఈ SIP కాలిక్యులేటర్ గణిత అంచనాలను ఉపయోగిస్తుంది. ఇది హామీ రాబడి, నిజమైన పెట్టుబడి పనితీరు లేదా ఏదైనా నిర్దిష్ట ఆర్థిక ఉత్పత్తికి సిఫార్సు కాదు."
+  },
+  ta:{
+    growth:"முதலீட்டு வளர்ச்சி",
+    sip:"SIP கால்குலேட்டர்",
+    note:"ஒரு எடுத்துக்காட்டு கணக்கைப் பார்க்க கால்குலேட்டரைத் தேர்ந்தெடுக்கவும்.",
+    sipAmount:"மாதாந்திர SIP தொகை (₹)",
+    sipReturn:"மதிப்பிடப்பட்ட ஆண்டு வருமானம்",
+    sipPeriod:"முதலீட்டு காலம்",
+    sipCalculate:"📊 SIP கணக்கிடுங்கள்",
+    sipInvested:"மொத்த முதலீடு",
+    sipValue:"மதிப்பிடப்பட்ட மதிப்பு",
+    sipGrowth:"மதிப்பிடப்பட்ட வளர்ச்சி",
+    illustration:"எடுத்துக்காட்டுக்காக மட்டும்:",
+    disclaimer:"வழக்கமான முதலீடுகள் காலப்போக்கில் எவ்வாறு வளரக்கூடும் என்பதை விளக்க இந்த SIP கால்குலேட்டர் கணித மதிப்பீடுகளைப் பயன்படுத்துகிறது. இது உத்தரவாத வருமானம், உண்மையான முதலீட்டு செயல்திறன் அல்லது குறிப்பிட்ட நிதி தயாரிப்புக்கான பரிந்துரை அல்ல."
+  },
+  ml:{
+    growth:"നിക്ഷേപ വളർച്ച",
+    sip:"SIP കാൽക്കുലേറ്റർ",
+    note:"ഒരു ഉദാഹരണ കണക്കുകൂട്ടൽ കാണാൻ ഒരു കാൽക്കുലേറ്റർ തിരഞ്ഞെടുക്കുക.",
+    sipAmount:"മാസിക SIP തുക (₹)",
+    sipReturn:"അനുമാനിച്ച വാർഷിക വരുമാനം",
+    sipPeriod:"നിക്ഷേപ കാലയളവ്",
+    sipCalculate:"📊 SIP കണക്കാക്കുക",
+    sipInvested:"ആകെ നിക്ഷേപം",
+    sipValue:"അനുമാനിച്ച മൂല്യം",
+    sipGrowth:"അനുമാനിച്ച വളർച്ച",
+    illustration:"ഉദാഹരണത്തിന് മാത്രം:",
+    disclaimer:"നിയമിത നിക്ഷേപങ്ങൾ കാലക്രമത്തിൽ എങ്ങനെ വളരാം എന്ന് കാണിക്കാൻ ഈ SIP കാൽക്കുലേറ്റർ ഗണിതപരമായ അനുമാനങ്ങൾ ഉപയോഗിക്കുന്നു. ഇത് ഉറപ്പുള്ള വരുമാനമോ യഥാർത്ഥ നിക്ഷേപ പ്രകടനമോ ഏതെങ്കിലും പ്രത്യേക സാമ്പത്തിക ഉൽപ്പന്നത്തിനുള്ള ശുപാർശയോ അല്ല."
+  },
+  hi:{
+    growth:"निवेश वृद्धि",
+    sip:"SIP कैलकुलेटर",
+    note:"एक उदाहरण गणना देखने के लिए कैलकुलेटर चुनें।",
+    sipAmount:"मासिक SIP राशि (₹)",
+    sipReturn:"अनुमानित वार्षिक रिटर्न",
+    sipPeriod:"निवेश अवधि",
+    sipCalculate:"📊 SIP की गणना करें",
+    sipInvested:"कुल निवेश",
+    sipValue:"अनुमानित मूल्य",
+    sipGrowth:"अनुमानित वृद्धि",
+    illustration:"केवल उदाहरण के लिए:",
+    disclaimer:"यह SIP कैलकुलेटर नियमित निवेश के समय के साथ बढ़ने का उदाहरण दिखाने के लिए गणितीय मान्यताओं का उपयोग करता है। यह गारंटीकृत रिटर्न, वास्तविक निवेश प्रदर्शन या किसी विशेष वित्तीय उत्पाद की सिफारिश नहीं है।"
+  }
+};
+
+function updateCalculatorSuiteLanguage(lang){
+  const t = calculatorSuiteText[lang] || calculatorSuiteText.en;
+
+  const set = (id, value) => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = value;
+  };
+
+  set("growthTabText", t.growth);
+  set("sipTabText", t.sip);
+  set("calculatorToolNote", t.note);
+
+  set('sipAmountLabel', t.sipAmount);
+  set('sipReturnLabel', t.sipReturn);
+  set('sipPeriodLabel', t.sipPeriod);
+  set('sipCalculateBtn', t.sipCalculate);
+  set('sipInvestedLabel', t.sipInvested);
+  set('sipValueLabel', t.sipValue);
+  set('sipGrowthLabel', t.sipGrowth);
+  set('sipIllustrationLabel', t.illustration);
+
+  const disclaimer = document.getElementById("sipDisclaimerText");
+  if(disclaimer) disclaimer.textContent = t.disclaimer;
+}
+
+function switchCalculator(type){
+  const growth = document.getElementById("investmentGrowthTool");
+  const sip = document.getElementById("sipTool");
+  const growthTab = document.getElementById("growthTab");
+  const sipTab = document.getElementById("sipTab");
+
+  const showGrowth = type === "growth";
+
+  if(growth) growth.hidden = !showGrowth;
+  if(sip) sip.hidden = showGrowth;
+
+  if(growthTab){
+    growthTab.classList.toggle("active", showGrowth);
+    growthTab.setAttribute("aria-selected", showGrowth ? "true" : "false");
+  }
+
+  if(sipTab){
+    sipTab.classList.toggle("active", !showGrowth);
+    sipTab.setAttribute("aria-selected", showGrowth ? "false" : "true");
+  }
+}
+
+function calculateSip(){
+
+  const monthly = Number(
+    document.getElementById("sipMonthlyAmount").value
+  );
+
+  const annualRate = Number(
+    document.getElementById("sipReturnRate").value
+  ) / 100;
+
+  const years = Number(
+    document.getElementById("sipYears").value
+  );
+
+  if(!monthly || monthly <= 0){
+    alert("Please enter a valid monthly SIP amount.");
+    return;
+  }
+
+  const months = years * 12;
+  const monthlyRate = annualRate / 12;
+
+  let futureValue;
+
+  if(monthlyRate === 0){
+    futureValue = monthly * months;
+  }else{
+    futureValue =
+      monthly *
+      (
+        (Math.pow(1 + monthlyRate, months) - 1)
+        / monthlyRate
+      );
+  }
+
+  const totalInvested = monthly * months;
+  const growth = futureValue - totalInvested;
+
+  document.getElementById("sipTotalInvested").textContent =
+    formatINR(totalInvested);
+
+  document.getElementById("sipFutureValue").textContent =
+    formatINR(futureValue);
+
+  document.getElementById("sipGrowthValue").textContent =
+    formatINR(growth);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCalculatorSuiteLanguage(
+    localStorage.getItem("finguideLanguage") || "en"
+  );
+  calculateSip();
+});
+
 
 /* =========================================================
    TRANSLATIONS
@@ -2717,1285 +3527,37 @@ const lifeDetailed = {
     title:"Life Insurance",
     description:"Financial protection designed to help protect dependants against the financial impact of the insured person's death, subject to the policy terms and conditions.",
     quick:"⚡ Quick Answer",
-    quickText:"Life insurance is primarily about financial protection. The right type of policy depends on the purpose, cover required, time horizon, affordability and policy conditions.",
-    mainTitle:"🛡️ Main Purpose",
-    mainText:"To provide financial support to nominees/dependants if the insured person dies, according to the policy.",
-    whoTitle:"👨‍👩‍👧 Who may need it?",
-    whoText:"People whose income, financial responsibilities or liabilities are important to their family's financial life.",
-    conceptsTitle:"🔎 Major Life Insurance Concepts",
-    termTitle:"Term Insurance", term:"Primarily protection for a specified period. If a covered event occurs during the policy term, the benefit is paid according to the policy.",
-    endowmentTitle:"Endowment Plans", endowment:"Insurance products that may combine protection with a savings-oriented component, subject to policy terms.",
-    ulipTitle:"ULIP", ulip:"Unit Linked Insurance Plans combine insurance with market-linked investment components. Investment value can fluctuate.",
-    nomineeTitle:"Nominee", nominee:"The person nominated under a policy according to applicable rules and policy terms.",
-    exampleTitle:"💡 Simple Example",
-    example1:"Suppose a person has a family that depends partly on their income. If something happens to that person, the family may still have expenses such as housing, education, daily living and liabilities.",
-    example2:"Life insurance can be considered as one part of a broader financial protection plan.",
-    beforeTitle:"⚠️ Things to Understand Before Buying",
-    before:["Required protection amount","Policy term","Premium affordability","Nominee details","Exclusions and policy conditions","Claim-related documentation","Whether the product matches the intended financial goal"],
-    remember:"Remember", rememberText:"Insurance and investment are not automatically the same thing. Always understand what a product is designed to do before comparing it.",
-    faqTitle:"❓ Common Questions",
-    faq:[
-      ["Is life insurance only for married people?","Not necessarily. The need depends on financial responsibilities, dependants, liabilities and future obligations."],
-      ["What is term insurance?","Term insurance is primarily designed to provide life protection for a specified policy term, subject to the policy conditions."],
-      ["Is ULIP the same as a mutual fund?","No. A ULIP is an insurance product with market-linked investment components, while a mutual fund is an investment product. Their structures, costs and features differ."]
-    ]
+    quickText:"Life insurance is primarily about financial protection. The right type of policy depends on the purpose, cover required, time horizon, affordability and policy conditions."
   },
   kn: {
-    title:"ಜೀವ ವಿಮೆ", description:"ವಿಮೆ ಮಾಡಿದ ವ್ಯಕ್ತಿಯ ಮರಣದಿಂದ ಅವಲಂಬಿತರಿಗೆ ಉಂಟಾಗಬಹುದಾದ ಆರ್ಥಿಕ ಪರಿಣಾಮದಿಂದ ರಕ್ಷಣೆ ನೀಡಲು ಸಹಾಯ ಮಾಡುವ ಹಣಕಾಸಿನ ಭದ್ರತೆ. ಇದು ಪಾಲಿಸಿಯ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.",
-    quick:"⚡ ತ್ವರಿತ ಉತ್ತರ", quickText:"ಜೀವ ವಿಮೆಯ ಮುಖ್ಯ ಉದ್ದೇಶ ಹಣಕಾಸಿನ ರಕ್ಷಣೆ. ಸರಿಯಾದ ಪಾಲಿಸಿಯ ಆಯ್ಕೆ ಉದ್ದೇಶ, ಅಗತ್ಯವಿರುವ ಕವರ್, ಅವಧಿ, ಕೈಗೆಟುಕುವ ಪ್ರೀಮಿಯಂ ಮತ್ತು ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
-    mainTitle:"🛡️ ಮುಖ್ಯ ಉದ್ದೇಶ", mainText:"ವಿಮೆ ಮಾಡಿದ ವ್ಯಕ್ತಿ ಮೃತಪಟ್ಟರೆ, ಪಾಲಿಸಿಯ ಪ್ರಕಾರ ನಾಮಿನಿ ಅಥವಾ ಅವಲಂಬಿತರಿಗೆ ಹಣಕಾಸಿನ ನೆರವು ಒದಗಿಸುವುದು.", whoTitle:"👨‍👩‍👧 ಯಾರಿಗೆ ಅಗತ್ಯವಿರಬಹುದು?", whoText:"ಕುಟುಂಬದ ಹಣಕಾಸಿನ ಜೀವನದಲ್ಲಿ ಆದಾಯ, ಹಣಕಾಸಿನ ಜವಾಬ್ದಾರಿಗಳು ಅಥವಾ ಸಾಲಬಾಧ್ಯತೆಗಳು ಮುಖ್ಯವಾಗಿರುವವರಿಗೆ.",
-    conceptsTitle:"🔎 ಪ್ರಮುಖ ಜೀವ ವಿಮೆ ಪರಿಕಲ್ಪನೆಗಳು", termTitle:"ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್", term:"ನಿರ್ದಿಷ್ಟ ಅವಧಿಗೆ ಮುಖ್ಯವಾಗಿ ರಕ್ಷಣೆ ನೀಡುವ ವಿಮೆ. ಪಾಲಿಸಿ ಅವಧಿಯಲ್ಲಿ ಕವರ್ ಆಗಿರುವ ಘಟನೆ ಸಂಭವಿಸಿದರೆ, ಪಾಲಿಸಿಯ ಪ್ರಕಾರ ಲಾಭ ಪಾವತಿಸಲಾಗುತ್ತದೆ.", endowmentTitle:"ಎಂಡೋಮೆಂಟ್ ಯೋಜನೆಗಳು", endowment:"ರಕ್ಷಣೆಯೊಂದಿಗೆ ಉಳಿತಾಯ ಆಧಾರಿತ ಅಂಶವನ್ನು ಹೊಂದಿರಬಹುದಾದ ವಿಮಾ ಉತ್ಪನ್ನಗಳು. ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ.", ulipTitle:"ULIP", ulip:"ಯುನಿಟ್ ಲಿಂಕ್ಡ್ ಇನ್ಶೂರೆನ್ಸ್ ಪ್ಲಾನ್‌ಗಳು ವಿಮೆಯನ್ನು ಮಾರುಕಟ್ಟೆ ಆಧಾರಿತ ಹೂಡಿಕೆ ಅಂಶಗಳೊಂದಿಗೆ ಸಂಯೋಜಿಸುತ್ತವೆ. ಹೂಡಿಕೆಯ ಮೌಲ್ಯ ಬದಲಾಗಬಹುದು.", nomineeTitle:"ನಾಮಿನಿ", nominee:"ಅನ್ವಯವಾಗುವ ನಿಯಮಗಳು ಮತ್ತು ಪಾಲಿಸಿ ಷರತ್ತುಗಳ ಪ್ರಕಾರ ಪಾಲಿಸಿಯಲ್ಲಿ ನಾಮನಿರ್ದೇಶನಗೊಂಡ ವ್ಯಕ್ತಿ.",
-    exampleTitle:"💡 ಸರಳ ಉದಾಹರಣೆ", example1:"ಒಬ್ಬ ವ್ಯಕ್ತಿಯ ಆದಾಯದ ಮೇಲೆ ಕುಟುಂಬವು ಭಾಗಶಃ ಅವಲಂಬಿತವಾಗಿದೆ ಎಂದು ಊಹಿಸೋಣ. ಆ ವ್ಯಕ್ತಿಗೆ ಏನಾದರೂ ಸಂಭವಿಸಿದರೆ, ಕುಟುಂಬಕ್ಕೆ ಮನೆ, ಶಿಕ್ಷಣ, ದೈನಂದಿನ ಜೀವನ ಮತ್ತು ಸಾಲಗಳಂತಹ ವೆಚ್ಚಗಳು ಮುಂದುವರಿಯಬಹುದು.", example2:"ಜೀವ ವಿಮೆಯನ್ನು ವಿಶಾಲವಾದ ಹಣಕಾಸಿನ ರಕ್ಷಣಾ ಯೋಜನೆಯ ಒಂದು ಭಾಗವಾಗಿ ಪರಿಗಣಿಸಬಹುದು.",
-    beforeTitle:"⚠️ ಖರೀದಿಸುವ ಮೊದಲು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕಾದ ವಿಷಯಗಳು", before:["ಅಗತ್ಯವಿರುವ ರಕ್ಷಣೆಯ ಮೊತ್ತ","ಪಾಲಿಸಿ ಅವಧಿ","ಪ್ರೀಮಿಯಂ ಕೈಗೆಟುಕುವಿಕೆ","ನಾಮಿನಿ ವಿವರಗಳು","ಹೊರತಾಗಿಸುವಿಕೆಗಳು ಮತ್ತು ಪಾಲಿಸಿ ಷರತ್ತುಗಳು","ಕ್ಲೇಮ್ ಸಂಬಂಧಿತ ದಾಖಲೆಗಳು","ಉತ್ಪನ್ನವು ಉದ್ದೇಶಿಸಿರುವ ಹಣಕಾಸಿನ ಗುರಿಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ"],
-    remember:"ನೆನಪಿಡಿ", rememberText:"ವಿಮೆ ಮತ್ತು ಹೂಡಿಕೆ ಒಂದೇ ವಿಷಯವಾಗಿರಬೇಕೆಂದಿಲ್ಲ. ಹೋಲಿಸುವ ಮೊದಲು ಉತ್ಪನ್ನದ ಉದ್ದೇಶವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.", faqTitle:"❓ ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು", faq:[["ಜೀವ ವಿಮೆ ವಿವಾಹಿತರಿಗೆ ಮಾತ್ರವೇ?","ಅಗತ್ಯವು ಹಣಕಾಸಿನ ಜವಾಬ್ದಾರಿಗಳು, ಅವಲಂಬಿತರು, ಸಾಲಬಾಧ್ಯತೆಗಳು ಮತ್ತು ಭವಿಷ್ಯದ ಹೊಣೆಗಾರಿಕೆಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ."],["ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್ ಎಂದರೇನು?","ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್ ನಿರ್ದಿಷ್ಟ ಪಾಲಿಸಿ ಅವಧಿಗೆ ಜೀವ ರಕ್ಷಣೆ ನೀಡಲು ಮುಖ್ಯವಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಪಾಲಿಸಿ ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."],["ULIP ಮತ್ತು ಮ್ಯೂಚುವಲ್ ಫಂಡ್ ಒಂದೇನಾ?","ಇಲ್ಲ. ULIP ಮಾರುಕಟ್ಟೆ ಆಧಾರಿತ ಹೂಡಿಕೆ ಅಂಶಗಳನ್ನು ಹೊಂದಿರುವ ವಿಮಾ ಉತ್ಪನ್ನ. ಮ್ಯೂಚುವಲ್ ಫಂಡ್ ಹೂಡಿಕೆ ಉತ್ಪನ್ನ. ಅವುಗಳ ರಚನೆ, ವೆಚ್ಚ ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳು ವಿಭಿನ್ನವಾಗಿವೆ."]]
+    title:"ಜೀವ ವಿಮೆ",
+    description:"ವಿಮೆ ಮಾಡಿದ ವ್ಯಕ್ತಿಯ ಮರಣದಿಂದ ಅವಲಂಬಿತರಿಗೆ ಉಂಟಾಗಬಹುದಾದ ಆರ್ಥಿಕ ಪರಿಣಾಮದಿಂದ ರಕ್ಷಣೆ ನೀಡಲು ಸಹಾಯ ಮಾಡುವ ಹಣಕಾಸಿನ ಭದ್ರತೆ. ಇದು ಪಾಲಿಸಿಯ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.",
+    quick:"⚡ ತ್ವರಿತ ಉತ್ತರ",
+    quickText:"ಜೀವ ವಿಮೆಯ ಮುಖ್ಯ ಉದ್ದೇಶ ಹಣಕಾಸಿನ ರಕ್ಷಣೆ. ಸರಿಯಾದ ಪಾಲಿಸಿಯ ಆಯ್ಕೆ ಉದ್ದೇಶ, ಅಗತ್ಯವಿರುವ ಕವರ್, ಅವಧಿ, ಕೈಗೆಟುಕುವ ಪ್ರೀಮಿಯಂ ಮತ್ತು ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ."
   },
   te: {
-    title:"జీవిత బీమా", description:"బీమా చేసిన వ్యక్తి మరణించినప్పుడు ఆధారపడిన వారికి కలిగే ఆర్థిక ప్రభావం నుండి రక్షణ కల్పించడానికి రూపొందించిన ఆర్థిక భద్రత. ఇది పాలసీ నిబంధనలు మరియు షరతులకు లోబడి ఉంటుంది.",
-    quick:"⚡ త్వరిత సమాధానం", quickText:"జీవిత బీమా ప్రధానంగా ఆర్థిక రక్షణ కోసం ఉంటుంది. సరైన పాలసీ ఎంపిక ఉద్దేశ్యం, అవసరమైన కవరేజ్, కాల వ్యవధి, ప్రీమియం సామర్థ్యం మరియు పాలసీ నిబంధనలపై ఆధారపడి ఉంటుంది.",
-    mainTitle:"🛡️ ప్రధాన ఉద్దేశ్యం", mainText:"బీమా చేసిన వ్యక్తి మరణిస్తే, పాలసీ ప్రకారం నామినీ లేదా ఆధారపడిన వారికి ఆర్థిక సహాయం అందించడం.", whoTitle:"👨‍👩‍👧 ఎవరికి అవసరం కావచ్చు?", whoText:"కుటుంబ ఆర్థిక జీవితంలో ఆదాయం, ఆర్థిక బాధ్యతలు లేదా రుణబాధ్యతలు ముఖ్యమైన వారికి.",
-    conceptsTitle:"🔎 ముఖ్యమైన జీవిత బీమా అంశాలు", termTitle:"టర్మ్ ఇన్సూరెన్స్", term:"నిర్దిష్ట కాలానికి ప్రధానంగా రక్షణ అందిస్తుంది. పాలసీ కాలంలో కవర్ అయిన సంఘటన జరిగితే, పాలసీ ప్రకారం ప్రయోజనం చెల్లించబడుతుంది.", endowmentTitle:"ఎండోమెంట్ ప్లాన్స్", endowment:"రక్షణతో పాటు పొదుపు ఆధారిత అంశాన్ని కలిగి ఉండే బీమా ఉత్పత్తులు. పాలసీ నిబంధనలు వర్తిస్తాయి.", ulipTitle:"ULIP", ulip:"యూనిట్ లింక్డ్ ఇన్సూరెన్స్ ప్లాన్స్ బీమాను మార్కెట్ ఆధారిత పెట్టుబడి అంశాలతో కలుపుతాయి. పెట్టుబడి విలువ మారవచ్చు.", nomineeTitle:"నామినీ", nominee:"వర్తించే నియమాలు మరియు పాలసీ నిబంధనల ప్రకారం పాలసీలో నామినేట్ చేయబడిన వ్యక్తి.",
-    exampleTitle:"💡 సులభమైన ఉదాహరణ", example1:"ఒక వ్యక్తి ఆదాయంపై కుటుంబం కొంతవరకు ఆధారపడి ఉందని అనుకుందాం. ఆ వ్యక్తికి ఏదైనా జరిగితే, ఇంటి ఖర్చులు, విద్య, రోజువారీ జీవనం మరియు రుణాల వంటి ఖర్చులు కొనసాగవచ్చు.", example2:"జీవిత బీమాను విస్తృతమైన ఆర్థిక రక్షణ ప్రణాళికలో ఒక భాగంగా పరిగణించవచ్చు.", beforeTitle:"⚠️ కొనుగోలు చేసే ముందు తెలుసుకోవాల్సినవి", before:["అవసరమైన రక్షణ మొత్తం","పాలసీ కాలం","ప్రీమియం భరించే సామర్థ్యం","నామినీ వివరాలు","మినహాయింపులు మరియు పాలసీ నిబంధనలు","క్లెయిమ్‌కు సంబంధించిన పత్రాలు","ఉత్పత్తి ఉద్దేశించిన ఆర్థిక లక్ష్యానికి సరిపోతుందా"], remember:"గుర్తుంచుకోండి", rememberText:"బీమా మరియు పెట్టుబడి ఒకటే కావాల్సిన అవసరం లేదు. పోల్చే ముందు ఉత్పత్తి ఏం చేయడానికి రూపొందించబడిందో అర్థం చేసుకోండి.", faqTitle:"❓ సాధారణ ప్రశ్నలు", faq:[["జీవిత బీమా వివాహితులకు మాత్రమేనా?","అవసరం ఆర్థిక బాధ్యతలు, ఆధారపడిన వారు, రుణబాధ్యతలు మరియు భవిష్యత్ బాధ్యతలపై ఆధారపడి ఉంటుంది."],["టర్మ్ ఇన్సూరెన్స్ అంటే ఏమిటి?","టర్మ్ ఇన్సూరెన్స్ నిర్దిష్ట పాలసీ కాలానికి జీవిత రక్షణ అందించడానికి ప్రధానంగా రూపొందించబడింది. పాలసీ నిబంధనలు వర్తిస్తాయి."],["ULIP మరియు మ్యూచువల్ ఫండ్ ఒకటేనా?","కాదు. ULIP మార్కెట్ ఆధారిత పెట్టుబడి అంశాలతో కూడిన బీమా ఉత్పత్తి. మ్యూచువల్ ఫండ్ పెట్టుబడి ఉత్పత్తి. వాటి నిర్మాణం, ఖర్చులు మరియు లక్షణాలు భిన్నంగా ఉంటాయి."]]
+    title:"జీవిత బీమా",
+    description:"బీమా చేసిన వ్యక్తి మరణించినప్పుడు ఆధారపడిన వారికి కలిగే ఆర్థిక ప్రభావం నుండి రక్షణ కల్పించడానికి రూపొందించిన ఆర్థిక భద్రత. ఇది పాలసీ నిబంధనలు మరియు షరతులకు లోబడి ఉంటుంది.",
+    quick:"⚡ త్వరిత సమాధానం",
+    quickText:"జీవిత బీమా ప్రధానంగా ఆర్థిక రక్షణ కోసం ఉంటుంది. సరైన పాలసీ ఎంపిక ఉద్దేశ్యం, అవసరమైన కవరేజ్, కాల వ్యవధి, ప్రీమియం సామర్థ్యం మరియు పాలసీ నిబంధనలపై ఆధారపడి ఉంటుంది."
   },
   ta: {
-    title:"ஆயுள் காப்பீடு", description:"காப்பீடு செய்யப்பட்ட நபரின் மரணத்தால் சார்ந்திருப்பவர்களுக்கு ஏற்படும் நிதி பாதிப்பிலிருந்து பாதுகாப்பு வழங்க உதவும் நிதி பாதுகாப்பு. இது பாலிசி விதிமுறைகள் மற்றும் நிபந்தனைகளுக்கு உட்பட்டது.", quick:"⚡ விரைவான பதில்", quickText:"ஆயுள் காப்பீடு முக்கியமாக நிதி பாதுகாப்பை வழங்குகிறது. சரியான பாலிசி வகை நோக்கம், தேவையான காப்பீட்டு தொகை, காலம், பிரீமியம் செலுத்தும் திறன் மற்றும் பாலிசி நிபந்தனைகளைப் பொறுத்தது.",
-    mainTitle:"🛡️ முக்கிய நோக்கம்", mainText:"காப்பீடு செய்யப்பட்ட நபர் இறந்தால், பாலிசியின் படி நாமினி அல்லது சார்ந்திருப்பவர்களுக்கு நிதி ஆதரவு வழங்குவது.", whoTitle:"👨‍👩‍👧 யாருக்கு தேவைப்படலாம்?", whoText:"குடும்பத்தின் நிதி வாழ்க்கையில் வருமானம், நிதிப் பொறுப்புகள் அல்லது கடன்கள் முக்கியமானவர்களுக்கு.", conceptsTitle:"🔎 முக்கிய ஆயுள் காப்பீட்டு கருத்துகள்", termTitle:"டெர்ம் இன்சூரன்ஸ்", term:"குறிப்பிட்ட காலத்திற்கு முக்கியமாக பாதுகாப்பு வழங்கும் காப்பீடு. பாலிசி காலத்தில் காப்பீடு செய்யப்பட்ட நிகழ்வு ஏற்பட்டால், பாலிசியின் படி பலன் வழங்கப்படும்.", endowmentTitle:"எண்டோவ்மென்ட் திட்டங்கள்", endowment:"பாதுகாப்புடன் சேமிப்பு சார்ந்த கூறையும் கொண்டிருக்கக்கூடிய காப்பீட்டு தயாரிப்புகள். பாலிசி நிபந்தனைகள் பொருந்தும்.", ulipTitle:"ULIP", ulip:"யூனிட் லிங்க்டு இன்சூரன்ஸ் பிளான்கள் காப்பீட்டை சந்தை சார்ந்த முதலீட்டு கூறுகளுடன் இணைக்கின்றன. முதலீட்டு மதிப்பு மாறலாம்.", nomineeTitle:"நாமினி", nominee:"பொருந்தும் விதிகள் மற்றும் பாலிசி நிபந்தனைகளின்படி பாலிசியில் நியமிக்கப்பட்ட நபர்.", exampleTitle:"💡 எளிய உதாரணம்", example1:"ஒரு நபரின் வருமானத்தை குடும்பம் ஓரளவு சார்ந்துள்ளது என்று நினைத்துக்கொள்ளுங்கள். அந்த நபருக்கு ஏதேனும் நடந்தால், வீடு, கல்வி, தினசரி வாழ்க்கை மற்றும் கடன்கள் போன்ற செலவுகள் தொடரலாம்.", example2:"ஆயுள் காப்பீட்டை விரிவான நிதி பாதுகாப்புத் திட்டத்தின் ஒரு பகுதியாகக் கருதலாம்.", beforeTitle:"⚠️ வாங்குவதற்கு முன் புரிந்துகொள்ள வேண்டியவை", before:["தேவையான பாதுகாப்புத் தொகை","பாலிசி காலம்","பிரீமியம் செலுத்தும் திறன்","நாமினி விவரங்கள்","விலக்குகள் மற்றும் பாலிசி நிபந்தனைகள்","க்ளெயிம் தொடர்பான ஆவணங்கள்","தயாரிப்பு நோக்கமுள்ள நிதி இலக்குடன் பொருந்துகிறதா"], remember:"நினைவில் கொள்ளுங்கள்", rememberText:"காப்பீடும் முதலீடும் ஒரே விஷயம் அல்ல. ஒப்பிடுவதற்கு முன் ஒரு தயாரிப்பு எதற்காக வடிவமைக்கப்பட்டுள்ளது என்பதைப் புரிந்துகொள்ளுங்கள்.", faqTitle:"❓ பொதுவான கேள்விகள்", faq:[["ஆயுள் காப்பீடு திருமணமானவர்களுக்கு மட்டுமா?","தேவை என்பது நிதிப் பொறுப்புகள், சார்ந்திருப்பவர்கள், கடன்கள் மற்றும் எதிர்கால பொறுப்புகளைப் பொறுத்தது."],["டெர்ம் இன்சூரன்ஸ் என்றால் என்ன?","டெர்ம் இன்சூரன்ஸ் குறிப்பிட்ட பாலிசி காலத்திற்கு ஆயுள் பாதுகாப்பை வழங்குவதற்காக முக்கியமாக வடிவமைக்கப்பட்டுள்ளது. பாலிசி நிபந்தனைகள் பொருந்தும்."],["ULIP மற்றும் மியூச்சுவல் ஃபண்ட் ஒன்றா?","இல்லை. ULIP என்பது சந்தை சார்ந்த முதலீட்டு கூறுகளைக் கொண்ட காப்பீட்டு தயாரிப்பு. மியூச்சுவல் ஃபண்ட் ஒரு முதலீட்டு தயாரிப்பு. அவற்றின் அமைப்பு, செலவுகள் மற்றும் அம்சங்கள் வேறுபடும்."]]
+    title:"ஆயுள் காப்பீடு",
+    description:"காப்பீடு செய்யப்பட்ட நபரின் மரணத்தால் சார்ந்திருப்பவர்களுக்கு ஏற்படும் நிதி பாதிப்பிலிருந்து பாதுகாப்பு வழங்க உதவும் நிதி பாதுகாப்பு. இது பாலிசி விதிமுறைகள் மற்றும் நிபந்தனைகளுக்கு உட்பட்டது.",
+    quick:"⚡ விரைவான பதில்",
+    quickText:"ஆயுள் காப்பீடு முக்கியமாக நிதி பாதுகாப்பை வழங்குகிறது. சரியான பாலிசி வகை நோக்கம், தேவையான காப்பீட்டு தொகை, காலம், பிரீமியம் செலுத்தும் திறன் மற்றும் பாலிசி நிபந்தனைகளைப் பொறுத்தது."
   },
   ml: {
-    title:"ലൈഫ് ഇൻഷുറൻസ്", description:"ഇൻഷ്വർ ചെയ്ത വ്യക്തിയുടെ മരണത്തെ തുടർന്ന് ആശ്രിതർക്ക് ഉണ്ടാകാവുന്ന സാമ്പത്തിക ആഘാതത്തിൽ നിന്ന് സംരക്ഷണം നൽകാൻ സഹായിക്കുന്ന സാമ്പത്തിക സുരക്ഷ. പോളിസിയുടെ നിബന്ധനകൾക്കും വ്യവസ്ഥകൾക്കും വിധേയമാണ്.", quick:"⚡ ചുരുക്കത്തിൽ", quickText:"ലൈഫ് ഇൻഷുറൻസിന്റെ പ്രധാന ലക്ഷ്യം സാമ്പത്തിക സംരക്ഷണമാണ്. ശരിയായ പോളിസി തിരഞ്ഞെടുക്കുന്നത് ലക്ഷ്യം, ആവശ്യമായ കവർ, കാലാവധി, പ്രീമിയം നൽകാനുള്ള കഴിവ്, പോളിസി നിബന്ധനകൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.",
-    mainTitle:"🛡️ പ്രധാന ലക്ഷ്യം", mainText:"ഇൻഷ്വർ ചെയ്ത വ്യക്തി മരിച്ചാൽ, പോളിസി പ്രകാരം നോമിനിക്കോ ആശ്രിതർക്കോ സാമ്പത്തിക സഹായം നൽകുക.", whoTitle:"👨‍👩‍👧 ആർക്കാണ് ആവശ്യമാകുന്നത്?", whoText:"കുടുംബത്തിന്റെ സാമ്പത്തിക ജീവിതത്തിൽ വരുമാനം, സാമ്പത്തിക ഉത്തരവാദിത്തങ്ങൾ അല്ലെങ്കിൽ ബാധ്യതകൾ പ്രധാനമായുള്ളവർക്ക്.", conceptsTitle:"🔎 പ്രധാന ലൈഫ് ഇൻഷുറൻസ് ആശയങ്ങൾ", termTitle:"ടേം ഇൻഷുറൻസ്", term:"നിശ്ചിത കാലയളവിലേക്ക് പ്രധാനമായും സംരക്ഷണം നൽകുന്നു. പോളിസി കാലയളവിൽ കവർ ചെയ്ത സംഭവം ഉണ്ടായാൽ, പോളിസി പ്രകാരം ആനുകൂല്യം നൽകും.", endowmentTitle:"എൻഡോവ്മെന്റ് പ്ലാനുകൾ", endowment:"സംരക്ഷണത്തോടൊപ്പം സേവിംഗ്സ് അടിസ്ഥാനത്തിലുള്ള ഘടകം ഉൾക്കൊള്ളാവുന്ന ഇൻഷുറൻസ് ഉൽപ്പന്നങ്ങൾ. പോളിസി നിബന്ധനകൾ ബാധകമാണ്.", ulipTitle:"ULIP", ulip:"യൂണിറ്റ് ലിങ്ക്ഡ് ഇൻഷുറൻസ് പ്ലാനുകൾ ഇൻഷുറൻസിനെ മാർക്കറ്റ്-ലിങ്ക്ഡ് നിക്ഷേപ ഘടകങ്ങളുമായി സംയോജിപ്പിക്കുന്നു. നിക്ഷേപ മൂല്യം മാറാം.", nomineeTitle:"നോമിനി", nominee:"ബാധകമായ നിയമങ്ങളും പോളിസി നിബന്ധനകളും അനുസരിച്ച് പോളിസിയിൽ നാമനിർദ്ദേശം ചെയ്ത വ്യക്തി.", exampleTitle:"💡 ലളിതമായ ഉദാഹരണം", example1:"ഒരു വ്യക്തിയുടെ വരുമാനത്തെ കുടുംബം ഭാഗികമായി ആശ്രയിക്കുന്നു എന്ന് കരുതുക. ആ വ്യക്തിക്ക് എന്തെങ്കിലും സംഭവിച്ചാൽ, വീട്, വിദ്യാഭ്യാസം, ദൈനംദിന ജീവിതം, ബാധ്യതകൾ തുടങ്ങിയ ചെലവുകൾ തുടർന്നേക്കാം.", example2:"വിശാലമായ സാമ്പത്തിക സംരക്ഷണ പദ്ധതിയുടെ ഒരു ഭാഗമായി ലൈഫ് ഇൻഷുറൻസിനെ പരിഗണിക്കാം.", beforeTitle:"⚠️ വാങ്ങുന്നതിന് മുമ്പ് മനസ്സിലാക്കേണ്ട കാര്യങ്ങൾ", before:["ആവശ്യമായ സംരക്ഷണ തുക","പോളിസി കാലയളവ്","പ്രീമിയം നൽകാനുള്ള കഴിവ്","നോമിനി വിവരങ്ങൾ","ഒഴിവാക്കലുകളും പോളിസി നിബന്ധനകളും","ക്ലെയിം സംബന്ധമായ രേഖകൾ","ഉൽപ്പന്നം ലക്ഷ്യമിടുന്ന സാമ്പത്തിക ലക്ഷ്യവുമായി പൊരുത്തപ്പെടുന്നുണ്ടോ"], remember:"ഓർക്കുക", rememberText:"ഇൻഷുറൻസും നിക്ഷേപവും ഒരേ കാര്യമല്ല. താരതമ്യം ചെയ്യുന്നതിന് മുമ്പ് ഒരു ഉൽപ്പന്നം എന്തിനാണ് രൂപകൽപ്പന ചെയ്തതെന്ന് മനസ്സിലാക്കുക.", faqTitle:"❓ സാധാരണ ചോദ്യങ്ങൾ", faq:[["ലൈഫ് ഇൻഷുറൻസ് വിവാഹിതർക്കു മാത്രമാണോ?","ആവശ്യം സാമ്പത്തിക ഉത്തരവാദിത്തങ്ങൾ, ആശ്രിതർ, ബാധ്യതകൾ, ഭാവിയിലെ ഉത്തരവാദിത്തങ്ങൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു."],["ടേം ഇൻഷുറൻസ് എന്താണ്?","നിശ്ചിത പോളിസി കാലയളവിൽ ലൈഫ് സംരക്ഷണം നൽകുന്നതിനാണ് ടേം ഇൻഷുറൻസ് പ്രധാനമായും രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്. പോളിസി നിബന്ധനകൾ ബാധകമാണ്."],["ULIPയും മ്യൂച്വൽ ഫണ്ടും ഒരുപോലെയാണോ?","അല്ല. ULIP മാർക്കറ്റ്-ലിങ്ക്ഡ് നിക്ഷേപ ഘടകങ്ങളുള്ള ഇൻഷുറൻസ് ഉൽപ്പന്നമാണ്. മ്യൂച്വൽ ഫണ്ട് ഒരു നിക്ഷേപ ഉൽപ്പന്നമാണ്. അവയുടെ ഘടന, ചെലവ്, സവിശേഷതകൾ വ്യത്യസ്തമാണ്."]]
+    title:"ലൈഫ് ഇൻഷുറൻസ്",
+    description:"ഇൻഷ്വർ ചെയ്ത വ്യക്തിയുടെ മരണത്തെ തുടർന്ന് ആശ്രിതർക്ക് ഉണ്ടാകാവുന്ന സാമ്പത്തിക ആഘാതത്തിൽ നിന്ന് സംരക്ഷണം നൽകാൻ സഹായിക്കുന്ന സാമ്പത്തിക സുരക്ഷ. പോളിസിയുടെ നിബന്ധനകൾക്കും വ്യവസ്ഥകൾക്കും വിധേയമാണ്.",
+    quick:"⚡ ചുരുക്കത്തിൽ",
+    quickText:"ലൈഫ് ഇൻഷുറൻസിന്റെ പ്രധാന ലക്ഷ്യം സാമ്പത്തിക സംരക്ഷണമാണ്. ശരിയായ പോളിസി തിരഞ്ഞെടുക്കുന്നത് ലക്ഷ്യം, ആവശ്യമായ കവർ, കാലാവധി, പ്രീമിയം നൽകാനുള്ള കഴിവ്, പോളിസി നിബന്ധനകൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു."
   },
   hi: {
-    title:"जीवन बीमा", description:"बीमित व्यक्ति की मृत्यु से आश्रितों पर पड़ने वाले वित्तीय प्रभाव से सुरक्षा में मदद करने के लिए बनाया गया वित्तीय संरक्षण। यह पॉलिसी की शर्तों और नियमों के अधीन है।", quick:"⚡ संक्षिप्त उत्तर", quickText:"जीवन बीमा मुख्य रूप से वित्तीय सुरक्षा के लिए होता है। सही पॉलिसी का चुनाव उद्देश्य, आवश्यक कवर, अवधि, प्रीमियम की क्षमता और पॉलिसी की शर्तों पर निर्भर करता है।",
-    mainTitle:"🛡️ मुख्य उद्देश्य", mainText:"बीमित व्यक्ति की मृत्यु होने पर पॉलिसी के अनुसार नॉमिनी या आश्रितों को वित्तीय सहायता प्रदान करना।", whoTitle:"👨‍👩‍👧 किसे इसकी जरूरत हो सकती है?", whoText:"जिन लोगों की आय, वित्तीय जिम्मेदारियाँ या देनदारियाँ परिवार की वित्तीय स्थिति में महत्वपूर्ण हैं।", conceptsTitle:"🔎 जीवन बीमा की प्रमुख अवधारणाएँ", termTitle:"टर्म इंश्योरेंस", term:"एक निश्चित अवधि के लिए मुख्य रूप से सुरक्षा प्रदान करता है। पॉलिसी अवधि में कवर की गई घटना होने पर पॉलिसी के अनुसार लाभ दिया जाता है।", endowmentTitle:"एंडोमेंट प्लान", endowment:"ऐसे बीमा उत्पाद जिनमें सुरक्षा के साथ बचत-आधारित घटक भी हो सकता है। पॉलिसी की शर्तें लागू होती हैं।", ulipTitle:"ULIP", ulip:"यूनिट लिंक्ड इंश्योरेंस प्लान बीमा को बाजार-आधारित निवेश घटकों के साथ जोड़ते हैं। निवेश का मूल्य बदल सकता है।", nomineeTitle:"नॉमिनी", nominee:"लागू नियमों और पॉलिसी की शर्तों के अनुसार पॉलिसी में नामित व्यक्ति।", exampleTitle:"💡 सरल उदाहरण", example1:"मान लीजिए किसी व्यक्ति की आय पर उसका परिवार कुछ हद तक निर्भर है। उस व्यक्ति को कुछ हो जाए तो घर, शिक्षा, दैनिक जीवन और देनदारियों जैसे खर्च जारी रह सकते हैं।", example2:"जीवन बीमा को व्यापक वित्तीय सुरक्षा योजना के एक हिस्से के रूप में माना जा सकता है।", beforeTitle:"⚠️ खरीदने से पहले समझने योग्य बातें", before:["आवश्यक सुरक्षा राशि","पॉलिसी अवधि","प्रीमियम वहन करने की क्षमता","नॉमिनी विवरण","बहिष्करण और पॉलिसी शर्तें","क्लेम से संबंधित दस्तावेज","क्या उत्पाद आपके वित्तीय लक्ष्य के अनुरूप है"], remember:"याद रखें", rememberText:"बीमा और निवेश हमेशा एक ही चीज नहीं होते। तुलना करने से पहले समझें कि उत्पाद किस उद्देश्य के लिए बनाया गया है।", faqTitle:"❓ सामान्य प्रश्न", faq:[["क्या जीवन बीमा केवल विवाहित लोगों के लिए है?","जरूरत वित्तीय जिम्मेदारियों, आश्रितों, देनदारियों और भविष्य की जिम्मेदारियों पर निर्भर करती है।"],["टर्म इंश्योरेंस क्या है?","टर्म इंश्योरेंस एक निश्चित पॉलिसी अवधि के लिए जीवन सुरक्षा देने के लिए मुख्य रूप से बनाया जाता है। पॉलिसी की शर्तें लागू होती हैं।"],["क्या ULIP और म्यूचुअल फंड एक ही हैं?","नहीं। ULIP बाजार-आधारित निवेश घटकों वाला बीमा उत्पाद है, जबकि म्यूचुअल फंड एक निवेश उत्पाद है। उनकी संरचना, लागत और विशेषताएँ अलग हैं।"]]
-  }
-};
-
-/* =========================================================
-   REMAINING TOPIC DETAIL TRANSLATIONS
-   Life Insurance uses its existing reviewed translation block.
-   These translations cover every other topic panel.
-   ========================================================= */
-
-const topicDetailTranslations = {
-  "kn": {
-    "health": {
-      "title": "ಆರೋಗ್ಯ ವಿಮೆ",
-      "desc": "ಪಾಲಿಸಿಯ ನಿಯಮಗಳ ಪ್ರಕಾರ ಅರ್ಹ ವೈದ್ಯಕೀಯ ವೆಚ್ಚಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಆರೋಗ್ಯ ವಿಮೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು ಎಂಬುದನ್ನು ತಿಳಿಯಿರಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಆರೋಗ್ಯ ವಿಮೆ ಒಳಗೊಂಡಿರುವ ಆರೋಗ್ಯ ಸೇವಾ ವೆಚ್ಚಗಳ ವಿರುದ್ಧ ಹಣಕಾಸಿನ ರಕ್ಷಣೆ ನೀಡುತ್ತದೆ. ಕವರ್ ಪಾಲಿಸಿ, ಮಿತಿಗಳು, ಹೊರತಾಗುವಿಕೆಗಳು, ಕಾಯುವ ಅವಧಿ ಮತ್ತು ಇತರ ಷರತ್ತುಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
-      "boxes": [
-        [
-          "👤 ವೈಯಕ್ತಿಕ ಪಾಲಿಸಿ",
-          "ಪಾಲಿಸಿಯ ನಿಯಮಗಳ ಪ್ರಕಾರ ಒಬ್ಬ ವ್ಯಕ್ತಿಗೆ ಕವರ್ ನೀಡಲಾಗುತ್ತದೆ."
-        ],
-        [
-          "👨‍👩‍👧 ಫ್ಯಾಮಿಲಿ ಫ್ಲೋಟರ್",
-          "ಪಾಲಿಸಿಯ ನಿಯಮಗಳಿಗೆ ಒಳಪಟ್ಟು, ಒಂದೇ ವಿಮಾ ಮೊತ್ತವನ್ನು ಕುಟುಂಬದ ಹಲವಾರು ಸದಸ್ಯರು ಹಂಚಿಕೊಳ್ಳಬಹುದು."
-        ],
-        [
-          "➕ ಟಾಪ್-ಅಪ್",
-          "ನಿಗದಿತ ಡಿಡಕ್ಟಿಬಲ್ ಮೀರಿದ ನಂತರ ಸಾಮಾನ್ಯವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ; ಪಾಲಿಸಿಯ ರಚನೆ ಅನ್ವಯಿಸುತ್ತದೆ."
-        ],
-        [
-          "🔄 ಸೂಪರ್ ಟಾಪ್-ಅಪ್",
-          "ಪಾಲಿಸಿ ಅವಧಿಯಲ್ಲಿ ಅರ್ಹ ವೆಚ್ಚಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಿ ಪರಿಗಣಿಸಬಹುದು; ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."
-        ]
-      ],
-      "section": "⚠️ ಪ್ರಮುಖ ಪದಗಳು",
-      "list": [
-        "ವಿಮಾ ಮೊತ್ತ",
-        "ಕಾಯುವ ಅವಧಿ",
-        "ಪೂರ್ವ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ರೋಗದ ಷರತ್ತುಗಳು",
-        "ರೂಮ್-ರೆಂಟ್ ಮಿತಿಗಳು",
-        "ಕೋ-ಪೇಮೆಂಟ್",
-        "ಡಿಡಕ್ಟಿಬಲ್",
-        "ನೆಟ್‌ವರ್ಕ್ ಆಸ್ಪತ್ರೆಗಳು",
-        "ಹೊರತಾಗುವಿಕೆಗಳು",
-        "ಸಬ್-ಲಿಮಿಟ್‌ಗಳು"
-      ],
-      "tip": "💡 ಆರೋಗ್ಯ ಪಾಲಿಸಿಗಳನ್ನು ಕೇವಲ ಪ್ರೀಮಿಯಂ ಆಧಾರದ ಮೇಲೆ ಹೋಲಿಸಬೇಡಿ. ಕವರ್ ಷರತ್ತುಗಳು, ಹೊರತಾಗುವಿಕೆಗಳು, ಕಾಯುವ ಅವಧಿ, ಮಿತಿಗಳು ಮತ್ತು ಕ್ಲೇಮ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ವೈಶಿಷ್ಟ್ಯಗಳು ಸಹ ಮುಖ್ಯ."
-    },
-    "motor": {
-      "title": "ಮೋಟಾರ್ ವಿಮೆ",
-      "desc": "ವಾಹನ ವಿಮೆ, ಥರ್ಡ್-ಪಾರ್ಟಿ ಕವರ್, ಸ್ವಂತ ಹಾನಿ ರಕ್ಷಣೆ ಮತ್ತು ಪ್ರಮುಖ ಆಡ್-ಆನ್‌ಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಮೋಟಾರ್ ವಿಮೆ ವಾಹನಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ನಿರ್ದಿಷ್ಟ ಅಪಾಯಗಳ ವಿರುದ್ಧ ರಕ್ಷಣೆ ನೀಡಬಹುದು. ರಕ್ಷಣೆಯ ವಿಧ ಮತ್ತು ವ್ಯಾಪ್ತಿ ಪಾಲಿಸಿಯ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
-      "boxes": [
-        [
-          "🛡️ ಥರ್ಡ್-ಪಾರ್ಟಿ ವಿಮೆ",
-          "ಅನ್ವಯಿಸುವ ಕಾನೂನು ಮತ್ತು ಪಾಲಿಸಿ ಷರತ್ತುಗಳ ಪ್ರಕಾರ ನಿರ್ದಿಷ್ಟ ಥರ್ಡ್-ಪಾರ್ಟಿ ಹೊಣೆಗಾರಿಕೆಗಳಿಗೆ ಕವರ್ ನೀಡುತ್ತದೆ."
-        ],
-        [
-          "🚘 ಕಾಂಪ್ರಿಹೆನ್ಸಿವ್ ಪಾಲಿಸಿ",
-          "ಪಾಲಿಸಿಗೆ ಒಳಪಟ್ಟು ಥರ್ಡ್-ಪಾರ್ಟಿ ಹೊಣೆಗಾರಿಕೆಯನ್ನು ಸ್ವಂತ ವಾಹನದ ಹಾನಿ ರಕ್ಷಣೆಯೊಂದಿಗೆ ಸೇರಿಸಬಹುದು."
-        ],
-        [
-          "📊 IDV",
-          "ಇನ್ಶೂರ್ಡ್ ಡಿಕ್ಲೇರ್ಡ್ ವ್ಯಾಲ್ಯೂ ಮೋಟಾರ್ ವಿಮೆಯ ಪ್ರಮುಖ ಪರಿಕಲ್ಪನೆಯಾಗಿದ್ದು, ಕೆಲವು ಕ್ಲೇಮ್‌ಗಳಲ್ಲಿ ಸಂಬಂಧಿಸಿದೆ."
-        ],
-        [
-          "🏷️ NCB",
-          "ನೋ ಕ್ಲೇಮ್ ಬೋನಸ್ ಕ್ಲೇಮ್-ಮುಕ್ತ ವಿಮಾ ಅವಧಿಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಯೋಜನವಾಗಿದೆ; ಅನ್ವಯಿಸುವ ಷರತ್ತುಗಳು ಇರುತ್ತವೆ."
-        ],
-        [
-          "🔧 ಝೀರೋ ಡಿಪ್ರಿಸಿಯೇಷನ್",
-          "ಕೆಲವು ಅರ್ಹ ಕ್ಲೇಮ್‌ಗಳಲ್ಲಿ ಡಿಪ್ರಿಸಿಯೇಷನ್ ಕಡಿತದ ಪರಿಣಾಮವನ್ನು ಕಡಿಮೆ ಮಾಡಬಹುದಾದ ಆಡ್-ಆನ್; ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."
-        ],
-        [
-          "🧾 RTI — ರಿಟರ್ನ್ ಟು ಇನ್ವಾಯ್ಸ್",
-          "ಅರ್ಹ ಸಂದರ್ಭಗಳಲ್ಲಿ ಸಾಮಾನ್ಯ IDV ಮಾತ್ರವಲ್ಲದೆ ಇನ್ವಾಯ್ಸ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಮೌಲ್ಯದ ಆಧಾರದ ಮೇಲೆ ಪಾವತಿ ಮಾಡಲು ವಿನ್ಯಾಸಗೊಳಿಸಿದ ಆಡ್-ಆನ್; ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."
-        ]
-      ],
-      "warning": "⚠️ ಎಲ್ಲಾ ಮೋಟಾರ್ ಪಾಲಿಸಿಗಳಲ್ಲೂ ಆಡ್-ಆನ್‌ಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೇರಿರುವುದಿಲ್ಲ. ಪಾಲಿಸಿ ಶೆಡ್ಯೂಲ್, ಕವರ್ ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."
-    },
-    "saving": {
-      "title": "ಉಳಿತಾಯ ಮತ್ತು ಹಣಕಾಸಿನ ಸುರಕ್ಷತೆ",
-      "desc": "ತುರ್ತು ಸಿದ್ಧತೆ, ಶಿಸ್ತಿನ ಉಳಿತಾಯ ಮತ್ತು ಸುರಕ್ಷಿತ ಉಳಿತಾಯ ಮಾರ್ಗಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವ ಮೂಲಕ ಹಣಕಾಸಿನ ಸ್ಥಿರತೆಯನ್ನು ನಿರ್ಮಿಸಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಉಳಿತಾಯವು ತುರ್ತು ಪರಿಸ್ಥಿತಿಗಳು, ಅಲ್ಪಾವಧಿಯ ಅಗತ್ಯಗಳು ಮತ್ತು ಯೋಜಿತ ವೆಚ್ಚಗಳಿಗೆ ಸುಲಭವಾಗಿ ಬಳಸಬಹುದಾದ ಹಣವನ್ನು ಒದಗಿಸಬಹುದು. ಉಳಿತಾಯಕ್ಕೆ ಸೂಕ್ತವಾದ ಸ್ಥಳವು ಸುರಕ್ಷತೆ, ದ್ರವ್ಯತೆ, ಅವಧಿ ಮತ್ತು ಉದ್ದೇಶದ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
-      "boxes": [
-        [
-          "🛟 ತುರ್ತು ನಿಧಿ",
-          "ಸುಲಭವಾಗಿ ಲಭ್ಯವಿರುವ ಮೀಸಲು ಹಣವು ಅನಿರೀಕ್ಷಿತ ವೆಚ್ಚಗಳು ಅಥವಾ ತಾತ್ಕಾಲಿಕ ಆದಾಯ ವ್ಯತ್ಯಯವನ್ನು ನಿರ್ವಹಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು."
-        ],
-        [
-          "🏛️ ಸರ್ಕಾರಿ ಮತ್ತು ಅಂಚೆ ಯೋಜನೆಗಳು",
-          "ಭಾರತದಲ್ಲಿ ವಿವಿಧ ಸರ್ಕಾರಿ ಮತ್ತು ಅಂಚೆ ಉಳಿತಾಯ ಯೋಜನೆಗಳಿದ್ದು, ಅವುಗಳ ಅರ್ಹತೆ, ಅವಧಿ, ಬಡ್ಡಿ, ಹಿಂಪಡೆಯುವಿಕೆ ಮತ್ತು ತೆರಿಗೆ ನಿಯಮಗಳು ವಿಭಿನ್ನವಾಗಿರಬಹುದು."
-        ]
-      ],
-      "section": "📌 ಏನು ಹೋಲಿಸಬೇಕು",
-      "list": [
-        "ಸುರಕ್ಷತೆ",
-        "ದ್ರವ್ಯತೆ",
-        "ಅವಧಿ",
-        "ಬಡ್ಡಿ ಅಥವಾ ಆದಾಯದ ರಚನೆ",
-        "ತೆರಿಗೆ ಚಿಕಿತ್ಸೆ",
-        "ಮುಂಚಿತ ಹಿಂಪಡೆಯುವ ನಿಯಮಗಳು",
-        "ಹಣದ ಉದ್ದೇಶ"
-      ],
-      "tip": "💡 ಸರ್ಕಾರಿ ಅಥವಾ ಅಂಚೆ ಯೋಜನೆ ಎಂದರೂ ಹೂಡಿಕೆ ಮಾಡುವ ಮೊದಲು ಅದರ ನಿಯಮಗಳನ್ನು ಸರಿಯಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. “ಖಚಿತ” ಅಥವಾ ಸರ್ಕಾರಿ ಬೆಂಬಲಿತ ಎಂದರೆ ಎಲ್ಲ ಯೋಜನೆಗಳ ವೈಶಿಷ್ಟ್ಯಗಳು ಒಂದೇ ಎಂದು ಅರ್ಥವಲ್ಲ."
-    },
-    "invest": {
-      "title": "ಹೂಡಿಕೆಗಳು ಮತ್ತು SIP",
-      "desc": "ಸಮಯ, ಅಪಾಯ, ಚಕ್ರಬಡ್ಡಿ ಮತ್ತು ಶಿಸ್ತಿನ ಹೂಡಿಕೆ ದೀರ್ಘಕಾಲೀನ ಸಂಪತ್ತು ನಿರ್ಮಾಣದ ಮೇಲೆ ಹೇಗೆ ಪರಿಣಾಮ ಬೀರುತ್ತವೆ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಭವಿಷ್ಯದ ಹಣಕಾಸಿನ ಗುರಿಯನ್ನು ಸಾಧಿಸುವ ನಿರೀಕ್ಷೆಯಲ್ಲಿ ಆಸ್ತಿಗಳಲ್ಲಿ ಹಣ ಹೂಡುವುದನ್ನು ಹೂಡಿಕೆ ಎಂದು ಕರೆಯಬಹುದು. ಸಂಬಂಧಿತ ಉತ್ಪನ್ನದಲ್ಲಿ ಸ್ಪಷ್ಟವಾಗಿ ಹೇಳದ ಹೊರತು ಆದಾಯ ಖಚಿತವಲ್ಲ.",
-      "boxes": [
-        [
-          "📅 SIP",
-          "ಆಯ್ಕೆ ಮಾಡಿದ ಹೂಡಿಕೆಯಲ್ಲಿ ನಿಗದಿತ ಮೊತ್ತವನ್ನು ನಿಯಮಿತ ಅಂತರದಲ್ಲಿ ಹೂಡಿಕೆ ಮಾಡಲು ಸಹಾಯ ಮಾಡುವ ವಿಧಾನ."
-        ],
-        [
-          "🔁 ಚಕ್ರಬಡ್ಡಿ",
-          "ಕಾಲಕ್ರಮೇಣ ಬಂದ ಆದಾಯವೂ ಮುಂದಿನ ಬೆಳವಣಿಗೆಗೆ ಕೊಡುಗೆ ನೀಡಬಹುದು ಎಂಬ ಪರಿಕಲ್ಪನೆ."
-        ],
-        [
-          "⚖️ ಅಪಾಯ",
-          "ವಿಭಿನ್ನ ಹೂಡಿಕೆಗಳಲ್ಲಿ ಅಪಾಯದ ಮಟ್ಟ ಮತ್ತು ಸ್ವರೂಪ ವಿಭಿನ್ನವಾಗಿರುತ್ತದೆ. ಹೆಚ್ಚಿನ ಸಾಧ್ಯತೆಯ ಆದಾಯವು ಹೆಚ್ಚಿನ ಅನಿಶ್ಚಿತತೆಯನ್ನು ಒಳಗೊಂಡಿರಬಹುದು."
-        ],
-        [
-          "⏳ ಹೂಡಿಕೆ ಅವಧಿ",
-          "ಹಣ ಬೇಕಾಗುವ ಮೊದಲು ಇರುವ ಅವಧಿಯು ಹೂಡಿಕೆಯನ್ನು ಹೇಗೆ ಮೌಲ್ಯಮಾಪನ ಮಾಡಬೇಕು ಎಂಬುದರ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ."
-        ]
-      ],
-      "tip": "💡 SIP ಎಂದರೆ ನಿಯಮಿತವಾಗಿ ಹೂಡಿಕೆ ಮಾಡುವ ವಿಧಾನ. ಅದು ಸ್ವತಃ ಖಚಿತ ಆದಾಯ ನೀಡುವ ಉತ್ಪನ್ನವಲ್ಲ."
-    },
-    "retire": {
-      "title": "ನಿವೃತ್ತಿ ಯೋಜನೆ",
-      "desc": "ಉದ್ಯೋಗದ ಆದಾಯ ಕಡಿಮೆಯಾಗುವ ಅಥವಾ ನಿಲ್ಲುವ ಸಮಯದಲ್ಲೂ ವೆಚ್ಚಗಳು ಮುಂದುವರಿಯಬಹುದಾದ ಕಾರಣ, ಆ ವರ್ಷಗಳಿಗೆ ಯೋಜನೆ ಮಾಡಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ನಿವೃತ್ತಿ ಯೋಜನೆ ಎಂದರೆ ಭವಿಷ್ಯದ ವೆಚ್ಚಗಳನ್ನು ಅಂದಾಜಿಸುವುದು, ಹಣದುಬ್ಬರವನ್ನು ಪರಿಗಣಿಸುವುದು, ನಿವೃತ್ತಿ ನಿಧಿಯನ್ನು ನಿರ್ಮಿಸುವುದು ಮತ್ತು ಆ ನಿಧಿಯಿಂದ ಭವಿಷ್ಯದಲ್ಲಿ ಆದಾಯ ಹೇಗೆ ಬರಬಹುದು ಎಂಬುದನ್ನು ಯೋಚಿಸುವುದು.",
-      "boxes": [
-        [
-          "💸 ಹಣದುಬ್ಬರ",
-          "ಕಾಲಕ್ರಮೇಣ ಜೀವನ ವೆಚ್ಚ ಹೆಚ್ಚಾಗಬಹುದು; ಆದ್ದರಿಂದ ಇಂದಿನ ವೆಚ್ಚಗಳು ಭವಿಷ್ಯದ ನಿವೃತ್ತಿ ವೆಚ್ಚವನ್ನು ಪ್ರತಿಬಿಂಬಿಸದೇ ಇರಬಹುದು."
-        ],
-        [
-          "🏦 EPF",
-          "ಅನ್ವಯಿಸುವ ನಿಯಮಗಳ ಅಡಿಯಲ್ಲಿ ಅರ್ಹ ಉದ್ಯೋಗಿಗಳಿಗೆ ಪ್ರಮುಖ ನಿವೃತ್ತಿ ಉಳಿತಾಯ ವ್ಯವಸ್ಥೆ."
-        ],
-        [
-          "📊 NPS",
-          "ನಿರ್ದಿಷ್ಟ ನಿಯಮಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿರುವ ನಿವೃತ್ತಿ ಉದ್ದೇಶಿತ ಹೂಡಿಕೆ ವ್ಯವಸ್ಥೆ."
-        ],
-        [
-          "💰 ನಿವೃತ್ತಿ ನಿಧಿ",
-          "ಅಗತ್ಯವಿರುವ ಮೊತ್ತವು ವೆಚ್ಚ, ಹಣದುಬ್ಬರ, ನಿವೃತ್ತಿ ವಯಸ್ಸು, ಆಯುಷ್ಯ ಮತ್ತು ಇತರ ಅಂಶಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ."
-        ]
-      ],
-      "section": "🧠 ಕೇಳಿಕೊಳ್ಳಬೇಕಾದ ಪ್ರಶ್ನೆಗಳು",
-      "list": [
-        "ನಾನು ಯಾವ ವಯಸ್ಸಿನಲ್ಲಿ ನಿವೃತ್ತಿಯಾಗಲು ನಿರೀಕ್ಷಿಸುತ್ತೇನೆ?",
-        "ನನ್ನ ಭವಿಷ್ಯದ ಮಾಸಿಕ ವೆಚ್ಚ ಎಷ್ಟಿರಬಹುದು?",
-        "ಎಷ್ಟು ಹಣದುಬ್ಬರವನ್ನು ಪರಿಗಣಿಸಬೇಕು?",
-        "ನನ್ನ ಬಳಿ ಈಗಾಗಲೇ ಯಾವ ನಿವೃತ್ತಿ ಆಸ್ತಿಗಳಿವೆ?",
-        "ನಿವೃತ್ತಿಯ ನಂತರ ನಾನು ಆದಾಯವನ್ನು ಹೇಗೆ ಪಡೆಯುತ್ತೇನೆ?"
-      ]
-    },
-    "family": {
-      "title": "ಮಕ್ಕಳ ಶಿಕ್ಷಣ ಯೋಜನೆ",
-      "desc": "ಇಂದಿನ ಉಳಿತಾಯವನ್ನು ನಾಳೆಯ ಶಿಕ್ಷಣ ವೆಚ್ಚಗಳೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಶಿಕ್ಷಣ ಯೋಜನೆಯಲ್ಲಿ ಭವಿಷ್ಯದ ವೆಚ್ಚವನ್ನು ಅಂದಾಜಿಸುವುದು, ಹಣದುಬ್ಬರವನ್ನು ಪರಿಗಣಿಸುವುದು ಮತ್ತು ಎಷ್ಟು ಮೊತ್ತವನ್ನು ಎಷ್ಟು ಕಾಲ ಉಳಿತಾಯ ಅಥವಾ ಹೂಡಿಕೆ ಮಾಡಬೇಕಾಗಬಹುದು ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸುವುದು ಸೇರಿದೆ.",
-      "boxes": [
-        [
-          "🎓 ಭವಿಷ್ಯದ ವೆಚ್ಚ",
-          "ಶಿಕ್ಷಣ ವೆಚ್ಚಗಳು ಕಾಲಕ್ರಮೇಣ ಬದಲಾಗಬಹುದು. ಆದ್ದರಿಂದ ಇಂದಿನ ವೆಚ್ಚಕ್ಕಿಂತ ಭವಿಷ್ಯದ ಅಗತ್ಯ ಮೊತ್ತವನ್ನು ಪರಿಗಣಿಸಬೇಕು."
-        ],
-        [
-          "⏳ ಸಮಯ",
-          "ದೀರ್ಘ ಹೂಡಿಕೆ ಅವಧಿಯು ಉಳಿತಾಯ ಮತ್ತು ಹೂಡಿಕೆಗಳಿಗೆ ಬೆಳೆಯಲು ಹೆಚ್ಚಿನ ಸಮಯ ನೀಡಬಹುದು."
-        ]
-      ]
-    },
-    "goals": {
-      "title": "ಹಣಕಾಸಿನ ಗುರಿಗಳು",
-      "desc": "ಹಣಕಾಸಿನ ಆಸೆಗಳನ್ನು ಅಳೆಯಬಹುದಾದ ಗುರಿಗಳಾಗಿ ರೂಪಿಸಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಮೊತ್ತ, ಉದ್ದೇಶ ಮತ್ತು ಸಮಯಸೀಮೆಯನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ನಿರ್ಧರಿಸಿದಾಗ ಹಣಕಾಸಿನ ಗುರಿಯನ್ನು ಯೋಜಿಸುವುದು ಸುಲಭವಾಗುತ್ತದೆ.",
-      "boxes": [
-        [
-          "🎯 ನಿರ್ಧರಿಸಿ",
-          "ನೀವು ನಿಖರವಾಗಿ ಏನನ್ನು ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?"
-        ],
-        [
-          "💰 ಮೊತ್ತ ನಿಗದಿ ಮಾಡಿ",
-          "ಈ ಗುರಿಗೆ ಎಷ್ಟು ಹಣ ಬೇಕಾಗಬಹುದು?"
-        ],
-        [
-          "📅 ಸಮಯಸೀಮೆ",
-          "ನಿಮಗೆ ಹಣ ಯಾವಾಗ ಬೇಕಾಗುತ್ತದೆ?"
-        ],
-        [
-          "📈 ತಂತ್ರ",
-          "ನಿಯಮಿತವಾಗಿ ಎಷ್ಟು ಹಣವನ್ನು ಉಳಿತಾಯ ಅಥವಾ ಹೂಡಿಕೆ ಮಾಡಬೇಕಾಗಬಹುದು?"
-        ]
-      ]
-    },
-    "loan": {
-      "title": "ಸಾಲ ಮತ್ತು ಕ್ರೆಡಿಟ್",
-      "desc": "ಸಾಲದ ವೆಚ್ಚ, EMI ಮತ್ತು ಜವಾಬ್ದಾರಿಯುತ ಕ್ರೆಡಿಟ್ ನಡವಳಿಕೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ಒಪ್ಪಿಕೊಂಡ ನಿಯಮಗಳ ಪ್ರಕಾರ ಮರುಪಾವತಿ ಮಾಡುವ ಬದಲಾಗಿ ಸಾಲವು ಇಂದು ಹಣದ ಪ್ರವೇಶವನ್ನು ನೀಡುತ್ತದೆ. ನಿಜವಾದ ವೆಚ್ಚದಲ್ಲಿ ಬಡ್ಡಿ ಮತ್ತು ಇತರ ಶುಲ್ಕಗಳು ಇರಬಹುದು.",
-      "boxes": [
-        [
-          "🧮 EMI",
-          "ಇಕ್ವೇಟೆಡ್ ಮಾಸಿಕ ಕಂತು ಅನೇಕ ಸಾಲಗಳಲ್ಲಿ ಬಳಸುವ ನಿಯಮಿತ ಪಾವತಿ ವಿಧಾನವಾಗಿದೆ."
-        ],
-        [
-          "📊 ಬಡ್ಡಿ",
-          "ಬಡ್ಡಿದರ ಮತ್ತು ಲೆಕ್ಕಾಚಾರದ ವಿಧಾನವು ಒಟ್ಟು ಸಾಲದ ವೆಚ್ಚದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ."
-        ],
-        [
-          "📋 ಕ್ರೆಡಿಟ್ ನಡವಳಿಕೆ",
-          "ಸಮಯಕ್ಕೆ ಮರುಪಾವತಿ ಮತ್ತು ಜವಾಬ್ದಾರಿಯುತ ಸಾಲ ಪಡೆಯುವುದು ಆರೋಗ್ಯಕರ ಕ್ರೆಡಿಟ್ ನಡವಳಿಕೆಯ ಪ್ರಮುಖ ಅಂಶಗಳಾಗಿವೆ."
-        ],
-        [
-          "⚠️ ಒಟ್ಟು ವೆಚ್ಚ",
-          "EMI ಮಾತ್ರವಲ್ಲದೆ ಪ್ರೊಸೆಸಿಂಗ್ ಶುಲ್ಕ, ಇತರ ಶುಲ್ಕಗಳು, ಬಡ್ಡಿ ಮತ್ತು ಅನ್ವಯಿಸುವ ವೆಚ್ಚಗಳನ್ನು ಗಮನಿಸಿ."
-        ]
-      ]
-    },
-    "tax": {
-      "title": "ತೆರಿಗೆ ಮೂಲಭೂತಗಳು",
-      "desc": "ತೆರಿಗೆಗೆ ಒಳಪಡುವ ಆದಾಯ, ಕಡಿತಗಳು, ದಾಖಲೆಗಳು ಮತ್ತು ತೆರಿಗೆ ಯೋಜನೆಯ ಮೂಲಭೂತ ವಿಷಯಗಳನ್ನು ತಿಳಿಯಿರಿ.",
-      "quick": "⚡ ತ್ವರಿತ ಉತ್ತರ",
-      "quickText": "ತೆರಿಗೆ ಅನ್ವಯಿಸುವ ಕಾನೂನುಗಳು, ಆದಾಯ, ಕಡಿತಗಳು, ವಿನಾಯಿತಿಗಳು ಮತ್ತು ಇತರ ಪರಿಸ್ಥಿತಿಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ. ನಿಯಮಗಳು ಬದಲಾಗಬಹುದು, ಆದ್ದರಿಂದ ಪ್ರಸ್ತುತ ಅಧಿಕೃತ ಮಾಹಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಬೇಕು.",
-      "boxes": [
-        [
-          "💰 ತೆರಿಗೆಗೆ ಒಳಪಡುವ ಆದಾಯ",
-          "ಸಂಬಂಧಿತ ನಿಯಮಗಳನ್ನು ಅನ್ವಯಿಸಿದ ನಂತರ ತೆರಿಗೆ ಉದ್ದೇಶಕ್ಕಾಗಿ ಪರಿಗಣಿಸಲಾಗುವ ಆದಾಯ."
-        ],
-        [
-          "📄 ದಾಖಲೆಗಳು",
-          "ಸಂಬಂಧಿತ ಹಣಕಾಸು ದಾಖಲೆಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳುವುದು ನಿಖರವಾದ ತೆರಿಗೆ ವರದಿಗೆ ಸಹಾಯ ಮಾಡಬಹುದು."
-        ],
-        [
-          "🔎 ಕಡಿತಗಳು",
-          "ಅನ್ವಯಿಸುವ ತೆರಿಗೆ ನಿಯಮಗಳು ಮತ್ತು ಅರ್ಹತೆಯ ಆಧಾರದ ಮೇಲೆ ಕೆಲವು ಕಡಿತಗಳು ಲಭ್ಯವಿರಬಹುದು."
-        ],
-        [
-          "📅 ತೆರಿಗೆ ಯೋಜನೆ",
-          "ತೆರಿಗೆ ಪರಿಣಾಮಗಳನ್ನು ಗಮನದಲ್ಲಿಟ್ಟುಕೊಂಡು ಹಣಕಾಸಿನ ನಿರ್ಧಾರಗಳನ್ನು ಯೋಜಿಸುವುದು ಕೊನೆಯ ಕ್ಷಣದ ನಿರ್ಧಾರಗಳನ್ನು ತಪ್ಪಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು."
-        ]
-      ]
-    }
-  },
-  "te": {
-    "health": {
-      "title": "ఆరోగ్య బీమా",
-      "desc": "పాలసీ నిబంధనల ప్రకారం అర్హమైన వైద్య ఖర్చులను నిర్వహించడంలో ఆరోగ్య బీమా ఎలా సహాయపడుతుందో తెలుసుకోండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "ఆరోగ్య బీమా కవర్ అయ్యే ఆరోగ్య సేవల ఖర్చులపై ఆర్థిక రక్షణ అందిస్తుంది. కవరేజ్ పాలసీ, పరిమితులు, మినహాయింపులు, వెయిటింగ్ పీరియడ్లు మరియు ఇతర నిబంధనలపై ఆధారపడి ఉంటుంది.",
-      "boxes": [
-        [
-          "👤 వ్యక్తిగత పాలసీ",
-          "పాలసీ నిబంధనల ప్రకారం ఒక వ్యక్తికి కవరేజ్ అందించబడుతుంది."
-        ],
-        [
-          "👨‍👩‍👧 ఫ్యామిలీ ఫ్లోటర్",
-          "పాలసీ నిబంధనలకు లోబడి ఒకే బీమా మొత్తాన్ని పలువురు కుటుంబ సభ్యులు పంచుకోవచ్చు."
-        ],
-        [
-          "➕ టాప్-అప్",
-          "నిర్దిష్ట డిడక్టిబుల్ దాటిన తర్వాత సాధారణంగా పనిచేస్తుంది; పాలసీ నిర్మాణం వర్తిస్తుంది."
-        ],
-        [
-          "🔄 సూపర్ టాప్-అప్",
-          "పాలసీ కాలంలో అర్హమైన ఖర్చులను కలిపి పరిగణించవచ్చు; నిబంధనలు వర్తిస్తాయి."
-        ]
-      ],
-      "section": "⚠️ ముఖ్యమైన పదాలు",
-      "list": [
-        "బీమా మొత్తం",
-        "వెయిటింగ్ పీరియడ్",
-        "ముందుగా ఉన్న వ్యాధుల నిబంధనలు",
-        "రూమ్ రెంట్ పరిమితులు",
-        "కో-పేమెంట్",
-        "డిడక్టిబుల్",
-        "నెట్‌వర్క్ ఆసుపత్రులు",
-        "మినహాయింపులు",
-        "సబ్-లిమిట్లు"
-      ],
-      "tip": "💡 ఆరోగ్య పాలసీలను కేవలం ప్రీమియంతో పోల్చవద్దు. కవరేజ్ నిబంధనలు, మినహాయింపులు, వెయిటింగ్ పీరియడ్లు, పరిమితులు మరియు క్లెయిమ్‌కు సంబంధించిన అంశాలు కూడా ముఖ్యమైనవి."
-    },
-    "motor": {
-      "title": "మోటార్ బీమా",
-      "desc": "వాహన బీమా, థర్డ్-పార్టీ కవర్, స్వంత నష్టం రక్షణ మరియు ముఖ్యమైన యాడ్-ఆన్‌లను అర్థం చేసుకోండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "మోటార్ బీమా వాహనానికి సంబంధించిన నిర్దిష్ట ప్రమాదాల నుంచి రక్షణ ఇవ్వగలదు. రక్షణ రకం మరియు పరిధి పాలసీపై ఆధారపడి ఉంటుంది.",
-      "boxes": [
-        [
-          "🛡️ థర్డ్-పార్టీ బీమా",
-          "వర్తించే చట్టం మరియు పాలసీ నిబంధనల ప్రకారం నిర్దిష్ట థర్డ్-పార్టీ బాధ్యతలకు కవరేజ్ అందిస్తుంది."
-        ],
-        [
-          "🚘 సమగ్ర పాలసీ",
-          "పాలసీకి లోబడి థర్డ్-పార్టీ బాధ్యతను స్వంత వాహన నష్టం రక్షణతో కలపవచ్చు."
-        ],
-        [
-          "📊 IDV",
-          "ఇన్ష్యూర్డ్ డిక్లేర్డ్ వాల్యూ మోటార్ బీమాలో ముఖ్యమైన భావన; కొన్ని క్లెయిమ్‌లకు సంబంధిస్తుంది."
-        ],
-        [
-          "🏷️ NCB",
-          "నో క్లెయిమ్ బోనస్ క్లెయిమ్ లేని బీమా కాలాలకు సంబంధించిన ప్రయోజనం; వర్తించే షరతులు ఉంటాయి."
-        ],
-        [
-          "🔧 జీరో డిప్రిసియేషన్",
-          "కొన్ని అర్హమైన క్లెయిమ్‌లలో డిప్రిసియేషన్ తగ్గింపుల ప్రభావాన్ని తగ్గించే యాడ్-ఆన్; నిబంధనలు వర్తిస్తాయి."
-        ],
-        [
-          "🧾 RTI — రిటర్న్ టు ఇన్వాయిస్",
-          "అర్హమైన పరిస్థితుల్లో సాధారణ IDV కంటే ఇన్వాయిస్‌కు సంబంధించిన విలువ ఆధారంగా చెల్లించేందుకు రూపొందించిన యాడ్-ఆన్; షరతులు వర్తిస్తాయి."
-        ]
-      ],
-      "warning": "⚠️ ప్రతి మోటార్ పాలసీలో యాడ్-ఆన్‌లు ఆటోమేటిక్‌గా ఉండవు. షెడ్యూల్, కవరేజ్ మరియు నిబంధనలను తప్పనిసరిగా పరిశీలించండి."
-    },
-    "saving": {
-      "title": "పొదుపు మరియు ఆర్థిక భద్రత",
-      "desc": "అత్యవసర సిద్ధత, క్రమబద్ధమైన పొదుపు మరియు సురక్షితమైన పొదుపు మార్గాలను అర్థం చేసుకోవడం ద్వారా ఆర్థిక స్థిరత్వాన్ని నిర్మించండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "పొదుపు అత్యవసర పరిస్థితులు, స్వల్పకాలిక అవసరాలు మరియు ప్రణాళికాబద్ధమైన ఖర్చులకు అందుబాటులో ఉండే డబ్బును అందించగలదు. పొదుపుకు సరైన స్థలం భద్రత, లిక్విడిటీ, కాల వ్యవధి మరియు ఉద్దేశ్యంపై ఆధారపడి ఉంటుంది.",
-      "boxes": [
-        [
-          "🛟 అత్యవసర నిధి",
-          "సులభంగా అందుబాటులో ఉండే నిల్వ అనుకోని ఖర్చులు లేదా తాత్కాలిక ఆదాయ అంతరాయాన్ని నిర్వహించడంలో సహాయపడుతుంది."
-        ],
-        [
-          "🏛️ ప్రభుత్వ మరియు పోస్టల్ పథకాలు",
-          "భారతదేశంలో వివిధ ప్రభుత్వ మరియు పోస్టల్ పొదుపు పథకాలు ఉన్నాయి; అర్హత, కాలం, వడ్డీ, ఉపసంహరణ మరియు పన్ను నియమాలు వేర్వేరు కావచ్చు."
-        ]
-      ],
-      "section": "📌 ఏమి పోల్చాలి",
-      "list": [
-        "భద్రత",
-        "లిక్విడిటీ",
-        "కాల వ్యవధి",
-        "వడ్డీ లేదా రాబడి నిర్మాణం",
-        "పన్ను విధానం",
-        "ముందస్తు ఉపసంహరణ నియమాలు",
-        "డబ్బు ఉద్దేశ్యం"
-      ],
-      "tip": "💡 ప్రభుత్వ లేదా పోస్టల్ పథకం అయినా పెట్టుబడి చేసే ముందు దాని నియమాలను సరిగ్గా అర్థం చేసుకోండి. “గ్యారంటీడ్” లేదా ప్రభుత్వ మద్దతు ఉన్నదని చెప్పడం వల్ల అన్ని పథకాల లక్షణాలు ఒకేలా ఉండవు."
-    },
-    "invest": {
-      "title": "పెట్టుబడులు మరియు SIP",
-      "desc": "సమయం, రిస్క్, చక్రవడ్డీ మరియు క్రమబద్ధమైన పెట్టుబడి దీర్ఘకాలిక సంపద సృష్టిపై ఎలా ప్రభావం చూపుతాయో అర్థం చేసుకోండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "భవిష్యత్ ఆర్థిక లక్ష్యాన్ని సాధించాలనే ఆశతో ఆస్తుల్లో డబ్బు పెట్టడాన్ని పెట్టుబడి అంటారు. సంబంధిత ఉత్పత్తిలో స్పష్టంగా చెప్పకపోతే రాబడి హామీ కాదు.",
-      "boxes": [
-        [
-          "📅 SIP",
-          "ఎంచుకున్న పెట్టుబడిలో నిర్ణయించిన మొత్తాన్ని నిర్దిష్ట వ్యవధుల్లో పెట్టుబడి చేయడానికి సహాయపడే విధానం."
-        ],
-        [
-          "🔁 చక్రవడ్డీ",
-          "కాలక్రమంలో వచ్చిన రాబడులు కూడా భవిష్యత్ వృద్ధికి తోడ్పడవచ్చనే భావన."
-        ],
-        [
-          "⚖️ రిస్క్",
-          "వివిధ పెట్టుబడులకు రిస్క్ స్థాయిలు మరియు రకాలు వేర్వేరు. అధిక రాబడి అవకాశంలో అధిక అనిశ్చితి ఉండవచ్చు."
-        ],
-        [
-          "⏳ కాల వ్యవధి",
-          "డబ్బు అవసరమయ్యే ముందు ఉన్న సమయం పెట్టుబడిని ఎలా అంచనా వేయాలో ప్రభావితం చేస్తుంది."
-        ]
-      ],
-      "tip": "💡 SIP అనేది క్రమంగా పెట్టుబడి చేసే విధానం. ఇది స్వయంగా గ్యారంటీడ్ రిటర్న్ ఉత్పత్తి కాదు."
-    },
-    "retire": {
-      "title": "రిటైర్మెంట్ ప్లానింగ్",
-      "desc": "ఉద్యోగ ఆదాయం తగ్గినా లేదా ఆగిపోయినా ఖర్చులు కొనసాగవచ్చు; అందుకే ఆ సంవత్సరాల కోసం ప్రణాళిక చేయండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "రిటైర్మెంట్ ప్లానింగ్ అంటే భవిష్యత్ ఖర్చులను అంచనా వేయడం, ద్రవ్యోల్బణాన్ని పరిగణించడం, రిటైర్మెంట్ కార్పస్‌ను నిర్మించడం మరియు ఆ కార్పస్ నుంచి భవిష్యత్ ఆదాయం ఎలా రావచ్చో ఆలోచించడం.",
-      "boxes": [
-        [
-          "💸 ద్రవ్యోల్బణం",
-          "కాలక్రమంలో జీవన వ్యయం పెరగవచ్చు; కాబట్టి నేటి ఖర్చులు భవిష్యత్ రిటైర్మెంట్ ఖర్చులను ప్రతిబింబించకపోవచ్చు."
-        ],
-        [
-          "🏦 EPF",
-          "వర్తించే నియమాల ప్రకారం అర్హులైన ఉద్యోగులకు ముఖ్యమైన రిటైర్మెంట్ పొదుపు విధానం."
-        ],
-        [
-          "📊 NPS",
-          "ప్రత్యేక నియమాలు మరియు లక్షణాలతో కూడిన రిటైర్మెంట్-కేంద్రీకృత పెట్టుబడి వ్యవస్థ."
-        ],
-        [
-          "💰 రిటైర్మెంట్ కార్పస్",
-          "అవసరమైన మొత్తం ఖర్చులు, ద్రవ్యోల్బణం, రిటైర్మెంట్ వయస్సు, ఆయుర్దాయం మరియు ఇతర అంశాలపై ఆధారపడి ఉంటుంది."
-        ]
-      ],
-      "section": "🧠 అడగాల్సిన ప్రశ్నలు",
-      "list": [
-        "నేను ఏ వయస్సులో రిటైర్ అవుతానని అనుకుంటున్నాను?",
-        "నా భవిష్యత్ నెలవారీ ఖర్చులు ఎంత ఉండవచ్చు?",
-        "ఎంత ద్రవ్యోల్బణాన్ని పరిగణించాలి?",
-        "నా వద్ద ఇప్పటికే ఏ రిటైర్మెంట్ ఆస్తులు ఉన్నాయి?",
-        "రిటైర్మెంట్ తర్వాత ఆదాయాన్ని ఎలా పొందుతాను?"
-      ]
-    },
-    "family": {
-      "title": "పిల్లల విద్యా ప్రణాళిక",
-      "desc": "ఈరోజు పొదుపును రేపటి విద్యా ఖర్చులతో అనుసంధానించండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "విద్యా ప్రణాళికలో భవిష్యత్ ఖర్చును అంచనా వేయడం, ద్రవ్యోల్బణాన్ని పరిగణించడం మరియు ఎంత మొత్తాన్ని ఎంతకాలం పొదుపు లేదా పెట్టుబడి చేయాలో నిర్ణయించడం ఉంటుంది.",
-      "boxes": [
-        [
-          "🎓 భవిష్యత్ ఖర్చు",
-          "విద్యా ఖర్చులు కాలక్రమంలో మారవచ్చు. కాబట్టి నేటి ఖర్చుకంటే భవిష్యత్ మొత్తాన్ని పరిగణించాలి."
-        ],
-        [
-          "⏳ సమయం",
-          "ఎక్కువ పెట్టుబడి కాలం పొదుపులు మరియు పెట్టుబడులకు పెరగడానికి ఎక్కువ సమయం ఇవ్వవచ్చు."
-        ]
-      ]
-    },
-    "goals": {
-      "title": "ఆర్థిక లక్ష్యాలు",
-      "desc": "ఆర్థిక కోరికలను కొలిచే లక్ష్యాలుగా మార్చండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "మొత్తం, ఉద్దేశ్యం మరియు కాలపరిమితిని నిర్వచించినప్పుడు ఆర్థిక లక్ష్యాన్ని ప్రణాళిక చేయడం సులభమవుతుంది.",
-      "boxes": [
-        [
-          "🎯 నిర్వచించండి",
-          "మీరు ఖచ్చితంగా ఏమి సాధించాలనుకుంటున్నారు?"
-        ],
-        [
-          "💰 మొత్తాన్ని నిర్ణయించండి",
-          "ఈ లక్ష్యానికి ఎంత డబ్బు అవసరం కావచ్చు?"
-        ],
-        [
-          "📅 కాలపరిమితి",
-          "మీకు డబ్బు ఎప్పుడు అవసరం?"
-        ],
-        [
-          "📈 వ్యూహం",
-          "నియమితంగా ఎంత మొత్తాన్ని పొదుపు లేదా పెట్టుబడి చేయాల్సి రావచ్చు?"
-        ]
-      ]
-    },
-    "loan": {
-      "title": "రుణాలు మరియు క్రెడిట్",
-      "desc": "రుణ ఖర్చు, EMIలు మరియు బాధ్యతాయుతమైన క్రెడిట్ ప్రవర్తనను అర్థం చేసుకోండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "అంగీకరించిన నిబంధనల ప్రకారం తిరిగి చెల్లించే బదులుగా రుణం ఈరోజు డబ్బుకు ప్రాప్యతను ఇస్తుంది. నిజమైన ఖర్చులో వడ్డీ మరియు ఇతర ఛార్జీలు ఉండవచ్చు.",
-      "boxes": [
-        [
-          "🧮 EMI",
-          "ఈక్వేటెడ్ మంత్లీ ఇన్‌స్టాల్‌మెంట్ అనేక రుణాల్లో ఉపయోగించే నియమిత చెల్లింపు విధానం."
-        ],
-        [
-          "📊 వడ్డీ",
-          "వడ్డీ రేటు మరియు లెక్కించే విధానం మొత్తం రుణ ఖర్చును ప్రభావితం చేస్తాయి."
-        ],
-        [
-          "📋 క్రెడిట్ ప్రవర్తన",
-          "సమయానికి చెల్లింపులు మరియు బాధ్యతాయుతమైన రుణ వినియోగం ఆరోగ్యకరమైన క్రెడిట్ ప్రవర్తనలో ముఖ్యమైన అంశాలు."
-        ],
-        [
-          "⚠️ మొత్తం ఖర్చు",
-          "EMIని మాత్రమే కాకుండా ప్రాసెసింగ్ ఫీజులు, ఛార్జీలు, వడ్డీ మరియు ఇతర వర్తించే ఖర్చులను పరిశీలించండి."
-        ]
-      ]
-    },
-    "tax": {
-      "title": "పన్ను ప్రాథమికాలు",
-      "desc": "పన్ను విధించబడే ఆదాయం, మినహాయింపులు, రికార్డులు మరియు పన్ను ప్రణాళికకు సంబంధించిన ప్రాథమిక అంశాలను తెలుసుకోండి.",
-      "quick": "⚡ త్వరిత సమాధానం",
-      "quickText": "పన్ను వర్తించే చట్టాలు, ఆదాయం, మినహాయింపులు, ఎగ్జెంప్షన్లు మరియు ఇతర పరిస్థితులపై ఆధారపడి ఉంటుంది. నియమాలు మారవచ్చు; కాబట్టి ప్రస్తుత అధికారిక సమాచారాన్ని తనిఖీ చేయాలి.",
-      "boxes": [
-        [
-          "💰 పన్ను విధించబడే ఆదాయం",
-          "సంబంధిత నియమాలను వర్తింపజేసిన తర్వాత పన్ను ప్రయోజనాల కోసం పరిగణించే ఆదాయం."
-        ],
-        [
-          "📄 రికార్డులు",
-          "సంబంధిత ఆర్థిక పత్రాలను నిర్వహించడం ఖచ్చితమైన పన్ను నివేదికకు సహాయపడుతుంది."
-        ],
-        [
-          "🔎 మినహాయింపులు",
-          "వర్తించే పన్ను నియమాలు మరియు అర్హతపై ఆధారపడి కొన్ని మినహాయింపులు అందుబాటులో ఉండవచ్చు."
-        ],
-        [
-          "📅 పన్ను ప్రణాళిక",
-          "పన్ను ప్రభావాలను దృష్టిలో ఉంచుకుని ఆర్థిక నిర్ణయాలను ప్రణాళిక చేయడం చివరి నిమిషం నిర్ణయాలను నివారించడంలో సహాయపడుతుంది."
-        ]
-      ]
-    }
-  },
-  "ta": {
-    "health": {
-      "title": "மருத்துவ காப்பீடு",
-      "desc": "பாலிசி விதிமுறைகளின்படி தகுதியான மருத்துவச் செலவுகளை நிர்வகிக்க மருத்துவ காப்பீடு எவ்வாறு உதவும் என்பதை அறிக.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "மருத்துவ காப்பீடு காப்பளிக்கப்படும் சுகாதாரச் செலவுகளுக்கு நிதி பாதுகாப்பை வழங்குகிறது. காப்பீட்டு வரம்பு பாலிசி, வரம்புகள், விலக்குகள், காத்திருப்பு காலம் மற்றும் பிற நிபந்தனைகளைப் பொறுத்தது.",
-      "boxes": [
-        [
-          "👤 தனிநபர் பாலிசி",
-          "பாலிசி விதிமுறைகளின்படி ஒருவருக்கு காப்பீடு வழங்கப்படுகிறது."
-        ],
-        [
-          "👨‍👩‍👧 குடும்ப ஃப்ளோட்டர்",
-          "பாலிசி விதிமுறைகளுக்கு உட்பட்டு ஒரே காப்பீட்டு தொகையை பல குடும்ப உறுப்பினர்கள் பகிர்ந்து கொள்ளலாம்."
-        ],
-        [
-          "➕ டாப்-அப்",
-          "குறிப்பிட்ட டிடக்டிபிள் தொகையை கடந்த பிறகு பொதுவாக செயல்படும்; பாலிசி அமைப்பு பொருந்தும்."
-        ],
-        [
-          "🔄 சூப்பர் டாப்-அப்",
-          "பாலிசி காலத்தில் தகுதியான செலவுகளை மொத்தமாகக் கணக்கிடலாம்; நிபந்தனைகள் பொருந்தும்."
-        ]
-      ],
-      "section": "⚠️ முக்கியமான சொற்கள்",
-      "list": [
-        "காப்பீட்டு தொகை",
-        "காத்திருப்பு காலம்",
-        "முன்னிருந்த நோய் நிபந்தனைகள்",
-        "அறை வாடகை வரம்புகள்",
-        "கோ-பேமெண்ட்",
-        "டிடக்டிபிள்",
-        "நெட்வொர்க் மருத்துவமனைகள்",
-        "விலக்குகள்",
-        "சப்-லிமிட்கள்"
-      ],
-      "tip": "💡 மருத்துவ பாலிசிகளை பிரீமியத்தை மட்டும் வைத்து ஒப்பிட வேண்டாம். காப்பீட்டு நிபந்தனைகள், விலக்குகள், காத்திருப்பு காலங்கள், வரம்புகள் மற்றும் கிளெயிம் தொடர்பான அம்சங்களும் முக்கியம்."
-    },
-    "motor": {
-      "title": "மோட்டார் காப்பீடு",
-      "desc": "வாகன காப்பீடு, மூன்றாம் தரப்பு காப்பீடு, சொந்த சேத பாதுகாப்பு மற்றும் முக்கிய ஆட்-ஆன்களைப் புரிந்துகொள்ளுங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "மோட்டார் காப்பீடு வாகனத்துடன் தொடர்புடைய குறிப்பிட்ட அபாயங்களுக்கு எதிராக பாதுகாப்பு வழங்கலாம். பாதுகாப்பின் வகையும் அளவும் பாலிசியைப் பொறுத்தது.",
-      "boxes": [
-        [
-          "🛡️ மூன்றாம் தரப்பு காப்பீடு",
-          "பொருந்தும் சட்டம் மற்றும் பாலிசி விதிமுறைகளின்படி குறிப்பிட்ட மூன்றாம் தரப்பு பொறுப்புகளுக்கு காப்பீடு வழங்குகிறது."
-        ],
-        [
-          "🚘 விரிவான பாலிசி",
-          "பாலிசிக்கு உட்பட்டு மூன்றாம் தரப்பு பொறுப்பை சொந்த வாகன சேத பாதுகாப்புடன் இணைக்கலாம்."
-        ],
-        [
-          "📊 IDV",
-          "இன்ஷூர்டு டிக்ளேர்டு வேல்யூ மோட்டார் காப்பீட்டின் முக்கிய கருத்தாகும்; சில கிளெயிம்களுக்கு தொடர்புடையது."
-        ],
-        [
-          "🏷️ NCB",
-          "நோ கிளெயிம் போனஸ் என்பது கிளெயிம் இல்லாத காப்பீட்டு காலங்களுடன் தொடர்புடைய பயன்; நிபந்தனைகள் பொருந்தும்."
-        ],
-        [
-          "🔧 ஜீரோ டிப்ரிசியேஷன்",
-          "சில தகுதியான கிளெயிம்களில் டிப்ரிசியேஷன் கழிவின் தாக்கத்தை குறைக்கக்கூடிய ஆட்-ஆன்; நிபந்தனைகள் பொருந்தும்."
-        ],
-        [
-          "🧾 RTI — ரிட்டர்ன் டு இன்வாய்ஸ்",
-          "தகுதியான சூழ்நிலைகளில் நிலையான IDV மட்டும் அல்லாமல் இன்வாய்ஸ் தொடர்பான மதிப்பின் அடிப்படையில் செலுத்த வடிவமைக்கப்பட்ட ஆட்-ஆன்; நிபந்தனைகள் பொருந்தும்."
-        ]
-      ],
-      "warning": "⚠️ எல்லா மோட்டார் பாலிசிகளிலும் ஆட்-ஆன்கள் தானாக சேர்க்கப்படாது. பாலிசி அட்டவணை, காப்பீடு மற்றும் நிபந்தனைகளை சரிபார்க்கவும்."
-    },
-    "saving": {
-      "title": "சேமிப்பு மற்றும் நிதி பாதுகாப்பு",
-      "desc": "அவசரத் தயாரிப்பு, ஒழுங்கான சேமிப்பு மற்றும் பாதுகாப்பான சேமிப்பு வழிகளைப் புரிந்துகொள்வதன் மூலம் நிதி நிலைத்தன்மையை உருவாக்குங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "சேமிப்பு அவசரநிலைகள், குறுகியகால தேவைகள் மற்றும் திட்டமிட்ட செலவுகளுக்கு எளிதில் பயன்படுத்தக்கூடிய பணத்தை வழங்கலாம். சரியான சேமிப்பு இடம் பாதுகாப்பு, திரவத்தன்மை, காலம் மற்றும் நோக்கத்தைப் பொறுத்தது.",
-      "boxes": [
-        [
-          "🛟 அவசர நிதி",
-          "எளிதில் கிடைக்கும் கையிருப்பு எதிர்பாராத செலவுகள் அல்லது தற்காலிக வருமானத் தடையை சமாளிக்க உதவும்."
-        ],
-        [
-          "🏛️ அரசு மற்றும் அஞ்சல் திட்டங்கள்",
-          "இந்தியாவில் பல்வேறு அரசு மற்றும் அஞ்சல் சேமிப்பு திட்டங்கள் உள்ளன; தகுதி, காலம், வட்டி, பணம் எடுப்பு மற்றும் வரி விதிகள் மாறுபடும்."
-        ]
-      ],
-      "section": "📌 எதை ஒப்பிட வேண்டும்",
-      "list": [
-        "பாதுகாப்பு",
-        "திரவத்தன்மை",
-        "காலம்",
-        "வட்டி அல்லது வருமான அமைப்பு",
-        "வரி சிகிச்சை",
-        "முன்கூட்டியே பணம் எடுக்கும் விதிகள்",
-        "பணத்தின் நோக்கம்"
-      ],
-      "tip": "💡 அரசு அல்லது அஞ்சல் திட்டமாக இருந்தாலும் முதலீடு செய்வதற்கு முன் அதன் விதிகளைப் புரிந்துகொள்ளுங்கள். “உத்தரவாதம்” அல்லது அரசு ஆதரவு இருப்பதால் அனைத்து திட்டங்களும் ஒரே அம்சங்களைக் கொண்டவை என்று அர்த்தமல்ல."
-    },
-    "invest": {
-      "title": "முதலீடுகள் மற்றும் SIP",
-      "desc": "நேரம், ஆபத்து, கூட்டு வட்டி மற்றும் ஒழுங்கான முதலீடு நீண்டகால செல்வ உருவாக்கத்தை எவ்வாறு பாதிக்கலாம் என்பதைப் புரிந்துகொள்ளுங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "எதிர்கால நிதி இலக்கை அடையும் எதிர்பார்ப்பில் சொத்துகளில் பணம் வைப்பது முதலீடு. தொடர்புடைய தயாரிப்பில் தெளிவாகக் குறிப்பிடப்படாவிட்டால் வருமானம் உத்தரவாதமல்ல.",
-      "boxes": [
-        [
-          "📅 SIP",
-          "தேர்ந்தெடுத்த முதலீட்டில் ஒரு குறிப்பிட்ட தொகையை வழக்கமான இடைவெளிகளில் முதலீடு செய்யும் முறை."
-        ],
-        [
-          "🔁 கூட்டு வட்டி",
-          "காலப்போக்கில் கிடைக்கும் வருமானமும் எதிர்கால வளர்ச்சிக்கு பங்களிக்கலாம்."
-        ],
-        [
-          "⚖️ ஆபத்து",
-          "வெவ்வேறு முதலீடுகளுக்கு வெவ்வேறு அளவு மற்றும் வகை ஆபத்துகள் உள்ளன. அதிக வருமான வாய்ப்பு அதிக நிச்சயமின்மையுடன் இருக்கலாம்."
-        ],
-        [
-          "⏳ கால அளவு",
-          "பணம் தேவைப்படும் முன் உள்ள காலம் முதலீட்டை மதிப்பிடும் முறையை பாதிக்கலாம்."
-        ]
-      ],
-      "tip": "💡 SIP என்பது வழக்கமாக முதலீடு செய்யும் முறை. அது தானாகவே உத்தரவாத வருமானம் தரும் தயாரிப்பு அல்ல."
-    },
-    "retire": {
-      "title": "ஓய்வூதிய திட்டமிடல்",
-      "desc": "வேலை வருமானம் குறையலாம் அல்லது நிற்கலாம்; ஆனால் செலவுகள் தொடரலாம். அதனால் அந்த ஆண்டுகளுக்குத் திட்டமிடுங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "ஓய்வூதிய திட்டமிடல் என்பது எதிர்கால செலவுகளை மதிப்பிடுதல், பணவீக்கத்தை கணக்கில் கொள்ளுதல், ஓய்வூதிய நிதியை உருவாக்குதல் மற்றும் அந்த நிதி எதிர்கால வருமானத்தை எவ்வாறு உருவாக்கலாம் என்பதை சிந்தித்தல்.",
-      "boxes": [
-        [
-          "💸 பணவீக்கம்",
-          "காலப்போக்கில் வாழ்க்கைச் செலவு உயரலாம்; இன்றைய செலவுகள் எதிர்கால ஓய்வூதிய செலவுகளை பிரதிபலிக்காமல் இருக்கலாம்."
-        ],
-        [
-          "🏦 EPF",
-          "பொருந்தும் விதிகளின்படி தகுதியான ஊழியர்களுக்கான முக்கிய ஓய்வூதிய சேமிப்பு முறை."
-        ],
-        [
-          "📊 NPS",
-          "குறிப்பிட்ட விதிகள் மற்றும் அம்சங்களைக் கொண்ட ஓய்வூதிய நோக்கமுள்ள முதலீட்டு அமைப்பு."
-        ],
-        [
-          "💰 ஓய்வூதிய நிதி",
-          "தேவையான தொகை செலவுகள், பணவீக்கம், ஓய்வு வயது, ஆயுள் எதிர்பார்ப்பு மற்றும் பிற காரணிகளைப் பொறுத்தது."
-        ]
-      ],
-      "section": "🧠 கேட்க வேண்டிய கேள்விகள்",
-      "list": [
-        "நான் எந்த வயதில் ஓய்வு பெறுவேன் என்று எதிர்பார்க்கிறேன்?",
-        "எனது எதிர்கால மாதச் செலவு எவ்வளவு இருக்கலாம்?",
-        "எவ்வளவு பணவீக்கத்தை கணக்கில் கொள்ள வேண்டும்?",
-        "என்னிடம் ஏற்கனவே எந்த ஓய்வூதிய சொத்துகள் உள்ளன?",
-        "ஓய்வுக்குப் பிறகு வருமானத்தை எவ்வாறு உருவாக்குவேன்?"
-      ]
-    },
-    "family": {
-      "title": "குழந்தைகள் கல்வி திட்டமிடல்",
-      "desc": "இன்றைய சேமிப்பை நாளைய கல்விச் செலவுகளுடன் இணைக்கவும்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "கல்வித் திட்டமிடலில் எதிர்கால செலவை மதிப்பிடுதல், பணவீக்கத்தை கணக்கில் கொள்ளுதல் மற்றும் எவ்வளவு காலம் எவ்வளவு சேமிக்க அல்லது முதலீடு செய்ய வேண்டும் என்பதை தீர்மானித்தல் அடங்கும்.",
-      "boxes": [
-        [
-          "🎓 எதிர்கால செலவு",
-          "கல்விச் செலவுகள் காலப்போக்கில் மாறலாம். எனவே இன்றைய செலவை மட்டும் அல்லாமல் எதிர்காலத் தொகையையும் கருத வேண்டும்."
-        ],
-        [
-          "⏳ நேரம்",
-          "நீண்ட முதலீட்டு காலம் சேமிப்பும் முதலீடும் வளர அதிக நேரம் வழங்கலாம்."
-        ]
-      ]
-    },
-    "goals": {
-      "title": "நிதி இலக்குகள்",
-      "desc": "நிதி விருப்பங்களை அளவிடக்கூடிய இலக்குகளாக மாற்றுங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "தொகை, நோக்கம் மற்றும் காலவரம்பை தெளிவாக நிர்ணயித்தால் நிதி இலக்கைத் திட்டமிடுவது எளிதாகும்.",
-      "boxes": [
-        [
-          "🎯 வரையறுக்கவும்",
-          "நீங்கள் சரியாக எதை அடைய விரும்புகிறீர்கள்?"
-        ],
-        [
-          "💰 தொகையை நிர்ணயிக்கவும்",
-          "இந்த இலக்கிற்கு எவ்வளவு பணம் தேவைப்படலாம்?"
-        ],
-        [
-          "📅 காலவரம்பு",
-          "பணம் உங்களுக்கு எப்போது தேவைப்படும்?"
-        ],
-        [
-          "📈 திட்டம்",
-          "வழக்கமாக எவ்வளவு சேமிக்க அல்லது முதலீடு செய்ய வேண்டியிருக்கும்?"
-        ]
-      ]
-    },
-    "loan": {
-      "title": "கடன்கள் மற்றும் கிரெடிட்",
-      "desc": "கடன் செலவு, EMI மற்றும் பொறுப்பான கிரெடிட் நடத்தையைப் புரிந்துகொள்ளுங்கள்.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "ஒப்புக்கொண்ட விதிமுறைகளின்படி திருப்பிச் செலுத்துவதற்குப் பதிலாக கடன் இன்று பணத்தைப் பயன்படுத்தும் வாய்ப்பை வழங்குகிறது. உண்மையான செலவில் வட்டி மற்றும் பிற கட்டணங்கள் இருக்கலாம்.",
-      "boxes": [
-        [
-          "🧮 EMI",
-          "பல கடன்களில் பயன்படுத்தப்படும் வழக்கமான தவணை செலுத்தும் முறை."
-        ],
-        [
-          "📊 வட்டி",
-          "வட்டி விகிதமும் கணக்கிடும் முறையும் மொத்த கடன் செலவை பாதிக்கின்றன."
-        ],
-        [
-          "📋 கிரெடிட் நடத்தை",
-          "சரியான நேரத்தில் செலுத்துதல் மற்றும் பொறுப்பான கடன் பயன்பாடு நல்ல கிரெடிட் நடத்தையின் முக்கிய அம்சங்கள்."
-        ],
-        [
-          "⚠️ மொத்த செலவு",
-          "EMI மட்டும் அல்லாமல் செயலாக்க கட்டணம், பிற கட்டணங்கள், வட்டி மற்றும் பொருந்தும் செலவுகளையும் பாருங்கள்."
-        ]
-      ]
-    },
-    "tax": {
-      "title": "வரி அடிப்படைகள்",
-      "desc": "வரி விதிக்கப்படும் வருமானம், கழிவுகள், பதிவுகள் மற்றும் வரி திட்டமிடலின் அடிப்படைகளை அறிக.",
-      "quick": "⚡ விரைவான பதில்",
-      "quickText": "வரி பொருந்தும் சட்டங்கள், வருமானம், கழிவுகள், விலக்குகள் மற்றும் பிற சூழ்நிலைகளைப் பொறுத்தது. விதிகள் மாறலாம்; எனவே தற்போதைய அதிகாரப்பூர்வ தகவலைச் சரிபார்க்க வேண்டும்.",
-      "boxes": [
-        [
-          "💰 வரி விதிக்கப்படும் வருமானம்",
-          "பொருந்தும் விதிகளைப் பயன்படுத்திய பிறகு வரி நோக்கத்திற்காக கருதப்படும் வருமானம்."
-        ],
-        [
-          "📄 பதிவுகள்",
-          "தொடர்புடைய நிதி ஆவணங்களை வைத்திருப்பது சரியான வரி அறிக்கைக்கு உதவும்."
-        ],
-        [
-          "🔎 கழிவுகள்",
-          "பொருந்தும் வரி விதிகள் மற்றும் தகுதியைப் பொறுத்து சில கழிவுகள் கிடைக்கலாம்."
-        ],
-        [
-          "📅 வரி திட்டமிடல்",
-          "வரி விளைவுகளை கருத்தில் கொண்டு நிதி முடிவுகளைத் திட்டமிடுவது கடைசி நேர முடிவுகளைத் தவிர்க்க உதவும்."
-        ]
-      ]
-    }
-  },
-  "ml": {
-    "health": {
-      "title": "ആരോഗ്യ ഇൻഷുറൻസ്",
-      "desc": "പോളിസി നിബന്ധനകൾക്ക് വിധേയമായി അർഹമായ ചികിത്സാ ചെലവുകൾ കൈകാര്യം ചെയ്യാൻ ആരോഗ്യ ഇൻഷുറൻസ് എങ്ങനെ സഹായിക്കുമെന്ന് മനസ്സിലാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "കവർ ചെയ്യുന്ന ആരോഗ്യപരിചരണ ചെലവുകൾക്കെതിരെ ആരോഗ്യ ഇൻഷുറൻസ് സാമ്പത്തിക സംരക്ഷണം നൽകുന്നു. കവറേജ് പോളിസി, പരിധികൾ, ഒഴിവാക്കലുകൾ, കാത്തിരിപ്പ് കാലയളവ്, മറ്റ് നിബന്ധനകൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.",
-      "boxes": [
-        [
-          "👤 വ്യക്തിഗത പോളിസി",
-          "പോളിസി നിബന്ധനകൾ പ്രകാരം ഒരാൾക്ക് കവറേജ് നൽകുന്നു."
-        ],
-        [
-          "👨‍👩‍👧 ഫാമിലി ഫ്ലോട്ടർ",
-          "പോളിസി നിബന്ധനകൾക്ക് വിധേയമായി ഒരേ ഇൻഷ്വേർഡ് തുക പല കുടുംബാംഗങ്ങൾക്കും പങ്കിടാം."
-        ],
-        [
-          "➕ ടോപ്പ്-അപ്പ്",
-          "നിശ്ചിത ഡിഡക്ടിബിൾ കഴിഞ്ഞാൽ സാധാരണയായി പ്രവർത്തിക്കുന്നു; പോളിസിയുടെ ഘടന ബാധകം."
-        ],
-        [
-          "🔄 സൂപ്പർ ടോപ്പ്-അപ്പ്",
-          "പോളിസി കാലയളവിലെ അർഹമായ ചെലവുകൾ കൂട്ടിച്ചേർത്ത് പരിഗണിക്കാം; നിബന്ധനകൾ ബാധകം."
-        ]
-      ],
-      "section": "⚠️ പ്രധാന പദങ്ങൾ",
-      "list": [
-        "ഇൻഷ്വേർഡ് തുക",
-        "കാത്തിരിപ്പ് കാലയളവ്",
-        "മുൻനിലവിലുള്ള രോഗ നിബന്ധനകൾ",
-        "റൂം വാടക പരിധികൾ",
-        "കോ-പേയ്മെന്റ്",
-        "ഡിഡക്ടിബിൾ",
-        "നെറ്റ്‌വർക്ക് ആശുപത്രികൾ",
-        "ഒഴിവാക്കലുകൾ",
-        "സബ്-ലിമിറ്റുകൾ"
-      ],
-      "tip": "💡 ആരോഗ്യ പോളിസികളെ പ്രീമിയം മാത്രം നോക്കി താരതമ്യം ചെയ്യരുത്. കവറേജ് നിബന്ധനകൾ, ഒഴിവാക്കലുകൾ, കാത്തിരിപ്പ് കാലയളവ്, പരിധികൾ, ക്ലെയിം സവിശേഷതകൾ എന്നിവയും പ്രധാനമാണ്."
-    },
-    "motor": {
-      "title": "മോട്ടോർ ഇൻഷുറൻസ്",
-      "desc": "വാഹന ഇൻഷുറൻസ്, തേർഡ്-പാർട്ടി കവർ, സ്വന്തം നാശനഷ്ട സംരക്ഷണം, പ്രധാന ആഡ്-ഓണുകൾ എന്നിവ മനസ്സിലാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "വാഹനവുമായി ബന്ധപ്പെട്ട നിർദ്ദിഷ്ട അപകടങ്ങളിൽ നിന്ന് മോട്ടോർ ഇൻഷുറൻസ് സംരക്ഷണം നൽകാം. സംരക്ഷണത്തിന്റെ തരംയും പരിധിയും പോളിസിയെ ആശ്രയിച്ചിരിക്കുന്നു.",
-      "boxes": [
-        [
-          "🛡️ തേർഡ്-പാർട്ടി ഇൻഷുറൻസ്",
-          "ബാധകമായ നിയമവും പോളിസി നിബന്ധനകളും അനുസരിച്ച് നിർദ്ദിഷ്ട തേർഡ്-പാർട്ടി ബാധ്യതകൾക്ക് കവറേജ് നൽകുന്നു."
-        ],
-        [
-          "🚘 കോംപ്രഹെൻസീവ് പോളിസി",
-          "പോളിസിക്ക് വിധേയമായി തേർഡ്-പാർട്ടി ബാധ്യതയും സ്വന്തം വാഹന നാശനഷ്ട സംരക്ഷണവും ഉൾപ്പെടുത്താം."
-        ],
-        [
-          "📊 IDV",
-          "ഇൻഷ്വേർഡ് ഡിക്ലേർഡ് വാല്യു മോട്ടോർ ഇൻഷുറൻസിലെ പ്രധാന ആശയമാണ്; ചില ക്ലെയിമുകളിൽ പ്രസക്തമാണ്."
-        ],
-        [
-          "🏷️ NCB",
-          "നോ ക്ലെയിം ബോണസ് ക്ലെയിം ഇല്ലാത്ത ഇൻഷുറൻസ് കാലയളവുകളുമായി ബന്ധപ്പെട്ട ആനുകൂല്യമാണ്; നിബന്ധനകൾ ബാധകം."
-        ],
-        [
-          "🔧 സീറോ ഡിപ്രിസിയേഷൻ",
-          "ചില അർഹമായ ക്ലെയിമുകളിൽ ഡിപ്രിസിയേഷൻ കുറവിന്റെ സ്വാധീനം കുറയ്ക്കുന്ന ആഡ്-ഓൺ; നിബന്ധനകൾ ബാധകം."
-        ],
-        [
-          "🧾 RTI — റിട്ടേൺ ടു ഇൻവോയ്സ്",
-          "അർഹമായ സാഹചര്യങ്ങളിൽ സാധാരണ IDV മാത്രം അല്ലാതെ ഇൻവോയ്സ് മൂല്യത്തെ അടിസ്ഥാനമാക്കി നൽകാൻ രൂപകൽപ്പന ചെയ്ത ആഡ്-ഓൺ; നിബന്ധനകൾ ബാധകം."
-        ]
-      ],
-      "warning": "⚠️ എല്ലാ മോട്ടോർ പോളിസികളിലും ആഡ്-ഓണുകൾ സ്വയമേവ ഉൾപ്പെടണമെന്നില്ല. ഷെഡ്യൂൾ, കവറേജ്, നിബന്ധനകൾ പരിശോധിക്കുക."
-    },
-    "saving": {
-      "title": "സേവിംഗ്സും സാമ്പത്തിക സുരക്ഷയും",
-      "desc": "അടിയന്തര തയ്യാറെടുപ്പ്, ക്രമബദ്ധമായ സേവിംഗ്സ്, സുരക്ഷിതമായ സേവിംഗ്സ് മാർഗങ്ങൾ എന്നിവ മനസ്സിലാക്കി സാമ്പത്തിക സ്ഥിരത നിർമ്മിക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "അടിയന്തര സാഹചര്യങ്ങൾ, ഹ്രസ്വകാല ആവശ്യങ്ങൾ, പദ്ധതിപരമായ ചെലവുകൾ എന്നിവയ്ക്കായി സേവിംഗ്സ് എളുപ്പത്തിൽ ലഭ്യമായ പണം നൽകാം. ശരിയായ സേവിംഗ്സ് മാർഗം സുരക്ഷ, ലിക്വിഡിറ്റി, കാലാവധി, ലക്ഷ്യം എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.",
-      "boxes": [
-        [
-          "🛟 അടിയന്തര നിധി",
-          "എളുപ്പത്തിൽ ലഭ്യമായ ഒരു റിസർവ് അപ്രതീക്ഷിത ചെലവുകളോ താൽക്കാലിക വരുമാന തടസ്സമോ കൈകാര്യം ചെയ്യാൻ സഹായിക്കും."
-        ],
-        [
-          "🏛️ സർക്കാർ, പോസ്റ്റൽ പദ്ധതികൾ",
-          "ഇന്ത്യയിൽ വിവിധ സർക്കാർ, പോസ്റ്റൽ സേവിംഗ്സ് പദ്ധതികളുണ്ട്; യോഗ്യത, കാലാവധി, പലിശ, പിൻവലിക്കൽ, നികുതി നിയമങ്ങൾ വ്യത്യസ്തമായേക്കാം."
-        ]
-      ],
-      "section": "📌 എന്ത് താരതമ്യം ചെയ്യണം",
-      "list": [
-        "സുരക്ഷ",
-        "ലിക്വിഡിറ്റി",
-        "കാലാവധി",
-        "പലിശ അല്ലെങ്കിൽ വരുമാന ഘടന",
-        "നികുതി പരിഗണന",
-        "കാലാവധിക്ക് മുമ്പുള്ള പിൻവലിക്കൽ നിയമങ്ങൾ",
-        "പണത്തിന്റെ ലക്ഷ്യം"
-      ],
-      "tip": "💡 സർക്കാർ അല്ലെങ്കിൽ പോസ്റ്റൽ പദ്ധതി ആണെങ്കിലും നിക്ഷേപിക്കുന്നതിന് മുമ്പ് അതിന്റെ നിയമങ്ങൾ മനസ്സിലാക്കുക. “ഗ്യാരണ്ടീഡ്” അല്ലെങ്കിൽ സർക്കാർ പിന്തുണയുള്ളത് എന്നത് എല്ലാ പദ്ധതികൾക്കും ഒരേ സവിശേഷതകളാണെന്ന് അർത്ഥമല്ല."
-    },
-    "invest": {
-      "title": "നിക്ഷേപങ്ങളും SIPയും",
-      "desc": "സമയം, റിസ്ക്, കോംപൗണ്ടിംഗ്, ക്രമബദ്ധമായ നിക്ഷേപം എന്നിവ ദീർഘകാല സമ്പത്ത് സൃഷ്ടിയെ എങ്ങനെ സ്വാധീനിക്കാമെന്ന് മനസ്സിലാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "ഭാവിയിലെ സാമ്പത്തിക ലക്ഷ്യം നേടുമെന്ന പ്രതീക്ഷയിൽ ആസ്തികളിൽ പണം നിക്ഷേപിക്കുന്നതാണ് നിക്ഷേപം. ബന്ധപ്പെട്ട ഉൽപ്പന്നത്തിൽ വ്യക്തമാക്കിയിട്ടില്ലെങ്കിൽ വരുമാനം ഉറപ്പുള്ളതല്ല.",
-      "boxes": [
-        [
-          "📅 SIP",
-          "തിരഞ്ഞെടുത്ത നിക്ഷേപത്തിൽ നിശ്ചിത തുക ഇടവിട്ട് നിക്ഷേപിക്കുന്ന രീതിയാണ് SIP."
-        ],
-        [
-          "🔁 കോംപൗണ്ടിംഗ്",
-          "കാലക്രമത്തിൽ ലഭിക്കുന്ന വരുമാനവും ഭാവിയിലെ വളർച്ചയ്ക്ക് സംഭാവന ചെയ്യാം."
-        ],
-        [
-          "⚖️ റിസ്ക്",
-          "വ്യത്യസ്ത നിക്ഷേപങ്ങൾക്ക് വ്യത്യസ്ത തരത്തിലുള്ള റിസ്ക് ഉണ്ടാകും. ഉയർന്ന വരുമാന സാധ്യതയ്ക്ക് ഉയർന്ന അനിശ്ചിതത്വം ഉണ്ടാകാം."
-        ],
-        [
-          "⏳ കാലപരിധി",
-          "പണം ആവശ്യമായതിന് മുമ്പുള്ള കാലയളവ് നിക്ഷേപത്തെ എങ്ങനെ വിലയിരുത്തണം എന്നതിനെ സ്വാധീനിക്കും."
-        ]
-      ],
-      "tip": "💡 SIP സ്ഥിരമായി നിക്ഷേപിക്കുന്ന ഒരു രീതിയാണ്. അത് സ്വതന്ത്രമായി ഗ്യാരണ്ടീഡ് റിട്ടേൺ നൽകുന്ന ഉൽപ്പന്നമല്ല."
-    },
-    "retire": {
-      "title": "റിട്ടയർമെന്റ് പ്ലാനിംഗ്",
-      "desc": "തൊഴിൽ വരുമാനം കുറയുകയോ നിൽക്കുകയോ ചെയ്താലും ചെലവുകൾ തുടർന്നേക്കാം; അതിനാൽ ആ വർഷങ്ങൾക്കായി പദ്ധതി തയ്യാറാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "ഭാവിയിലെ ചെലവുകൾ കണക്കാക്കുക, പണപ്പെരുപ്പം പരിഗണിക്കുക, റിട്ടയർമെന്റ് കോർപ്പസ് നിർമ്മിക്കുക, ആ കോർപ്പസ് ഭാവിയിൽ എങ്ങനെ വരുമാനം നൽകാമെന്ന് ചിന്തിക്കുക എന്നിവയാണ് റിട്ടയർമെന്റ് പ്ലാനിംഗ്.",
-      "boxes": [
-        [
-          "💸 പണപ്പെരുപ്പം",
-          "കാലക്രമത്തിൽ ജീവിതച്ചെലവ് ഉയരാം; അതിനാൽ ഇന്നത്തെ ചെലവുകൾ ഭാവിയിലെ റിട്ടയർമെന്റ് ചെലവുകളെ പ്രതിനിധീകരിക്കണമെന്നില്ല."
-        ],
-        [
-          "🏦 EPF",
-          "ബാധകമായ നിയമങ്ങൾ പ്രകാരം യോഗ്യരായ ജീവനക്കാർക്കുള്ള പ്രധാന റിട്ടയർമെന്റ് സേവിംഗ്സ് സംവിധാനം."
-        ],
-        [
-          "📊 NPS",
-          "പ്രത്യേക നിയമങ്ങളും സവിശേഷതകളും ഉള്ള റിട്ടയർമെന്റ് കേന്ദ്രീകൃത നിക്ഷേപ സംവിധാനം."
-        ],
-        [
-          "💰 റിട്ടയർമെന്റ് കോർപ്പസ്",
-          "ആവശ്യമായ തുക ചെലവുകൾ, പണപ്പെരുപ്പം, റിട്ടയർമെന്റ് പ്രായം, ആയുർദൈർഘ്യം തുടങ്ങിയ ഘടകങ്ങളെ ആശ്രയിക്കുന്നു."
-        ]
-      ],
-      "section": "🧠 ചോദിക്കേണ്ട ചോദ്യങ്ങൾ",
-      "list": [
-        "ഞാൻ ഏത് പ്രായത്തിൽ വിരമിക്കുമെന്ന് പ്രതീക്ഷിക്കുന്നു?",
-        "എന്റെ ഭാവിയിലെ മാസച്ചെലവ് എത്രയായിരിക്കും?",
-        "എത്ര പണപ്പെരുപ്പം പരിഗണിക്കണം?",
-        "എനിക്ക് ഇതിനകം ഏത് റിട്ടയർമെന്റ് ആസ്തികളുണ്ട്?",
-        "വിരമിച്ചതിന് ശേഷം വരുമാനം എങ്ങനെ ഉണ്ടാക്കും?"
-      ]
-    },
-    "family": {
-      "title": "കുട്ടികളുടെ വിദ്യാഭ്യാസ പദ്ധതി",
-      "desc": "ഇന്നത്തെ സേവിംഗ്സിനെ നാളത്തെ വിദ്യാഭ്യാസ ചെലവുകളുമായി ബന്ധിപ്പിക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "ഭാവിയിലെ വിദ്യാഭ്യാസ ചെലവ് കണക്കാക്കുക, പണപ്പെരുപ്പം പരിഗണിക്കുക, എത്രയും എത്രകാലവും സേവ് ചെയ്യുകയോ നിക്ഷേപിക്കുകയോ വേണമെന്ന് തീരുമാനിക്കുക എന്നിവ വിദ്യാഭ്യാസ പദ്ധതിയിൽ ഉൾപ്പെടുന്നു.",
-      "boxes": [
-        [
-          "🎓 ഭാവിയിലെ ചെലവ്",
-          "വിദ്യാഭ്യാസ ചെലവുകൾ കാലക്രമത്തിൽ മാറാം. അതിനാൽ ഇന്നത്തെ ചെലവിന് പകരം ഭാവിയിലെ തുക പരിഗണിക്കണം."
-        ],
-        [
-          "⏳ സമയം",
-          "ദൈർഘ്യമേറിയ നിക്ഷേപ കാലയളവ് സേവിംഗ്സിനും നിക്ഷേപങ്ങൾക്കും വളരാൻ കൂടുതൽ സമയം നൽകാം."
-        ]
-      ]
-    },
-    "goals": {
-      "title": "സാമ്പത്തിക ലക്ഷ്യങ്ങൾ",
-      "desc": "സാമ്പത്തിക ആഗ്രഹങ്ങളെ അളക്കാവുന്ന ലക്ഷ്യങ്ങളാക്കി മാറ്റുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "തുക, ലക്ഷ്യം, സമയപരിധി എന്നിവ വ്യക്തമാക്കിയാൽ സാമ്പത്തിക ലക്ഷ്യം ആസൂത്രണം ചെയ്യുന്നത് എളുപ്പമാകും.",
-      "boxes": [
-        [
-          "🎯 നിർവചിക്കുക",
-          "നിങ്ങൾ കൃത്യമായി എന്താണ് നേടാൻ ആഗ്രഹിക്കുന്നത്?"
-        ],
-        [
-          "💰 തുക കണക്കാക്കുക",
-          "ഈ ലക്ഷ്യത്തിന് എത്ര പണം ആവശ്യമായേക്കാം?"
-        ],
-        [
-          "📅 സമയപരിധി",
-          "പണം നിങ്ങൾക്ക് എപ്പോൾ ആവശ്യമായി വരും?"
-        ],
-        [
-          "📈 തന്ത്രം",
-          "സ്ഥിരമായി എത്ര സേവ് ചെയ്യുകയോ നിക്ഷേപിക്കുകയോ വേണം?"
-        ]
-      ]
-    },
-    "loan": {
-      "title": "വായ്പകളും ക്രെഡിറ്റും",
-      "desc": "വായ്പാ ചെലവ്, EMI, ഉത്തരവാദിത്തമുള്ള ക്രെഡിറ്റ് പെരുമാറ്റം എന്നിവ മനസ്സിലാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "അംഗീകരിച്ച നിബന്ധനകൾ പ്രകാരം തിരിച്ചടയ്ക്കുന്നതിനുപകരം ഇന്ന് പണം ലഭ്യമാക്കുന്നതാണ് വായ്പ. യഥാർത്ഥ ചെലവിൽ പലിശയും മറ്റ് ചാർജുകളും ഉൾപ്പെടാം.",
-      "boxes": [
-        [
-          "🧮 EMI",
-          "പല വായ്പകളിലും ഉപയോഗിക്കുന്ന സ്ഥിരമായ പ്രതിമാസ പണമടയ്ക്കൽ രീതിയാണ് EMI."
-        ],
-        [
-          "📊 പലിശ",
-          "പലിശ നിരക്കും കണക്കാക്കുന്ന രീതിയും മൊത്തം വായ്പാ ചെലവിനെ സ്വാധീനിക്കുന്നു."
-        ],
-        [
-          "📋 ക്രെഡിറ്റ് പെരുമാറ്റം",
-          "സമയബന്ധിതമായ തിരിച്ചടവും ഉത്തരവാദിത്തമുള്ള വായ്പ ഉപയോഗവും ആരോഗ്യകരമായ ക്രെഡിറ്റ് പെരുമാറ്റത്തിന്റെ പ്രധാന ഭാഗങ്ങളാണ്."
-        ],
-        [
-          "⚠️ മൊത്തം ചെലവ്",
-          "EMI മാത്രം നോക്കാതെ പ്രോസസ്സിംഗ് ഫീസ്, ചാർജുകൾ, പലിശ, മറ്റ് ബാധകമായ ചെലവുകൾ എന്നിവ മനസ്സിലാക്കുക."
-        ]
-      ]
-    },
-    "tax": {
-      "title": "നികുതി അടിസ്ഥാനങ്ങൾ",
-      "desc": "നികുതി ബാധകമായ വരുമാനം, കിഴിവുകൾ, രേഖകൾ, നികുതി ആസൂത്രണം എന്നിവയുടെ അടിസ്ഥാന കാര്യങ്ങൾ മനസ്സിലാക്കുക.",
-      "quick": "⚡ ചുരുക്കത്തിൽ",
-      "quickText": "നികുതി ബാധകമായ നിയമങ്ങൾ, വരുമാനം, കിഴിവുകൾ, ഇളവുകൾ, മറ്റ് സാഹചര്യങ്ങൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു. നിയമങ്ങൾ മാറാം; അതിനാൽ നിലവിലെ ഔദ്യോഗിക വിവരങ്ങൾ പരിശോധിക്കണം.",
-      "boxes": [
-        [
-          "💰 നികുതി ബാധകമായ വരുമാനം",
-          "ബന്ധപ്പെട്ട നിയമങ്ങൾ പ്രയോഗിച്ചതിന് ശേഷം നികുതി ആവശ്യങ്ങൾക്ക് പരിഗണിക്കുന്ന വരുമാനം."
-        ],
-        [
-          "📄 രേഖകൾ",
-          "ബന്ധപ്പെട്ട സാമ്പത്തിക രേഖകൾ സൂക്ഷിക്കുന്നത് കൃത്യമായ നികുതി റിപ്പോർട്ടിംഗിന് സഹായിക്കും."
-        ],
-        [
-          "🔎 കിഴിവുകൾ",
-          "ബാധകമായ നികുതി നിയമങ്ങളും യോഗ്യതയും അനുസരിച്ച് ചില കിഴിവുകൾ ലഭ്യമായേക്കാം."
-        ],
-        [
-          "📅 നികുതി ആസൂത്രണം",
-          "നികുതി ഫലങ്ങൾ പരിഗണിച്ച് സാമ്പത്തിക തീരുമാനങ്ങൾ ആസൂത്രണം ചെയ്യുന്നത് അവസാന നിമിഷ തീരുമാനങ്ങൾ ഒഴിവാക്കാൻ സഹായിക്കും."
-        ]
-      ]
-    }
-  },
-  "hi": {
-    "health": {
-      "title": "स्वास्थ्य बीमा",
-      "desc": "पॉलिसी की शर्तों के अनुसार योग्य चिकित्सा खर्चों को संभालने में स्वास्थ्य बीमा कैसे मदद कर सकता है, समझें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "स्वास्थ्य बीमा कवर किए गए स्वास्थ्य खर्चों के खिलाफ वित्तीय सुरक्षा देता है। कवरेज पॉलिसी, सीमाओं, बहिष्करण, प्रतीक्षा अवधि और अन्य शर्तों पर निर्भर करता है।",
-      "boxes": [
-        [
-          "👤 व्यक्तिगत पॉलिसी",
-          "पॉलिसी की शर्तों के अनुसार एक व्यक्ति को कवर दिया जाता है।"
-        ],
-        [
-          "👨‍👩‍👧 फैमिली फ्लोटर",
-          "पॉलिसी की शर्तों के अनुसार एक बीमा राशि कई परिवार सदस्यों के लिए साझा हो सकती है।"
-        ],
-        [
-          "➕ टॉप-अप",
-          "एक निश्चित डिडक्टिबल पार होने के बाद सामान्यतः लागू होता है; पॉलिसी की संरचना लागू होती है।"
-        ],
-        [
-          "🔄 सुपर टॉप-अप",
-          "पॉलिसी अवधि में योग्य खर्चों को कुल मिलाकर माना जा सकता है; शर्तें लागू होती हैं।"
-        ]
-      ],
-      "section": "⚠️ महत्वपूर्ण शब्द",
-      "list": [
-        "बीमा राशि",
-        "प्रतीक्षा अवधि",
-        "पहले से मौजूद बीमारी की शर्तें",
-        "रूम रेंट सीमाएँ",
-        "को-पेमेंट",
-        "डिडक्टिबल",
-        "नेटवर्क अस्पताल",
-        "बहिष्करण",
-        "सब-लिमिट"
-      ],
-      "tip": "💡 स्वास्थ्य पॉलिसियों की तुलना केवल प्रीमियम से न करें। कवरेज शर्तें, बहिष्करण, प्रतीक्षा अवधि, सीमाएँ और क्लेम से जुड़ी सुविधाएँ भी महत्वपूर्ण हैं।"
-    },
-    "motor": {
-      "title": "मोटर बीमा",
-      "desc": "वाहन बीमा, थर्ड-पार्टी कवर, स्वयं के नुकसान की सुरक्षा और महत्वपूर्ण ऐड-ऑन समझें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "मोटर बीमा वाहन से जुड़े कुछ जोखिमों से सुरक्षा दे सकता है। सुरक्षा का प्रकार और सीमा पॉलिसी पर निर्भर करती है।",
-      "boxes": [
-        [
-          "🛡️ थर्ड-पार्टी बीमा",
-          "लागू कानून और पॉलिसी शर्तों के अनुसार निर्दिष्ट थर्ड-पार्टी देनदारियों के लिए कवर देता है।"
-        ],
-        [
-          "🚘 कॉम्प्रिहेन्सिव पॉलिसी",
-          "पॉलिसी के अनुसार थर्ड-पार्टी देनदारी को स्वयं के वाहन के नुकसान की सुरक्षा के साथ जोड़ा जा सकता है।"
-        ],
-        [
-          "📊 IDV",
-          "इंश्योर्ड डिक्लेर्ड वैल्यू मोटर बीमा की महत्वपूर्ण अवधारणा है और कुछ क्लेम में प्रासंगिक है।"
-        ],
-        [
-          "🏷️ NCB",
-          "नो क्लेम बोनस क्लेम-रहित बीमा अवधि से जुड़ा लाभ है; लागू शर्तें होती हैं।"
-        ],
-        [
-          "🔧 ज़ीरो डेप्रिसिएशन",
-          "कुछ योग्य क्लेम में डेप्रिसिएशन कटौती के प्रभाव को कम करने वाला ऐड-ऑन; शर्तें लागू होती हैं।"
-        ],
-        [
-          "🧾 RTI — रिटर्न टू इनवॉइस",
-          "योग्य परिस्थितियों में केवल मानक IDV के बजाय इनवॉइस से जुड़े मूल्य के आधार पर भुगतान के लिए बनाया गया ऐड-ऑन; शर्तें लागू होती हैं।"
-        ]
-      ],
-      "warning": "⚠️ हर मोटर पॉलिसी में ऐड-ऑन अपने आप शामिल नहीं होते। शेड्यूल, कवरेज और शर्तें जाँचें।"
-    },
-    "saving": {
-      "title": "बचत और वित्तीय सुरक्षा",
-      "desc": "आपातकालीन तैयारी, अनुशासित बचत और सुरक्षित बचत विकल्पों को समझकर वित्तीय स्थिरता बनाएं।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "बचत आपातकाल, अल्पकालिक जरूरतों और योजनाबद्ध खर्चों के लिए आसानी से उपलब्ध धन दे सकती है। बचत के लिए सही जगह सुरक्षा, तरलता, अवधि और उद्देश्य पर निर्भर करती है।",
-      "boxes": [
-        [
-          "🛟 आपातकालीन निधि",
-          "आसानी से उपलब्ध रिजर्व अचानक खर्चों या अस्थायी आय रुकने को संभालने में मदद कर सकता है।"
-        ],
-        [
-          "🏛️ सरकारी और डाक योजनाएँ",
-          "भारत में विभिन्न सरकारी और डाक बचत योजनाएँ हैं; पात्रता, अवधि, ब्याज, निकासी और कर नियम अलग हो सकते हैं।"
-        ]
-      ],
-      "section": "📌 क्या तुलना करें",
-      "list": [
-        "सुरक्षा",
-        "तरलता",
-        "अवधि",
-        "ब्याज या रिटर्न संरचना",
-        "कर उपचार",
-        "समय से पहले निकासी के नियम",
-        "पैसे का उद्देश्य"
-      ],
-      "tip": "💡 सरकारी या डाक योजना होने पर भी निवेश से पहले उसके नियम समझें। “गारंटीड” या सरकारी समर्थित होने का मतलब यह नहीं कि सभी योजनाओं की विशेषताएँ समान हैं।"
-    },
-    "invest": {
-      "title": "निवेश और SIP",
-      "desc": "समय, जोखिम, चक्रवृद्धि और अनुशासित निवेश लंबे समय में संपत्ति निर्माण को कैसे प्रभावित कर सकते हैं, समझें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "भविष्य के वित्तीय लक्ष्य को पाने की उम्मीद में संपत्तियों में पैसा लगाना निवेश है। संबंधित उत्पाद में स्पष्ट रूप से न कहा गया हो तो रिटर्न की गारंटी नहीं होती।",
-      "boxes": [
-        [
-          "📅 SIP",
-          "चुने गए निवेश में एक तय राशि को नियमित अंतराल पर निवेश करने की विधि।"
-        ],
-        [
-          "🔁 चक्रवृद्धि",
-          "समय के साथ मिला रिटर्न भी भविष्य की वृद्धि में योगदान कर सकता है।"
-        ],
-        [
-          "⚖️ जोखिम",
-          "अलग-अलग निवेशों में जोखिम का स्तर और प्रकार अलग होता है। अधिक रिटर्न की संभावना में अधिक अनिश्चितता हो सकती है।"
-        ],
-        [
-          "⏳ समय अवधि",
-          "पैसा कब चाहिए, उससे पहले उपलब्ध समय निवेश का मूल्यांकन प्रभावित कर सकता है।"
-        ]
-      ],
-      "tip": "💡 SIP नियमित रूप से निवेश करने की एक विधि है। यह स्वयं गारंटीड रिटर्न वाला उत्पाद नहीं है।"
-    },
-    "retire": {
-      "title": "रिटायरमेंट प्लानिंग",
-      "desc": "रोजगार आय कम या बंद हो सकती है, लेकिन खर्च जारी रह सकते हैं; इसलिए उन वर्षों के लिए योजना बनाएं।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "रिटायरमेंट प्लानिंग में भविष्य के खर्चों का अनुमान, महंगाई को ध्यान में रखना, रिटायरमेंट कॉर्पस बनाना और उस कॉर्पस से भविष्य में आय कैसे बन सकती है, यह सोचना शामिल है।",
-      "boxes": [
-        [
-          "💸 महंगाई",
-          "समय के साथ जीवन-यापन की लागत बढ़ सकती है, इसलिए आज के खर्च भविष्य के रिटायरमेंट खर्च नहीं दर्शा सकते।"
-        ],
-        [
-          "🏦 EPF",
-          "लागू नियमों के तहत योग्य कर्मचारियों के लिए महत्वपूर्ण रिटायरमेंट बचत व्यवस्था।"
-        ],
-        [
-          "📊 NPS",
-          "विशिष्ट नियमों और सुविधाओं वाली रिटायरमेंट-केंद्रित निवेश व्यवस्था।"
-        ],
-        [
-          "💰 रिटायरमेंट कॉर्पस",
-          "आवश्यक राशि खर्च, महंगाई, रिटायरमेंट उम्र, जीवन प्रत्याशा और अन्य कारकों पर निर्भर करती है।"
-        ]
-      ],
-      "section": "🧠 पूछने योग्य प्रश्न",
-      "list": [
-        "मैं किस उम्र में रिटायर होने की उम्मीद करता हूँ?",
-        "मेरे भविष्य के मासिक खर्च कितने हो सकते हैं?",
-        "मुझे कितनी महंगाई माननी चाहिए?",
-        "मेरे पास पहले से कौन-सी रिटायरमेंट संपत्तियाँ हैं?",
-        "रिटायरमेंट के बाद आय कैसे बनाऊँगा?"
-      ]
-    },
-    "family": {
-      "title": "बच्चों की शिक्षा योजना",
-      "desc": "आज की बचत को कल की शिक्षा लागत से जोड़ें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "शिक्षा योजना में भविष्य की लागत का अनुमान, महंगाई को ध्यान में रखना और यह तय करना शामिल है कि कितनी राशि कितने समय तक बचानी या निवेश करनी होगी।",
-      "boxes": [
-        [
-          "🎓 भविष्य की लागत",
-          "शिक्षा की लागत समय के साथ बदल सकती है, इसलिए केवल आज की लागत नहीं बल्कि भविष्य की राशि पर विचार करें।"
-        ],
-        [
-          "⏳ समय",
-          "लंबी निवेश अवधि बचत और निवेश को बढ़ने के लिए अधिक समय दे सकती है।"
-        ]
-      ]
-    },
-    "goals": {
-      "title": "वित्तीय लक्ष्य",
-      "desc": "वित्तीय इच्छाओं को मापने योग्य लक्ष्यों में बदलें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "राशि, उद्देश्य और समयसीमा तय करने पर वित्तीय लक्ष्य की योजना बनाना आसान होता है।",
-      "boxes": [
-        [
-          "🎯 परिभाषित करें",
-          "आप वास्तव में क्या हासिल करना चाहते हैं?"
-        ],
-        [
-          "💰 राशि तय करें",
-          "इस लक्ष्य के लिए कितने पैसे की जरूरत हो सकती है?"
-        ],
-        [
-          "📅 समयसीमा",
-          "आपको पैसे की जरूरत कब होगी?"
-        ],
-        [
-          "📈 रणनीति",
-          "नियमित रूप से कितनी बचत या निवेश करना पड़ सकता है?"
-        ]
-      ]
-    },
-    "loan": {
-      "title": "लोन और क्रेडिट",
-      "desc": "उधार की लागत, EMI और जिम्मेदार क्रेडिट व्यवहार को समझें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "लोन आज पैसे तक पहुंच देता है, जिसके बदले तय शर्तों के अनुसार भुगतान करना होता है। वास्तविक लागत में ब्याज और अन्य शुल्क शामिल हो सकते हैं।",
-      "boxes": [
-        [
-          "🧮 EMI",
-          "इक्वेटेड मंथली इंस्टॉलमेंट कई लोन में इस्तेमाल होने वाली नियमित भुगतान व्यवस्था है।"
-        ],
-        [
-          "📊 ब्याज",
-          "ब्याज दर और गणना की विधि कुल उधार लागत को प्रभावित करती है।"
-        ],
-        [
-          "📋 क्रेडिट व्यवहार",
-          "समय पर भुगतान और जिम्मेदार उधारी स्वस्थ क्रेडिट व्यवहार के महत्वपूर्ण पहलू हैं।"
-        ],
-        [
-          "⚠️ कुल लागत",
-          "केवल EMI नहीं; प्रोसेसिंग फीस, शुल्क, ब्याज और अन्य लागू लागतों को भी समझें।"
-        ]
-      ]
-    },
-    "tax": {
-      "title": "टैक्स की मूल बातें",
-      "desc": "कर योग्य आय, कटौतियों, रिकॉर्ड और टैक्स प्लानिंग की बुनियादी बातें समझें।",
-      "quick": "⚡ संक्षिप्त उत्तर",
-      "quickText": "टैक्स लागू कानूनों, आय, कटौतियों, छूटों और अन्य परिस्थितियों पर निर्भर करता है। नियम बदल सकते हैं, इसलिए वर्तमान आधिकारिक जानकारी जाँचनी चाहिए।",
-      "boxes": [
-        [
-          "💰 कर योग्य आय",
-          "संबंधित नियम लागू करने के बाद टैक्स के लिए मानी जाने वाली आय।"
-        ],
-        [
-          "📄 रिकॉर्ड",
-          "संबंधित वित्तीय दस्तावेज रखना सही टैक्स रिपोर्टिंग में मदद कर सकता है।"
-        ],
-        [
-          "🔎 कटौतियाँ",
-          "लागू टैक्स नियमों और पात्रता के आधार पर कुछ कटौतियाँ उपलब्ध हो सकती हैं।"
-        ],
-        [
-          "📅 टैक्स प्लानिंग",
-          "टैक्स प्रभावों को ध्यान में रखकर वित्तीय फैसलों की योजना बनाने से अंतिम समय के फैसलों से बचने में मदद मिल सकती है।"
-        ]
-      ]
-    }
+    title:"जीवन बीमा",
+    description:"बीमित व्यक्ति की मृत्यु से आश्रितों पर पड़ने वाले वित्तीय प्रभाव से सुरक्षा में मदद करने के लिए बनाया गया वित्तीय संरक्षण। यह पॉलिसी की शर्तों और नियमों के अधीन है।",
+    quick:"⚡ संक्षिप्त उत्तर",
+    quickText:"जीवन बीमा मुख्य रूप से वित्तीय सुरक्षा के लिए होता है। सही पॉलिसी का चुनाव उद्देश्य, आवश्यक कवर, अवधि, प्रीमियम की क्षमता और पॉलिसी की शर्तों पर निर्भर करता है।"
   }
 };
 
@@ -4012,123 +3574,187 @@ function setHTML(selector, value, root=document){
   if(el && value !== undefined) el.innerHTML = value;
 }
 
-const englishTopicDetails = {};
 
-function captureEnglishTopicDetails(){
-  ["health","motor","saving","invest","retire","family","goals","loan","tax"].forEach(topic => {
-    const panel = document.getElementById("topic-" + topic);
-    if(!panel) return;
+/* =========================================================
+   START HERE — MULTILINGUAL PATHS
+   This is intentionally separate from the existing
+   translations object so the working translation engine
+   remains untouched.
+   ========================================================= */
 
-    const data = {};
-    const title = panel.querySelector(".topic-header-content h2");
-    const desc = panel.querySelector(".topic-header-content p");
-    if(title) data.title = title.textContent;
-    if(desc) data.desc = desc.textContent;
+const startHereTranslations = {
 
-    const quick = panel.querySelector(".quick-answer");
-    if(quick){
-      const strong = quick.querySelector("strong");
-      if(strong) data.quick = strong.textContent;
-      let text = "";
-      Array.from(quick.childNodes).forEach(node => {
-        if(node.nodeType === Node.TEXT_NODE) text += node.textContent;
-      });
-      if(text.trim()) data.quickText = text.trim();
-    }
+  en: {
+    kicker:"👋 Not sure where to start?",
+    title:"Find Your Financial Path",
+    text:"Choose what matters to you right now and we'll point you to the topics that are most useful to understand first.",
 
-    const firstGrid = panel.querySelector(".topic-body > .info-grid");
-    if(firstGrid){
-      data.boxes = Array.from(firstGrid.querySelectorAll(".info-box")).map(box => [
-        box.querySelector("h4") ? box.querySelector("h4").textContent : "",
-        box.querySelector("p") ? box.querySelector("p").textContent : ""
-      ]);
-    }
+    protectTitle:"I want to protect my family",
+    protectText:"Life, health and financial protection",
 
-    const section = panel.querySelector(".topic-section");
-    if(section){
-      const h3 = section.querySelector("h3");
-      const lis = section.querySelectorAll("li");
-      if(h3) data.section = h3.textContent;
-      if(lis.length) data.list = Array.from(lis).map(li => li.textContent);
-    }
+    growTitle:"I want to grow my money",
+    growText:"Savings, SIP and long-term investing",
 
-    const tip = panel.querySelector(".tip");
-    const warning = panel.querySelector(".warning");
-    if(tip) data.tip = tip.textContent;
-    if(warning) data.warning = warning.textContent;
+    futureTitle:"I have a future goal",
+    futureText:"Education, retirement and financial goals",
 
-    englishTopicDetails[topic] = data;
+    creditTitle:"I want to understand loans & tax",
+    creditText:"Borrowing, credit and tax basics"
+  },
+
+  kn: {
+    kicker:"👋 ಎಲ್ಲಿಂದ ಪ್ರಾರಂಭಿಸಬೇಕು ಎಂದು ತಿಳಿಯುತ್ತಿಲ್ಲವೇ?",
+    title:"ನಿಮ್ಮ ಹಣಕಾಸಿನ ಮಾರ್ಗವನ್ನು ಕಂಡುಕೊಳ್ಳಿ",
+    text:"ಈಗ ನಿಮಗೆ ಮುಖ್ಯವಾದ ವಿಷಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಮೊದಲು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕಾದ ಉಪಯುಕ್ತ ವಿಷಯಗಳತ್ತ ನಾವು ನಿಮ್ಮನ್ನು ಕರೆದೊಯ್ಯುತ್ತೇವೆ.",
+
+    protectTitle:"ನನ್ನ ಕುಟುಂಬವನ್ನು ರಕ್ಷಿಸಲು ಬಯಸುತ್ತೇನೆ",
+    protectText:"ಜೀವ ವಿಮೆ, ಆರೋಗ್ಯ ಮತ್ತು ಹಣಕಾಸಿನ ರಕ್ಷಣೆ",
+
+    growTitle:"ನನ್ನ ಹಣವನ್ನು ಬೆಳೆಸಲು ಬಯಸುತ್ತೇನೆ",
+    growText:"ಉಳಿತಾಯ, SIP ಮತ್ತು ದೀರ್ಘಕಾಲೀನ ಹೂಡಿಕೆ",
+
+    futureTitle:"ನನಗೆ ಭವಿಷ್ಯದ ಗುರಿ ಇದೆ",
+    futureText:"ಶಿಕ್ಷಣ, ನಿವೃತ್ತಿ ಮತ್ತು ಹಣಕಾಸಿನ ಗುರಿಗಳು",
+
+    creditTitle:"ಸಾಲ ಮತ್ತು ತೆರಿಗೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಬಯಸುತ್ತೇನೆ",
+    creditText:"ಸಾಲ, ಕ್ರೆಡಿಟ್ ಮತ್ತು ತೆರಿಗೆ ಮೂಲಭೂತಗಳು"
+  },
+
+  te: {
+    kicker:"👋 ఎక్కడి నుంచి ప్రారంభించాలో తెలియడం లేదా?",
+    title:"మీ ఆర్థిక మార్గాన్ని ఎంచుకోండి",
+    text:"ప్రస్తుతం మీకు ముఖ్యమైన అంశాన్ని ఎంచుకోండి. ముందుగా అర్థం చేసుకోవాల్సిన ఉపయోగకరమైన విషయాల వైపు మిమ్మల్ని తీసుకెళ్తాము.",
+
+    protectTitle:"నా కుటుంబాన్ని రక్షించాలనుకుంటున్నాను",
+    protectText:"జీవిత, ఆరోగ్య మరియు ఆర్థిక రక్షణ",
+
+    growTitle:"నా డబ్బును పెంచాలనుకుంటున్నాను",
+    growText:"పొదుపు, SIP మరియు దీర్ఘకాలిక పెట్టుబడులు",
+
+    futureTitle:"నాకు భవిష్యత్ లక్ష్యం ఉంది",
+    futureText:"విద్య, రిటైర్మెంట్ మరియు ఆర్థిక లక్ష్యాలు",
+
+    creditTitle:"రుణాలు మరియు పన్నును అర్థం చేసుకోవాలనుకుంటున్నాను",
+    creditText:"రుణాలు, క్రెడిట్ మరియు పన్ను ప్రాథమికాలు"
+  },
+
+  ta: {
+    kicker:"👋 எங்கு தொடங்குவது என்று தெரியவில்லையா?",
+    title:"உங்கள் நிதிப் பாதையைத் தேர்வு செய்யுங்கள்",
+    text:"இப்போது உங்களுக்கு முக்கியமானதைத் தேர்வு செய்யுங்கள். முதலில் புரிந்துகொள்ள வேண்டிய பயனுள்ள தலைப்புகளுக்கு உங்களை அழைத்துச் செல்கிறோம்.",
+
+    protectTitle:"என் குடும்பத்தைப் பாதுகாக்க விரும்புகிறேன்",
+    protectText:"ஆயுள், மருத்துவ மற்றும் நிதிப் பாதுகாப்பு",
+
+    growTitle:"என் பணத்தை வளர்க்க விரும்புகிறேன்",
+    growText:"சேமிப்பு, SIP மற்றும் நீண்டகால முதலீடு",
+
+    futureTitle:"எனக்கு எதிர்கால இலக்கு உள்ளது",
+    futureText:"கல்வி, ஓய்வூதியம் மற்றும் நிதி இலக்குகள்",
+
+    creditTitle:"கடன் மற்றும் வரியைப் புரிந்துகொள்ள விரும்புகிறேன்",
+    creditText:"கடன், கிரெடிட் மற்றும் வரி அடிப்படைகள்"
+  },
+
+  ml: {
+    kicker:"👋 എവിടെ നിന്ന് തുടങ്ങണമെന്ന് അറിയില്ലേ?",
+    title:"നിങ്ങളുടെ സാമ്പത്തിക വഴി തിരഞ്ഞെടുക്കൂ",
+    text:"ഇപ്പോൾ നിങ്ങൾക്ക് പ്രധാനപ്പെട്ടത് തിരഞ്ഞെടുക്കൂ. ആദ്യം മനസ്സിലാക്കേണ്ട ഉപകാരപ്രദമായ വിഷയങ്ങളിലേക്ക് നിങ്ങളെ നയിക്കാം.",
+
+    protectTitle:"എന്റെ കുടുംബത്തെ സംരക്ഷിക്കാൻ ആഗ്രഹിക്കുന്നു",
+    protectText:"ലൈഫ്, ആരോഗ്യ, സാമ്പത്തിക സംരക്ഷണം",
+
+    growTitle:"എന്റെ പണം വളർത്താൻ ആഗ്രഹിക്കുന്നു",
+    growText:"സേവിംഗ്സ്, SIP, ദീർഘകാല നിക്ഷേപങ്ങൾ",
+
+    futureTitle:"എനിക്ക് ഒരു ഭാവി ലക്ഷ്യമുണ്ട്",
+    futureText:"വിദ്യാഭ്യാസം, വിരമിക്കൽ, സാമ്പത്തിക ലക്ഷ്യങ്ങൾ",
+
+    creditTitle:"വായ്പയും നികുതിയും മനസ്സിലാക്കണം",
+    creditText:"വായ്പ, ക്രെഡിറ്റ്, നികുതി അടിസ്ഥാനങ്ങൾ"
+  },
+
+  hi: {
+    kicker:"👋 समझ नहीं आ रहा कहाँ से शुरू करें?",
+    title:"अपना वित्तीय मार्ग चुनें",
+    text:"अभी आपके लिए जो महत्वपूर्ण है उसे चुनें। हम आपको उन विषयों तक ले जाएंगे जिन्हें पहले समझना उपयोगी होगा।",
+
+    protectTitle:"मैं अपने परिवार की सुरक्षा करना चाहता हूँ",
+    protectText:"जीवन, स्वास्थ्य और वित्तीय सुरक्षा",
+
+    growTitle:"मैं अपना पैसा बढ़ाना चाहता हूँ",
+    growText:"बचत, SIP और दीर्घकालिक निवेश",
+
+    futureTitle:"मेरा एक भविष्य का लक्ष्य है",
+    futureText:"शिक्षा, रिटायरमेंट और वित्तीय लक्ष्य",
+
+    creditTitle:"मैं ऋण और कर को समझना चाहता हूँ",
+    creditText:"ऋण, क्रेडिट और कर की मूल बातें"
+  }
+};
+
+function applyStartHereLanguage(lang){
+
+  const t = startHereTranslations[lang] || startHereTranslations.en;
+
+  const map = {
+    startHereKicker:t.kicker,
+    startHereTitle:t.title,
+    startHereText:t.text,
+    startProtectTitle:t.protectTitle,
+    startProtectText:t.protectText,
+    startGrowTitle:t.growTitle,
+    startGrowText:t.growText,
+    startFutureTitle:t.futureTitle,
+    startFutureText:t.futureText,
+    startCreditTitle:t.creditTitle,
+    startCreditText:t.creditText
+  };
+
+  Object.keys(map).forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = map[id];
   });
 }
 
-function applyTopicDetailTranslations(lang){
-  const data = lang === "en"
-    ? englishTopicDetails
-    : topicDetailTranslations[lang];
-  if(!data) return;
+function startPath(path){
 
-  Object.keys(data).forEach(topic => {
-    const panel = document.getElementById("topic-" + topic);
-    const t = data[topic];
-    if(!panel || !t) return;
+  const targetMap = {
+    protect:["life","health","motor"],
+    grow:["saving","invest"],
+    future:["family","goals","retire"],
+    credit:["loan","tax"]
+  };
 
-    const title = panel.querySelector(".topic-header-content h2");
-    const desc = panel.querySelector(".topic-header-content p");
-    if(title && t.title !== undefined) title.textContent = t.title;
-    if(desc && t.desc !== undefined) desc.textContent = t.desc;
+  const targets = targetMap[path];
 
-    const quick = panel.querySelector(".quick-answer");
-    if(quick){
-      const strong = quick.querySelector("strong");
-      if(strong && t.quick !== undefined) strong.textContent = t.quick;
-      Array.from(quick.childNodes).forEach(node => {
-        if(node.nodeType === Node.TEXT_NODE && node.textContent.trim() && t.quickText !== undefined){
-          node.textContent = " " + t.quickText;
-        }
+  if(!targets || !targets.length) return;
+
+  /* Open the first relevant topic using the existing topic engine. */
+  openTopic(targets[0]);
+
+  /* Scroll to the topic after the existing openTopic animation. */
+  setTimeout(() => {
+    const panel = document.getElementById("topic-" + targets[0]);
+
+    if(panel){
+      panel.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
       });
     }
-
-    const firstGrid = panel.querySelector(".topic-body > .info-grid");
-    if(firstGrid && Array.isArray(t.boxes)){
-      const boxes = firstGrid.querySelectorAll(".info-box");
-      boxes.forEach((box,i) => {
-        if(!t.boxes[i]) return;
-        const h4 = box.querySelector("h4");
-        const p = box.querySelector("p");
-        if(h4) h4.textContent = t.boxes[i][0];
-        if(p) p.textContent = t.boxes[i][1];
-      });
-    }
-
-    const sections = panel.querySelectorAll(".topic-section");
-    if(sections[0]){
-      if(t.section !== undefined){
-        const h3 = sections[0].querySelector("h3");
-        if(h3) h3.textContent = t.section;
-      }
-      if(Array.isArray(t.list)){
-        const lis = sections[0].querySelectorAll("li");
-        lis.forEach((li,i) => {
-          if(t.list[i] !== undefined) li.textContent = t.list[i];
-        });
-      }
-    }
-
-    const tip = panel.querySelector(".tip");
-    if(tip && t.tip !== undefined) tip.textContent = t.tip;
-
-    const warning = panel.querySelector(".warning");
-    if(warning && t.warning !== undefined) warning.textContent = t.warning;
-  });
+  },120);
 }
 
-captureEnglishTopicDetails();
 
 /* -------------------------
    Apply language
 ------------------------- */
-window.applyLanguage = function applyLanguage(lang){
+function applyLanguage(lang){
   const t = translations[lang] || translations.en;
+
+  applyStartHereLanguage(lang);
+  updateCalculatorSuiteLanguage(lang);
 
   /* Header / hero */
   setText(".top-note", t.topNote);
@@ -4178,76 +3804,29 @@ window.applyLanguage = function applyLanguage(lang){
     if(btn) btn.textContent = t.readMore;
   });
 
-  /* Life Insurance detail */
+  /* Life detail — use the reviewed regional translations already supplied. */
   const life = lifeDetailed[lang] || lifeDetailed.en;
   const lifePanel = document.getElementById("topic-life");
 
   if(lifePanel){
-    const setIn = (root, selector, value) => {
-      const el = root.querySelector(selector);
-      if(el && value !== undefined) el.textContent = value;
-    };
+    const title = lifePanel.querySelector(".topic-header-content h2");
+    const desc = lifePanel.querySelector(".topic-header-content p");
+    const quickTitle = lifePanel.querySelector(".quick-answer strong");
 
-    setIn(lifePanel, ".topic-header-content h2", life.title);
-    setIn(lifePanel, ".topic-header-content p", life.description);
+    if(title) title.textContent = life.title;
+    if(desc) desc.textContent = life.description;
+    if(quickTitle) quickTitle.textContent = life.quick;
 
     const quick = lifePanel.querySelector(".quick-answer");
     if(quick){
-      const strong = quick.querySelector("strong");
-      if(strong) strong.textContent = life.quick;
+      /* Preserve the strong label and replace only the paragraph-like text node. */
       Array.from(quick.childNodes).forEach(node => {
-        if(node.nodeType === Node.TEXT_NODE && node.textContent.trim()) node.textContent = " " + life.quickText;
-      });
-    }
-
-    const firstGrid = lifePanel.querySelector(".topic-body > .info-grid");
-    if(firstGrid){
-      const boxes = firstGrid.querySelectorAll(".info-box");
-      if(boxes[0]) { setIn(boxes[0], "h4", life.mainTitle); setIn(boxes[0], "p", life.mainText); }
-      if(boxes[1]) { setIn(boxes[1], "h4", life.whoTitle); setIn(boxes[1], "p", life.whoText); }
-    }
-
-    const sections = lifePanel.querySelectorAll(".topic-section");
-    if(sections[0]){
-      setIn(sections[0], "h3", life.conceptsTitle);
-      const boxes = sections[0].querySelectorAll(".info-box");
-      const concepts = [[life.termTitle,life.term],[life.endowmentTitle,life.endowment],[life.ulipTitle,life.ulip],[life.nomineeTitle,life.nominee]];
-      boxes.forEach((box,i)=>{ if(concepts[i]){ setIn(box,"h4",concepts[i][0]); setIn(box,"p",concepts[i][1]); }});
-    }
-
-    if(sections[1]){
-      setIn(sections[1], "h3", life.exampleTitle);
-      const ps=sections[1].querySelectorAll("p");
-      if(ps[0]) ps[0].textContent=life.example1;
-      if(ps[1]) ps[1].textContent=life.example2;
-    }
-
-    if(sections[2]){
-      setIn(sections[2], "h3", life.beforeTitle);
-      const lis=sections[2].querySelectorAll("li");
-      lis.forEach((li,i)=>{ if(life.before[i]!==undefined) li.textContent=life.before[i]; });
-    }
-
-    const tip=lifePanel.querySelector(".tip");
-    if(tip){ tip.innerHTML = "💡 <strong>" + life.remember + ":</strong> " + life.rememberText; }
-
-    const faqSection=sections[3];
-    if(faqSection){
-      setIn(faqSection, "h3", life.faqTitle);
-      const faqs=faqSection.querySelectorAll(".faq");
-      faqs.forEach((faq,i)=>{
-        const q=faq.querySelector("button");
-        const a=faq.querySelector(".faq-answer");
-        if(life.faq[i]){
-          if(q){ q.childNodes.forEach(n=>{ if(n.nodeType===Node.TEXT_NODE && n.textContent.trim()) n.textContent=life.faq[i][0]+" "; }); }
-          if(a) a.textContent=life.faq[i][1];
+        if(node.nodeType === Node.TEXT_NODE && node.textContent.trim()){
+          node.textContent = " " + life.quickText;
         }
       });
     }
   }
-
-  /* Remaining topic detail panels */
-  applyTopicDetailTranslations(lang);
 
   /* Calculator */
   setText("#calculator .section-heading h2", t.calcTitle);
@@ -4299,6 +3878,70 @@ window.applyLanguage = function applyLanguage(lang){
   document.documentElement.lang = lang;
 }
 
+
+
+/* =========================
+   TOPIC NAVIGATION
+========================= */
+const topicNavigationText = {
+  en: { title:"✨ Continue Learning", previous:"← Previous topic", next:"Next topic →", topics:"Back to topics ↑" },
+  kn: { title:"✨ ಮುಂದುವರಿಸಿ ಕಲಿಯಿರಿ", previous:"← ಹಿಂದಿನ ವಿಷಯ", next:"ಮುಂದಿನ ವಿಷಯ →", topics:"ವಿಷಯಗಳಿಗೆ ಹಿಂತಿರುಗಿ ↑" },
+  te: { title:"✨ కొనసాగిస్తూ నేర్చుకోండి", previous:"← మునుపటి అంశం", next:"తదుపరి అంశం →", topics:"అంశాలకు తిరిగి వెళ్లండి ↑" },
+  ta: { title:"✨ தொடர்ந்து கற்றுக்கொள்ளுங்கள்", previous:"← முந்தைய தலைப்பு", next:"அடுத்த தலைப்பு →", topics:"தலைப்புகளுக்குத் திரும்பு ↑" },
+  ml: { title:"✨ തുടർന്നും പഠിക്കാം", previous:"← മുമ്പത്തെ വിഷയം", next:"അടുത്ത വിഷയം →", topics:"വിഷയങ്ങളിലേക്ക് മടങ്ങുക ↑" },
+  hi: { title:"✨ आगे सीखते रहें", previous:"← पिछला विषय", next:"अगला विषय →", topics:"विषयों पर वापस जाएँ ↑" }
+};
+
+const topicNavigationOrder = [
+  "life","health","motor","saving","invest","retire","family","goals","loan","tax"
+];
+
+function setupTopicNavigation(){
+  const lang = localStorage.getItem("finguideLanguage") || "en";
+  const labels = topicNavigationText[lang] || topicNavigationText.en;
+
+  topicNavigationOrder.forEach((topic,index) => {
+    const panel = document.getElementById("topic-" + topic);
+    if(!panel) return;
+
+    let nav = panel.querySelector(".topic-navigation");
+    if(!nav){
+      nav = document.createElement("div");
+      nav.className = "topic-navigation";
+      panel.querySelector(".topic-body")?.appendChild(nav);
+    }
+
+    const previous = topicNavigationOrder[index - 1];
+    const next = topicNavigationOrder[index + 1];
+    const previousPanel = previous ? document.getElementById("topic-" + previous) : null;
+    const nextPanel = next ? document.getElementById("topic-" + next) : null;
+
+    const previousTitle = previousPanel?.querySelector("h2")?.textContent?.trim() || "";
+    const nextTitle = nextPanel?.querySelector("h2")?.textContent?.trim() || "";
+
+    nav.innerHTML = `
+      <div class="topic-navigation-title">${labels.title}</div>
+      <div class="topic-navigation-grid">
+        <button class="topic-nav-btn ${previous ? "" : "topic-nav-disabled"}" ${previous ? `onclick="openTopic('${previous}')"` : "tabindex='-1'"}>
+          <span class="topic-nav-label">${labels.previous}</span>
+          <span class="topic-nav-topic">${previousTitle}</span>
+        </button>
+
+        <div class="topic-nav-center">
+          <button type="button" onclick="showTopics()">
+            ${labels.topics}
+          </button>
+        </div>
+
+        <button class="topic-nav-btn next ${next ? "" : "topic-nav-disabled"}" ${next ? `onclick="openTopic('${next}')"` : "tabindex='-1'"}>
+          <span class="topic-nav-label">${labels.next}</span>
+          <span class="topic-nav-topic">${nextTitle}</span>
+        </button>
+      </div>
+    `;
+  });
+}
+
 /* -------------------------
    Language selector
 ------------------------- */
@@ -4306,24 +3949,27 @@ const languageSelect = document.getElementById("languageSelect");
 const savedLanguage =
   localStorage.getItem("finguideLanguage") || "en";
 
-function initFinguideLanguage(){
-  const select = document.getElementById("languageSelect");
-  const lang = translations[savedLanguage] ? savedLanguage : "en";
+if(languageSelect){
+  languageSelect.value = translations[savedLanguage]
+    ? savedLanguage
+    : "en";
 
-  if(select){
-    select.value = lang;
-    select.onchange = function(){
-      window.applyLanguage(this.value);
-    };
-  }
-
-  window.applyLanguage(lang);
+  languageSelect.addEventListener("change", function(){
+    applyLanguage(this.value);
+  });
 }
 
-if(document.readyState === "loading"){
-  document.addEventListener("DOMContentLoaded", initFinguideLanguage);
-}else{
-  initFinguideLanguage();
+applyLanguage(
+  translations[savedLanguage] ? savedLanguage : "en"
+);
+
+setupTopicNavigation();
+
+/* Refresh topic navigation labels whenever the language changes. */
+if(languageSelect){
+  languageSelect.addEventListener("change", function(){
+    setTimeout(setupTopicNavigation, 0);
+  });
 }
 
 /* Initial calculator values */
