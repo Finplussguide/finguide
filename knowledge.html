@@ -2270,28 +2270,344 @@ function openTopic(topic){
 
   const panels = document.querySelectorAll(".topic-panel");
 
-  panels.forEach(panel=>{
+  panels.forEach(panel => {
     panel.classList.remove("active");
   });
 
-  const selected = document.getElementById("topic-" + topic);
+  const selected =
+    document.getElementById("topic-" + topic);
 
   if(selected){
 
     selected.classList.add("active");
 
-    setTimeout(()=>{
+    /* Apply current language to the opened topic */
+    applyTopicLanguage(topic);
+
+    setTimeout(() => {
+
       selected.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+        behavior: "smooth",
+        block: "start"
       });
-    },50);
+
+    }, 50);
 
   }
 
 }
+/* ==========================================
+   TOPIC LANGUAGE
+========================================== */
+
+function applyTopicLanguage(topic){
+
+  const lang =
+    localStorage.getItem("finguideLanguage") || "en";
+
+  const t =
+    translations[lang] || translations.en;
 
 
+  /* ==========================================
+     LIFE INSURANCE
+  ========================================== */
+
+  if(topic === "life"){
+
+    const panel =
+      document.getElementById("topic-life");
+
+    if(!panel) return;
+
+
+    /* TITLE */
+
+    const title =
+      panel.querySelector(".topic-visual-header h2");
+
+    if(title && t.lifeTitle){
+      title.textContent = t.lifeTitle;
+    }
+
+
+    /* HEADER DESCRIPTION */
+
+    const headerText =
+      panel.querySelector(".topic-visual-header p");
+
+    if(headerText && t.lifeDescription){
+      headerText.textContent = t.lifeDescription;
+    }
+
+
+    /* QUICK ANSWER */
+
+    const quickAnswer =
+      panel.querySelector(".quick-answer");
+
+    if(quickAnswer && t.quickAnswer){
+
+      quickAnswer.innerHTML =
+        "<strong>⚡ " +
+        (t.quickAnswerTitle || "Quick Answer") +
+        "</strong> " +
+        t.quickAnswer;
+
+    }
+
+
+    /* MAIN PURPOSE */
+
+    const boxes =
+      panel.querySelectorAll(".info-box");
+
+    if(boxes.length >= 2){
+
+      if(t.mainPurposeTitle){
+        boxes[0].querySelector("h4").textContent =
+          t.mainPurposeTitle;
+      }
+
+      if(t.mainPurpose){
+        boxes[0].querySelector("p").textContent =
+          t.mainPurpose;
+      }
+
+
+      if(t.whoNeedsTitle){
+        boxes[1].querySelector("h4").textContent =
+          t.whoNeedsTitle;
+      }
+
+      if(t.whoNeeds){
+        boxes[1].querySelector("p").textContent =
+          t.whoNeeds;
+      }
+
+    }
+
+
+    /* ==========================================
+       MAJOR LIFE INSURANCE CONCEPTS
+    ========================================== */
+
+    const sections =
+      panel.querySelectorAll(".topic-section");
+
+    if(sections.length >= 1){
+
+      const majorTitle =
+        sections[0].querySelector("h3");
+
+      if(majorTitle && t.majorConceptsTitle){
+        majorTitle.textContent =
+          t.majorConceptsTitle;
+      }
+
+      const conceptBoxes =
+        sections[0].querySelectorAll(".info-box");
+
+      if(conceptBoxes.length >= 4){
+
+        /* TERM */
+
+        if(t.termTitle)
+          conceptBoxes[0].querySelector("h4").textContent =
+            t.termTitle;
+
+        if(t.term)
+          conceptBoxes[0].querySelector("p").textContent =
+            t.term;
+
+
+        /* ENDOWMENT */
+
+        if(t.endowmentTitle)
+          conceptBoxes[1].querySelector("h4").textContent =
+            t.endowmentTitle;
+
+        if(t.endowment)
+          conceptBoxes[1].querySelector("p").textContent =
+            t.endowment;
+
+
+        /* ULIP */
+
+        if(t.ulipTitle)
+          conceptBoxes[2].querySelector("h4").textContent =
+            t.ulipTitle;
+
+        if(t.ulip)
+          conceptBoxes[2].querySelector("p").textContent =
+            t.ulip;
+
+
+        /* NOMINEE */
+
+        if(t.nomineeTitle)
+          conceptBoxes[3].querySelector("h4").textContent =
+            t.nomineeTitle;
+
+        if(t.nominee)
+          conceptBoxes[3].querySelector("p").textContent =
+            t.nominee;
+
+      }
+
+    }
+
+
+    /* ==========================================
+       SIMPLE EXAMPLE
+    ========================================== */
+
+    if(sections.length >= 2){
+
+      const exampleTitle =
+        sections[1].querySelector("h3");
+
+      if(exampleTitle && t.exampleTitle){
+        exampleTitle.textContent =
+          t.exampleTitle;
+      }
+
+      const paragraphs =
+        sections[1].querySelectorAll("p");
+
+      if(paragraphs.length >= 2){
+
+        if(t.example1)
+          paragraphs[0].textContent =
+            t.example1;
+
+        if(t.example2)
+          paragraphs[1].textContent =
+            t.example2;
+
+      }
+
+    }
+
+
+    /* ==========================================
+       BEFORE BUYING
+    ========================================== */
+
+    if(sections.length >= 3){
+
+      const beforeTitle =
+        sections[2].querySelector("h3");
+
+      if(beforeTitle && t.beforeTitle){
+        beforeTitle.textContent =
+          t.beforeTitle;
+      }
+
+      const list =
+        sections[2].querySelectorAll("li");
+
+      const beforeItems = [
+        t.before1,
+        t.before2,
+        t.before3,
+        t.before4,
+        t.before5,
+        t.before6,
+        t.before7
+      ];
+
+      list.forEach((item, index) => {
+
+        if(beforeItems[index]){
+          item.textContent =
+            beforeItems[index];
+        }
+
+      });
+
+    }
+
+
+    /* ==========================================
+       REMEMBER TIP
+    ========================================== */
+
+    const tip =
+      panel.querySelector(".tip");
+
+    if(tip && t.rememberText){
+
+      tip.innerHTML =
+        "💡 <strong>" +
+        (t.remember || "Remember") +
+        ":</strong> " +
+        t.rememberText;
+
+    }
+
+
+    /* ==========================================
+       FAQ
+    ========================================== */
+
+    if(sections.length >= 4){
+
+      const faqTitle =
+        sections[3].querySelector("h3");
+
+      if(faqTitle && t.faqTitle){
+        faqTitle.textContent =
+          t.faqTitle;
+      }
+
+      const faqs =
+        sections[3].querySelectorAll(".faq");
+
+      const questions = [
+        t.faq1,
+        t.faq2,
+        t.faq3
+      ];
+
+      const answers = [
+        t.faq1Answer,
+        t.faq2Answer,
+        t.faq3Answer
+      ];
+
+      faqs.forEach((faq, index) => {
+
+        const button =
+          faq.querySelector("button");
+
+        const answer =
+          faq.querySelector(".faq-answer");
+
+
+        if(button && questions[index]){
+
+          button.innerHTML =
+            questions[index] +
+            ' <span>＋</span>';
+
+        }
+
+
+        if(answer && answers[index]){
+
+          answer.textContent =
+            answers[index];
+
+        }
+
+      });
+
+    }
+
+  }
+
+}
 /* ==========================================
    FAQ
 ========================================== */
@@ -2393,7 +2709,12 @@ function calculateGrowth(){
 
 const translations = {
 
+  /* ==========================================
+     ENGLISH
+  ========================================== */
+
   en: {
+
     heroEyebrow: "📚 FINGUIDE Knowledge Centre",
     heroTitle: 'Understand Money. <span>Make Better Decisions.</span>',
     heroText: "Money questions can feel complicated. FINGUIDE helps you understand important financial concepts through simple explanations, real-life examples and illustrative calculators — so you can learn before you decide.",
@@ -2403,10 +2724,56 @@ const translations = {
     categoryText: "Start with a topic you want to understand better.",
     topicsTitle: "Financial Topics",
     topicsText: "Simple explanations for important money decisions.",
-    assessment: "💚 Financial Health Check"
+    assessment: "💚 Financial Health Check",
+
+    life: {
+      title: "Life Insurance",
+      description: "Financial protection designed to help protect dependants against the financial impact of the insured person's death, subject to the policy terms and conditions.",
+      quickAnswerTitle: "⚡ Quick Answer",
+      quickAnswer: "Life insurance is primarily about financial protection. The right type of policy depends on the purpose, cover required, time horizon, affordability and policy conditions.",
+      purposeTitle: "🛡️ Main Purpose",
+      purpose: "To provide financial support to nominees/dependants if the insured person dies, according to the policy.",
+      needTitle: "👨‍👩‍👧 Who may need it?",
+      need: "People whose income, financial responsibilities or liabilities are important to their family's financial life.",
+      conceptsTitle: "🔎 Major Life Insurance Concepts",
+      termTitle: "Term Insurance",
+      term: "Primarily protection for a specified period. If a covered event occurs during the policy term, the benefit is paid according to the policy.",
+      endowmentTitle: "Endowment Plans",
+      endowment: "Insurance products that may combine protection with a savings-oriented component, subject to policy terms.",
+      ulipTitle: "ULIP",
+      ulip: "Unit Linked Insurance Plans combine insurance with market-linked investment components. Investment value can fluctuate.",
+      nomineeTitle: "Nominee",
+      nominee: "The person nominated under a policy according to applicable rules and policy terms.",
+      exampleTitle: "💡 Simple Example",
+      example1: "Suppose a person has a family that depends partly on their income. If something happens to that person, the family may still have expenses such as housing, education, daily living and liabilities.",
+      example2: "Life insurance can be considered as one part of a broader financial protection plan.",
+      beforeTitle: "⚠️ Things to Understand Before Buying",
+      before1: "Required protection amount",
+      before2: "Policy term",
+      before3: "Premium affordability",
+      before4: "Nominee details",
+      before5: "Exclusions and policy conditions",
+      before6: "Claim-related documentation",
+      before7: "Whether the product matches the intended financial goal",
+      remember: "💡 Remember:",
+      rememberText: "Insurance and investment are not automatically the same thing. Always understand what a product is designed to do before comparing it.",
+      faqTitle: "❓ Common Questions",
+      faq1: "Is life insurance only for married people?",
+      faq1Answer: "Not necessarily. The need depends on financial responsibilities, dependants, liabilities and future obligations.",
+      faq2: "What is term insurance?",
+      faq2Answer: "Term insurance is primarily designed to provide life protection for a specified policy term, subject to the policy conditions.",
+      faq3: "Is ULIP the same as a mutual fund?",
+      faq3Answer: "No. A ULIP is an insurance product with market-linked investment components, while a mutual fund is an investment product. Their structures, costs and features differ."
+    }
   },
 
+
+  /* ==========================================
+     KANNADA
+  ========================================== */
+
   kn: {
+
     heroEyebrow: "📚 FINGUIDE ಜ್ಞಾನ ಕೇಂದ್ರ",
     heroTitle: 'ಹಣವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. <span>ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.</span>',
     heroText: "ಹಣಕಾಸಿನ ವಿಷಯಗಳು ಕೆಲವೊಮ್ಮೆ ಸಂಕೀರ್ಣವಾಗಿರಬಹುದು. FINGUIDE ಸರಳ ವಿವರಣೆಗಳು, ಉದಾಹರಣೆಗಳು ಮತ್ತು ಲೆಕ್ಕಾಚಾರಗಳ ಮೂಲಕ ಹಣಕಾಸಿನ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
@@ -2416,10 +2783,56 @@ const translations = {
     categoryText: "ನೀವು ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
     topicsTitle: "ಹಣಕಾಸಿನ ವಿಷಯಗಳು",
     topicsText: "ಮುಖ್ಯ ಹಣಕಾಸಿನ ನಿರ್ಧಾರಗಳಿಗೆ ಸರಳ ವಿವರಣೆಗಳು.",
-    assessment: "💚 ಹಣಕಾಸಿನ ಆರೋಗ್ಯ ಪರಿಶೀಲನೆ"
+    assessment: "💚 ಹಣಕಾಸಿನ ಆರೋಗ್ಯ ಪರಿಶೀಲನೆ",
+
+    life: {
+      title: "ಜೀವ ವಿಮೆ",
+      description: "ವಿಮೆ ಮಾಡಿದ ವ್ಯಕ್ತಿಯ ಮರಣದಿಂದ ಅವಲಂಬಿತರಿಗೆ ಉಂಟಾಗಬಹುದಾದ ಆರ್ಥಿಕ ಪರಿಣಾಮದಿಂದ ರಕ್ಷಣೆ ನೀಡಲು ಸಹಾಯ ಮಾಡುವ ಹಣಕಾಸಿನ ಭದ್ರತೆ. ಇದು ಪಾಲಿಸಿಯ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.",
+      quickAnswerTitle: "⚡ ತ್ವರಿತ ಉತ್ತರ",
+      quickAnswer: "ಜೀವ ವಿಮೆಯ ಮುಖ್ಯ ಉದ್ದೇಶ ಹಣಕಾಸಿನ ರಕ್ಷಣೆ. ಸರಿಯಾದ ಪಾಲಿಸಿಯ ಆಯ್ಕೆ ಉದ್ದೇಶ, ಅಗತ್ಯವಿರುವ ಕವರ್, ಅವಧಿ, ಕೈಗೆಟುಕುವ ಪ್ರೀಮಿಯಂ ಮತ್ತು ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
+      purposeTitle: "🛡️ ಮುಖ್ಯ ಉದ್ದೇಶ",
+      purpose: "ವಿಮೆ ಮಾಡಿದ ವ್ಯಕ್ತಿ ಮೃತಪಟ್ಟರೆ, ಪಾಲಿಸಿಯ ಪ್ರಕಾರ ನಾಮಿನಿ ಅಥವಾ ಅವಲಂಬಿತರಿಗೆ ಹಣಕಾಸಿನ ನೆರವು ನೀಡುವುದು.",
+      needTitle: "👨‍👩‍👧 ಯಾರಿಗೆ ಅಗತ್ಯವಿರಬಹುದು?",
+      need: "ಕುಟುಂಬದ ಆರ್ಥಿಕ ಜೀವನಕ್ಕೆ ಆದಾಯ, ಹಣಕಾಸಿನ ಜವಾಬ್ದಾರಿಗಳು ಅಥವಾ ಸಾಲ/ಬಾಧ್ಯತೆಗಳು ಪ್ರಮುಖವಾಗಿರುವವರಿಗೆ.",
+      conceptsTitle: "🔎 ಜೀವ ವಿಮೆಯ ಪ್ರಮುಖ ಪರಿಕಲ್ಪನೆಗಳು",
+      termTitle: "ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್",
+      term: "ನಿರ್ದಿಷ್ಟ ಅವಧಿಗೆ ಮುಖ್ಯವಾಗಿ ಹಣಕಾಸಿನ ರಕ್ಷಣೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ಪಾಲಿಸಿ ಅವಧಿಯಲ್ಲಿ ವಿಮೆ ಒಳಗೊಂಡ ಘಟನೆ ಸಂಭವಿಸಿದರೆ, ಪಾಲಿಸಿಯ ಪ್ರಕಾರ ಪ್ರಯೋಜನವನ್ನು ಪಾವತಿಸಲಾಗುತ್ತದೆ.",
+      endowmentTitle: "ಎಂಡೋಮೆಂಟ್ ಯೋಜನೆಗಳು",
+      endowment: "ಪಾಲಿಸಿಯ ನಿಯಮಗಳಿಗೆ ಒಳಪಟ್ಟು, ವಿಮಾ ರಕ್ಷಣೆಯ ಜೊತೆಗೆ ಉಳಿತಾಯದ ಅಂಶವನ್ನು ಹೊಂದಿರುವ ವಿಮಾ ಉತ್ಪನ್ನಗಳು.",
+      ulipTitle: "ULIP",
+      ulip: "ಯೂನಿಟ್ ಲಿಂಕ್ಡ್ ಇನ್ಶೂರೆನ್ಸ್ ಪ್ಲಾನ್‌ಗಳು ವಿಮಾ ರಕ್ಷಣೆಯ ಜೊತೆಗೆ ಮಾರುಕಟ್ಟೆ ಆಧಾರಿತ ಹೂಡಿಕೆ ಅಂಶಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ. ಹೂಡಿಕೆಯ ಮೌಲ್ಯ ಬದಲಾಗಬಹುದು.",
+      nomineeTitle: "ನಾಮಿನಿ",
+      nominee: "ಅನ್ವಯವಾಗುವ ನಿಯಮಗಳು ಮತ್ತು ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳ ಪ್ರಕಾರ ಪಾಲಿಸಿಯಲ್ಲಿ ನಾಮನಿರ್ದೇಶನಗೊಂಡ ವ್ಯಕ್ತಿ.",
+      exampleTitle: "💡 ಸರಳ ಉದಾಹರಣೆ",
+      example1: "ಒಬ್ಬ ವ್ಯಕ್ತಿಯ ಕುಟುಂಬವು ಅವರ ಆದಾಯದ ಮೇಲೆ ಭಾಗಶಃ ಅವಲಂಬಿತವಾಗಿದೆ ಎಂದು ಊಹಿಸೋಣ. ಆ ವ್ಯಕ್ತಿಗೆ ಏನಾದರೂ ಸಂಭವಿಸಿದರೆ, ಕುಟುಂಬಕ್ಕೆ ಮನೆ, ಶಿಕ್ಷಣ, ದೈನಂದಿನ ಜೀವನ ಮತ್ತು ಸಾಲಗಳಂತಹ ಖರ್ಚುಗಳು ಮುಂದುವರಿಯಬಹುದು.",
+      example2: "ಜೀವ ವಿಮೆಯನ್ನು ವಿಶಾಲವಾದ ಹಣಕಾಸಿನ ರಕ್ಷಣಾ ಯೋಜನೆಯ ಒಂದು ಭಾಗವಾಗಿ ಪರಿಗಣಿಸಬಹುದು.",
+      beforeTitle: "⚠️ ಖರೀದಿಸುವ ಮೊದಲು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕಾದ ವಿಷಯಗಳು",
+      before1: "ಅಗತ್ಯವಿರುವ ವಿಮಾ ರಕ್ಷಣೆಯ ಮೊತ್ತ",
+      before2: "ಪಾಲಿಸಿಯ ಅವಧಿ",
+      before3: "ಪ್ರೀಮಿಯಂ ಕೈಗೆಟುಕುವಿಕೆಯು",
+      before4: "ನಾಮಿನಿ ವಿವರಗಳು",
+      before5: "ಹೊರತಾಗುವಿಕೆಗಳು ಮತ್ತು ಪಾಲಿಸಿ ಷರತ್ತುಗಳು",
+      before6: "ಕ್ಲೈಮ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳು",
+      before7: "ಉತ್ಪನ್ನವು ಉದ್ದೇಶಿಸಿರುವ ಹಣಕಾಸಿನ ಗುರಿಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ",
+      remember: "💡 ನೆನಪಿಡಿ:",
+      rememberText: "ವಿಮೆ ಮತ್ತು ಹೂಡಿಕೆ ಒಂದೇ ವಿಷಯವಾಗಿರಬೇಕೆಂದಿಲ್ಲ. ಯಾವುದೇ ಉತ್ಪನ್ನವನ್ನು ಹೋಲಿಕೆ ಮಾಡುವ ಮೊದಲು ಅದು ಯಾವ ಉದ್ದೇಶಕ್ಕಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+      faqTitle: "❓ ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು",
+      faq1: "ಜೀವ ವಿಮೆ ವಿವಾಹಿತರಿಗೆ ಮಾತ್ರವೇ?",
+      faq1Answer: "ಅಗತ್ಯವಿಲ್ಲ. ಅಗತ್ಯವು ಹಣಕಾಸಿನ ಜವಾಬ್ದಾರಿಗಳು, ಅವಲಂಬಿತರು, ಸಾಲಗಳು ಮತ್ತು ಭವಿಷ್ಯದ ಬಾಧ್ಯತೆಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
+      faq2: "ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್ ಎಂದರೇನು?",
+      faq2Answer: "ಟರ್ಮ್ ಇನ್ಶೂರೆನ್ಸ್ ನಿರ್ದಿಷ್ಟ ಪಾಲಿಸಿ ಅವಧಿಗೆ ಜೀವ ರಕ್ಷಣೆಯನ್ನು ಒದಗಿಸಲು ಮುಖ್ಯವಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ ಮತ್ತು ಇದು ಪಾಲಿಸಿಯ ಷರತ್ತುಗಳಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.",
+      faq3: "ULIP ಮತ್ತು ಮ್ಯೂಚುವಲ್ ಫಂಡ್ ಒಂದೇನಾ?",
+      faq3Answer: "ಇಲ್ಲ. ULIP ಮಾರುಕಟ್ಟೆ ಆಧಾರಿತ ಹೂಡಿಕೆ ಅಂಶಗಳನ್ನು ಹೊಂದಿರುವ ವಿಮಾ ಉತ್ಪನ್ನವಾಗಿದೆ. ಮ್ಯೂಚುವಲ್ ಫಂಡ್ ಒಂದು ಹೂಡಿಕೆ ಉತ್ಪನ್ನವಾಗಿದೆ. ಇವೆರಡರ ರಚನೆ, ವೆಚ್ಚ ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳು ವಿಭಿನ್ನವಾಗಿವೆ."
+    }
   },
 
+
+  /* ==========================================
+     TELUGU
+  ========================================== */
+
   te: {
+
     heroEyebrow: "📚 FINGUIDE జ్ఞాన కేంద్రం",
     heroTitle: 'డబ్బును అర్థం చేసుకోండి. <span>మెరుగైన నిర్ణయాలు తీసుకోండి.</span>',
     heroText: "ఆర్థిక విషయాలు క్లిష్టంగా అనిపించవచ్చు. FINGUIDE సులభమైన వివరణలు, ఉదాహరణలు మరియు కాలిక్యులేటర్ల ద్వారా ఆర్థిక విషయాలను అర్థం చేసుకోవడానికి సహాయపడుతుంది.",
@@ -2429,10 +2842,56 @@ const translations = {
     categoryText: "మీరు బాగా అర్థం చేసుకోవాలనుకునే అంశాన్ని ఎంచుకోండి.",
     topicsTitle: "ఆర్థిక అంశాలు",
     topicsText: "ముఖ్యమైన ఆర్థిక నిర్ణయాలకు సరళమైన వివరణలు.",
-    assessment: "💚 ఆర్థిక ఆరోగ్య తనిఖీ"
+    assessment: "💚 ఆర్థిక ఆరోగ్య తనిఖీ",
+
+    life: {
+      title: "జీవిత బీమా",
+      description: "బీమా చేసిన వ్యక్తి మరణించినప్పుడు ఆధారపడిన వారికి కలిగే ఆర్థిక ప్రభావం నుండి రక్షణ కల్పించడానికి రూపొందించిన ఆర్థిక భద్రత. ఇది పాలసీ నిబంధనలు మరియు షరతులకు లోబడి ఉంటుంది.",
+      quickAnswerTitle: "⚡ త్వరిత సమాధానం",
+      quickAnswer: "జీవిత బీమా ప్రధానంగా ఆర్థిక రక్షణ కోసం ఉంటుంది. సరైన పాలసీ ఎంపిక ఉద్దేశ్యం, అవసరమైన కవరేజ్, కాల వ్యవధి, ప్రీమియం సామర్థ్యం మరియు పాలసీ నిబంధనలపై ఆధారపడి ఉంటుంది.",
+      purposeTitle: "🛡️ ప్రధాన ఉద్దేశ్యం",
+      purpose: "బీమా చేసిన వ్యక్తి మరణించినప్పుడు పాలసీ ప్రకారం నామినీ లేదా ఆధారపడిన వారికి ఆర్థిక సహాయం అందించడం.",
+      needTitle: "👨‍👩‍👧 ఎవరికి అవసరం ఉండవచ్చు?",
+      need: "కుటుంబ ఆర్థిక జీవితంలో ఆదాయం, ఆర్థిక బాధ్యతలు లేదా అప్పులు ముఖ్యమైన వారికి.",
+      conceptsTitle: "🔎 జీవిత బీమా ముఖ్యమైన అంశాలు",
+      termTitle: "టర్మ్ ఇన్సూరెన్స్",
+      term: "నిర్దిష్ట కాలానికి ప్రధానంగా రక్షణను అందిస్తుంది. పాలసీ కాలంలో కవర్ చేయబడిన సంఘటన జరిగితే, పాలసీ ప్రకారం ప్రయోజనం చెల్లించబడుతుంది.",
+      endowmentTitle: "ఎండోమెంట్ ప్లాన్స్",
+      endowment: "పాలసీ నిబంధనలకు లోబడి, బీమా రక్షణతో పాటు పొదుపు అంశాన్ని కలిగి ఉండే బీమా ఉత్పత్తులు.",
+      ulipTitle: "ULIP",
+      ulip: "యూనిట్ లింక్డ్ ఇన్సూరెన్స్ ప్లాన్స్ బీమా రక్షణతో పాటు మార్కెట్ ఆధారిత పెట్టుబడి అంశాలను కలిగి ఉంటాయి. పెట్టుబడి విలువ మారవచ్చు.",
+      nomineeTitle: "నామినీ",
+      nominee: "వర్తించే నియమాలు మరియు పాలసీ నిబంధనల ప్రకారం పాలసీలో నామినేట్ చేయబడిన వ్యక్తి.",
+      exampleTitle: "💡 సరళమైన ఉదాహరణ",
+      example1: "ఒక వ్యక్తి కుటుంబం అతని ఆదాయంపై కొంతవరకు ఆధారపడి ఉందని అనుకుందాం. ఆ వ్యక్తికి ఏదైనా జరిగితే, కుటుంబానికి ఇల్లు, విద్య, రోజువారీ జీవనం మరియు అప్పుల వంటి ఖర్చులు కొనసాగవచ్చు.",
+      example2: "జీవిత బీమాను విస్తృతమైన ఆర్థిక రక్షణ ప్రణాళికలో ఒక భాగంగా పరిగణించవచ్చు.",
+      beforeTitle: "⚠️ కొనుగోలు చేసే ముందు అర్థం చేసుకోవాల్సిన విషయాలు",
+      before1: "అవసరమైన రక్షణ మొత్తం",
+      before2: "పాలసీ కాలం",
+      before3: "ప్రీమియం చెల్లించే సామర్థ్యం",
+      before4: "నామినీ వివరాలు",
+      before5: "మినహాయింపులు మరియు పాలసీ నిబంధనలు",
+      before6: "క్లెయిమ్‌కు సంబంధించిన పత్రాలు",
+      before7: "ఉత్పత్తి ఉద్దేశించిన ఆర్థిక లక్ష్యానికి సరిపోతుందా",
+      remember: "💡 గుర్తుంచుకోండి:",
+      rememberText: "బీమా మరియు పెట్టుబడి ఒకటే కావాల్సిన అవసరం లేదు. ఏదైనా ఉత్పత్తిని పోల్చే ముందు అది ఏ ప్రయోజనం కోసం రూపొందించబడిందో అర్థం చేసుకోండి.",
+      faqTitle: "❓ సాధారణ ప్రశ్నలు",
+      faq1: "జీవిత బీమా వివాహితులకు మాత్రమేనా?",
+      faq1Answer: "అవసరం లేదు. అవసరం ఆర్థిక బాధ్యతలు, ఆధారపడిన వారు, అప్పులు మరియు భవిష్యత్ బాధ్యతలపై ఆధారపడి ఉంటుంది.",
+      faq2: "టర్మ్ ఇన్సూరెన్స్ అంటే ఏమిటి?",
+      faq2Answer: "టర్మ్ ఇన్సూరెన్స్ నిర్దిష్ట పాలసీ కాలానికి జీవిత రక్షణను అందించడానికి రూపొందించబడింది మరియు పాలసీ నిబంధనలకు లోబడి ఉంటుంది.",
+      faq3: "ULIP మరియు మ్యూచువల్ ఫండ్ ఒకటేనా?",
+      faq3Answer: "కాదు. ULIP మార్కెట్ ఆధారిత పెట్టుబడి అంశాలతో కూడిన బీమా ఉత్పత్తి. మ్యూచువల్ ఫండ్ ఒక పెట్టుబడి ఉత్పత్తి. వాటి నిర్మాణం, ఖర్చులు మరియు లక్షణాలు భిన్నంగా ఉంటాయి."
+    }
   },
 
+
+  /* ==========================================
+     TAMIL
+  ========================================== */
+
   ta: {
+
     heroEyebrow: "📚 FINGUIDE அறிவு மையம்",
     heroTitle: 'பணத்தைப் புரிந்துகொள்ளுங்கள். <span>சிறந்த முடிவுகளை எடுங்கள்.</span>',
     heroText: "நிதி விஷயங்கள் சிக்கலாகத் தோன்றலாம். FINGUIDE எளிய விளக்கங்கள், எடுத்துக்காட்டுகள் மற்றும் கால்குலேட்டர்கள் மூலம் நிதி கருத்துகளைப் புரிந்துகொள்ள உதவுகிறது.",
@@ -2442,10 +2901,56 @@ const translations = {
     categoryText: "நீங்கள் நன்றாகப் புரிந்துகொள்ள விரும்பும் தலைப்பைத் தேர்ந்தெடுக்கவும்.",
     topicsTitle: "நிதி தலைப்புகள்",
     topicsText: "முக்கிய நிதி முடிவுகளுக்கான எளிய விளக்கங்கள்.",
-    assessment: "💚 நிதி ஆரோக்கிய பரிசோதனை"
+    assessment: "💚 நிதி ஆரோக்கிய பரிசோதனை",
+
+    life: {
+      title: "ஆயுள் காப்பீடு",
+      description: "காப்பீடு செய்யப்பட்ட நபரின் மரணத்தால் சார்ந்திருப்பவர்களுக்கு ஏற்படும் நிதி பாதிப்பிலிருந்து பாதுகாப்பு வழங்க உதவும் நிதி பாதுகாப்பு. இது பாலிசி விதிமுறைகள் மற்றும் நிபந்தனைகளுக்கு உட்பட்டது.",
+      quickAnswerTitle: "⚡ விரைவான பதில்",
+      quickAnswer: "ஆயுள் காப்பீடு முக்கியமாக நிதி பாதுகாப்பை வழங்குகிறது. சரியான பாலிசி வகை நோக்கம், தேவையான காப்பீட்டு தொகை, காலம், பிரீமியம் செலுத்தும் திறன் மற்றும் பாலிசி நிபந்தனைகளைப் பொறுத்தது.",
+      purposeTitle: "🛡️ முக்கிய நோக்கம்",
+      purpose: "காப்பீடு செய்யப்பட்ட நபர் இறந்தால், பாலிசியின் படி நாமினி அல்லது சார்ந்திருப்பவர்களுக்கு நிதி உதவி வழங்குவது.",
+      needTitle: "👨‍👩‍👧 யாருக்கு தேவைப்படலாம்?",
+      need: "குடும்பத்தின் நிதி வாழ்க்கையில் வருமானம், நிதிப் பொறுப்புகள் அல்லது கடன்கள் முக்கியமானவர்களுக்கு.",
+      conceptsTitle: "🔎 முக்கிய ஆயுள் காப்பீட்டு கருத்துகள்",
+      termTitle: "டெர்ம் இன்சூரன்ஸ்",
+      term: "குறிப்பிட்ட காலத்திற்கு முக்கியமாக பாதுகாப்பை வழங்குகிறது. பாலிசி காலத்தில் காப்பீடு செய்யப்பட்ட நிகழ்வு ஏற்பட்டால், பாலிசியின் படி நன்மை வழங்கப்படும்.",
+      endowmentTitle: "எண்டோவ்மென்ட் திட்டங்கள்",
+      endowment: "பாலிசி நிபந்தனைகளுக்கு உட்பட்டு, பாதுகாப்புடன் சேமிப்பு அம்சத்தையும் இணைக்கக்கூடிய காப்பீட்டு தயாரிப்புகள்.",
+      ulipTitle: "ULIP",
+      ulip: "யூனிட் லிங்க்டு இன்சூரன்ஸ் திட்டங்கள் காப்பீட்டுடன் சந்தை சார்ந்த முதலீட்டு அம்சங்களையும் கொண்டுள்ளன. முதலீட்டு மதிப்பு மாறக்கூடும்.",
+      nomineeTitle: "நாமினி",
+      nominee: "பொருந்தும் விதிமுறைகள் மற்றும் பாலிசி நிபந்தனைகளின்படி பாலிசியில் நியமிக்கப்பட்ட நபர்.",
+      exampleTitle: "💡 எளிய உதாரணம்",
+      example1: "ஒரு நபரின் குடும்பம் அவரது வருமானத்தை ஓரளவு சார்ந்திருக்கிறது என்று வைத்துக்கொள்வோம். அந்த நபருக்கு ஏதாவது ஏற்பட்டால், வீடு, கல்வி, தினசரி வாழ்க்கை மற்றும் கடன்கள் போன்ற செலவுகள் குடும்பத்திற்கு தொடரலாம்.",
+      example2: "ஆயுள் காப்பீட்டை விரிவான நிதி பாதுகாப்புத் திட்டத்தின் ஒரு பகுதியாகக் கருதலாம்.",
+      beforeTitle: "⚠️ வாங்குவதற்கு முன் புரிந்துகொள்ள வேண்டியவை",
+      before1: "தேவையான பாதுகாப்புத் தொகை",
+      before2: "பாலிசி காலம்",
+      before3: "பிரீமியம் செலுத்தும் திறன்",
+      before4: "நாமினி விவரங்கள்",
+      before5: "விலக்குகள் மற்றும் பாலிசி நிபந்தனைகள்",
+      before6: "கிளைம் தொடர்பான ஆவணங்கள்",
+      before7: "தயாரிப்பு நோக்கமுள்ள நிதி இலக்குடன் பொருந்துகிறதா",
+      remember: "💡 நினைவில் கொள்ளுங்கள்:",
+      rememberText: "காப்பீடும் முதலீடும் எப்போதும் ஒன்றாக இருக்க வேண்டியதில்லை. ஒரு தயாரிப்பை ஒப்பிடுவதற்கு முன் அது எந்த நோக்கத்திற்காக வடிவமைக்கப்பட்டுள்ளது என்பதைப் புரிந்துகொள்ளுங்கள்.",
+      faqTitle: "❓ பொதுவான கேள்விகள்",
+      faq1: "ஆயுள் காப்பீடு திருமணமானவர்களுக்கு மட்டும்தானா?",
+      faq1Answer: "அவசியமில்லை. தேவை நிதிப் பொறுப்புகள், சார்ந்திருப்பவர்கள், கடன்கள் மற்றும் எதிர்காலப் பொறுப்புகளைப் பொறுத்தது.",
+      faq2: "டெர்ம் இன்சூரன்ஸ் என்றால் என்ன?",
+      faq2Answer: "டெர்ம் இன்சூரன்ஸ் குறிப்பிட்ட பாலிசி காலத்திற்கு ஆயுள் பாதுகாப்பை வழங்குவதற்காக வடிவமைக்கப்பட்டுள்ளது மற்றும் பாலிசி நிபந்தனைகளுக்கு உட்பட்டது.",
+      faq3: "ULIP மற்றும் மியூச்சுவல் ஃபண்ட் ஒன்றா?",
+      faq3Answer: "இல்லை. ULIP என்பது சந்தை சார்ந்த முதலீட்டு அம்சங்களைக் கொண்ட காப்பீட்டு தயாரிப்பு. மியூச்சுவல் ஃபண்ட் ஒரு முதலீட்டு தயாரிப்பு. அவற்றின் அமைப்பு, செலவுகள் மற்றும் அம்சங்கள் வேறுபடுகின்றன."
+    }
   },
 
+
+  /* ==========================================
+     MALAYALAM
+  ========================================== */
+
   ml: {
+
     heroEyebrow: "📚 FINGUIDE വിജ്ഞാന കേന്ദ്രം",
     heroTitle: 'പണം മനസ്സിലാക്കൂ. <span>മികച്ച തീരുമാനങ്ങൾ എടുക്കൂ.</span>',
     heroText: "സാമ്പത്തിക കാര്യങ്ങൾ ചിലപ്പോൾ സങ്കീർണ്ണമായി തോന്നാം. ലളിതമായ വിശദീകരണങ്ങൾ, ഉദാഹരണങ്ങൾ, കാൽക്കുലേറ്ററുകൾ എന്നിവയിലൂടെ സാമ്പത്തിക ആശയങ്ങൾ മനസ്സിലാക്കാൻ FINGUIDE സഹായിക്കുന്നു.",
@@ -2455,10 +2960,56 @@ const translations = {
     categoryText: "നിങ്ങൾക്ക് കൂടുതൽ മനസ്സിലാക്കാൻ ആഗ്രഹിക്കുന്ന വിഷയം തിരഞ്ഞെടുക്കുക.",
     topicsTitle: "സാമ്പത്തിക വിഷയങ്ങൾ",
     topicsText: "പ്രധാന സാമ്പത്തിക തീരുമാനങ്ങൾക്കുള്ള ലളിതമായ വിശദീകരണങ്ങൾ.",
-    assessment: "💚 സാമ്പത്തിക ആരോഗ്യ പരിശോധന"
+    assessment: "💚 സാമ്പത്തിക ആരോഗ്യ പരിശോധന",
+
+    life: {
+      title: "ലൈഫ് ഇൻഷുറൻസ്",
+      description: "ഇൻഷ്വർ ചെയ്ത വ്യക്തിയുടെ മരണത്തെ തുടർന്ന് ആശ്രിതർക്ക് ഉണ്ടാകാവുന്ന സാമ്പത്തിക ആഘാതത്തിൽ നിന്ന് സംരക്ഷണം നൽകാൻ സഹായിക്കുന്ന സാമ്പത്തിക സുരക്ഷ. പോളിസിയുടെ നിബന്ധനകൾക്കും വ്യവസ്ഥകൾക്കും വിധേയമാണ്.",
+      quickAnswerTitle: "⚡ ചുരുക്കത്തിൽ",
+      quickAnswer: "ലൈഫ് ഇൻഷുറൻസിന്റെ പ്രധാന ലക്ഷ്യം സാമ്പത്തിക സംരക്ഷണമാണ്. ശരിയായ പോളിസി തിരഞ്ഞെടുക്കുന്നത് ലക്ഷ്യം, ആവശ്യമായ കവർ, കാലാവധി, പ്രീമിയം നൽകാനുള്ള കഴിവ്, പോളിസി നിബന്ധനകൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.",
+      purposeTitle: "🛡️ പ്രധാന ലക്ഷ്യം",
+      purpose: "ഇൻഷ്വർ ചെയ്ത വ്യക്തി മരിച്ചാൽ പോളിസിയുടെ അടിസ്ഥാനത്തിൽ നോമിനിക്ക് അല്ലെങ്കിൽ ആശ്രിതർക്ക് സാമ്പത്തിക സഹായം നൽകുക.",
+      needTitle: "👨‍👩‍👧 ആർക്കാണ് ആവശ്യമായി വരുന്നത്?",
+      need: "കുടുംബത്തിന്റെ സാമ്പത്തിക ജീവിതത്തിൽ വരുമാനം, സാമ്പത്തിക ഉത്തരവാദിത്തങ്ങൾ അല്ലെങ്കിൽ ബാധ്യതകൾ പ്രധാനമായ ആളുകൾക്ക്.",
+      conceptsTitle: "🔎 പ്രധാന ലൈഫ് ഇൻഷുറൻസ് ആശയങ്ങൾ",
+      termTitle: "ടേം ഇൻഷുറൻസ്",
+      term: "നിശ്ചിത കാലയളവിൽ പ്രധാനമായും സംരക്ഷണം നൽകുന്നു. പോളിസി കാലയളവിൽ കവർ ചെയ്യുന്ന സംഭവം സംഭവിച്ചാൽ, പോളിസി പ്രകാരം ആനുകൂല്യം നൽകും.",
+      endowmentTitle: "എൻഡോവ്മെന്റ് പ്ലാനുകൾ",
+      endowment: "പോളിസി നിബന്ധനകൾക്ക് വിധേയമായി ഇൻഷുറൻസ് സംരക്ഷണത്തോടൊപ്പം സമ്പാദ്യ ഘടകവും ഉൾക്കൊള്ളുന്ന ഇൻഷുറൻസ് ഉൽപ്പന്നങ്ങൾ.",
+      ulipTitle: "ULIP",
+      ulip: "യൂണിറ്റ് ലിങ്ക്ഡ് ഇൻഷുറൻസ് പ്ലാനുകൾ ഇൻഷുറൻസിനൊപ്പം വിപണി അധിഷ്ഠിത നിക്ഷേപ ഘടകങ്ങളും ഉൾക്കൊള്ളുന്നു. നിക്ഷേപത്തിന്റെ മൂല്യം മാറാം.",
+      nomineeTitle: "നോമിനി",
+      nominee: "ബാധകമായ നിയമങ്ങളും പോളിസി നിബന്ധനകളും അനുസരിച്ച് പോളിസിയിൽ നാമനിർദ്ദേശം ചെയ്ത വ്യക്തി.",
+      exampleTitle: "💡 ലളിതമായ ഉദാഹരണം",
+      example1: "ഒരു വ്യക്തിയുടെ കുടുംബം അദ്ദേഹത്തിന്റെ വരുമാനത്തെ ഭാഗികമായി ആശ്രയിക്കുന്നതായി കരുതുക. ആ വ്യക്തിക്ക് എന്തെങ്കിലും സംഭവിച്ചാൽ, താമസം, വിദ്യാഭ്യാസം, ദൈനംദിന ജീവിതം, ബാധ്യതകൾ തുടങ്ങിയ ചെലവുകൾ കുടുംബത്തിന് തുടർന്നും ഉണ്ടായേക്കാം.",
+      example2: "ലൈഫ് ഇൻഷുറൻസിനെ വിപുലമായ സാമ്പത്തിക സംരക്ഷണ പദ്ധതിയുടെ ഒരു ഭാഗമായി പരിഗണിക്കാം.",
+      beforeTitle: "⚠️ വാങ്ങുന്നതിന് മുമ്പ് മനസ്സിലാക്കേണ്ട കാര്യങ്ങൾ",
+      before1: "ആവശ്യമായ സംരക്ഷണ തുക",
+      before2: "പോളിസി കാലാവധി",
+      before3: "പ്രീമിയം നൽകാനുള്ള കഴിവ്",
+      before4: "നോമിനി വിവരങ്ങൾ",
+      before5: "ഒഴിവാക്കലുകളും പോളിസി നിബന്ധനകളും",
+      before6: "ക്ലെയിമുമായി ബന്ധപ്പെട്ട രേഖകൾ",
+      before7: "ഉൽപ്പന്നം ഉദ്ദേശിച്ച സാമ്പത്തിക ലക്ഷ്യവുമായി പൊരുത്തപ്പെടുന്നുണ്ടോ",
+      remember: "💡 ഓർക്കുക:",
+      rememberText: "ഇൻഷുറൻസും നിക്ഷേപവും ഒരേ കാര്യമല്ല. ഒരു ഉൽപ്പന്നത്തെ താരതമ്യം ചെയ്യുന്നതിന് മുമ്പ് അത് എന്തിനാണ് രൂപകൽപ്പന ചെയ്തിരിക്കുന്നതെന്ന് മനസ്സിലാക്കുക.",
+      faqTitle: "❓ സാധാരണ ചോദ്യങ്ങൾ",
+      faq1: "ലൈഫ് ഇൻഷുറൻസ് വിവാഹിതർക്കു മാത്രമാണോ?",
+      faq1Answer: "അവശ്യമായില്ല. സാമ്പത്തിക ഉത്തരവാദിത്തങ്ങൾ, ആശ്രിതർ, ബാധ്യതകൾ, ഭാവിയിലെ ഉത്തരവാദിത്തങ്ങൾ എന്നിവയെ ആശ്രയിച്ചാണ് ആവശ്യം.",
+      faq2: "ടേം ഇൻഷുറൻസ് എന്താണ്?",
+      faq2Answer: "നിശ്ചിത പോളിസി കാലയളവിൽ ലൈഫ് സംരക്ഷണം നൽകുന്നതിനാണ് ടേം ഇൻഷുറൻസ് പ്രധാനമായും രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്. ഇത് പോളിസി നിബന്ധനകൾക്ക് വിധേയമാണ്.",
+      faq3: "ULIPയും മ്യൂച്വൽ ഫണ്ടും ഒന്നാണോ?",
+      faq3Answer: "അല്ല. ULIP വിപണി അധിഷ്ഠിത നിക്ഷേപ ഘടകങ്ങളുള്ള ഇൻഷുറൻസ് ഉൽപ്പന്നമാണ്. മ്യൂച്വൽ ഫണ്ട് ഒരു നിക്ഷേപ ഉൽപ്പന്നമാണ്. അവയുടെ ഘടന, ചെലവുകൾ, സവിശേഷതകൾ എന്നിവ വ്യത്യസ്തമാണ്."
+    }
   },
 
+
+  /* ==========================================
+     HINDI
+  ========================================== */
+
   hi: {
+
     heroEyebrow: "📚 FINGUIDE ज्ञान केंद्र",
     heroTitle: 'पैसे को समझें। <span>बेहतर निर्णय लें।</span>',
     heroText: "वित्तीय विषय कभी-कभी कठिन लग सकते हैं। FINGUIDE सरल जानकारी, उदाहरणों और कैलकुलेटर के माध्यम से वित्तीय अवधारणाओं को समझने में आपकी मदद करता है।",
@@ -2468,12 +3019,50 @@ const translations = {
     categoryText: "जिस विषय को बेहतर समझना चाहते हैं, उसे चुनें।",
     topicsTitle: "वित्तीय विषय",
     topicsText: "महत्वपूर्ण वित्तीय निर्णयों के लिए सरल जानकारी।",
-    assessment: "💚 वित्तीय स्वास्थ्य जांच"
+    assessment: "💚 वित्तीय स्वास्थ्य जांच",
+
+    life: {
+      title: "जीवन बीमा",
+      description: "बीमित व्यक्ति की मृत्यु से आश्रितों पर पड़ने वाले वित्तीय प्रभाव से सुरक्षा में मदद करने के लिए बनाया गया वित्तीय संरक्षण। यह पॉलिसी की शर्तों और नियमों के अधीन है।",
+      quickAnswerTitle: "⚡ संक्षिप्त उत्तर",
+      quickAnswer: "जीवन बीमा मुख्य रूप से वित्तीय सुरक्षा के बारे में है। सही पॉलिसी का चुनाव उद्देश्य, आवश्यक कवर, अवधि, प्रीमियम की क्षमता और पॉलिसी की शर्तों पर निर्भर करता है।",
+      purposeTitle: "🛡️ मुख्य उद्देश्य",
+      purpose: "बीमित व्यक्ति की मृत्यु होने पर पॉलिसी के अनुसार नॉमिनी या आश्रितों को वित्तीय सहायता प्रदान करना।",
+      needTitle: "👨‍👩‍👧 किसे इसकी आवश्यकता हो सकती है?",
+      need: "जिन लोगों की आय, वित्तीय जिम्मेदारियाँ या देनदारियाँ उनके परिवार की वित्तीय स्थिति के लिए महत्वपूर्ण हैं।",
+      conceptsTitle: "🔎 जीवन बीमा की प्रमुख अवधारणाएँ",
+      termTitle: "टर्म इंश्योरेंस",
+      term: "एक निश्चित अवधि के लिए मुख्य रूप से सुरक्षा प्रदान करता है। पॉलिसी अवधि के दौरान कवर की गई घटना होने पर पॉलिसी के अनुसार लाभ दिया जाता है।",
+      endowmentTitle: "एंडोमेंट प्लान",
+      endowment: "ऐसे बीमा उत्पाद जिनमें पॉलिसी की शर्तों के अनुसार सुरक्षा के साथ बचत का घटक भी शामिल हो सकता है।",
+      ulipTitle: "ULIP",
+      ulip: "यूनिट लिंक्ड इंश्योरेंस प्लान बीमा के साथ बाजार से जुड़े निवेश घटकों को जोड़ते हैं। निवेश का मूल्य बदल सकता है।",
+      nomineeTitle: "नॉमिनी",
+      nominee: "लागू नियमों और पॉलिसी की शर्तों के अनुसार पॉलिसी में नामित व्यक्ति।",
+      exampleTitle: "💡 सरल उदाहरण",
+      example1: "मान लीजिए किसी व्यक्ति का परिवार उसकी आय पर कुछ हद तक निर्भर है। यदि उस व्यक्ति के साथ कुछ हो जाता है, तो परिवार के घर, शिक्षा, दैनिक जीवन और देनदारियों जैसे खर्च जारी रह सकते हैं।",
+      example2: "जीवन बीमा को व्यापक वित्तीय सुरक्षा योजना के एक हिस्से के रूप में माना जा सकता है।",
+      beforeTitle: "⚠️ खरीदने से पहले समझने वाली बातें",
+      before1: "आवश्यक सुरक्षा राशि",
+      before2: "पॉलिसी की अवधि",
+      before3: "प्रीमियम वहन करने की क्षमता",
+      before4: "नॉमिनी का विवरण",
+      before5: "बहिष्करण और पॉलिसी की शर्तें",
+      before6: "क्लेम से संबंधित दस्तावेज",
+      before7: "क्या उत्पाद आपके वित्तीय लक्ष्य से मेल खाता है",
+      remember: "💡 याद रखें:",
+      rememberText: "बीमा और निवेश हमेशा एक ही चीज़ नहीं होते। किसी उत्पाद की तुलना करने से पहले समझें कि वह किस उद्देश्य के लिए बनाया गया है।",
+      faqTitle: "❓ सामान्य प्रश्न",
+      faq1: "क्या जीवन बीमा केवल विवाहित लोगों के लिए है?",
+      faq1Answer: "ज़रूरी नहीं। आवश्यकता वित्तीय जिम्मेदारियों, आश्रितों, देनदारियों और भविष्य की जिम्मेदारियों पर निर्भर करती है।",
+      faq2: "टर्म इंश्योरेंस क्या है?",
+      faq2Answer: "टर्म इंश्योरेंस एक निश्चित पॉलिसी अवधि के लिए जीवन सुरक्षा प्रदान करने के लिए बनाया गया है और यह पॉलिसी की शर्तों के अधीन है।",
+      faq3: "क्या ULIP और म्यूचुअल फंड एक ही हैं?",
+      faq3Answer: "नहीं। ULIP बाजार से जुड़े निवेश घटकों वाला एक बीमा उत्पाद है, जबकि म्यूचुअल फंड एक निवेश उत्पाद है। उनकी संरचना, लागत और विशेषताएँ अलग-अलग होती हैं।"
+    }
   }
 
 };
-
-
 /* ==========================================
    FINGUIDE LANGUAGE SYSTEM
 ========================================== */
@@ -2497,46 +3086,71 @@ function applyLanguage(lang) {
 
   /* HERO */
 
-  document.getElementById("heroEyebrow").textContent =
+  document
+    .getElementById("heroEyebrow")
+    .textContent =
     t.heroEyebrow;
 
-  document.getElementById("heroTitle").innerHTML =
+
+  document
+    .getElementById("heroTitle")
+    .innerHTML =
     t.heroTitle;
 
-  document.getElementById("heroText").textContent =
+
+  document
+    .getElementById("heroText")
+    .textContent =
     t.heroText;
 
 
   /* HERO BUTTONS */
 
-  document.getElementById("exploreBtn").textContent =
+  document
+    .getElementById("exploreBtn")
+    .textContent =
     t.explore;
 
-  document.getElementById("calculatorBtn").textContent =
+
+  document
+    .getElementById("calculatorBtn")
+    .textContent =
     t.calculator;
 
 
   /* CATEGORY */
 
-  document.getElementById("categoryTitle").textContent =
+  document
+    .getElementById("categoryTitle")
+    .textContent =
     t.categoryTitle;
 
-  document.getElementById("categoryText").textContent =
+
+  document
+    .getElementById("categoryText")
+    .textContent =
     t.categoryText;
 
 
   /* FINANCIAL TOPICS */
 
-  document.getElementById("topicsTitle").textContent =
+  document
+    .getElementById("topicsTitle")
+    .textContent =
     t.topicsTitle;
 
-  document.getElementById("topicsText").textContent =
+
+  document
+    .getElementById("topicsText")
+    .textContent =
     t.topicsText;
 
 
   /* HEALTH CHECK */
 
-  document.getElementById("assessmentBtn").textContent =
+  document
+    .getElementById("assessmentBtn")
+    .textContent =
     t.assessment;
 
 
@@ -2546,6 +3160,7 @@ function applyLanguage(lang) {
     "finguideLanguage",
     lang
   );
+
 }
 
 
@@ -2563,7 +3178,9 @@ if (languageSelect) {
     "change",
     function () {
 
-      applyLanguage(this.value);
+      applyLanguage(
+        this.value
+      );
 
     }
   );
@@ -2575,7 +3192,9 @@ if (languageSelect) {
    LOAD SAVED LANGUAGE
 ========================================== */
 
-applyLanguage(savedLanguage);
+applyLanguage(
+  savedLanguage
+);
 
 
 /* ==========================================
