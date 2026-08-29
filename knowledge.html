@@ -2387,7 +2387,91 @@ function calculateGrowth(){
     formatINR(growth);
 
 }
+/* ==========================================
+   FINGUIDE TRANSLATIONS
+========================================== */
 
+const translations = {
+
+  en: {
+    heroEyebrow: "📚 FINGUIDE Knowledge Centre",
+    heroTitle: 'Understand Money. <span>Make Better Decisions.</span>',
+    heroText: "Money questions can feel complicated. FINGUIDE helps you understand important financial concepts through simple explanations, real-life examples and illustrative calculators — so you can learn before you decide.",
+    explore: "🔎 Explore Financial Topics",
+    calculator: "🧮 Try a Calculator",
+    categoryTitle: "Explore by Category",
+    categoryText: "Start with a topic you want to understand better.",
+    topicsTitle: "Financial Topics",
+    topicsText: "Simple explanations for important money decisions.",
+    assessment: "💚 Financial Health Check"
+  },
+
+  kn: {
+    heroEyebrow: "📚 FINGUIDE ಜ್ಞಾನ ಕೇಂದ್ರ",
+    heroTitle: 'ಹಣವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. <span>ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.</span>',
+    heroText: "ಹಣಕಾಸಿನ ವಿಷಯಗಳು ಕೆಲವೊಮ್ಮೆ ಸಂಕೀರ್ಣವಾಗಿರಬಹುದು. FINGUIDE ಸರಳ ವಿವರಣೆಗಳು, ಉದಾಹರಣೆಗಳು ಮತ್ತು ಲೆಕ್ಕಾಚಾರಗಳ ಮೂಲಕ ಹಣಕಾಸಿನ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+    explore: "🔎 ಹಣಕಾಸಿನ ವಿಷಯಗಳನ್ನು ನೋಡಿ",
+    calculator: "🧮 ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಬಳಸಿ",
+    categoryTitle: "ವರ್ಗದ ಪ್ರಕಾರ ನೋಡಿ",
+    categoryText: "ನೀವು ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಬಯಸುವ ವಿಷಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    topicsTitle: "ಹಣಕಾಸಿನ ವಿಷಯಗಳು",
+    topicsText: "ಮುಖ್ಯ ಹಣಕಾಸಿನ ನಿರ್ಧಾರಗಳಿಗೆ ಸರಳ ವಿವರಣೆಗಳು.",
+    assessment: "💚 ಹಣಕಾಸಿನ ಆರೋಗ್ಯ ಪರಿಶೀಲನೆ"
+  },
+
+  te: {
+    heroEyebrow: "📚 FINGUIDE జ్ఞాన కేంద్రం",
+    heroTitle: 'డబ్బును అర్థం చేసుకోండి. <span>మెరుగైన నిర్ణయాలు తీసుకోండి.</span>',
+    heroText: "ఆర్థిక విషయాలు క్లిష్టంగా అనిపించవచ్చు. FINGUIDE సులభమైన వివరణలు, ఉదాహరణలు మరియు కాలిక్యులేటర్ల ద్వారా ఆర్థిక విషయాలను అర్థం చేసుకోవడానికి సహాయపడుతుంది.",
+    explore: "🔎 ఆర్థిక అంశాలను చూడండి",
+    calculator: "🧮 కాలిక్యులేటర్ ప్రయత్నించండి",
+    categoryTitle: "వర్గం ద్వారా చూడండి",
+    categoryText: "మీరు బాగా అర్థం చేసుకోవాలనుకునే అంశాన్ని ఎంచుకోండి.",
+    topicsTitle: "ఆర్థిక అంశాలు",
+    topicsText: "ముఖ్యమైన ఆర్థిక నిర్ణయాలకు సరళమైన వివరణలు.",
+    assessment: "💚 ఆర్థిక ఆరోగ్య తనిఖీ"
+  },
+
+  ta: {
+    heroEyebrow: "📚 FINGUIDE அறிவு மையம்",
+    heroTitle: 'பணத்தைப் புரிந்துகொள்ளுங்கள். <span>சிறந்த முடிவுகளை எடுங்கள்.</span>',
+    heroText: "நிதி விஷயங்கள் சிக்கலாகத் தோன்றலாம். FINGUIDE எளிய விளக்கங்கள், எடுத்துக்காட்டுகள் மற்றும் கால்குலேட்டர்கள் மூலம் நிதி கருத்துகளைப் புரிந்துகொள்ள உதவுகிறது.",
+    explore: "🔎 நிதி தலைப்புகளைப் பார்க்க",
+    calculator: "🧮 கால்குலேட்டரை முயற்சிக்க",
+    categoryTitle: "வகை வாரியாக பார்க்க",
+    categoryText: "நீங்கள் நன்றாகப் புரிந்துகொள்ள விரும்பும் தலைப்பைத் தேர்ந்தெடுக்கவும்.",
+    topicsTitle: "நிதி தலைப்புகள்",
+    topicsText: "முக்கிய நிதி முடிவுகளுக்கான எளிய விளக்கங்கள்.",
+    assessment: "💚 நிதி ஆரோக்கிய பரிசோதனை"
+  },
+
+  ml: {
+    heroEyebrow: "📚 FINGUIDE വിജ്ഞാന കേന്ദ്രം",
+    heroTitle: 'പണം മനസ്സിലാക്കൂ. <span>മികച്ച തീരുമാനങ്ങൾ എടുക്കൂ.</span>',
+    heroText: "സാമ്പത്തിക കാര്യങ്ങൾ ചിലപ്പോൾ സങ്കീർണ്ണമായി തോന്നാം. ലളിതമായ വിശദീകരണങ്ങൾ, ഉദാഹരണങ്ങൾ, കാൽക്കുലേറ്ററുകൾ എന്നിവയിലൂടെ സാമ്പത്തിക ആശയങ്ങൾ മനസ്സിലാക്കാൻ FINGUIDE സഹായിക്കുന്നു.",
+    explore: "🔎 സാമ്പത്തിക വിഷയങ്ങൾ കാണുക",
+    calculator: "🧮 കാൽക്കുലേറ്റർ പരീക്ഷിക്കുക",
+    categoryTitle: "വിഭാഗം അനുസരിച്ച് കാണുക",
+    categoryText: "നിങ്ങൾക്ക് കൂടുതൽ മനസ്സിലാക്കാൻ ആഗ്രഹിക്കുന്ന വിഷയം തിരഞ്ഞെടുക്കുക.",
+    topicsTitle: "സാമ്പത്തിക വിഷയങ്ങൾ",
+    topicsText: "പ്രധാന സാമ്പത്തിക തീരുമാനങ്ങൾക്കുള്ള ലളിതമായ വിശദീകരണങ്ങൾ.",
+    assessment: "💚 സാമ്പത്തിക ആരോഗ്യ പരിശോധന"
+  },
+
+  hi: {
+    heroEyebrow: "📚 FINGUIDE ज्ञान केंद्र",
+    heroTitle: 'पैसे को समझें। <span>बेहतर निर्णय लें।</span>',
+    heroText: "वित्तीय विषय कभी-कभी कठिन लग सकते हैं। FINGUIDE सरल जानकारी, उदाहरणों और कैलकुलेटर के माध्यम से वित्तीय अवधारणाओं को समझने में आपकी मदद करता है।",
+    explore: "🔎 वित्तीय विषय देखें",
+    calculator: "🧮 कैलकुलेटर आज़माएँ",
+    categoryTitle: "श्रेणी के अनुसार देखें",
+    categoryText: "जिस विषय को बेहतर समझना चाहते हैं, उसे चुनें।",
+    topicsTitle: "वित्तीय विषय",
+    topicsText: "महत्वपूर्ण वित्तीय निर्णयों के लिए सरल जानकारी।",
+    assessment: "💚 वित्तीय स्वास्थ्य जांच"
+  }
+
+};
 
 /* ==========================================
    FINGUIDE LANGUAGE SYSTEM
@@ -2396,93 +2480,178 @@ function calculateGrowth(){
 const languageSelect =
   document.getElementById("languageSelect");
 
+
 const savedLanguage =
   localStorage.getItem("finguideLanguage") || "en";
 
 
-/*
-  Language change handler.
+/* ==========================================
+   APPLY LANGUAGE
+========================================== */
 
-  IMPORTANT:
-  This version does not show the old
-  "multilingual content is being prepared"
-  popup and does not force the selector
-  back to English.
+function applyLanguage(lang){
 
-  Regional-language translation will be
-  connected through the translation layer
-  without affecting:
-
-  - Read More buttons
-  - Topic opening
-  - Calculator
-  - Financial Health Check
-  - Existing page layout
-*/
+  const t =
+    translations[lang] || translations.en;
 
 
-languageSelect.value = savedLanguage;
+  /* ----------------------------------------
+     HERO
+  ---------------------------------------- */
+
+  const heroEyebrow =
+    document.querySelector(".eyebrow");
+
+  if(heroEyebrow){
+    heroEyebrow.textContent = t.heroEyebrow;
+  }
 
 
-languageSelect.addEventListener("change", function(){
+  const heroTitle =
+    document.querySelector(".hero h1");
 
-  const language = this.value;
+  if(heroTitle){
+    heroTitle.innerHTML = t.heroTitle;
+  }
 
-  localStorage.setItem(
-    "finguideLanguage",
-    language
-  );
 
-  /*
-    English remains the default language.
-  */
+  const heroText =
+    document.querySelector(".hero p");
 
-  if(language === "en"){
+  if(heroText){
+    heroText.textContent = t.heroText;
+  }
 
-    window.location.reload();
 
-    return;
+  /* ----------------------------------------
+     HERO BUTTONS
+  ---------------------------------------- */
+
+  const heroButtons =
+    document.querySelectorAll(".hero-actions .btn");
+
+  if(heroButtons.length >= 2){
+
+    heroButtons[0].textContent =
+      t.explore;
+
+    heroButtons[1].textContent =
+      t.calculator;
 
   }
 
 
-  /*
-    Temporary language status.
+  /* ----------------------------------------
+     CATEGORY SECTION
+  ---------------------------------------- */
 
-    This confirms that the selected language
-    is being recognised correctly.
+  const categoryHeading =
+    document.querySelector(".category-section h2");
 
-    We will connect the reviewed regional
-    content in the next language layer.
-  */
-
-  const languageNames = {
-
-    kn: "ಕನ್ನಡ",
-    te: "తెలుగు",
-    ta: "தமிழ்",
-    ml: "മലയാളം",
-    hi: "हिन्दी"
-
-  };
+  if(categoryHeading){
+    categoryHeading.textContent =
+      t.categoryTitle;
+  }
 
 
-  const selectedName =
-    languageNames[language] || "English";
+  const categoryDescription =
+    document.querySelector(".category-section > p");
+
+  if(categoryDescription){
+    categoryDescription.textContent =
+      t.categoryText;
+  }
 
 
-  console.log(
-    "FINGUIDE language selected:",
-    selectedName
+  /* ----------------------------------------
+     TOPICS SECTION
+  ---------------------------------------- */
+
+  const topicsHeading =
+    document.querySelector(".topics-section h2");
+
+  if(topicsHeading){
+    topicsHeading.textContent =
+      t.topicsTitle;
+  }
+
+
+  const topicsDescription =
+    document.querySelector(".topics-section > p");
+
+  if(topicsDescription){
+    topicsDescription.textContent =
+      t.topicsText;
+  }
+
+
+  /* ----------------------------------------
+     HEALTH CHECK BUTTON
+  ---------------------------------------- */
+
+  const healthButtons =
+    document.querySelectorAll("a");
+
+  healthButtons.forEach(link => {
+
+    if(
+      link.href &&
+      link.href.includes("assessment.html")
+    ){
+
+      link.textContent =
+        t.assessment;
+
+    }
+
+  });
+
+
+  /* ----------------------------------------
+     SAVE LANGUAGE
+  ---------------------------------------- */
+
+  localStorage.setItem(
+    "finguideLanguage",
+    lang
   );
 
+}
 
-  /*
-    Do NOT reset the dropdown to English.
-  */
 
-});
+/* ==========================================
+   LANGUAGE SELECTOR
+========================================== */
 
+if(languageSelect){
+
+  languageSelect.value =
+    savedLanguage;
+
+
+  languageSelect.addEventListener(
+    "change",
+    function(){
+
+      const selectedLanguage =
+        this.value;
+
+
+      applyLanguage(
+        selectedLanguage
+      );
+
+    }
+  );
+
+}
+
+
+/* ==========================================
+   APPLY SAVED LANGUAGE
+========================================== */
+
+applyLanguage(savedLanguage);
 /* ==========================================
    INITIAL CALCULATOR
 ========================================== */
